@@ -1,12 +1,10 @@
 package selenium;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 public class Task {
     private  String value;
-    private Date startDate;
+    private String startDate;
 
 
 
@@ -18,11 +16,11 @@ public class Task {
         this.value = value;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 }

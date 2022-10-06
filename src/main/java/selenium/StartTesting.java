@@ -1,10 +1,12 @@
 package selenium;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import static selenium.inCardio.*;
+import static selenium.CompareTasksInCardio.*;
+
 
 public class StartTesting {
 
@@ -20,6 +22,6 @@ public class StartTesting {
         loginP();
         inCardioDash();
         // thresholdCheck();
-        comparison();
+       // comparison();
     }
 }

@@ -4,18 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import selenium.ExpectedTasks;
-import selenium.PasteFile;
 
-import java.util.ArrayList;
-import java.util.List;
+import static SeleniumThresholds.BatteryStatus.activateBatteryStatus;
 
 
-public class inCardio {
+public class CompareTasksInCardio {
 
-    static WebDriver driver;
+    public static WebDriver driver;
     static Actions action;
 
 
@@ -44,6 +40,17 @@ public class inCardio {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//td[@value='Sel-Abbott']")).click();
         Thread.sleep(2000);
+
+        //Testing checkboxes
+        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
+        Thread.sleep(2000);
+        js.executeScript("window.scrollBy(0,-500)");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button/span")).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div[2]/div[2]/table/tbody/tr/td[2]/p")).click();
+        Thread.sleep(2000);
+        activateBatteryStatus();
     }
 
    /* public static void thresholdCheck() throws InterruptedException {
@@ -70,57 +77,26 @@ public class inCardio {
         Thread.sleep(2000);
 
     }*/
-
+//ist wichtig
+    /*
     public static void comparison() throws InterruptedException {
 
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
-        Thread.sleep(2000);
+       CollectTasks ct = new CollectTasks();
+       System.out.println("Hier ist das ct.collectedTasks: "+ ct.collectedTasks);
 
-        List<WebElement> l = driver.findElements(By.xpath("//table/tbody[@class]/tr[@index]"));
-        int s = l.size();
-        List<WebElement> m = driver.findElements(By.xpath("//table/tbody[@class]/tr[@index]/td"));
-        int t = m.size();
-        if (s == 1 && t == 1) {
-            System.out.println("There are no tasks");
-            s = 0;
-            t = 0;
-        } else {
-            System.out.println(s + " Tasks got detected");
-            System.out.println("The amount of columns are " + t);
-        }
-
-        List task = new ArrayList<>();
-
-        for (int i=0; i<s ; i++) {
-            List<String> collectedTasks = new ArrayList<String>();
-            for (int j = 2; j < 12; j++) {
-
-                if (j < 6) {
-                    String c = driver.findElement(By.xpath("//table/tbody[@class]/tr[@index=" + i + "]/td[" + j + "]")).getAttribute("value");
-                    collectedTasks.add(c);
-                    continue;
-                }
-                String c = driver.findElement(By.xpath("//table/tbody[@class]/tr[@index=" + i + "]/td[" + j + "]")).getText();
-                c = c.replace("\n", "").replace("\r", "");
-                collectedTasks.add(c);
-
-            }
-            if (ExpectedTasks.abbottCRT == collectedTasks) {
+        if (ExpectedTasks.abbottCRT == ct.collectedTasks){
                 System.out.println("Beide Arrays sind identisch");
             } else {
                 System.out.println("Die Arrays sind nicht identisch");
             }
-            System.out.println(ExpectedTasks.abbottCRT.equals(collectedTasks));
+            System.out.println(ExpectedTasks.abbottCRT.equals(ct.collectedTasks));
             System.out.println(ExpectedTasks.abbottCRT);
-            System.out.println(collectedTasks);
-            System.out.println("Read Task: " + collectedTasks);
-            task.add(collectedTasks);
+            System.out.println(ct.collectedTasks);
+            System.out.println("Read Task: " + ct.collectedTasks);
+        }*/
 
-
-        }
-
-        System.out.println("Array of tasks: " + task);
-        int passedCounter = 0;
+      // System.out.println("Array of tasks: " + task);
+       /* int passedCounter = 0;
         for (int i = 0; i < task.size(); i++) {
 
             if (ExpectedTasks.abbottCRT.equals(task.get(i))) {
@@ -134,10 +110,10 @@ public class inCardio {
             }
 
 
-        }
+        }*/
 
     }
 
 
-}
+
 
