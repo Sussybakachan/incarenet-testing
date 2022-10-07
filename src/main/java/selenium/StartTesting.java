@@ -22,6 +22,6 @@ public class StartTesting {
         loginP();
         inCardioDash();
         // thresholdCheck();
-       // comparison();
+       comparison();
     }
 }

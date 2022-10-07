@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import static SeleniumThresholds.BatteryStatus.activateBatteryStatus;
+import java.util.Arrays;
+
+import static SeleniumThresholds.BatteryStatusRow.*;
 
 
 public class CompareTasksInCardio {
@@ -42,15 +44,23 @@ public class CompareTasksInCardio {
         Thread.sleep(2000);
 
         //Testing checkboxes
-        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
+      /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
         js.executeScript("window.scrollBy(0,-500)");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button/span")).click();
         Thread.sleep(4000);
         driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div[2]/div[2]/table/tbody/tr/td[2]/p")).click();
+        Thread.sleep(2000);*/
+
+
+       /* activateBatteryStatus();
         Thread.sleep(2000);
-        activateBatteryStatus();
+        deactivateBatteryStatus();
+        Thread.sleep(2000); */
+       // activatedEriEosANDActivatedBatteryStatus();
+      //  Thread.sleep(2000);
+       // deactivateERIEOS();
     }
 
    /* public static void thresholdCheck() throws InterruptedException {
@@ -78,22 +88,24 @@ public class CompareTasksInCardio {
 
     }*/
 //ist wichtig
-    /*
+
     public static void comparison() throws InterruptedException {
 
        CollectTasks ct = new CollectTasks();
        System.out.println("Hier ist das ct.collectedTasks: "+ ct.collectedTasks);
-
-        if (ExpectedTasks.abbottCRT == ct.collectedTasks){
+//task.getcolor = danger
+      /*  if (ExpectedTasks.abbottCRT == ct.collectedTasks){
                 System.out.println("Beide Arrays sind identisch");
             } else {
                 System.out.println("Die Arrays sind nicht identisch");
-            }
-            System.out.println(ExpectedTasks.abbottCRT.equals(ct.collectedTasks));
+            }*/
+
+       Arrays.deepEquals(ExpectedTasks.abbottCRT, ct.collectedTasks)
+       //     System.out.println(ExpectedTasks.abbottCRT.Arrays.equals(ct.collectedTasks));
             System.out.println(ExpectedTasks.abbottCRT);
             System.out.println(ct.collectedTasks);
             System.out.println("Read Task: " + ct.collectedTasks);
-        }*/
+        }
 
       // System.out.println("Array of tasks: " + task);
        /* int passedCounter = 0;
