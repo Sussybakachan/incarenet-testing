@@ -98,13 +98,13 @@ public class CompareTasksInCardio {
             } else {
                 System.out.println("Die Arrays sind nicht identisch");
             }*/
-System.out.println(expectedTask.equals(taskObject));
-     //  Arrays.deepEquals(ExpectedTasks.abbottCRT, ct.collectedTasks)
-       //     System.out.println(ExpectedTasks.abbottCRT.Arrays.equals(ct.collectedTasks));
-          //  System.out.println(ExpectedTasks.abbottCRT);
-       //     System.out.println(collectedTasks);
-         //   System.out.println("Read Task: " + collectedTasks);
-        }
+        System.out.println(expectedTask.equals(collectedTasks.get(0)));
+        //  Arrays.deepEquals(ExpectedTasks.abbottCRT, ct.collectedTasks)
+        //     System.out.println(ExpectedTasks.abbottCRT.Arrays.equals(ct.collectedTasks));
+        //  System.out.println(ExpectedTasks.abbottCRT);
+        //     System.out.println(collectedTasks);
+        //   System.out.println("Read Task: " + collectedTasks);
+    }
 
 static void compareCrt() throws InterruptedException {
 

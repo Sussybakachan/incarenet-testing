@@ -35,15 +35,12 @@ public class CollectTasks {
             System.out.println("The amount of columns are " + t);
         }
 
-        List task = new ArrayList<>();
+
         //List<String> collectedTasks = new ArrayList<String>();
         for (int i = 0; i < s; i++) {
             System.out.println("Test 1");
             Task taskObject = new Task();
-            //ArrayList<Task> tasks = new ArrayList<>();
-           /* for (int j = 2; j < 12; j++) {
-                System.out.println("Test 2");
-                if (j < 6) { */
+
 
             taskObject.setCheckBox(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.CHECKBOX.ordinal() + "]")).getText());
             taskObject.setColor(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.COLOr.ordinal() + "]")).getAttribute("value"));
@@ -66,14 +63,14 @@ public class CollectTasks {
             System.out.println("Test 4");
             collectedTasks.forEach(System.out::println);
 
+        }
 
-        } return null;
         // String c = driver.findElement(By.xpath("//table/tbody[@class]/tr[@index=" + i + "]/td[" + j + "]")).getText();
         //TODO müsste ggf. die Absätze bei taskObject wegmachen wie unten
 
         // c = c.replace("\n", "").replace("\r", "");
         //   this.collectedTasks.add(c);
-
+        return collectedTasks;
     }
     //Zuweisen der Elemtente des collectedTasks Array zu einem object Array?
     //   task.add(collectedTasks);
