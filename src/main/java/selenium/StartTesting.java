@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import static selenium.CompareTasksInCardio.*;
+import static selenium.ExpectedTasks.createTasks;
+import static selenium.ExpectedTasks.expectedTask;
 
 
 public class StartTesting {
@@ -19,6 +21,9 @@ public class StartTesting {
         action = new Actions(driver);
         PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff1\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
 
+        createTasks();
+        System.out.println(createTasks());
+        System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
         // thresholdCheck();

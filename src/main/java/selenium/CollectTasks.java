@@ -61,10 +61,11 @@ public class CollectTasks {
             System.out.println("Test 3");
             // taskObject.setStartDate(date);
             this.collectedTasks.add(taskObject);
+          //  System.out.println("The collected task includes" + taskObject);
+         //   System.out.println("checkbox: " +taskObject.getCheckBox() + taskObject.getAction() + taskObject.getTaskDescription() + taskObject.getColor() + taskObject.getEmployee() + taskObject.getStartDate() + taskObject.getReceiveDate() + taskObject.getTargetDate() + taskObject.getMeasurements() + taskObject.getPdf() + taskObject.getFurtherInformation());
             //tasks.add(taskObject);
             System.out.println("Test 4");
             System.out.println("die ersten collected tds von collectedTAsks: " + this.collectedTasks);
-            continue;
 
         }
         // String c = driver.findElement(By.xpath("//table/tbody[@class]/tr[@index=" + i + "]/td[" + j + "]")).getText();
