@@ -67,7 +67,7 @@ public class CollectTasks {
             collectedTasks.forEach(System.out::println);
 
 
-        } return collectedTasks;
+        } return null;
         // String c = driver.findElement(By.xpath("//table/tbody[@class]/tr[@index=" + i + "]/td[" + j + "]")).getText();
         //TODO müsste ggf. die Absätze bei taskObject wegmachen wie unten
 

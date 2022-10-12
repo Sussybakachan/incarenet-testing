@@ -114,7 +114,7 @@ static void compareCrt() throws InterruptedException {
     for (int i = 0; i < collectedTasks.size(); i++) {
         System.out.println("collected Tasks in der compareCrt Methode: "+ collectedTasks);
         if (ExpectedTasks.expectedTask.equals(collectedTasks.get(i))) {
-            System.out.println("Task ist vorhanden");
+            System.out.println("Die Task ist korrekt");
             passedCounter++;
 
         } else if (passedCounter < 1) {
