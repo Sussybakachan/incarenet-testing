@@ -2,8 +2,22 @@ package selenium;
 
 //TODO Datefomrat muss angepasst werden
 
+import java.util.Objects;
+
 public class Task {
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(getCheckBox(), task.getCheckBox()) && Objects.equals(getColor(), task.getColor()) && Objects.equals(getStartDate(), task.getStartDate()) && Objects.equals(getReceiveDate(), task.getReceiveDate()) && Objects.equals(getTargetDate(), task.getTargetDate()) && Objects.equals(getTaskDescription(), task.getTaskDescription()) && Objects.equals(getMeasurements(), task.getMeasurements()) && Objects.equals(getPdf(), task.getPdf()) && Objects.equals(getEmployee(), task.getEmployee()) && Objects.equals(getFurtherInformation(), task.getFurtherInformation()) && Objects.equals(getAction(), task.getAction());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCheckBox(), getColor(), getStartDate(), getReceiveDate(), getTargetDate(), getTaskDescription(), getMeasurements(), getPdf(), getEmployee(), getFurtherInformation(), getAction());
+    }
 
     private String checkBox;
 
