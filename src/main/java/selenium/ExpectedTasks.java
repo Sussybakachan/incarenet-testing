@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExpectedTasks {
-
+    static Task expectedTask = new Task();
+    static List<Task> abbottCrt = new ArrayList<>();
     //TODO RECEIVE DATE und Target Date müssen angepasst werden
     //TODO Taskobjekt erstellen mitr expected Arrays
     //getexpected Tasks Methode liefert dir mehrer
-         List<Task> createTasks() {
-            Task expectedTask = new Task();
-            List<Task> abbottCrt = new ArrayList<>();
+       public static  List<Task> createTasks() {
+
             //setCheckbox beinhaltet möglicherweise was anderes als ""
              expectedTask.setCheckBox("");
              expectedTask.setColor("danger");
