@@ -100,9 +100,9 @@ public class CompareTasksInCardio {
                 System.out.println("Die Arrays sind nicht identisch");
             }*/
 
-       Arrays.deepEquals(ExpectedTasks.abbottCRT, ct.collectedTasks)
+   //    Arrays.deepEquals(ExpectedTasks.abbottCRT, ct.collectedTasks)
        //     System.out.println(ExpectedTasks.abbottCRT.Arrays.equals(ct.collectedTasks));
-            System.out.println(ExpectedTasks.abbottCRT);
+     //       System.out.println(ExpectedTasks.abbottCRT);
             System.out.println(ct.collectedTasks);
             System.out.println("Read Task: " + ct.collectedTasks);
         }

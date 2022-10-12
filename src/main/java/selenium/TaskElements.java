@@ -2,7 +2,7 @@ package selenium;
 
 public enum TaskElements {
 
-
+Nothing,
     CHECKBOX,
     COLOr,
     START_DATE,

@@ -64,7 +64,6 @@ public class CollectTasks {
             //tasks.add(taskObject);
             System.out.println("Test 4");
             System.out.println("die ersten collected tds von collectedTAsks: " + this.collectedTasks);
-            continue;
 
         }
         // String c = driver.findElement(By.xpath("//table/tbody[@class]/tr[@index=" + i + "]/td[" + j + "]")).getText();
