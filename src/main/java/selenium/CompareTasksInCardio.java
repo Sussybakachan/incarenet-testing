@@ -41,7 +41,7 @@ public class CompareTasksInCardio {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//td[@value='Sel-Abbott']")).click();
         Thread.sleep(2000);
-        compareCrt();
+        //compareCrt();
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
@@ -111,7 +111,7 @@ static void compareCrt() throws InterruptedException {
         System.out.println("Funktionanfang");
     int passedCounter = 0;
     CollectTasks collectTasks = new CollectTasks();
-    for (int i = 0; i < getCollectedTasks().size(); i++) {
+    for (int i = 0; i < collectedTasks.size(); i++) {
         System.out.println("collected Tasks in der compareCrt Methode: "+ collectedTasks);
         if (ExpectedTasks.expectedTask.equals(collectedTasks.get(i))) {
             System.out.println("Task ist vorhanden");
