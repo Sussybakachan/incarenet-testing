@@ -6,7 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import static selenium.ExpectedTasks.*;
+import java.io.IOException;
+
 import static selenium.CollectTasks.*;
 
 
@@ -18,10 +19,11 @@ public class CompareTasksInCardio {
 
     static JavascriptExecutor js;
 
-    public static void loginP() throws InterruptedException {
-        driver.findElement(By.id("usernameField")).sendKeys("dboiko");
+    public static void loginP() throws InterruptedException, IOException {
+        ReadingConfig rc = new ReadingConfig();
+        driver.findElement(By.id("usernameField")).sendKeys(rc.loadProperty().getProperty("USERNAME"));
         Thread.sleep(2000);
-        driver.findElement(By.id("passwordField")).sendKeys("Arztsack23!");
+        driver.findElement(By.id("passwordField")).sendKeys("PASSWORD");
         Thread.sleep(2000);
         driver.findElement(By.id("doLoginBtn")).click();
         Thread.sleep(8000);
@@ -41,7 +43,7 @@ public class CompareTasksInCardio {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//td[@value='Sel-Abbott']")).click();
         Thread.sleep(2000);
-        //compareCrt();
+        compareCrt();
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
@@ -98,7 +100,7 @@ public class CompareTasksInCardio {
             } else {
                 System.out.println("Die Arrays sind nicht identisch");
             }*/
-        System.out.println(expectedTask.equals(collectedTasks.get(0)));
+     //   System.out.println(expectedTask.equals(collectedTasks.get(0)));
         //  Arrays.deepEquals(ExpectedTasks.abbottCRT, ct.collectedTasks)
         //     System.out.println(ExpectedTasks.abbottCRT.Arrays.equals(ct.collectedTasks));
         //  System.out.println(ExpectedTasks.abbottCRT);
