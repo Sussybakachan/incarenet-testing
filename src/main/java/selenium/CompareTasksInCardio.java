@@ -23,7 +23,7 @@ public class CompareTasksInCardio {
         ReadingConfig rc = new ReadingConfig();
         driver.findElement(By.id("usernameField")).sendKeys(rc.loadProperty().getProperty("USERNAME"));
         Thread.sleep(2000);
-        driver.findElement(By.id("passwordField")).sendKeys("PASSWORD");
+        driver.findElement(By.id("passwordField")).sendKeys(rc.loadProperty().getProperty("PASSWORD"));
         Thread.sleep(2000);
         driver.findElement(By.id("doLoginBtn")).click();
         Thread.sleep(8000);
