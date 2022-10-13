@@ -59,9 +59,9 @@ public class CompareTasksInCardio {
         Thread.sleep(2000);
         deactivateBatteryStatus();
         Thread.sleep(2000); */
-       // activatedEriEosANDActivatedBatteryStatus();
-      //  Thread.sleep(2000);
-       // deactivateERIEOS();
+        // activatedEriEosANDActivatedBatteryStatus();
+        //  Thread.sleep(2000);
+        // deactivateERIEOS();
     }
 
    /* public static void thresholdCheck() throws InterruptedException {
@@ -92,8 +92,9 @@ public class CompareTasksInCardio {
 
     public static void comparison() throws InterruptedException {
 
-       CollectTasks ct = new CollectTasks();
-       System.out.println("Hier ist das ct.collectedTasks: "+ collectedTasks);
+     //   CollectTasks ct = new CollectTasks();
+     //   System.out.println("Hier ist das ct.collectedTasks: " + collectedTasks);
+        //compareCrt();
 //task.getcolor = danger
       /*  if (ExpectedTasks.abbottCRT == ct.collectedTasks){
                 System.out.println("Beide Arrays sind identisch");
@@ -144,7 +145,7 @@ static void compareCrt() throws InterruptedException {
 
         }*/
 
-    }
+}
 
 
 

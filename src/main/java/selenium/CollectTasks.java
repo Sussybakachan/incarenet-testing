@@ -9,7 +9,7 @@ import java.util.List;
 import static selenium.CompareTasksInCardio.driver;
 
 public class CollectTasks {
-  static  Task taskObject = new Task();
+
     String xpathTAble = "//table/tbody[@class]/tr[@index=";
 
     public static List<Task> collectedTasks = new ArrayList<>();
