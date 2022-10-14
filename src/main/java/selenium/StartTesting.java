@@ -28,7 +28,7 @@ public class StartTesting {
         driver.manage().window().maximize();
         js = (JavascriptExecutor) driver;
         action = new Actions(driver);
-        PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff1\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
+        PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff2\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
 
         createTasks();
         System.out.println(createTasks());

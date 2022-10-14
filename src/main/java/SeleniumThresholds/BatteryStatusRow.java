@@ -7,10 +7,6 @@ import static selenium.CompareTasksInCardio.*;
 
 
 public class BatteryStatusRow {
-    static boolean batterieStatusStatus;
-    String pathToBatteryParameter = "";
-    String pathToBatteryFinding = "";
-    String pathToBatteryCriticalFinding = "";
 
     static boolean isEriEosSelected() {
         boolean EriEosIsChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[4]/div/span[1]/span[1]/input")).isSelected();
