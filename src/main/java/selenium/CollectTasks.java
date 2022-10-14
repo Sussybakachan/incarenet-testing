@@ -9,15 +9,16 @@ import java.util.List;
 import static selenium.CompareTasksInCardio.driver;
 
 public class CollectTasks {
+
     String xpathTAble = "//table/tbody[@class]/tr[@index=";
 
-    List<Task> collectedTasks = new ArrayList<>();
+    public static List<Task> collectedTasks = new ArrayList<>();
 
     CollectTasks() throws InterruptedException {
         this.getTasks();
     }
 
-    void getTasks() throws InterruptedException {
+    List<Task> getTasks() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
         Thread.sleep(2000);
 
@@ -34,15 +35,12 @@ public class CollectTasks {
             System.out.println("The amount of columns are " + t);
         }
 
-        List task = new ArrayList<>();
+
         //List<String> collectedTasks = new ArrayList<String>();
         for (int i = 0; i < s; i++) {
             System.out.println("Test 1");
             Task taskObject = new Task();
-            //ArrayList<Task> tasks = new ArrayList<>();
-           /* for (int j = 2; j < 12; j++) {
-                System.out.println("Test 2");
-                if (j < 6) { */
+
 
             taskObject.setCheckBox(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.CHECKBOX.ordinal() + "]")).getText());
             taskObject.setColor(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.COLOr.ordinal() + "]")).getAttribute("value"));
@@ -60,20 +58,14 @@ public class CollectTasks {
 
             System.out.println("Test 3");
             // taskObject.setStartDate(date);
-            this.collectedTasks.add(taskObject);
-          //  System.out.println("The collected task includes" + taskObject);
-         //   System.out.println("checkbox: " +taskObject.getCheckBox() + taskObject.getAction() + taskObject.getTaskDescription() + taskObject.getColor() + taskObject.getEmployee() + taskObject.getStartDate() + taskObject.getReceiveDate() + taskObject.getTargetDate() + taskObject.getMeasurements() + taskObject.getPdf() + taskObject.getFurtherInformation());
+            collectedTasks.add(taskObject);
             //tasks.add(taskObject);
             System.out.println("Test 4");
-            System.out.println("die ersten collected tds von collectedTAsks: " + this.collectedTasks);
+            collectedTasks.forEach(System.out::println);
 
         }
-        // String c = driver.findElement(By.xpath("//table/tbody[@class]/tr[@index=" + i + "]/td[" + j + "]")).getText();
-        //TODO müsste ggf. die Absätze bei taskObject wegmachen wie unten
 
-        // c = c.replace("\n", "").replace("\r", "");
-        //   this.collectedTasks.add(c);
-
+        return collectedTasks;
     }
     //Zuweisen der Elemtente des collectedTasks Array zu einem object Array?
     //   task.add(collectedTasks);

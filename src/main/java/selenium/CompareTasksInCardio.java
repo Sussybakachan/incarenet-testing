@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.Arrays;
+import java.io.IOException;
 
-import static SeleniumThresholds.BatteryStatusRow.*;
+import static selenium.CollectTasks.*;
 
 
 public class CompareTasksInCardio {
@@ -19,10 +19,11 @@ public class CompareTasksInCardio {
 
     static JavascriptExecutor js;
 
-    public static void loginP() throws InterruptedException {
-        driver.findElement(By.id("usernameField")).sendKeys("fmushinzimana");
+    public static void loginP() throws InterruptedException, IOException {
+        ReadingConfig rc = new ReadingConfig();
+        driver.findElement(By.id("usernameField")).sendKeys(rc.loadProperty().getProperty("USERNAME"));
         Thread.sleep(2000);
-        driver.findElement(By.id("passwordField")).sendKeys("BoNiTo97.");
+        driver.findElement(By.id("passwordField")).sendKeys(rc.loadProperty().getProperty("PASSWORD"));
         Thread.sleep(2000);
         driver.findElement(By.id("doLoginBtn")).click();
         Thread.sleep(8000);
@@ -42,7 +43,7 @@ public class CompareTasksInCardio {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//td[@value='Sel-Abbott']")).click();
         Thread.sleep(2000);
-
+        compareCrt();
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
@@ -58,9 +59,9 @@ public class CompareTasksInCardio {
         Thread.sleep(2000);
         deactivateBatteryStatus();
         Thread.sleep(2000); */
-       // activatedEriEosANDActivatedBatteryStatus();
-      //  Thread.sleep(2000);
-       // deactivateERIEOS();
+        // activatedEriEosANDActivatedBatteryStatus();
+        //  Thread.sleep(2000);
+        // deactivateERIEOS();
     }
 
    /* public static void thresholdCheck() throws InterruptedException {
@@ -91,40 +92,28 @@ public class CompareTasksInCardio {
 
     public static void comparison() throws InterruptedException {
 
-       CollectTasks ct = new CollectTasks();
-       System.out.println("Hier ist das ct.collectedTasks: "+ ct.collectedTasks);
-//task.getcolor = danger
-      /*  if (ExpectedTasks.abbottCRT == ct.collectedTasks){
-                System.out.println("Beide Arrays sind identisch");
-            } else {
-                System.out.println("Die Arrays sind nicht identisch");
-            }*/
-
-     //  Arrays.deepEquals(ExpectedTasks.abbottCRT, ct.collectedTasks)
-       //     System.out.println(ExpectedTasks.abbottCRT.Arrays.equals(ct.collectedTasks));
-          //  System.out.println(ExpectedTasks.abbottCRT);
-            System.out.println(ct.collectedTasks);
-            System.out.println("Read Task: " + ct.collectedTasks);
-        }
-
-      // System.out.println("Array of tasks: " + task);
-       /* int passedCounter = 0;
-        for (int i = 0; i < task.size(); i++) {
-
-            if (ExpectedTasks.abbottCRT.equals(task.get(i))) {
-                System.out.println("Task ist vorhanden");
-                passedCounter++;
-
-            } else if (passedCounter < 1) {
-                //TODO beschreiben, welches expected Array (nicht) gefunden wurde
-                //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-                System.out.println("Die Task wurde nicht erstellt");
-            }
-
-
-        }*/
-
     }
+//TODO Uhrsymbol bei überschrittener Zeit wird bei dem Test nicht beachtet, muss aber beachtet werden
+static void compareCrt() throws InterruptedException {
+
+        System.out.println("Funktionanfang");
+    int passedCounter = 0;
+    CollectTasks collectTasks = new CollectTasks();
+    for (int i = 0; i < collectedTasks.size(); i++) {
+        System.out.println("collected Tasks in der compareCrt Methode: "+ collectedTasks);
+        if (ExpectedTasks.expectedTask.equals(collectedTasks.get(i))) {
+            System.out.println("Die Task ist korrekt");
+            passedCounter++;
+
+        } else if (passedCounter < 1) {
+            //TODO beschreiben, welches expected Array (nicht) gefunden wurde
+            //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
+            System.out.println("Die Task wurde nicht erstellt");
+            System.out.println("Funktionende");
+        }
+    }}
+
+}
 
 
 
