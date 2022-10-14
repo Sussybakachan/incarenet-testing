@@ -92,23 +92,8 @@ public class CompareTasksInCardio {
 
     public static void comparison() throws InterruptedException {
 
-     //   CollectTasks ct = new CollectTasks();
-     //   System.out.println("Hier ist das ct.collectedTasks: " + collectedTasks);
-        //compareCrt();
-//task.getcolor = danger
-      /*  if (ExpectedTasks.abbottCRT == ct.collectedTasks){
-                System.out.println("Beide Arrays sind identisch");
-            } else {
-                System.out.println("Die Arrays sind nicht identisch");
-            }*/
-     //   System.out.println(expectedTask.equals(collectedTasks.get(0)));
-        //  Arrays.deepEquals(ExpectedTasks.abbottCRT, ct.collectedTasks)
-        //     System.out.println(ExpectedTasks.abbottCRT.Arrays.equals(ct.collectedTasks));
-        //  System.out.println(ExpectedTasks.abbottCRT);
-        //     System.out.println(collectedTasks);
-        //   System.out.println("Read Task: " + collectedTasks);
     }
-
+//TODO Uhrsymbol bei überschrittener Zeit wird bei dem Test nicht beachtet, muss aber beachtet werden
 static void compareCrt() throws InterruptedException {
 
         System.out.println("Funktionanfang");
@@ -127,23 +112,6 @@ static void compareCrt() throws InterruptedException {
             System.out.println("Funktionende");
         }
     }}
-
-      // System.out.println("Array of tasks: " + task);
-       /* int passedCounter = 0;
-        for (int i = 0; i < task.size(); i++) {
-
-            if (ExpectedTasks.abbottCRT.equals(task.get(i))) {
-                System.out.println("Task ist vorhanden");
-                passedCounter++;
-
-            } else if (passedCounter < 1) {
-                //TODO beschreiben, welches expected Array (nicht) gefunden wurde
-                //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-                System.out.println("Die Task wurde nicht erstellt");
-            }
-
-
-        }*/
 
 }
 

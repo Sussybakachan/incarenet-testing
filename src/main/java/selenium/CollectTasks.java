@@ -65,11 +65,6 @@ public class CollectTasks {
 
         }
 
-        // String c = driver.findElement(By.xpath("//table/tbody[@class]/tr[@index=" + i + "]/td[" + j + "]")).getText();
-        //TODO müsste ggf. die Absätze bei taskObject wegmachen wie unten
-
-        // c = c.replace("\n", "").replace("\r", "");
-        //   this.collectedTasks.add(c);
         return collectedTasks;
     }
     //Zuweisen der Elemtente des collectedTasks Array zu einem object Array?
