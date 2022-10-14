@@ -98,7 +98,6 @@ static void compareCrt() throws InterruptedException {
 
         System.out.println("Funktionanfang");
     int passedCounter = 0;
-    CollectTasks collectTasks = new CollectTasks();
     for (int i = 0; i < collectedTasks.size(); i++) {
         System.out.println("collected Tasks in der compareCrt Methode: "+ collectedTasks);
         if (ExpectedTasks.expectedTask.equals(collectedTasks.get(i))) {
