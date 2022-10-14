@@ -9,29 +9,25 @@ import static selenium.CompareTasksInCardio.*;
 public class BatteryStatusRow {
 
     static boolean isEriEosSelected() {
-        boolean EriEosIsChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[4]/div/span[1]/span[1]/input")).isSelected();
+        boolean EriEosIsChecked = driver.findElement(By.id("batteryStatusCriticalFinding")).isSelected();
         return EriEosIsChecked;
     }
 
     static boolean isBatteryStatusSelected() {
-        boolean batteryIsChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[1]/span/span[1]/input")).isSelected();
-        return batteryIsChecked;
+        return driver.findElement(By.id("batteryStatusParameter")).isSelected();
     }
 
     static void pressBatterieStatusCheckbox() {
-        driver.findElement(By.xpath("//input[@value='']")).click();
+        driver.findElement(By.id("batteryStatusParameter")).click();
     }
 
     static void pressEriEosCCheckbox() {
-        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div[2]/div[2]/table/tbody/tr/td[4]/div/span/span/input")).click();
+        driver.findElement(By.id("batteryStatusCriticalFinding")).click();
     }
 
 
     public static void activateBatteryStatus() {
-
-        boolean isChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[1]/span/span[1]/input")).isSelected();
-        System.out.println("Batteriestatus ist: " + isChecked);
-        if (!isChecked) {
+        if (!isBatteryStatusSelected()) {
             pressBatterieStatusCheckbox();
         }
     }
