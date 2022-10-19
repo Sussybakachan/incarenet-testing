@@ -66,7 +66,7 @@ public class CollectTasks {
 
         return collectedTasks;
     }
-    //Zuweisen der Elemtente des collectedTasks Array zu einem object Array?
+    //Zuweisen der Elemente des collectedTasks Array zu einem object Array?
     //   task.add(collectedTasks);
     //  for (int p = 0; p < collectedTasks.size(); p++ ){
     //      taskObject.setValue(collectedTasks.get(p));
