@@ -7,28 +7,28 @@ import static selenium.CompareTasksInCardio.driver;
 public class TelemMDTRepRow {
     //is selected
     static boolean isMdtParameterSelected() {
-        return driver.findElement(By.id("MedtronicTelemonitoring-ReportParameter")).isSelected();
+        return driver.findElement(By.id("mdtParameter")).isSelected();
 
     }
 
     static boolean isMdtFindingSelected() {
-        return driver.findElement(By.id("MedtronicTelemonitoring-ReportFinding")).isSelected();
+        return driver.findElement(By.id("mdtFinding")).isSelected();
     }
 
     static boolean isMdtCriticalFindingSelected() {
-        return driver.findElement(By.id("MedtronicTelemonitoring-ReportCriticalFinding")).isSelected();
+        return driver.findElement(By.id("mdtCriticalFinding")).isSelected();
     }
 
     static void pressMdtParameterCheckbox() {
-        driver.findElement(By.id("MedtronicTelemonitoring-ReportParameter")).click();
+        driver.findElement(By.id("mdtParameter")).click();
     }
 
     static void pressMdtFindingCheckbox() {
-        driver.findElement(By.id("MedtronicTelemonitoring-ReportFinding")).click();
+        driver.findElement(By.id("mdtFinding")).click();
     }
 
     static void pressMdtCriticalFindingCheckbox() {
-        driver.findElement(By.id("MedtronicTelemonitoring-ReportCriticalFinding")).click();
+        driver.findElement(By.id("mdtCriticalFinding")).click();
     }
 
 
@@ -40,10 +40,10 @@ public class TelemMDTRepRow {
     }
 
     public static void deactivateMdtParameter() {
-        boolean isChecked = driver.findElement(By.id("MedtronicTelemonitoring-ReportParameter")).isSelected();
+        boolean isChecked = driver.findElement(By.id("mdtParameter")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
-            driver.findElement(By.id("MedtronicTelemonitoring-ReportParameter")).click();
+            driver.findElement(By.id("mdtParameter")).click();
 
         }
 

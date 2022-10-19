@@ -7,28 +7,28 @@ import static selenium.CompareTasksInCardio.driver;
 public class TelemMicroportRepRow {
     //is selected
     static boolean isMicroportParameterSelected() {
-        return driver.findElement(By.id("microportTelemonitoring-ReportParameter")).isSelected();
+        return driver.findElement(By.id("microportParameter")).isSelected();
 
     }
 
     static boolean isMicroportFindingSelected() {
-        return driver.findElement(By.id("microportTelemonitoring-ReportFinding")).isSelected();
+        return driver.findElement(By.id("microportFinding")).isSelected();
     }
 
     static boolean isMicroportCriticalFindingSelected() {
-        return driver.findElement(By.id("microportTelemonitoring-ReportCriticalFinding")).isSelected();
+        return driver.findElement(By.id("microportCriticalFinding")).isSelected();
     }
 
     static void pressMicroportParameterCheckbox() {
-        driver.findElement(By.id("microportTelemonitoring-ReportParameter")).click();
+        driver.findElement(By.id("microportParameter")).click();
     }
 
     static void pressMicroportFindingCheckbox() {
-        driver.findElement(By.id("microportTelemonitoring-ReportFinding")).click();
+        driver.findElement(By.id("microportFinding")).click();
     }
 
     static void pressMicroportCriticalFindingCheckbox() {
-        driver.findElement(By.id("microportTelemonitoring-ReportCriticalFinding")).click();
+        driver.findElement(By.id("microportCriticalFinding")).click();
     }
 
 
@@ -40,10 +40,10 @@ public class TelemMicroportRepRow {
     }
 
     public static void deactivateMicroportParameter() {
-        boolean isChecked = driver.findElement(By.id("microportTelemonitoring-ReportParameter")).isSelected();
+        boolean isChecked = driver.findElement(By.id("microportParameter")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
-            driver.findElement(By.id("microportTelemonitoring-ReportParameter")).click();
+            driver.findElement(By.id("microportParameter")).click();
 
         }
 

@@ -7,28 +7,28 @@ import static selenium.CompareTasksInCardio.driver;
 public class TelemBIORepRow {
     //is selected
     static boolean isBioParameterSelected() {
-        return driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventParameter")).isSelected();
+        return driver.findElement(By.id("bioParameter")).isSelected();
 
     }
 
     static boolean isBioFindingSelected() {
-        return driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventFinding")).isSelected();
+        return driver.findElement(By.id("bioFinding")).isSelected();
     }
 
     static boolean isBioCriticalFindingSelected() {
-        return driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventCriticalFinding")).isSelected();
+        return driver.findElement(By.id("bioCriticalFinding")).isSelected();
     }
 
     static void pressBioParameterCheckbox() {
-        driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventParameter")).click();
+        driver.findElement(By.id("bioParameter")).click();
     }
 
     static void pressBioFindingCheckbox() {
-        driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventFinding")).click();
+        driver.findElement(By.id("bioFinding")).click();
     }
 
     static void pressBioCriticalFindingCheckbox() {
-        driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventCriticalFinding")).click();
+        driver.findElement(By.id("bioCriticalFinding")).click();
     }
 
 
@@ -40,10 +40,10 @@ public class TelemBIORepRow {
     }
 
     public static void deactivateBioParameter() {
-        boolean isChecked = driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventParameter")).isSelected();
+        boolean isChecked = driver.findElement(By.id("bioParameter")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
-            driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventParameter")).click();
+            driver.findElement(By.id("bioParameter")).click();
 
         }
 

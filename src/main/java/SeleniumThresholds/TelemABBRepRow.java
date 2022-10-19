@@ -7,28 +7,28 @@ import static selenium.CompareTasksInCardio.driver;
 public class TelemABBRepRow {
     //is selected
     static boolean isAbbParameterSelected() {
-        return driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).isSelected();
+        return driver.findElement(By.id("abbParameter")).isSelected();
 
     }
 
     static boolean isAbbFindingSelected() {
-        return driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).isSelected();
+        return driver.findElement(By.id("abbFinding")).isSelected();
     }
 
     static boolean isAbbCriticalFindingSelected() {
-        return driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).isSelected();
+        return driver.findElement(By.id("abbCriticalFinding")).isSelected();
     }
 
     static void pressAbbParameterCheckbox() {
-        driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).click();
+        driver.findElement(By.id("abbParameter")).click();
     }
 
     static void pressAbbFindingCheckbox() {
-        driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).click();
+        driver.findElement(By.id("abbFinding")).click();
     }
 
     static void pressAbbCriticalFindingCheckbox() {
-        driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).click();
+        driver.findElement(By.id("abbCriticalFinding")).click();
     }
 
 
@@ -40,10 +40,10 @@ public class TelemABBRepRow {
     }
 
     public static void deactivateAbbParameter() {
-        boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).isSelected();
+        boolean isChecked = driver.findElement(By.id("abbParameter")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
-            driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).click();
+            driver.findElement(By.id("abbParameter")).click();
 
         }
 
