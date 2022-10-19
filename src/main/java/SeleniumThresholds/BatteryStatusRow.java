@@ -8,12 +8,13 @@ import static selenium.CompareTasksInCardio.*;
 
 public class BatteryStatusRow {
 
-    static boolean isEriEosSelected() {
+    public static boolean isEriEosSelected() {
         boolean EriEosIsChecked = driver.findElement(By.id("batteryStatusCriticalFinding")).isSelected();
+        System.out.println("is checked");
         return EriEosIsChecked;
     }
 
-    static boolean isBatteryStatusSelected() {
+    public static boolean isBatteryStatusSelected() {
         return driver.findElement(By.id("batteryStatusParameter")).isSelected();
     }
 
@@ -33,16 +34,16 @@ public class BatteryStatusRow {
     }
 
     public static void deactivateBatteryStatus() {
-        boolean isChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[1]/span/span[1]/input")).isSelected();
+        boolean isChecked = driver.findElement(By.id("batteryStatusParameter")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
-            driver.findElement(By.xpath("//input[@value='']")).click();
+            driver.findElement(By.id("batteryStatusParameter")).click();
 
         }
 
     }
 
-    public static void activatedEriEosANDActivatedBatteryStatus() throws InterruptedException {
+    public static void activateEriEosANDActivateBatteryStatus() throws InterruptedException {
         if (!isBatteryStatusSelected()) {
             System.out.println("Batteriestatus: "+ !isBatteryStatusSelected());
             activateBatteryStatus();
@@ -58,7 +59,7 @@ public class BatteryStatusRow {
         }
     }
 
-    public static void activatedEriEosANDDeactivatedBatteryStatus() throws InterruptedException {
+    public static void activateEriEosANDDeactivateBatteryStatus() throws InterruptedException {
         if (!isBatteryStatusSelected()) {
             System.out.println("Batteriestatus: "+ !isBatteryStatusSelected());
             activateBatteryStatus();
