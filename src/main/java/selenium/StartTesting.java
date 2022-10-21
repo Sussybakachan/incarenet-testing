@@ -22,7 +22,7 @@ public class StartTesting {
 
 
       ReadingConfig rc = new ReadingConfig();
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\dboiko\\Desktop\\Last-Test\\Chromedriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
         driver = new ChromeDriver();
         driver.get(rc.loadProperty().getProperty("SERVER_URL"));
         driver.manage().window().maximize();
