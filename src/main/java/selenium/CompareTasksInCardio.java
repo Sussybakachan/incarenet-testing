@@ -71,14 +71,14 @@ public class CompareTasksInCardio {
         Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button")).click();
         Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[2]/div/div/div/table/tbody/tr[2]/td[2]")).click();       //showImplantTemplate
-        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[2]/div/div/div/table/tbody/tr[2]")).click();       //showImplantTemplate
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='root']/div/div[2]//div[6]")).click();
         Thread.sleep(2000);
 
         driver.findElement(By.xpath("//table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
         Thread.sleep(2000);
-        activateAll();
+        onlyCriticalActivated();
         Thread.sleep(2000);
 
 
