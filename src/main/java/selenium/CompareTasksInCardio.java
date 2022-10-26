@@ -9,6 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 
 import static selenium.CollectTasks.*;
+import static SeleniumThresholds.BatteryStatusRow.*;
+import static SeleniumThresholds.CRTRow.*;
+import static Manufacturer.Abbott.*;
 
 
 public class CompareTasksInCardio {
@@ -43,7 +46,7 @@ public class CompareTasksInCardio {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//td[@value='Sel-Abbott']")).click();
         Thread.sleep(2000);
-        compareCrt();
+        //compareCrt();
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
@@ -64,30 +67,56 @@ public class CompareTasksInCardio {
         // deactivateERIEOS();
     }
 
-   /* public static void thresholdCheck() throws InterruptedException {
+    public static void thresholdCheck() throws InterruptedException {
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[2]/div/div/div/table/tbody/tr[2]/td[2]")).click();       //showImplantTemplate
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//div[@id='root']/div/div[2]//div[6]")).click();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[9]/td[4]/div/button")).click();
+
+        driver.findElement(By.xpath("//table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[2]/td[3]/div/span/span/input")).click();
+        activateAll();
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[2]/td[3]/div/span/span/input")).click();
+
+
+
+        driver.findElement(By.xpath("//div/div/div[2]/div/button")).click();        //saveAndBack
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]/div/span/span/input")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div[2]/div[2]/table/tbody/tr[2]/td[4]/div/span/span/input")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div/div/div[2]/div/button")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div[2]/div[2]/div[2]/form/div[2]/div/button")).click();
+        driver.findElement(By.xpath("//div[2]/div[2]/div[2]/form/div[2]/div/button")).click();      //save
         Thread.sleep(2000);
 
         System.out.println("Threshold Value modified");
 
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
+
+
+
+
+        /*driver.findElement(By.xpath("//div[@id='root']/div/div[2]//div[6]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//table/tbody/tr[2]/td[3]/div/span/span/input")).click();      //CRTFinding
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//table/tbody/tr[2]/td[3]/div/span/span/input")).click();      //showImplantTemplate
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]/div/span/span/input")).click();      //CRTCriticalFinding
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]/div/span/span/input")).click();     //showImplantTemplate
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div/div/div[2]/div/button")).click();        //saveAndBack
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[2]/div[2]/div[2]/form/div[2]/div/button")).click();      //save
         Thread.sleep(2000);
 
-    }*/
+        System.out.println("Threshold Value modified");
+
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();     //showImplantTemplate
+        Thread.sleep(2000);*/
+
+    }
 //ist wichtig
 
     public static void comparison() throws InterruptedException {

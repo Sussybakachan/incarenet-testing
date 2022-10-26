@@ -13,6 +13,9 @@ import java.util.Properties;
 import static selenium.CompareTasksInCardio.*;
 import static selenium.ExpectedTasks.createTasks;
 import static selenium.ExpectedTasks.expectedTask;
+import static SeleniumThresholds.BatteryStatusRow.*;
+import static selenium.DeletingTasks.deleteTask;
+
 
 
 
@@ -28,15 +31,17 @@ public class StartTesting {
         driver.manage().window().maximize();
         js = (JavascriptExecutor) driver;
         action = new Actions(driver);
-        PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff2\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
+        //PasteFile.pasteFile("/home/fernand/Documents/sdx/abott/Abbott Implant CRT 84%.hl7", "/home/fernand/IdeaProjects/sdx-file-forwarder/input/Abbott Implant CRT 84%.hl7");
 
-        createTasks();
-        System.out.println(createTasks());
-        System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
-        loginP();
-        inCardioDash();
-        // thresholdCheck();
-       comparison();
+        //createTasks();
+        //System.out.println(createTasks());
+        //System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
+        //loginP();
+        //inCardioDash();
+        //deleteTask();
+        thresholdCheck();
+       //comparison();
+        driver.close();
 
     }
 }
