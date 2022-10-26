@@ -7,28 +7,28 @@ import static selenium.CompareTasksInCardio.driver;
 public class TelemBSXRepRow {
     //is selected
     static boolean isBsxParameterSelected() {
-        return driver.findElement(By.id("bsxParameter")).isSelected();
+        return driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).isSelected();
 
     }
 
     static boolean isBsxFindingSelected() {
-        return driver.findElement(By.id("bsxFinding")).isSelected();
+        return driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).isSelected();
     }
 
     static boolean isBsxCriticalFindingSelected() {
-        return driver.findElement(By.id("bsxCriticalFinding")).isSelected();
+        return driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).isSelected();
     }
 
     static void pressBsxParameterCheckbox() {
-        driver.findElement(By.id("bsxParameter")).click();
+        driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).click();
     }
 
     static void pressBsxFindingCheckbox() {
-        driver.findElement(By.id("bsxFinding")).click();
+        driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).click();
     }
 
     static void pressBsxCriticalFindingCheckbox() {
-        driver.findElement(By.id("bsxCriticalFinding")).click();
+        driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).click();
     }
 
 
@@ -40,10 +40,10 @@ public class TelemBSXRepRow {
     }
 
     public static void deactivateBsxParameter() {
-        boolean isChecked = driver.findElement(By.id("bsxParameter")).isSelected();
+        boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
-            driver.findElement(By.id("bsxParameter")).click();
+            driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).click();
 
         }
 

@@ -4,6 +4,14 @@ import org.openqa.selenium.By;
 
 import static selenium.CompareTasksInCardio.driver;
 
+
+
+
+//activateAll=activateCrtFindingANDActivateCrtCriticalFindingANDActivateCrtParameter
+//findingParamActivated=activateCrtFindingANDDeactivateCrtCriticalFindingANDActivateCrtParameter
+//criticalParamActivated=activateCrtCriticalFindingANDDeactivateCrtFindingANDActivateCrtParameter
+
+
 public class CRTRow {
     //is selected
     static boolean isCrtParameterSelected() {
@@ -23,12 +31,20 @@ public class CRTRow {
         driver.findElement(By.id("crtParameter")).click();
     }
 
-    static void pressCrtFindingCheckbox() {
+    static void pressCrtFindingCheckbox() throws InterruptedException {
         driver.findElement(By.id("crtFinding")).click();
+        if (isCrtFindingSelected()) {
+            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterA-params-valueA\"]")).sendKeys("97");
+        }
+        Thread.sleep(2000);
     }
 
-    static void pressCrtCriticalFindingCheckbox() {
+    static void pressCrtCriticalFindingCheckbox() throws InterruptedException {
         driver.findElement(By.id("crtCriticalFinding")).click();
+        if (isCrtCriticalFindingSelected()) {
+            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterA-params-valueB\"]")).sendKeys("90");
+        }
+        Thread.sleep(2000);
     }
 
     public static void activatedCrtParameter() {
@@ -47,38 +63,83 @@ public class CRTRow {
 
     }
 
-    public static void activateCrtFindingANDActivateCrtCriticalFindingANDActivateCrtParameter() throws InterruptedException {
+    public static void activateAll() throws InterruptedException {
         if (!isCrtParameterSelected()) {
             System.out.println("CRT-Pacing: "+ !isCrtParameterSelected());
             activatedCrtParameter();
             Thread.sleep(2000);
             if (!isCrtFindingSelected() && !isCrtCriticalFindingSelected()) {
-                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + isCrtCriticalFindingSelected());
+                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
                 Thread.sleep(2000);
                 pressCrtFindingCheckbox();
                 pressCrtCriticalFindingCheckbox();
+            } else if (!isCrtFindingSelected() || !isCrtCriticalFindingSelected()) {
+                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
+                Thread.sleep(2000);
+                if (!isCrtFindingSelected()){
+                    pressCrtFindingCheckbox();
+                } else {
+                    pressCrtCriticalFindingCheckbox();
+                }
             }
-        } else if (!isCrtFindingSelected() || !isCrtCriticalFindingSelected()) {
-            System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + isCrtCriticalFindingSelected());
+        } else if (!isCrtFindingSelected()) {
+            System.out.println("CRT-Pacing Finding : "+ isCrtFindingSelected() + " " +isCrtCriticalFindingSelected());
             pressCrtFindingCheckbox();
+
+        } else if (!isCrtCriticalFindingSelected()) {
+            System.out.println("CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + " " + isCrtCriticalFindingSelected());
             pressCrtCriticalFindingCheckbox();
         }
     }
 
-    public static void activateCrtCriticalFindingANDDeactivateCrtFindingANDActivateCrtParameter() throws InterruptedException {
+    public static void criticalParamActivated() throws InterruptedException {
         if (!isCrtParameterSelected()) {
             System.out.println("CRT-Pacing: "+ !isCrtParameterSelected());
             activatedCrtParameter();
             Thread.sleep(2000);
-            if (!isCrtFindingSelected() && !isCrtCriticalFindingSelected()) {
+            if (!isCrtCriticalFindingSelected() && !isCrtFindingSelected() ) {
+                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + isCrtCriticalFindingSelected());
+                Thread.sleep(2000);
+                pressCrtCriticalFindingCheckbox();
+            } else if (isCrtFindingSelected()) {
                 System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + isCrtCriticalFindingSelected());
                 Thread.sleep(2000);
                 pressCrtFindingCheckbox();
+            }
+        } else if (!isCrtCriticalFindingSelected() && !isCrtFindingSelected()) {
+            System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + isCrtCriticalFindingSelected());
+            pressCrtCriticalFindingCheckbox();
+        } else if (!isCrtCriticalFindingSelected() || isCrtFindingSelected()) {
+            System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + isCrtCriticalFindingSelected());
+            if (!isCrtCriticalFindingSelected()){
                 pressCrtCriticalFindingCheckbox();
             }
-        } else if (!isCrtFindingSelected() || !isCrtCriticalFindingSelected()) {
+            pressCrtFindingCheckbox();
+        }
+    }
+
+    public static void findingParamActivated() throws InterruptedException {
+        if (!isCrtParameterSelected()) {
+            System.out.println("CRT-Pacing: " + !isCrtParameterSelected());
+            activatedCrtParameter();
+            Thread.sleep(2000);
+            if (!isCrtFindingSelected() && !isCrtCriticalFindingSelected()) {
+                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: " + isCrtFindingSelected() + isCrtCriticalFindingSelected());
+                Thread.sleep(2000);
+                pressCrtFindingCheckbox();
+            } else if (isCrtCriticalFindingSelected()) {
+                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: " + isCrtFindingSelected() + isCrtCriticalFindingSelected());
+                Thread.sleep(2000);
+                pressCrtCriticalFindingCheckbox();
+            }
+        }else if (!isCrtFindingSelected() && !isCrtCriticalFindingSelected()) {
             System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + isCrtCriticalFindingSelected());
             pressCrtFindingCheckbox();
+        } else if (!isCrtFindingSelected() || isCrtCriticalFindingSelected()) {
+            System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ isCrtFindingSelected() + isCrtCriticalFindingSelected());
+            if (!isCrtCriticalFindingSelected()){
+                pressCrtFindingCheckbox();
+            }
             pressCrtCriticalFindingCheckbox();
         }
     }

@@ -22,7 +22,7 @@ public class BatteryStatusRow {
         driver.findElement(By.id("batteryStatusParameter")).click();
     }
 
-    static void pressEriEosCCheckbox() {
+    public static void pressEriEosCCheckbox() {
         driver.findElement(By.id("batteryStatusCriticalFinding")).click();
     }
 
