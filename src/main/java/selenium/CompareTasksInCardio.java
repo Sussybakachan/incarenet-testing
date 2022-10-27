@@ -7,8 +7,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
+import java.util.List;
 
 import static selenium.CollectTasks.*;
+import static selenium.ExpectedTasks.abbottCrt;
 
 
 public class CompareTasksInCardio {
@@ -37,13 +39,8 @@ public class CompareTasksInCardio {
 
         actions.moveToElement(menu).moveToElement(subMenu).moveToElement(subSubMenu).click().build().perform();
         Thread.sleep(8000);
-
-        driver.switchTo().frame(0);
-        driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys("sel-abbott");
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//td[@value='Sel-Abbott']")).click();
-        Thread.sleep(2000);
-        compareCrt();
+        choosepatient("Sel-Abbott");
+       compareCrt(abbottCrt);
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
@@ -90,35 +87,36 @@ public class CompareTasksInCardio {
     }*/
 //ist wichtig
 
-    public static void comparison() throws InterruptedException {
+  //  public static void comparison() throws InterruptedException {}
 
-    }
-//TODO Uhrsymbol bei überschrittener Zeit wird bei dem Test nicht beachtet, muss aber beachtet werden
-static void compareCrt() throws Exception {
-    System.out.println("Funktionanfang");
-    int passedCounter = 0;
-    CollectTasks collectTasks = new CollectTasks();
-    for (int i = 0; i < collectedTasks.size(); i++) {
-        System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
-        if (i == 3 || i == 4) {
-            if(!PatternTest.useRegex(String.valueOf(i))){
-                throw new Exception("The time Pattern is not correct for: "+ i);
-            }
-
-        } else {
-            if (ExpectedTasks.expectedTask.equals(collectedTasks.get(i))) {
-                System.out.println("Die Task ist korrekt");
-                passedCounter++;
-
-            } else if (passedCounter < 1) {
-                //TODO beschreiben, welches expected Array (nicht) gefunden wurde
-                //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-                System.out.println("Die Task wurde nicht erstellt");
-                System.out.println("Funktionende");
+    //TODO Uhrsymbol bei überschrittener Zeit wird bei dem Test nicht beachtet, muss aber beachtet werden
+    static void compareCrt(List<Task> listname) throws Exception {
+        System.out.println("Funktionanfang");
+        int passedCounter = 0;
+        CollectTasks collectTasks = new CollectTasks();
+        for (int i = 0; i < collectedTasks.size(); i++) {
+            for (int j = 0; j < listname.size(); j++) {
+                System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
+                    if (listname.get(j).equals(collectedTasks.get(i)) && PatternTest.useRegex(String.valueOf(listname.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(listname.get(j).getTargetDate()))) {
+                        System.out.println("Die Task ist korrekt");
+                        passedCounter++;
+                    } else if (passedCounter < 1) {
+                        //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
+                        //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
+                        System.out.println("Die Task wurde nicht erstellt, da "+ collectedTasks.get(i) + "und "+ listname.get(j) +"nicht gleich sind");
+                        System.out.println("Funktionende");
+                    }
+                }
             }
         }
+
+    public static void choosepatient(String p) throws InterruptedException {
+        driver.switchTo().frame(0);
+        driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys(p);
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//td[@value="+"'"+ p +"'"+ "]")).click();
+        Thread.sleep(2000);
     }
-}
 }
 
 
