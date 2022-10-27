@@ -11,9 +11,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import static selenium.CompareTasksInCardio.*;
-import static selenium.ExpectedTasks.createTasks;
-import static selenium.ExpectedTasks.expectedTask;
-
+import static selenium.ExpectedTasks.*;
 
 
 public class StartTesting {
@@ -35,6 +33,8 @@ public class StartTesting {
         System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
+        choosepatient("Sel-Abbott");
+        compareCrt(abbottCrt);
         // thresholdCheck();
        //comparison();
 

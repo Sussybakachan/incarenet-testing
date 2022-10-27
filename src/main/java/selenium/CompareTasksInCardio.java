@@ -39,8 +39,7 @@ public class CompareTasksInCardio {
 
         actions.moveToElement(menu).moveToElement(subMenu).moveToElement(subSubMenu).click().build().perform();
         Thread.sleep(8000);
-        choosepatient("Sel-Abbott");
-       compareCrt(abbottCrt);
+
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
@@ -89,7 +88,7 @@ public class CompareTasksInCardio {
 
   //  public static void comparison() throws InterruptedException {}
 
-    //TODO Uhrsymbol bei überschrittener Zeit wird bei dem Test nicht beachtet, muss aber beachtet werden
+    //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     static void compareCrt(List<Task> listname) throws Exception {
         System.out.println("Funktionanfang");
         int passedCounter = 0;
