@@ -29,7 +29,7 @@ public class CompareTasksInCardio {
         Thread.sleep(8000);
     }
 
-    public static void inCardioDash() throws InterruptedException {
+    public static void inCardioDash() throws Exception {
         Actions actions = new Actions(driver);
         WebElement menu = driver.findElement(By.name("drop-services"));
         WebElement subMenu = driver.findElement(By.name("appMenu"));
@@ -94,25 +94,31 @@ public class CompareTasksInCardio {
 
     }
 //TODO Uhrsymbol bei überschrittener Zeit wird bei dem Test nicht beachtet, muss aber beachtet werden
-static void compareCrt() throws InterruptedException {
-
-        System.out.println("Funktionanfang");
+static void compareCrt() throws Exception {
+    System.out.println("Funktionanfang");
     int passedCounter = 0;
     CollectTasks collectTasks = new CollectTasks();
     for (int i = 0; i < collectedTasks.size(); i++) {
-        System.out.println("collected Tasks in der compareCrt Methode: "+ collectedTasks);
-        if (ExpectedTasks.expectedTask.equals(collectedTasks.get(i))) {
-            System.out.println("Die Task ist korrekt");
-            passedCounter++;
+        System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
+        if (i == 3 || i == 4) {
+            if(!PatternTest.useRegex(String.valueOf(i))){
+                throw new Exception("The time Pattern is not correct for: "+ i);
+            }
 
-        } else if (passedCounter < 1) {
-            //TODO beschreiben, welches expected Array (nicht) gefunden wurde
-            //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-            System.out.println("Die Task wurde nicht erstellt");
-            System.out.println("Funktionende");
+        } else {
+            if (ExpectedTasks.expectedTask.equals(collectedTasks.get(i))) {
+                System.out.println("Die Task ist korrekt");
+                passedCounter++;
+
+            } else if (passedCounter < 1) {
+                //TODO beschreiben, welches expected Array (nicht) gefunden wurde
+                //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
+                System.out.println("Die Task wurde nicht erstellt");
+                System.out.println("Funktionende");
+            }
         }
-    }}
-
+    }
+}
 }
 
 
