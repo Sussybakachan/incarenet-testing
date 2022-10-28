@@ -10,7 +10,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase1.createBiotronik97generalTask;
+import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.BiotronikTestCase2List;
 import static selenium.CompareTasksInCardio.*;
+import static selenium.CreationOfAllExpectedTasks.createBiotronikExpectedTasks;
+import static selenium.CreationOfAllExpectedTasks.createExpectedTasks;
 import static selenium.ExpectedTasks.*;
 
 
@@ -29,12 +33,14 @@ public class StartTesting {
         action = new Actions(driver);
        // PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff2\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
 
-       createTasks();
+       //createTasks();
+      createBiotronikExpectedTasks();
         System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
-        choosepatient("Sel-Abbott");
-        compareCrt(abbottCrt);
+        choosepatient("Sel-Biotronik");
+      System.out.println("abbottCrt size: " + abbottCrt.size());
+        compareCrt(BiotronikTestCase2List);
         // thresholdCheck();
        //comparison();
 
