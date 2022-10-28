@@ -117,22 +117,21 @@ public class CompareTasksInCardio {
             throw new Exception("Some expected Task List did not get created");
         }
         System.out.println("Funktionanfang");
-        int passedCounter = 0;
+
         CollectTasks collectTasks = new CollectTasks();
         for (int i = 0; i < collectedTasks.size(); i++) {
-
+            int passedCounter = 0;
             for (int j = 0; j < listname.size(); j++) {
                 System.out.println("j: " + j + " i: " + i);
                 //System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
                     if (listname.get(j).equals(collectedTasks.get(i)) && PatternTest.useRegex(String.valueOf(listname.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(listname.get(j).getTargetDate()))) {
                         System.out.println("Die Task ist korrekt" + collectedTasks.get(i).getTaskDescription() + " und "+ listname.get(j).getTaskDescription());
-
                         passedCounter++;
                         System.out.println(passedCounter);
-                    } else if (passedCounter < 1 && j== listname.size()) {
+                    } else if (passedCounter < 1 && j== listname.size()-1) {
                         //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
                         //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-                        System.out.println("Die Task wurde nicht gefunden, da "+ collectedTasks.get(i).getTaskDescription() + "nicht in der Liste vorhanden ist");
+                        System.out.println("Die Task wurde nicht gefunden, da "+ collectedTasks.get(i).getTaskDescription() + "nicht in der Expected Liste vorhanden ist");
                         System.out.println("Funktionende");
                     }
                 }
