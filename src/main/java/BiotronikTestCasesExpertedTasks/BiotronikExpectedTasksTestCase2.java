@@ -8,7 +8,6 @@ import java.util.List;
 public class BiotronikExpectedTasksTestCase2 {
     //TestCase2
 
-    //TODO Allgemeine Alarme,ERI und EOS
     static Task Biotronik93AlarmTask = new Task();
     static Task Biotronik93LvTask = new Task();
 
@@ -28,27 +27,32 @@ public class BiotronikExpectedTasksTestCase2 {
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
     //I don't know if that makes a difference
-    public static void createBiotronik97generalTask() {
+    public static List<Task> createBiotronik93generalTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         Biotronik93AlarmTask.setCheckBox("");
         Biotronik93AlarmTask.setColor("warning");
-        Biotronik93AlarmTask.setStartDate("2022-04-27T02:12:55.000Z");
-        Biotronik93AlarmTask.setReceiveDate("2022-10-26T12:34:14.497Z");
-        Biotronik93AlarmTask.setTargetDate("2022-10-27T12:34:14.497Z");
+        Biotronik93AlarmTask.setStartDate("2022-03-27T23:58:06.000Z");
+       // Biotronik93AlarmTask.setReceiveDate("2022-10-26T12:34:14.497Z");
+       // Biotronik93AlarmTask.setTargetDate("2022-10-27T12:34:14.497Z");
         Biotronik93AlarmTask.setTaskDescription("TM-Ereignis:\n" +
-                "RV-Wahrnehmungsamplitude unter dem Grenzwert\n" +
+                "CRT-Stimulation unter dem Grenzwert\n" +
+                "BiV-Stimulation unter dem Grenzwert\n" +
                 "\n" +
-                "CRT-Stimulation: 97%\n" +
-                "LV-Stimulation: 97%\n" +
+                "Episode(n) im Bericht:\n" +
+                "Atr. Mon, Atr. Mon, Atr. Mon, Atr. Mon, Atr. Mon, Atr. Mon, Atr. Mon, Atr. Mon, Atr. Mon, Atr. Mon\n" +
+                "\n" +
+                "CRT-Stimulation: 93%\n" +
+                "LV-Stimulation: 93%\n" +
                 "Batteriestatus: MOS");
         Biotronik93AlarmTask.setMeasurements("Bitte auswählen");
-        Biotronik93AlarmTask.setPdf("https://www.biotronik-homemonitoring.com/hmsc_guiWeb/qs/2c9881db78d1c30d0178f424e17e4a2fStatus_report_11525_11228833_2022-04-27_04-12-55.pdf");
+        Biotronik93AlarmTask.setPdf("https://www.biotronik-homemonitoring.com/hmsc_guiWeb/qs/2c9881dc78d1c39201790d5929842afeStatus_report_36682_11228833_2022-03-28_01-58-06.pdfEpisode_report_11228833_417_2022-03-28_01-58-06.pdfEpisode_report_11228833_414_2022-03-28_01-58-06.pdfEpisode_report_11228833_412_2022-03-28_01-58-06.pdfEpisode_report_11228833_408_2022-03-28_01-58-06.pdfEpisode_report_11228833_406_2022-03-28_01-58-06.pdfEpisode_report_11228833_396_2022-03-28_01-58-06.pdfEpisode_report_11228833_390_2022-03-28_01-58-06.pdfEpisode_report_11228833_389_2022-03-28_01-58-06.pdfEpisode_report_11228833_379_2022-03-28_01-58-06.pdfEpisode_report_11228833_367_2022-03-28_01-58-06.pdf");
         Biotronik93AlarmTask.setEmployee("");
         Biotronik93AlarmTask.setFurtherInformation("");
         Biotronik93AlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
         BiotronikTestCase2List.add(Biotronik93AlarmTask);
+        return BiotronikTestCase2List;
     }
     public static  List<Task> createBiotronik93LvTask() {
 
@@ -87,11 +91,11 @@ public class BiotronikExpectedTasksTestCase2 {
     public static  List<Task> createBiotronikERITask() {
 
         BiotronikERITask.setCheckBox("");
-        BiotronikERITask.setColor("warning");
+        BiotronikERITask.setColor("danger");
         BiotronikERITask.setStartDate("2022-04-27T02:12:55.000Z");
         BiotronikERITask.setReceiveDate("2022-10-26T12:34:14.265Z");
         BiotronikERITask.setTargetDate("2022-10-27T12:34:14.265Z");
-        BiotronikERITask.setTaskDescription("CRT-Stimulation: 97%");
+        BiotronikERITask.setTaskDescription("Batteriestatus: ERI");
         BiotronikERITask.setMeasurements("Bitte auswählen");
         BiotronikERITask.setPdf("https://www.biotronik-homemonitoring.com/hmsc_guiWeb/qs/2c9881db78d1c30d0178f424e17e4a2fStatus_report_11525_11228833_2022-04-27_04-12-55.pdf");
         BiotronikERITask.setEmployee("");
@@ -104,11 +108,11 @@ public class BiotronikExpectedTasksTestCase2 {
     public static  List<Task> createBiotronikEOSTask() {
 
         BiotronikEOSTask.setCheckBox("");
-        BiotronikEOSTask.setColor("warning");
+        BiotronikEOSTask.setColor("danger");
         BiotronikEOSTask.setStartDate("2022-04-27T02:12:55.000Z");
         BiotronikEOSTask.setReceiveDate("2022-10-26T12:34:14.265Z");
         BiotronikEOSTask.setTargetDate("2022-10-27T12:34:14.265Z");
-        BiotronikEOSTask.setTaskDescription("CRT-Stimulation: 97%");
+        BiotronikEOSTask.setTaskDescription("Batteriestatus: EOS");
         BiotronikEOSTask.setMeasurements("Bitte auswählen");
         BiotronikEOSTask.setPdf("https://www.biotronik-homemonitoring.com/hmsc_guiWeb/qs/2c9881db78d1c30d0178f424e17e4a2fStatus_report_11525_11228833_2022-04-27_04-12-55.pdf");
         BiotronikEOSTask.setEmployee("");
@@ -125,7 +129,12 @@ public class BiotronikExpectedTasksTestCase2 {
         BiotronikEOSAlarmTask.setStartDate("2022-04-27T02:12:55.000Z");
         BiotronikEOSAlarmTask.setReceiveDate("2022-10-26T12:34:14.265Z");
         BiotronikEOSAlarmTask.setTargetDate("2022-10-27T12:34:14.265Z");
-        BiotronikEOSAlarmTask.setTaskDescription("CRT-Stimulation: 97%");
+        BiotronikEOSAlarmTask.setTaskDescription("TM-Ereignis:\n" +
+                "RV-Wahrnehmungsamplitude unter dem Grenzwert\n" +
+                "\n" +
+                "CRT-Stimulation: 100%\n" +
+                "LV-Stimulation: 100%\n" +
+                "Batteriestatus: EOS");
         BiotronikEOSAlarmTask.setMeasurements("Bitte auswählen");
         BiotronikEOSAlarmTask.setPdf("https://www.biotronik-homemonitoring.com/hmsc_guiWeb/qs/2c9881db78d1c30d0178f424e17e4a2fStatus_report_11525_11228833_2022-04-27_04-12-55.pdf");
         BiotronikEOSAlarmTask.setEmployee("");
@@ -142,7 +151,12 @@ public class BiotronikExpectedTasksTestCase2 {
         BiotronikERIAlarmTask.setStartDate("2022-04-27T02:12:55.000Z");
         BiotronikERIAlarmTask.setReceiveDate("2022-10-26T12:34:14.265Z");
         BiotronikERIAlarmTask.setTargetDate("2022-10-27T12:34:14.265Z");
-        BiotronikERIAlarmTask.setTaskDescription("CRT-Stimulation: 97%");
+        BiotronikERIAlarmTask.setTaskDescription("TM-Ereignis:\n" +
+                "RV-Wahrnehmungsamplitude unter dem Grenzwert\n" +
+                "\n" +
+                "CRT-Stimulation: 100%\n" +
+                "LV-Stimulation: 100%\n" +
+                "Batteriestatus: ERI");
         BiotronikERIAlarmTask.setMeasurements("Bitte auswählen");
         BiotronikERIAlarmTask.setPdf("https://www.biotronik-homemonitoring.com/hmsc_guiWeb/qs/2c9881db78d1c30d0178f424e17e4a2fStatus_report_11525_11228833_2022-04-27_04-12-55.pdf");
         BiotronikERIAlarmTask.setEmployee("");
