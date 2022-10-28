@@ -60,7 +60,8 @@ public class CompareTasksInCardio {
         actions.moveToElement(menu).moveToElement(subMenu).moveToElement(subSubMenu).click().build().perform();
         Thread.sleep(8000);
 
-*/
+        choosepatient("Sel-MicroPort");
+        compareCrt(microPortExpectedList);
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
