@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import static selenium.CollectTasks.*;
 import static selenium.ExpectedTasks.abbottCrt;
@@ -32,14 +33,34 @@ public class CompareTasksInCardio {
     }
 
     public static void inCardioDash() throws Exception {
+        Thread.sleep(4000);
+        List<WebElement> p = driver.findElements(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[@class='KoNavItem']"));
+
+        int pp = p.size();
+        System.out.println(pp);
+        for (int i = 1; i<= p.size()+1; i++){
+           String f = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li["+ i + "]/a")).getAttribute("name");
+
+           // taskObject.setColor(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.COLOr.ordinal() + "]")).getAttribute("value"));
+            System.out.println(f);
+            if (Objects.equals(f, "incardio-dashboard")){
+                System.out.println(Objects.equals(f, "incardio-dashboard"));
+                driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li["+ i + "]/a")).click();
+                break;
+            }
+        }
+        Thread.sleep(4000);
+/*
         Actions actions = new Actions(driver);
         WebElement menu = driver.findElement(By.name("drop-services"));
         WebElement subMenu = driver.findElement(By.name("appMenu"));
         WebElement subSubMenu = driver.findElement(By.xpath("//*[@id=\"bs3TopMenu\"]/ul/li[6]/ul/li[11]/ul/li[4]/a"));
 
+
         actions.moveToElement(menu).moveToElement(subMenu).moveToElement(subSubMenu).click().build().perform();
         Thread.sleep(8000);
 
+*/
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
