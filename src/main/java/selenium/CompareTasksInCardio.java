@@ -112,11 +112,16 @@ public class CompareTasksInCardio {
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     static void compareCrt(List<Task> listname) throws Exception {
+        System.out.println("the list size is: " + listname.size());
+        if(listname.size()<1){
+            throw new Exception("Some expected Task List did not get created");
+        }
         System.out.println("Funktionanfang");
         int passedCounter = 0;
         CollectTasks collectTasks = new CollectTasks();
         for (int i = 0; i < collectedTasks.size(); i++) {
             for (int j = 0; j < listname.size(); j++) {
+                System.out.println(listname.size());
                 System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
                     if (listname.get(j).equals(collectedTasks.get(i)) && PatternTest.useRegex(String.valueOf(listname.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(listname.get(j).getTargetDate()))) {
                         System.out.println("Die Task ist korrekt");
