@@ -4,6 +4,15 @@ import org.openqa.selenium.By;
 
 import static selenium.CompareTasksInCardio.driver;
 
+//NM = NoMeasurements
+//activateAllABB = activateABBFindingANDActivateABBCriticalFindingANDActivateABBParameter
+//findingParamActivatedABB = activateABBFindingANDDeactivateABBCriticalFindingANDActivateABBParameter
+//criticalParamActivatedABB = activateABBCriticalFindingANDDeactivateABBFindingANDActivateABBParameter
+//onlyParamActivatedABB = activateABBParameterANDDeactivateABBFindingANDDeactivateABBCriticalFinding
+//onlyFindingCriticalActivatedABB = deactivateABBParameterANDActivatedABBFindingANDActivateABBCriticalFinding
+//onlyFindingActivatedABB = activatedABBFindingANDDeactivateABBParameterANDDeactivateABBCriticalFinding
+//onlyCriticalActivatedABB = activateABBCriticalFindingANDDeactivateABBParameterANDDeactivatedABBFinding
+
 public class TelemABBRepRow {
     //is selected
     static boolean isAbbParameterSelected() {
@@ -31,9 +40,7 @@ public class TelemABBRepRow {
         driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).click();
     }
 
-
-
-    public static void activatedAbbParameter() {
+    public static void activateAbbParameter() {
         if (!isAbbParameterSelected()) {
             pressAbbParameterCheckbox();
         }
@@ -49,64 +56,95 @@ public class TelemABBRepRow {
 
     }
 
-
-    public static void activateAbbParameterANDActivateAbbFinding() throws InterruptedException {
-        if (!isAbbParameterSelected()) {
-            System.out.println("ABB Report: "+ !isAbbParameterSelected());
-            activatedAbbParameter();
-            Thread.sleep(2000);
-            if (!isAbbFindingSelected()) {
-                System.out.println("ABB Report Finding : "+ isAbbFindingSelected());
-                Thread.sleep(2000);
-                pressAbbFindingCheckbox();
-            }
-        } else if (!isAbbFindingSelected()) {
-            System.out.println("ABB Report Finding: "+ isAbbFindingSelected());
+    public static void activateAbbFinding() {
+        if (!isAbbFindingSelected()) {
             pressAbbFindingCheckbox();
         }
     }
 
-    public static void activateAbbParameterANDActivateAbbCriticalFinding() throws InterruptedException {
-        if (!isAbbParameterSelected()) {
-            System.out.println("ABB Report: "+ !isAbbParameterSelected());
-            activatedAbbParameter();
-            Thread.sleep(2000);
-            if (!isAbbCriticalFindingSelected()) {
-                System.out.println("ABB Report Critical Finding: "+ isAbbCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressAbbCriticalFindingCheckbox();
-            }
-        } else if (!isAbbCriticalFindingSelected()) {
-            System.out.println("ABB Report Critical Finding: "+ isAbbCriticalFindingSelected());
+    public static void deactivateAbbFinding() {
+        boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).click();
+
+        }
+
+    }
+
+    public static void activateAbbCritical() {
+        if (!isAbbCriticalFindingSelected()) {
             pressAbbCriticalFindingCheckbox();
         }
     }
 
+    public static void deactivateAbbCritical() {
+        boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).click();
 
-    public static void activateAbbParameterANDActivateAbbFindingANDActivateAbbCriticalFinding() throws InterruptedException {
-        if (!isAbbParameterSelected()) {
-            System.out.println("ABB Report: "+ !isAbbParameterSelected());
-            activatedAbbParameter();
-            Thread.sleep(2000);
-            if (!isAbbFindingSelected() && !isAbbCriticalFindingSelected()) {
-                System.out.println("ABB Report Finding and ABB Report Critical Finding: "+ isAbbFindingSelected() + isAbbCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressAbbFindingCheckbox();
-                pressAbbCriticalFindingCheckbox();
-            }
-        } else if (!isAbbFindingSelected() || !isAbbCriticalFindingSelected()) {
-            System.out.println("ABB Report Finding and ABB Report Critical Finding: "+ isAbbFindingSelected() + isAbbCriticalFindingSelected());
-            pressAbbFindingCheckbox();
-            pressAbbCriticalFindingCheckbox();
         }
-    }
-
-    public static void deactivateAbbParameterANDActivatedAbbFindingANDActivateAbbCriticalFinding() {
 
     }
 
+    public static void onlyParamActivatedAbb() throws InterruptedException {
 
+        activateAbbParameter();
+        Thread.sleep(2000);
+    }
 
+    public static void findingParamActivatedAbb() throws InterruptedException {
 
+        onlyParamActivatedAbb();
+        Thread.sleep(2000);
+        activateAbbFinding();
+        Thread.sleep(2000);
+
+    }
+
+    public static void criticalParamActivatedAbb() throws InterruptedException {
+
+        onlyParamActivatedAbb();
+        Thread.sleep(2000);
+        activateAbbCritical();
+        Thread.sleep(2000);
+
+    }
+
+    public static void activateAllAbb() throws InterruptedException {
+
+        findingParamActivatedAbb();
+        Thread.sleep(2000);
+        activateAbbCritical();
+        Thread.sleep(2000);
+    }
+
+    public static void onlyFindingCriticalActivatedAbb() throws InterruptedException {
+        activateAllAbb();
+        Thread.sleep(2000);
+        deactivateAbbParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void onlyFindingActivatedAbb() throws InterruptedException {
+        findingParamActivatedAbb();
+        Thread.sleep(2000);
+        deactivateAbbParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void onlyCriticalActivatedAbb() throws InterruptedException {
+        criticalParamActivatedAbb();
+        Thread.sleep(2000);
+        deactivateAbbParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void deselectAllAbb() throws InterruptedException {
+        deactivateAbbFinding();
+        deactivateAbbCritical();
+        deactivateAbbParameter();
+    }
 
 }

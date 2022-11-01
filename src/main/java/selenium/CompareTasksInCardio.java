@@ -11,7 +11,10 @@ import java.io.IOException;
 import static selenium.CollectTasks.*;
 import static SeleniumThresholds.BatteryStatusRow.*;
 import static SeleniumThresholds.CRTRow.*;
-import static Manufacturer.Abbott.*;
+import static SeleniumThresholds.LVRow.*;
+import static SeleniumThresholds.Deselect.*;
+import static SeleniumThresholds.NoMeasurementsRow.*;
+
 
 
 public class CompareTasksInCardio {
@@ -78,7 +81,7 @@ public class CompareTasksInCardio {
 
         driver.findElement(By.xpath("//table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
         Thread.sleep(2000);
-        onlyCriticalActivated();
+        deselectAll();
         Thread.sleep(2000);
 
 

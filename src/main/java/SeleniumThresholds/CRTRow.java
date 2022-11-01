@@ -5,9 +5,6 @@ import org.openqa.selenium.Keys;
 
 import static selenium.CompareTasksInCardio.driver;
 
-
-
-
 //activateAll = activateCrtFindingANDActivateCrtCriticalFindingANDActivateCrtParameter
 //findingParamActivated = activateCrtFindingANDDeactivateCrtCriticalFindingANDActivateCrtParameter
 //criticalParamActivated = activateCrtCriticalFindingANDDeactivateCrtFindingANDActivateCrtParameter
@@ -260,6 +257,11 @@ public class CRTRow {
         Thread.sleep(2000);
         deactivateCrtParameter();
         Thread.sleep(2000);
+    }
+
+    public static void deactivateAllCRT() throws InterruptedException {
+        onlyParamActivated();
+        deactivateCrtParameter();
     }
 
 

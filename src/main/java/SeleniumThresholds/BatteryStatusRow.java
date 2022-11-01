@@ -88,6 +88,11 @@ public class BatteryStatusRow {
         }
     }
 
+    public static void deactivateAllBattery() throws InterruptedException {
+        deactivateERIEOS();
+        deactivateBatteryStatus();
+    }
+
     //TODO write a method that deactivates every checkbox
     // TODO möglicherweise screenshots erstellen die Selenium gemacht hat und vergeleichen mit expected Screenshots
 
