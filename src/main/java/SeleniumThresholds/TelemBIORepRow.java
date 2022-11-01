@@ -4,6 +4,15 @@ import org.openqa.selenium.By;
 
 import static selenium.CompareTasksInCardio.driver;
 
+//NM = NoMeasurements
+//activateAllNM = activateNMFindingANDActivateNMCriticalFindingANDActivateNMParameter
+//findingParamActivatedNM = activateNMFindingANDDeactivateNMCriticalFindingANDActivateNMParameter
+//criticalParamActivatedNM = activateNMCriticalFindingANDDeactivateNMFindingANDActivateNMParameter
+//onlyParamActivatedNM = activateNMParameterANDDeactivateNMFindingANDDeactivateNMCriticalFinding
+//onlyFindingCriticalActivatedNM = deactivateNMParameterANDActivatedNMFindingANDActivateNMCriticalFinding
+//onlyFindingActivatedNM = activatedNMFindingANDDeactivateNMParameterANDDeactivateNMCriticalFinding
+//onlyCriticalActivatedNM = activateNMCriticalFindingANDDeactivateNMParameterANDDeactivatedNMFinding
+
 public class TelemBIORepRow {
     //is selected
     static boolean isBioParameterSelected() {
@@ -33,7 +42,7 @@ public class TelemBIORepRow {
 
 
 
-    public static void activatedBioParameter() {
+    public static void activateBioParameter() {
         if (!isBioParameterSelected()) {
             pressBioParameterCheckbox();
         }
@@ -49,64 +58,96 @@ public class TelemBIORepRow {
 
     }
 
-
-    public static void activateBioParameterANDActivateBioFinding() throws InterruptedException {
-        if (!isBioParameterSelected()) {
-            System.out.println("BIO Report: "+ !isBioParameterSelected());
-            activatedBioParameter();
-            Thread.sleep(2000);
-            if (!isBioFindingSelected()) {
-                System.out.println("BIO Report Finding : "+ isBioFindingSelected());
-                Thread.sleep(2000);
-                pressBioFindingCheckbox();
-            }
-        } else if (!isBioFindingSelected()) {
-            System.out.println("BIO Report Finding: "+ isBioFindingSelected());
+    public static void activateBioFinding() {
+        if (!isBioFindingSelected()) {
             pressBioFindingCheckbox();
         }
     }
 
-    public static void activateBioParameterANDActivateBioCriticalFinding() throws InterruptedException {
-        if (!isBioParameterSelected()) {
-            System.out.println("BIO Report: "+ !isBioParameterSelected());
-            activatedBioParameter();
-            Thread.sleep(2000);
-            if (!isBioCriticalFindingSelected()) {
-                System.out.println("BIO Report Critical Finding: "+ isBioCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressBioCriticalFindingCheckbox();
-            }
-        } else if (!isBioCriticalFindingSelected()) {
-            System.out.println("BIO Report Critical Finding: "+ isBioCriticalFindingSelected());
+    public static void deactivateBioFinding() {
+        boolean isChecked = driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventFinding")).click();
+
+        }
+
+    }
+
+    public static void activateBioCritical() {
+        if (!isBioCriticalFindingSelected()) {
             pressBioCriticalFindingCheckbox();
         }
     }
 
+    public static void deactivateBioCritical() {
+        boolean isChecked = driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventCriticalFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventCriticalFinding")).click();
 
-    public static void activateBioParameterANDActivateBioFindingANDActivateBioCriticalFinding() throws InterruptedException {
-        if (!isBioParameterSelected()) {
-            System.out.println("BIO Report: "+ !isBioParameterSelected());
-            activatedBioParameter();
-            Thread.sleep(2000);
-            if (!isBioFindingSelected() && !isBioCriticalFindingSelected()) {
-                System.out.println("BIO Report Finding and BIO Report Critical Finding: "+ isBioFindingSelected() + isBioCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressBioFindingCheckbox();
-                pressBioCriticalFindingCheckbox();
-            }
-        } else if (!isBioFindingSelected() || !isBioCriticalFindingSelected()) {
-            System.out.println("BIO Report Finding and BIO Report Critical Finding: "+ isBioFindingSelected() + isBioCriticalFindingSelected());
-            pressBioFindingCheckbox();
-            pressBioCriticalFindingCheckbox();
         }
-    }
-
-    public static void deactivateBioParameterANDActivatedBioFindingANDActivateBioCriticalFinding() {
 
     }
 
+    public static void onlyParamActivatedBio() throws InterruptedException {
+
+        activateBioParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void findingParamActivatedBio() throws InterruptedException {
+
+        onlyParamActivatedBio();
+        Thread.sleep(2000);
+        activateBioFinding();
+        Thread.sleep(2000);
+
+    }
+
+    public static void criticalParamActivatedBio() throws InterruptedException {
+
+        onlyParamActivatedBio();
+        Thread.sleep(2000);
+        activateBioCritical();
+        Thread.sleep(2000);
+
+    }
+
+    public static void activateAllBio() throws InterruptedException {
+
+        findingParamActivatedBio();
+        Thread.sleep(2000);
+        activateBioCritical();
+        Thread.sleep(2000);
+    }
 
 
+    public static void onlyFindingCriticalActivatedBio() throws InterruptedException {
+        activateAllBio();
+        Thread.sleep(2000);
+        deactivateBioParameter();
+        Thread.sleep(2000);
+    }
 
+    public static void onlyFindingActivatedBio() throws InterruptedException {
+        findingParamActivatedBio();
+        Thread.sleep(2000);
+        deactivateBioParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void onlyCriticalActivatedBio() throws InterruptedException {
+        criticalParamActivatedBio();
+        Thread.sleep(2000);
+        deactivateBioParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void deselectAllBio() throws InterruptedException {
+        deactivateBioFinding();
+        deactivateBioCritical();
+        deactivateBioParameter();
+    }
 
 }

@@ -4,6 +4,15 @@ import org.openqa.selenium.By;
 
 import static selenium.CompareTasksInCardio.driver;
 
+//NM = NoMeasurements
+//activateAllNM = activateNMFindingANDActivateNMCriticalFindingANDActivateNMParameter
+//findingParamActivatedNM = activateNMFindingANDDeactivateNMCriticalFindingANDActivateNMParameter
+//criticalParamActivatedNM = activateNMCriticalFindingANDDeactivateNMFindingANDActivateNMParameter
+//onlyParamActivatedNM = activateNMParameterANDDeactivateNMFindingANDDeactivateNMCriticalFinding
+//onlyFindingCriticalActivatedNM = deactivateNMParameterANDActivatedNMFindingANDActivateNMCriticalFinding
+//onlyFindingActivatedNM = activatedNMFindingANDDeactivateNMParameterANDDeactivateNMCriticalFinding
+//onlyCriticalActivatedNM = activateNMCriticalFindingANDDeactivateNMParameterANDDeactivatedNMFinding
+
 public class TelemBSXRepRow {
     //is selected
     static boolean isBsxParameterSelected() {
@@ -31,9 +40,7 @@ public class TelemBSXRepRow {
         driver.findElement(By.id("bsxCriticalFinding")).click();
     }
 
-
-
-    public static void activatedBsxParameter() {
+    public static void activateBsxParameter() {
         if (!isBsxParameterSelected()) {
             pressBsxParameterCheckbox();
         }
@@ -49,64 +56,96 @@ public class TelemBSXRepRow {
 
     }
 
-
-    public static void activateBsxParameterANDActivateBsxFinding() throws InterruptedException {
-        if (!isBsxParameterSelected()) {
-            System.out.println("BSX Report: "+ !isBsxParameterSelected());
-            activatedBsxParameter();
-            Thread.sleep(2000);
-            if (!isBsxFindingSelected()) {
-                System.out.println("BSX Report Finding : "+ isBsxFindingSelected());
-                Thread.sleep(2000);
-                pressBsxFindingCheckbox();
-            }
-        } else if (!isBsxFindingSelected()) {
-            System.out.println("BSX Report Finding: "+ isBsxFindingSelected());
+    public static void activateBsxFinding() {
+        if (!isBsxFindingSelected()) {
             pressBsxFindingCheckbox();
         }
     }
 
-    public static void activateBsxParameterANDActivateBsxCriticalFinding() throws InterruptedException {
-        if (!isBsxParameterSelected()) {
-            System.out.println("BSX Report: "+ !isBsxParameterSelected());
-            activatedBsxParameter();
-            Thread.sleep(2000);
-            if (!isBsxCriticalFindingSelected()) {
-                System.out.println("BSX Report Critical Finding: "+ isBsxCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressBsxCriticalFindingCheckbox();
-            }
-        } else if (!isBsxCriticalFindingSelected()) {
-            System.out.println("BSX Report Critical Finding: "+ isBsxCriticalFindingSelected());
+    public static void deactivateBsxFinding() {
+        boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).click();
+
+        }
+
+    }
+
+    public static void activateBsxCritical() {
+        if (!isBsxCriticalFindingSelected()) {
             pressBsxCriticalFindingCheckbox();
         }
     }
 
+    public static void deactivateBsxCritical() {
+        boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).click();
 
-    public static void activateBsxParameterANDActivateBsxFindingANDActivateBsxCriticalFinding() throws InterruptedException {
-        if (!isBsxParameterSelected()) {
-            System.out.println("BSX Report: "+ !isBsxParameterSelected());
-            activatedBsxParameter();
-            Thread.sleep(2000);
-            if (!isBsxFindingSelected() && !isBsxCriticalFindingSelected()) {
-                System.out.println("BSX Report Finding and BSX Report Critical Finding: "+ isBsxFindingSelected() + isBsxCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressBsxFindingCheckbox();
-                pressBsxCriticalFindingCheckbox();
-            }
-        } else if (!isBsxFindingSelected() || !isBsxCriticalFindingSelected()) {
-            System.out.println("BSX Report Finding and BSX Report Critical Finding: "+ isBsxFindingSelected() + isBsxCriticalFindingSelected());
-            pressBsxFindingCheckbox();
-            pressBsxCriticalFindingCheckbox();
         }
-    }
-
-    public static void deactivateBsxParameterANDActivatedBsxFindingANDActivateBsxCriticalFinding() {
 
     }
 
+    public static void onlyParamActivatedBsx() throws InterruptedException {
+
+        activateBsxParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void findingParamActivatedBsx() throws InterruptedException {
+
+        onlyParamActivatedBsx();
+        Thread.sleep(2000);
+        activateBsxFinding();
+        Thread.sleep(2000);
+
+    }
+
+    public static void criticalParamActivatedBsx() throws InterruptedException {
+
+        onlyParamActivatedBsx();
+        Thread.sleep(2000);
+        activateBsxCritical();
+        Thread.sleep(2000);
+
+    }
+
+    public static void activateAllBsx() throws InterruptedException {
+
+        findingParamActivatedBsx();
+        Thread.sleep(2000);
+        activateBsxCritical();
+        Thread.sleep(2000);
+    }
 
 
+    public static void onlyFindingCriticalActivatedBsx() throws InterruptedException {
+        activateAllBsx();
+        Thread.sleep(2000);
+        deactivateBsxParameter();
+        Thread.sleep(2000);
+    }
 
+    public static void onlyFindingActivatedBsx() throws InterruptedException {
+        findingParamActivatedBsx();
+        Thread.sleep(2000);
+        deactivateBsxParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void onlyCriticalActivatedBsx() throws InterruptedException {
+        criticalParamActivatedBsx();
+        Thread.sleep(2000);
+        deactivateBsxParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void deselectAllBsx() throws InterruptedException {
+        deactivateBsxFinding();
+        deactivateBsxCritical();
+        deactivateBsxParameter();
+    }
 
 }

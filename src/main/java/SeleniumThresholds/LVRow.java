@@ -4,6 +4,14 @@ import org.openqa.selenium.By;
 
 import static selenium.CompareTasksInCardio.driver;
 
+//activateAllLv = activateLvFindingANDActivateLvCriticalFindingANDActivateLvParameter
+//findingParamActivatedLv = activateLvFindingANDDeactivateLvCriticalFindingANDActivateLvParameter
+//criticalParamActivatedLv = activateLvCriticalFindingANDDeactivateLvFindingANDActivateLvParameter
+//onlyParamActivatedLv = activateLvParameterANDDeactivateLvFindingANDDeactivateLvCriticalFinding
+//onlyFindingCriticalActivatedLv = deactivateLvParameterANDActivatedLvFindingANDActivateLvCriticalFinding
+//onlyFindingActivatedLv = activatedLvFindingANDDeactivateLvParameterANDDeactivateLvCriticalFinding
+//onlyCriticalActivatedLv = activateLvCriticalFindingANDDeactivateLvParameterANDDeactivatedLvFinding
+
 public class LVRow {
     //is selected
     static boolean isLvParameterSelected() {
@@ -25,15 +33,19 @@ public class LVRow {
 
     static void pressLvFindingCheckbox() {
         driver.findElement(By.id("lvFinding")).click();
+        if (isLvFindingSelected()) {
+            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueA\"]")).sendKeys("97");
+        }
     }
 
     static void pressLvCriticalFindingCheckbox() {
         driver.findElement(By.id("lvCriticalFinding")).click();
+        if (isLvCriticalFindingSelected()) {
+            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueB\"]")).sendKeys("90");
+        }
     }
 
-
-
-    public static void activatedLvParameter() {
+    public static void activateLvParameter() {
         if (!isLvParameterSelected()) {
             pressLvParameterCheckbox();
         }
@@ -44,69 +56,96 @@ public class LVRow {
         //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("lvParameter")).click();
-
         }
-
     }
 
-
-    public static void activateLvParameterANDActivateLvFinding() throws InterruptedException {
-        if (!isLvParameterSelected()) {
-            System.out.println("LV-Pacing: "+ !isLvParameterSelected());
-            activatedLvParameter();
-            Thread.sleep(2000);
-            if (!isLvFindingSelected()) {
-                System.out.println("LV-Pacing Finding : "+ isLvFindingSelected());
-                Thread.sleep(2000);
-                pressLvFindingCheckbox();
-            }
-        } else if (!isLvFindingSelected()) {
-            System.out.println("LV-Pacing Finding: "+ isLvFindingSelected());
+    public static void activateLvFinding() {
+        if (!isLvFindingSelected()) {
             pressLvFindingCheckbox();
         }
     }
 
-    public static void activateLvParameterANDActivateLvCriticalFinding() throws InterruptedException {
-        if (!isLvParameterSelected()) {
-            System.out.println("LV-Pacing: "+ !isLvParameterSelected());
-            activatedLvParameter();
-            Thread.sleep(2000);
-            if (!isLvCriticalFindingSelected()) {
-                System.out.println("LV-Pacing Critical Finding: "+ isLvCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressLvCriticalFindingCheckbox();
-            }
-        } else if (!isLvCriticalFindingSelected()) {
-            System.out.println("LV-Pacing Critical Finding: "+ isLvCriticalFindingSelected());
+    public static void deactivateLvFinding() {
+        boolean isChecked = driver.findElement(By.id("lvFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("lvFinding")).click();
+        }
+    }
+
+    public static void activateLvCritical() {
+        if (!isLvCriticalFindingSelected()) {
             pressLvCriticalFindingCheckbox();
         }
     }
 
-
-    public static void activateLvParameterANDActivateLvFindingANDActivateLvCriticalFinding() throws InterruptedException {
-        if (!isLvParameterSelected()) {
-            System.out.println("LV-Pacing: "+ !isLvParameterSelected());
-            activatedLvParameter();
-            Thread.sleep(2000);
-            if (!isLvFindingSelected() && !isLvCriticalFindingSelected()) {
-                System.out.println("LV-Pacing Finding and LV-Pacing Critical Finding: "+ isLvFindingSelected() + isLvCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressLvFindingCheckbox();
-                pressLvCriticalFindingCheckbox();
-            }
-        } else if (!isLvFindingSelected() || !isLvCriticalFindingSelected()) {
-            System.out.println("LV-Pacing Finding and LV-Pacing Critical Finding: "+ isLvFindingSelected() + isLvCriticalFindingSelected());
-            pressLvFindingCheckbox();
-            pressLvCriticalFindingCheckbox();
+    public static void deactivateLvCritical() {
+        boolean isChecked = driver.findElement(By.id("lvCriticalFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("lvCriticalFinding")).click();
         }
     }
 
-    public static void deactivateLvParameterANDActivatedLvFindingANDActivateLvCriticalFinding() {
+    public static void onlyParamActivatedLv() throws InterruptedException {
+
+        activateLvParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void findingParamActivatedLv() throws InterruptedException {
+
+        onlyParamActivatedLv();
+        Thread.sleep(2000);
+        activateLvFinding();
+        Thread.sleep(2000);
 
     }
 
+    public static void criticalParamActivatedLv() throws InterruptedException {
+
+        onlyParamActivatedLv();
+        Thread.sleep(2000);
+        activateLvCritical();
+        Thread.sleep(2000);
+
+    }
+
+    public static void activateAllLv() throws InterruptedException {
+
+        findingParamActivatedLv();
+        Thread.sleep(2000);
+        activateLvCritical();
+        Thread.sleep(2000);
+    }
 
 
+    public static void onlyFindingCriticalActivatedLv() throws InterruptedException {
+        activateAllLv();
+        Thread.sleep(2000);
+        deactivateLvParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void onlyFindingActivatedLv() throws InterruptedException {
+        findingParamActivatedLv();
+        Thread.sleep(2000);
+        deactivateLvParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void onlyCriticalActivatedLv() throws InterruptedException {
+        criticalParamActivatedLv();
+        Thread.sleep(2000);
+        deactivateLvParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void deselectAllLv() throws InterruptedException {
+        deactivateLvFinding();
+        deactivateLvCritical();
+        deactivateLvParameter();
+    }
 
 
 }

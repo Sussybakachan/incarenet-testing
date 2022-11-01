@@ -4,6 +4,15 @@ import org.openqa.selenium.By;
 
 import static selenium.CompareTasksInCardio.driver;
 
+//NM = NoMeasurements
+//activateAllNM = activateNMFindingANDActivateNMCriticalFindingANDActivateNMParameter
+//findingParamActivatedNM = activateNMFindingANDDeactivateNMCriticalFindingANDActivateNMParameter
+//criticalParamActivatedNM = activateNMCriticalFindingANDDeactivateNMFindingANDActivateNMParameter
+//onlyParamActivatedNM = activateNMParameterANDDeactivateNMFindingANDDeactivateNMCriticalFinding
+//onlyFindingCriticalActivatedNM = deactivateNMParameterANDActivatedNMFindingANDActivateNMCriticalFinding
+//onlyFindingActivatedNM = activatedNMFindingANDDeactivateNMParameterANDDeactivateNMCriticalFinding
+//onlyCriticalActivatedNM = activateNMCriticalFindingANDDeactivateNMParameterANDDeactivatedNMFinding
+
 public class TelemMDTRepRow {
     //is selected
     static boolean isMdtParameterSelected() {
@@ -31,9 +40,7 @@ public class TelemMDTRepRow {
         driver.findElement(By.id("mdtCriticalFinding")).click();
     }
 
-
-
-    public static void activatedMdtParameter() {
+    public static void activateMdtParameter() {
         if (!isMdtParameterSelected()) {
             pressMdtParameterCheckbox();
         }
@@ -49,64 +56,96 @@ public class TelemMDTRepRow {
 
     }
 
-
-    public static void activateMdtParameterANDActivateMdtFinding() throws InterruptedException {
-        if (!isMdtParameterSelected()) {
-            System.out.println("MDT Report: "+ !isMdtParameterSelected());
-            activatedMdtParameter();
-            Thread.sleep(2000);
-            if (!isMdtFindingSelected()) {
-                System.out.println("MDT Report Finding : "+ isMdtFindingSelected());
-                Thread.sleep(2000);
-                pressMdtFindingCheckbox();
-            }
-        } else if (!isMdtFindingSelected()) {
-            System.out.println("MDT Report Finding: "+ isMdtFindingSelected());
+    public static void activateMdtFinding() {
+        if (!isMdtFindingSelected()) {
             pressMdtFindingCheckbox();
         }
     }
 
-    public static void activateMdtParameterANDActivateMdtCriticalFinding() throws InterruptedException {
-        if (!isMdtParameterSelected()) {
-            System.out.println("MDT Report: "+ !isMdtParameterSelected());
-            activatedMdtParameter();
-            Thread.sleep(2000);
-            if (!isMdtCriticalFindingSelected()) {
-                System.out.println("MDT Report Critical Finding: "+ isMdtCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressMdtCriticalFindingCheckbox();
-            }
-        } else if (!isMdtCriticalFindingSelected()) {
-            System.out.println("MDT Report Critical Finding: "+ isMdtCriticalFindingSelected());
+    public static void deactivateMdtFinding() {
+        boolean isChecked = driver.findElement(By.id("MedtronicTelemonitoring-ReportFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("MedtronicTelemonitoring-ReportFinding")).click();
+
+        }
+
+    }
+
+    public static void activateMdtCritical() {
+        if (!isMdtCriticalFindingSelected()) {
             pressMdtCriticalFindingCheckbox();
         }
     }
 
+    public static void deactivateMdtCritical() {
+        boolean isChecked = driver.findElement(By.id("MedtronicTelemonitoring-ReportCriticalFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("MedtronicTelemonitoring-ReportCriticalFinding")).click();
 
-    public static void activateMdtParameterANDActivateMdtFindingANDActivateMdtCriticalFinding() throws InterruptedException {
-        if (!isMdtParameterSelected()) {
-            System.out.println("MDT Report: "+ !isMdtParameterSelected());
-            activatedMdtParameter();
-            Thread.sleep(2000);
-            if (!isMdtFindingSelected() && !isMdtCriticalFindingSelected()) {
-                System.out.println("MDT Report Finding and MDT Report Critical Finding: "+ isMdtFindingSelected() + isMdtCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressMdtFindingCheckbox();
-                pressMdtCriticalFindingCheckbox();
-            }
-        } else if (!isMdtFindingSelected() || !isMdtCriticalFindingSelected()) {
-            System.out.println("MDT Report Finding and MDT Report Critical Finding: "+ isMdtFindingSelected() + isMdtCriticalFindingSelected());
-            pressMdtFindingCheckbox();
-            pressMdtCriticalFindingCheckbox();
         }
-    }
-
-    public static void deactivateMdtParameterANDActivatedMdtFindingANDActivateMdtCriticalFinding() {
 
     }
 
+    public static void onlyParamActivatedMdt() throws InterruptedException {
+
+        activateMdtParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void findingParamActivatedMdt() throws InterruptedException {
+
+        onlyParamActivatedMdt();
+        Thread.sleep(2000);
+        activateMdtFinding();
+        Thread.sleep(2000);
+
+    }
+
+    public static void criticalParamActivatedMdt() throws InterruptedException {
+
+        onlyParamActivatedMdt();
+        Thread.sleep(2000);
+        activateMdtCritical();
+        Thread.sleep(2000);
+
+    }
+
+    public static void activateAllMdt() throws InterruptedException {
+
+        findingParamActivatedMdt();
+        Thread.sleep(2000);
+        activateMdtCritical();
+        Thread.sleep(2000);
+    }
 
 
+    public static void onlyFindingCriticalActivatedMdt() throws InterruptedException {
+        activateAllMdt();
+        Thread.sleep(2000);
+        deactivateMdtParameter();
+        Thread.sleep(2000);
+    }
 
+    public static void onlyFindingActivatedMdt() throws InterruptedException {
+        findingParamActivatedMdt();
+        Thread.sleep(2000);
+        deactivateMdtParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void onlyCriticalActivatedMdt() throws InterruptedException {
+        criticalParamActivatedMdt();
+        Thread.sleep(2000);
+        deactivateMdtParameter();
+        Thread.sleep(2000);
+    }
+
+    public static void deselectAllMdt() throws InterruptedException {
+        deactivateMdtFinding();
+        deactivateMdtCritical();
+        deactivateMdtParameter();
+    }
 
 }
