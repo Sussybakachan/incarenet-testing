@@ -112,22 +112,6 @@ public class TelemMDTRepRow {
 
     }
 
-    public static void activateAllMdt() throws InterruptedException {
-
-        findingParamActivatedMdt();
-        Thread.sleep(2000);
-        activateMdtCritical();
-        Thread.sleep(2000);
-    }
-
-
-    public static void onlyFindingCriticalActivatedMdt() throws InterruptedException {
-        activateAllMdt();
-        Thread.sleep(2000);
-        deactivateMdtParameter();
-        Thread.sleep(2000);
-    }
-
     public static void onlyFindingActivatedMdt() throws InterruptedException {
         findingParamActivatedMdt();
         Thread.sleep(2000);

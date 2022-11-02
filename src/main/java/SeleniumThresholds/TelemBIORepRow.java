@@ -114,22 +114,6 @@ public class TelemBIORepRow {
 
     }
 
-    public static void activateAllBio() throws InterruptedException {
-
-        findingParamActivatedBio();
-        Thread.sleep(2000);
-        activateBioCritical();
-        Thread.sleep(2000);
-    }
-
-
-    public static void onlyFindingCriticalActivatedBio() throws InterruptedException {
-        activateAllBio();
-        Thread.sleep(2000);
-        deactivateBioParameter();
-        Thread.sleep(2000);
-    }
-
     public static void onlyFindingActivatedBio() throws InterruptedException {
         findingParamActivatedBio();
         Thread.sleep(2000);

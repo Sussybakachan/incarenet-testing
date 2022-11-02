@@ -112,22 +112,6 @@ public class TelemBSXRepRow {
 
     }
 
-    public static void activateAllBsx() throws InterruptedException {
-
-        findingParamActivatedBsx();
-        Thread.sleep(2000);
-        activateBsxCritical();
-        Thread.sleep(2000);
-    }
-
-
-    public static void onlyFindingCriticalActivatedBsx() throws InterruptedException {
-        activateAllBsx();
-        Thread.sleep(2000);
-        deactivateBsxParameter();
-        Thread.sleep(2000);
-    }
-
     public static void onlyFindingActivatedBsx() throws InterruptedException {
         findingParamActivatedBsx();
         Thread.sleep(2000);
