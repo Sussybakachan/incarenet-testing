@@ -113,8 +113,6 @@ public class CompareTasksInCardio {
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     static void compareCrt(List<Task> listname) throws Exception {
 
-
-
         CollectTasks collectTasks = new CollectTasks();
         if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size() == 0){
             System.out.println("Die Task wurde gewollt und erfolgreich NICHT erstellt.");
