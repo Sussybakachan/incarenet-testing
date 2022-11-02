@@ -114,22 +114,6 @@ public class TelemMicroportRepRow {
 
     }
 
-    public static void activateAllMicroport() throws InterruptedException {
-
-        findingParamActivatedMicroport();
-        Thread.sleep(2000);
-        activateMicroportCritical();
-        Thread.sleep(2000);
-    }
-
-
-    public static void onlyFindingCriticalActivatedMicroport() throws InterruptedException {
-        activateAllMicroport();
-        Thread.sleep(2000);
-        deactivateMicroportParameter();
-        Thread.sleep(2000);
-    }
-
     public static void onlyFindingActivatedMicroport() throws InterruptedException {
         findingParamActivatedMicroport();
         Thread.sleep(2000);

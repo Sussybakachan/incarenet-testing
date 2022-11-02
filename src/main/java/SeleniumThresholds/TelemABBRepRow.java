@@ -112,21 +112,6 @@ public class TelemABBRepRow {
 
     }
 
-    public static void activateAllAbb() throws InterruptedException {
-
-        findingParamActivatedAbb();
-        Thread.sleep(2000);
-        activateAbbCritical();
-        Thread.sleep(2000);
-    }
-
-    public static void onlyFindingCriticalActivatedAbb() throws InterruptedException {
-        activateAllAbb();
-        Thread.sleep(2000);
-        deactivateAbbParameter();
-        Thread.sleep(2000);
-    }
-
     public static void onlyFindingActivatedAbb() throws InterruptedException {
         findingParamActivatedAbb();
         Thread.sleep(2000);
