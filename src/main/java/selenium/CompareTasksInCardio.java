@@ -124,7 +124,7 @@ public class CompareTasksInCardio {
             for (int j = 0; j < listname.size(); j++) {
                 System.out.println("j: " + j + " i: " + i);
                 //System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
-                if (listname.get(j).equals(collectedTasks.get(i)) && PatternTest.useRegex(String.valueOf(listname.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(listname.get(j).getTargetDate()))) {
+                if (listname.get(j).equals(collectedTasks.get(i)) && PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getTargetDate()))) {
                     System.out.println("Die Task ist korrekt" + collectedTasks.get(i).getTaskDescription() + " und "+ listname.get(j).getTaskDescription());
                     passedCounter++;
                     System.out.println(passedCounter);
