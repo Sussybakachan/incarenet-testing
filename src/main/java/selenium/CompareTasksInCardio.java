@@ -109,13 +109,14 @@ public class CompareTasksInCardio {
 //ist wichtig
 
   //  public static void comparison() throws InterruptedException {}
-
+  static int successfulTAsks = 0;
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     static void compareCrt(List<Task> listname) throws Exception {
 
         CollectTasks collectTasks = new CollectTasks();
         if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size() == 0){
             System.out.println("Die Task wurde gewollt und erfolgreich NICHT erstellt.");
+
         }else if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size()>0)  {
             System.out.println("Die Task wurde ungewollt erstellt");
             return;
@@ -127,6 +128,7 @@ public class CompareTasksInCardio {
             }
             System.out.println("Funktionanfang");
         for (int i = 0; i < collectedTasks.size(); i++) {
+            successfulTAsks ++;
             int passedCounter = 0;
             for (int j = 0; j < listname.size(); j++) {
                 System.out.println("j: " + j + " i: " + i);
@@ -135,6 +137,7 @@ public class CompareTasksInCardio {
                     System.out.println("Die Task ist korrekt" + collectedTasks.get(i).getTaskDescription() + " und "+ listname.get(j).getTaskDescription());
                     passedCounter++;
                     System.out.println(passedCounter);
+                    System.out.print("Amount of succsseful Tasks "+ successfulTAsks);
                 } else if (passedCounter < 1 && j== listname.size()-1) {
                     //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
                     //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden

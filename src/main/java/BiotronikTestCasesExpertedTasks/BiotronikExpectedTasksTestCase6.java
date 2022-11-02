@@ -5,7 +5,7 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BiotronikExpectedTasksTestCase4 {
+public class BiotronikExpectedTasksTestCase6 {
 
     static Task Biotronik93AlarmTask = new Task();
 
@@ -14,20 +14,20 @@ public class BiotronikExpectedTasksTestCase4 {
     static Task BiotronikERIAlarmTask = new Task();
 
     static Task BiotronikEOSAlarmTask = new Task();
-    public static List<Task> BiotronikTestCase4List = new ArrayList<>();
+    public static List<Task> BiotronikTestCase6List = new ArrayList<>();
 
-    public BiotronikExpectedTasksTestCase4() {
-        this.createBiotronik93generalTaskCase4();
+    public BiotronikExpectedTasksTestCase6() {
+        this.createBiotronik93generalTaskCase6();
         createBiotronikEOSAlarmTask();
         createBiotronikERIAlarmTask();
-        createBiotronik97generalTaskCase4();
+        createBiotronik97generalTaskCase6();
     }
 
 
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
     //I don't know if that makes a difference
-    public List<Task> createBiotronik93generalTaskCase4() {
+    public List<Task> createBiotronik93generalTaskCase6() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         Biotronik93AlarmTask.setCheckBox("");
@@ -51,11 +51,11 @@ public class BiotronikExpectedTasksTestCase4 {
         Biotronik93AlarmTask.setFurtherInformation("");
         Biotronik93AlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BiotronikTestCase4List.add(Biotronik93AlarmTask);
-        return BiotronikTestCase4List;
+        BiotronikTestCase6List.add(Biotronik93AlarmTask);
+        return BiotronikTestCase6List;
     }
 
-    public static  List<Task> createBiotronik97generalTaskCase4() {
+    public static  List<Task> createBiotronik97generalTaskCase6() {
 
         Biotronik97LVAlarmTask.setCheckBox("");
         Biotronik97LVAlarmTask.setColor("warning");
@@ -74,8 +74,8 @@ public class BiotronikExpectedTasksTestCase4 {
         Biotronik97LVAlarmTask.setFurtherInformation("");
         Biotronik97LVAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BiotronikTestCase4List.add(Biotronik97LVAlarmTask);
-        return BiotronikTestCase4List;
+        BiotronikTestCase6List.add(Biotronik97LVAlarmTask);
+        return BiotronikTestCase6List;
     }
     public static  List<Task> createBiotronikERIAlarmTask() {
 
@@ -96,8 +96,8 @@ public class BiotronikExpectedTasksTestCase4 {
         BiotronikERIAlarmTask.setFurtherInformation("");
         BiotronikERIAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BiotronikTestCase4List.add(BiotronikERIAlarmTask);
-        return BiotronikTestCase4List;
+        BiotronikTestCase6List.add(BiotronikERIAlarmTask);
+        return BiotronikTestCase6List;
     }
     public static  List<Task> createBiotronikEOSAlarmTask() {
 
@@ -118,7 +118,7 @@ public class BiotronikExpectedTasksTestCase4 {
         BiotronikEOSAlarmTask.setFurtherInformation("");
         BiotronikEOSAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BiotronikTestCase4List.add(BiotronikEOSAlarmTask);
-        return BiotronikTestCase4List;
+        BiotronikTestCase6List.add(BiotronikEOSAlarmTask);
+        return BiotronikTestCase6List;
     }
 }

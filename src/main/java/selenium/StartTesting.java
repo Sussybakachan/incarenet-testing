@@ -17,6 +17,8 @@ import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase1.cr
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.BiotronikTestCase2List;
 import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.*;
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase3.BiotronikTestCase3List;
+import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase4.BiotronikTestCase4List;
+import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase7.BiotronikTestCase7List;
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createBiotronikExpectedTasks;
 import static selenium.CreationOfAllExpectedTasks.createExpectedTasks;
@@ -45,7 +47,7 @@ public class StartTesting {
         inCardioDash();
         choosepatient("Sel-Biotronik");
       System.out.println("abbottCrt size: " + abbottCrt.size());
-        compareCrt(BiotronikTestCase3List);
+        compareCrt(BiotronikTestCase7List);
         // thresholdCheck();
        //comparison();
 

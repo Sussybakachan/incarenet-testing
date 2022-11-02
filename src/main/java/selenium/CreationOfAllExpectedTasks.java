@@ -1,6 +1,6 @@
 package selenium;
 
-import BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase3;
+import BiotronikTestCasesExpertedTasks.*;
 
 import static AbbottTestCasesExpectedTasks.AbbottTestCaseNoTask.createAbbottNoTask;
 import static ExpectedTasks.MicroPortExpectedTasks.createMicroPortWhiteTask;
@@ -25,6 +25,10 @@ public class CreationOfAllExpectedTasks {
         createAbbottGeneralYellowTask();
         createAbbottNoTask();
         BiotronikExpectedTasksTestCase3 biotronikExpectedTasksTestCase3 = new BiotronikExpectedTasksTestCase3();
+        BiotronikExpectedTasksTestCase4 biotronikExpectedTasksTestCase4 = new BiotronikExpectedTasksTestCase4();
+        BiotronikExpectedTasksTestCase5 biotronikExpectedTasksTestCase5 = new BiotronikExpectedTasksTestCase5();
+        BiotronikExpectedTasksTestCase6 biotronikExpectedTasksTestCase6 = new BiotronikExpectedTasksTestCase6();
+        BiotronikExpectedTasksTestCase7 biotronikExpectedTasksTestCase7 = new BiotronikExpectedTasksTestCase7();
 
 
     }
