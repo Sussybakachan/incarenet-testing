@@ -16,7 +16,7 @@ public class AbbottExpectedTasksTestCase1 {
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
     //I don't know if that makes a difference
-    public static void createAbbottGeneralYellowTask() {
+    public static List<Task> createAbbottGeneralYellowTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         AbbottGeneralYellowTask.setCheckBox("");
@@ -33,6 +33,7 @@ public class AbbottExpectedTasksTestCase1 {
         AbbottGeneralYellowTask.setAction("Aufgabe an PBA weiterleiten");
 
         AbbottTestCase1List.add(AbbottGeneralYellowTask);
+        return AbbottTestCase1List;
     }
 
 }
