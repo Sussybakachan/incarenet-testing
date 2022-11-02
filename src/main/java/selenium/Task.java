@@ -98,6 +98,15 @@ public class Task {
         this.action = action;
     }
 
+    public boolean isIntentioanllyEmpty() {
+        return isIntentioanllyEmpty;
+    }
+
+    public void setIntentioanllyEmpty(boolean intentioanllyEmpty) {
+        isIntentioanllyEmpty = intentioanllyEmpty;
+    }
+
+    private boolean isIntentioanllyEmpty;
     private String startDate;
 
     private String receiveDate;

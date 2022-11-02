@@ -1,5 +1,6 @@
 package selenium;
 
+import static AbbottTestCasesExpectedTasks.AbbottTestCaseNoTask.createAbbottNoTask;
 import static ExpectedTasks.MicroPortExpectedTasks.createMicroPortWhiteTask;
 import static selenium.ExpectedTasks.createAbbottTestExpectedTask;
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.*;
@@ -20,6 +21,8 @@ public class CreationOfAllExpectedTasks {
         createBiotronik93generalTask();
         createAbbottTestExpectedTask();
         createAbbottGeneralYellowTask();
+        createAbbottNoTask();
+
 
     }
 

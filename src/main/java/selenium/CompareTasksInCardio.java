@@ -112,13 +112,22 @@ public class CompareTasksInCardio {
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     static void compareCrt(List<Task> listname) throws Exception {
-        System.out.println("the list size is: " + listname.size());
-        if(listname.size()<1){
-            throw new Exception("Some expected Task List did not get created");
-        }
-        System.out.println("Funktionanfang");
+
+
 
         CollectTasks collectTasks = new CollectTasks();
+        if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size() == 0){
+            System.out.println("Die Task wurde gewollt und erfolgreich NICHT erstellt.");
+        }else if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size()>0)  {
+            System.out.println("Die Task wurde ungewollt erstellt");
+            return;
+        }
+
+            System.out.println("the list size is: " + listname.size());
+            if(listname.size()<1){
+                throw new Exception("Some expected Task List did not get created");
+            }
+            System.out.println("Funktionanfang");
         for (int i = 0; i < collectedTasks.size(); i++) {
             int passedCounter = 0;
             for (int j = 0; j < listname.size(); j++) {
@@ -137,6 +146,7 @@ public class CompareTasksInCardio {
             }
         }
     }
+
 
     public static void choosepatient(String p) throws InterruptedException {
         driver.switchTo().frame(0);

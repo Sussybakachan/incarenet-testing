@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import static AbbottTestCasesExpectedTasks.AbbottTestCaseNoTask.AbbottEmptyTestCase;
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase1.createBiotronik97generalTask;
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.BiotronikTestCase2List;
 import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.*;
