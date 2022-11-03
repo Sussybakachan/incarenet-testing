@@ -16,6 +16,9 @@ import static AbbottTestCasesExpectedTasks.AbbottTestCaseNoTask.AbbottEmptyTestC
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase1.createBiotronik97generalTask;
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.BiotronikTestCase2List;
 import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.*;
+import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase3.BiotronikTestCase3List;
+import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase4.BiotronikTestCase4List;
+import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase7.BiotronikTestCase7List;
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createBiotronikExpectedTasks;
 import static selenium.CreationOfAllExpectedTasks.createExpectedTasks;
@@ -42,9 +45,9 @@ public class StartTesting {
         System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
-        choosepatient("Sel-Abbott");
+        choosepatient("Sel-Biotronik");
       System.out.println("abbottCrt size: " + abbottCrt.size());
-        compareCrt(AbbottTestCase1List);
+        compareCrt(BiotronikTestCase7List);
         // thresholdCheck();
        //comparison();
 
