@@ -33,7 +33,7 @@ public class CompareTasksInCardio {
     }
 
     public static void inCardioDash() throws Exception {
-        Thread.sleep(4000);
+        Thread.sleep(6000);
         List<WebElement> p = driver.findElements(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[@class='KoNavItem']"));
 
         int pp = p.size();
@@ -118,7 +118,7 @@ public class CompareTasksInCardio {
             System.out.println("Die Task wurde gewollt und erfolgreich NICHT erstellt.");
 
         }else if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size()>0)  {
-            System.out.println("Die Task wurde ungewollt erstellt");
+            System.out.println("Eine oder mehrere Tasks wurden ungewollt erstellt");
             return;
         }
 
@@ -134,10 +134,10 @@ public class CompareTasksInCardio {
                 System.out.println("j: " + j + " i: " + i);
                 //System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
                 if (listname.get(j).equals(collectedTasks.get(i)) && PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getTargetDate()))) {
-                    System.out.println("Die Task ist korrekt" + collectedTasks.get(i).getTaskDescription() + " und "+ listname.get(j).getTaskDescription());
+                    System.out.println("Die Task ist korrekt " +"\n" + "\n" + collectedTasks.get(i).getTaskDescription() + "\n"+ "\n"+ " und "+ "\n"+ "\n"+ listname.get(j).getTaskDescription());
                     passedCounter++;
                     System.out.println(passedCounter);
-                    System.out.print("Amount of succsseful Tasks "+ successfulTAsks);
+                    System.out.println("Amount of succsseful Tasks "+ successfulTAsks);
                 } else if (passedCounter < 1 && j== listname.size()-1) {
                     //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
                     //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
