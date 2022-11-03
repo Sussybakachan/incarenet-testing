@@ -1,5 +1,8 @@
 package selenium;
 
+import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase2;
+import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase3;
+import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase4;
 import BiotronikTestCasesExpertedTasks.*;
 import BostonTestCasesExpertedTasks.BostonExpectedTasksTestCase1;
 import BostonTestCasesExpertedTasks.*;
@@ -17,6 +20,9 @@ public class CreationOfAllExpectedTasks {
     }
 
     public static void createBiotronikExpectedTasks() {
+        AbbottExpectedTasksTestCase2 abbottExpectedTasksTestCase2 = new AbbottExpectedTasksTestCase2();
+        AbbottExpectedTasksTestCase3 abbottExpectedTasksTestCase3 = new AbbottExpectedTasksTestCase3();
+        AbbottExpectedTasksTestCase4 abbottExpectedTasksTestCase4 = new AbbottExpectedTasksTestCase4();
         createBiotronikERIAlarmTask();
         createBiotronikEOSAlarmTask();
         createBiotronikEOSTask();
