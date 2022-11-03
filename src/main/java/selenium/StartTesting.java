@@ -1,6 +1,8 @@
 package selenium;
 
 import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1;
+import BostonTestCasesExpertedTasks.BostonExpectedTasksTestCase1;
+import BostonTestCasesExpertedTasks.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,6 +27,7 @@ import static selenium.CreationOfAllExpectedTasks.createExpectedTasks;
 import static selenium.ExpectedTasks.*;
 
 
+
 public class StartTesting {
 
     public static void main(String[] args) throws Exception {
@@ -45,9 +48,9 @@ public class StartTesting {
         System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
-        choosepatient("Sel-Biotronik");
+        choosepatient("Sel-Boston");
       System.out.println("abbottCrt size: " + abbottCrt.size());
-        compareCrt(BiotronikTestCase7List);
+        compareCrt(BostonExpectedTasksTestCase8.BostonTestCase8List);
         // thresholdCheck();
        //comparison();
 
