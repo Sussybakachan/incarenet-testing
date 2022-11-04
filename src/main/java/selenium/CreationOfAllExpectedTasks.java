@@ -4,10 +4,11 @@ import AbbottTestCasesExpectedTasks.*;
 import BiotronikTestCasesExpertedTasks.*;
 import BostonTestCasesExpertedTasks.BostonExpectedTasksTestCase1;
 import BostonTestCasesExpertedTasks.*;
+import MicroPortTestCasesExpertedTasks.*;
 
 import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.createAbbottGeneralYellowTask;
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.*;
-import static ExpectedTasks.MicroPortExpectedTasks.createMicroPortWhiteTask;
+import static MicroPortTestCasesExpertedTasks.MicroPortExpectedTasksTestCase5.createMicroPortWhiteTask;
 import static selenium.ExpectedTasks.createAbbottTestExpectedTask;
 
 public class CreationOfAllExpectedTasks {
@@ -16,7 +17,7 @@ public class CreationOfAllExpectedTasks {
         createAbbottTestExpectedTask();
     }
 
-    public static void createBiotronikExpectedTasks() {
+    public static void createAllExpectedTasks() {
         AbbottExpectedTasksTestCase2 abbottExpectedTasksTestCase2 = new AbbottExpectedTasksTestCase2();
         AbbottExpectedTasksTestCase3 abbottExpectedTasksTestCase3 = new AbbottExpectedTasksTestCase3();
         AbbottExpectedTasksTestCase4 abbottExpectedTasksTestCase4 = new AbbottExpectedTasksTestCase4();
@@ -48,6 +49,14 @@ public class CreationOfAllExpectedTasks {
         BostonExpectedTasksTestCase6 bostonExpectedTasksTestCase6 = new BostonExpectedTasksTestCase6();
         BostonExpectedTasksTestCase7 bostonExpectedTasksTestCase7 = new BostonExpectedTasksTestCase7();
         BostonExpectedTasksTestCase8 bostonExpectedTasksTestCase8 = new BostonExpectedTasksTestCase8();
+        MicroportExpectedTasksTestCase1 microportExpectedTasksTestCase1 = new MicroportExpectedTasksTestCase1();
+        MicroportExpectedTasksTestCase2 microportExpectedTasksTestCase2 = new MicroportExpectedTasksTestCase2();
+        MicroportExpectedTasksTestCase3 microportExpectedTasksTestCase3 = new MicroportExpectedTasksTestCase3();
+        MicroportExpectedTasksTestCase4 microportExpectedTasksTestCase4 = new MicroportExpectedTasksTestCase4();
+        MicroPortExpectedTasksTestCase5 microPortExpectedTasksTestCase5 = new MicroPortExpectedTasksTestCase5();
+        MicroportExpectedTasksTestCase6 microportExpectedTasksTestCase6 = new MicroportExpectedTasksTestCase6();
+        MicroportExpectedTasksTestCase7 microportExpectedTasksTestCase7 = new MicroportExpectedTasksTestCase7();
+
     }
 
 }

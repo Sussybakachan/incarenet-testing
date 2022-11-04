@@ -1,22 +1,27 @@
-package ExpectedTasks;
+package MicroPortTestCasesExpertedTasks;
 
 import selenium.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MicroPortExpectedTasks {
-    static Task microPortWhiteTask = new Task();
-    public static List<Task> microPortExpectedList = new ArrayList<>();
-    public static  List<Task> createMicroPortWhiteTask() {
+public class MicroportExpectedTasksTestCase3 {
+    static Task microPortRedTask = new Task();
+    public static List<Task> MicroPortTestCase3List = new ArrayList<>();
+
+    public MicroportExpectedTasksTestCase3(){
+        createMicroPortRedTask();
+    }
+
+    public static  List<Task> createMicroPortRedTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
-        microPortWhiteTask.setCheckBox("");
-        microPortWhiteTask.setColor("normal");
-        microPortWhiteTask.setStartDate("2020-01-29T00:26:05.000Z");
-        microPortWhiteTask.setReceiveDate("2022-10-19T14:28:15.701Z");
-        microPortWhiteTask.setTargetDate("2022-10-20T14:28:15.701Z");
-        microPortWhiteTask.setTaskDescription("Episode(n) im Bericht:\n" +
+        microPortRedTask.setCheckBox("");
+        microPortRedTask.setColor("danger");
+        microPortRedTask.setStartDate("2020-01-29T00:26:05.000Z");
+        microPortRedTask.setReceiveDate("2022-10-19T14:28:15.701Z");
+        microPortRedTask.setTargetDate("2022-10-20T14:28:15.701Z");
+        microPortRedTask.setTaskDescription("Episode(n) im Bericht:\n" +
                 "AT/AF, AT/AF, VF, Other, Other, VF, VF, Other, VF, Other, VF, VF, Monitor\n" +
                 "\n" +
                 "Batteriestatus: MOS\n" +
@@ -34,14 +39,14 @@ public class MicroPortExpectedTasks {
                 "Temps total en repli : 07h 40min (86.6 %)\n" +
                 "En mode de repli, la fréquence ventriculaire est stimulée à 100 %\n" +
                 "La Fréquence ventriculaire moyenne en mode de repli est de 60 min-1");
-        microPortWhiteTask.setMeasurements("Bitte auswählen");
-        microPortWhiteTask.setPdf("EpisodeReport");
-        microPortWhiteTask.setEmployee("");
-        microPortWhiteTask.setFurtherInformation("");
-        microPortWhiteTask.setAction("Aufgabe an PBA weiterleiten");
+        microPortRedTask.setMeasurements("Bitte auswählen");
+        microPortRedTask.setPdf("EpisodeReport");
+        microPortRedTask.setEmployee("");
+        microPortRedTask.setFurtherInformation("");
+        microPortRedTask.setAction("Aufgabe an PBA weiterleiten");
 
-        microPortExpectedList.add(microPortWhiteTask);
-        return microPortExpectedList;
+        MicroPortTestCase3List.add(microPortRedTask);
+        return MicroPortTestCase3List;
 
     }
 }

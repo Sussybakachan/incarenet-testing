@@ -1,33 +1,15 @@
 package selenium;
 
-import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1;
 //TODO typo in "Expected"-> "Experted"
-import BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase8;
-import BostonTestCasesExpertedTasks.BostonExpectedTasksTestCase1;
-import BostonTestCasesExpertedTasks.*;
 import AbbottTestCasesExpectedTasks.*;
-import org.openqa.selenium.By;
+import MicroPortTestCasesExpertedTasks.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
-
-import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase1.createBiotronik97generalTask;
-import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.BiotronikTestCase2List;
-import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.*;
-import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase3.BiotronikTestCase3List;
-import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase4.BiotronikTestCase4List;
-import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase7.BiotronikTestCase7List;
-import static selenium.CompareTasksInCardio.*;
-import static selenium.CreationOfAllExpectedTasks.createBiotronikExpectedTasks;
-import static selenium.CreationOfAllExpectedTasks.createExpectedTasks;
-import static selenium.ExpectedTasks.*;
-
+        import static selenium.CompareTasksInCardio.*;
+import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
 
 
 public class StartTesting {
@@ -46,12 +28,12 @@ public class StartTesting {
        // PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff2\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
 
        //createTasks();
-      createBiotronikExpectedTasks();
+      createAllExpectedTasks();
        // System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
-        choosepatient("Sel-Abbott");
-        compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List);
+        choosepatient("Sel-MicroPort");
+        compareCrt(MicroportExpectedTasksTestCase7.MicroPortTestCase7List);
         // thresholdCheck();
        //comparison();
 
