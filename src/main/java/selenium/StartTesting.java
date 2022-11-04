@@ -2,6 +2,7 @@ package selenium;
 
 import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1;
 //TODO typo in "Expected"-> "Experted"
+import BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase8;
 import BostonTestCasesExpertedTasks.BostonExpectedTasksTestCase1;
 import BostonTestCasesExpertedTasks.*;
 import AbbottTestCasesExpectedTasks.*;
@@ -50,7 +51,7 @@ public class StartTesting {
         loginP();
         inCardioDash();
         choosepatient("Sel-Abbott");
-        compareCrt(AbbottExpectedTasksTestCase4.AbbottTestCase4List);
+        compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List);
         // thresholdCheck();
        //comparison();
 
