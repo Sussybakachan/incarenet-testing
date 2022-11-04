@@ -4,6 +4,7 @@ import AbbottTestCasesExpectedTasks.*;
 import BiotronikTestCasesExpertedTasks.*;
 import BostonTestCasesExpertedTasks.BostonExpectedTasksTestCase1;
 import BostonTestCasesExpertedTasks.*;
+import MedtronicTestCasesExpertedTasks.*;
 import MicroPortTestCasesExpertedTasks.*;
 
 import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.createAbbottGeneralYellowTask;
@@ -18,6 +19,8 @@ public class CreationOfAllExpectedTasks {
     }
 
     public static void createAllExpectedTasks() {
+
+        //Abbott
         AbbottExpectedTasksTestCase2 abbottExpectedTasksTestCase2 = new AbbottExpectedTasksTestCase2();
         AbbottExpectedTasksTestCase3 abbottExpectedTasksTestCase3 = new AbbottExpectedTasksTestCase3();
         AbbottExpectedTasksTestCase4 abbottExpectedTasksTestCase4 = new AbbottExpectedTasksTestCase4();
@@ -26,6 +29,8 @@ public class CreationOfAllExpectedTasks {
         AbbottExpectedTasksTestCase7 abbottExpectedTasksTestCase7 = new AbbottExpectedTasksTestCase7();
         AbbottExpectedTasksTestCase8 abbottExpectedTasksTestCase8 = new AbbottExpectedTasksTestCase8();
         AbbottExpectedTasksTestCase9 abbottExpectedTasksTestCase9 = new AbbottExpectedTasksTestCase9();
+
+        //Biotronik
         createBiotronikERIAlarmTask();
         createBiotronikEOSAlarmTask();
         createBiotronikEOSTask();
@@ -41,6 +46,8 @@ public class CreationOfAllExpectedTasks {
         BiotronikExpectedTasksTestCase6 biotronikExpectedTasksTestCase6 = new BiotronikExpectedTasksTestCase6();
         BiotronikExpectedTasksTestCase7 biotronikExpectedTasksTestCase7 = new BiotronikExpectedTasksTestCase7();
         BiotronikExpectedTasksTestCase8 biotronikExpectedTasksTestCase8 = new BiotronikExpectedTasksTestCase8();
+
+        //Boston
         BostonExpectedTasksTestCase1 bostonExpectedTasksTestCase1 = new BostonExpectedTasksTestCase1();
         BostonExpectedTasksTestCase2 bostonExpectedTasksTestCase2  = new BostonExpectedTasksTestCase2();
         BostonExpectedTasksTestCase3 bostonExpectedTasksTestCase3  = new BostonExpectedTasksTestCase3();
@@ -49,6 +56,19 @@ public class CreationOfAllExpectedTasks {
         BostonExpectedTasksTestCase6 bostonExpectedTasksTestCase6 = new BostonExpectedTasksTestCase6();
         BostonExpectedTasksTestCase7 bostonExpectedTasksTestCase7 = new BostonExpectedTasksTestCase7();
         BostonExpectedTasksTestCase8 bostonExpectedTasksTestCase8 = new BostonExpectedTasksTestCase8();
+
+        //Medtronic
+        MedtronicExpectedTasksTestCase1 medtronicExpectedTasksTestCase1 = new MedtronicExpectedTasksTestCase1();
+        MedtronicExpectedTasksTestCase2 medtronicExpectedTasksTestCase2 = new MedtronicExpectedTasksTestCase2();
+        MedtronicExpectedTasksTestCase3 medtronicExpectedTasksTestCase3 = new MedtronicExpectedTasksTestCase3();
+        MedtronicExpectedTasksTestCase4 medtronicExpectedTasksTestCase4 = new MedtronicExpectedTasksTestCase4();
+        MedtronicExpectedTasksTestCase5 medtronicExpectedTasksTestCase5 = new MedtronicExpectedTasksTestCase5();
+        MedtronicExpectedTasksTestCase6 medtronicExpectedTasksTestCase6 = new MedtronicExpectedTasksTestCase6();
+        MedtronicExpectedTasksTestCase7 medtronicExpectedTasksTestCase7 = new MedtronicExpectedTasksTestCase7();
+        MedtronicExpectedTasksTestCase8 medtronicExpectedTasksTestCase8 = new MedtronicExpectedTasksTestCase8();
+        MedtronicExpectedTasksTestCase9 medtronicExpectedTasksTestCase9 = new MedtronicExpectedTasksTestCase9();
+
+        //MicroPort
         MicroportExpectedTasksTestCase1 microportExpectedTasksTestCase1 = new MicroportExpectedTasksTestCase1();
         MicroportExpectedTasksTestCase2 microportExpectedTasksTestCase2 = new MicroportExpectedTasksTestCase2();
         MicroportExpectedTasksTestCase3 microportExpectedTasksTestCase3 = new MicroportExpectedTasksTestCase3();
