@@ -5,12 +5,14 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbbottTestCaseNoTask {
+public class AbbottExpectedTasksTestCase4 {
     static Task AbbottNoTask = new Task();
 
-    public static List<Task> AbbottEmptyTestCase = new ArrayList<>();
+    public static List<Task> AbbottTestCase4List = new ArrayList<>();
 
-
+    public AbbottExpectedTasksTestCase4(){
+        createAbbottNoTask();
+    }
 
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
@@ -19,7 +21,7 @@ public class AbbottTestCaseNoTask {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         AbbottNoTask.setIntentioanllyEmpty(true);
-        AbbottEmptyTestCase.add(AbbottNoTask);
-        return AbbottEmptyTestCase;
+        AbbottTestCase4List.add(AbbottNoTask);
+        return AbbottTestCase4List;
     }
 }

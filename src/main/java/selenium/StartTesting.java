@@ -1,8 +1,11 @@
 package selenium;
 
 import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1;
+//TODO typo in "Expected"-> "Experted"
+import BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase8;
 import BostonTestCasesExpertedTasks.BostonExpectedTasksTestCase1;
 import BostonTestCasesExpertedTasks.*;
+import AbbottTestCasesExpectedTasks.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,7 +17,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import static AbbottTestCasesExpectedTasks.AbbottTestCaseNoTask.AbbottEmptyTestCase;
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase1.createBiotronik97generalTask;
 import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.BiotronikTestCase2List;
 import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.*;
@@ -45,12 +47,11 @@ public class StartTesting {
 
        //createTasks();
       createBiotronikExpectedTasks();
-        System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
+       // System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
-        choosepatient("Sel-Boston");
-      System.out.println("abbottCrt size: " + abbottCrt.size());
-        compareCrt(BostonExpectedTasksTestCase8.BostonTestCase8List);
+        choosepatient("Sel-Abbott");
+        compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List);
         // thresholdCheck();
        //comparison();
 
