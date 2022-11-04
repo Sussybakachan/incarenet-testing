@@ -2,6 +2,7 @@ package selenium;
 
 //TODO typo in "Expected"-> "Experted"
 import AbbottTestCasesExpectedTasks.*;
+import MedtronicTestCasesExpertedTasks.*;
 import MicroPortTestCasesExpertedTasks.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -32,8 +33,8 @@ public class StartTesting {
        // System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
-        choosepatient("Sel-MicroPort");
-        compareCrt(MicroportExpectedTasksTestCase7.MicroPortTestCase7List);
+        choosepatient("Sel-Medtronic");
+        compareCrt(MedtronicExpectedTasksTestCase9.MedtronicTestCase9List);
         // thresholdCheck();
        //comparison();
 
