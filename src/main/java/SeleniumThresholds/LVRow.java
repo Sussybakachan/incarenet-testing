@@ -1,6 +1,9 @@
 package SeleniumThresholds;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import static selenium.CompareTasksInCardio.driver;
 
@@ -65,10 +68,14 @@ public class LVRow {
         }
     }
 
-    public static void deactivateLvFinding() {
+    public static void deactivateLvFinding() throws InterruptedException {
         boolean isChecked = driver.findElement(By.id("lvFinding")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
+            WebElement checked = driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueA\"]"));
+            Actions a = new Actions(driver);
+            a.moveToElement(checked).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
+            Thread.sleep(2000);
             driver.findElement(By.id("lvFinding")).click();
         }
     }
@@ -79,10 +86,14 @@ public class LVRow {
         }
     }
 
-    public static void deactivateLvCritical() {
+    public static void deactivateLvCritical() throws InterruptedException {
         boolean isChecked = driver.findElement(By.id("lvCriticalFinding")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
+            WebElement checked = driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueB\"]"));
+            Actions a = new Actions(driver);
+            a.moveToElement(checked).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
+            Thread.sleep(2000);
             driver.findElement(By.id("lvCriticalFinding")).click();
         }
     }
