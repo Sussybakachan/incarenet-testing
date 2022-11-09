@@ -8,6 +8,17 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
+import static selenium.CompareTasksInCardio.*;
+import static selenium.ExpectedTasks.createTasks;
+import static selenium.ExpectedTasks.expectedTask;
+import static SeleniumThresholds.BatteryStatusRow.*;
+import static selenium.DeletingTasks.deleteTask;
+
 
         import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;

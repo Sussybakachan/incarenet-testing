@@ -6,89 +6,92 @@ import org.openqa.selenium.By;
 import static selenium.CompareTasksInCardio.*;
 
 
+//activateAll = activateEriEosANDActivateBatteryStatus
+//onlyBatteryStatus = activateBatteryStatusANDDeactivateEriEos
+//onlyEriEosActivated = activateEriEosANDDeactivateBatteryStatus
+//deactivateAllBattery = deactivateEriEosANDDeactivateBatteryStatus
+
+
 public class BatteryStatusRow {
 
-    static boolean isEriEosSelected() {
-        boolean EriEosIsChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[4]/div/span[1]/span[1]/input")).isSelected();
+    public static boolean isEriEosSelected() {
+        boolean EriEosIsChecked = driver.findElement(By.id("batteryStatusCriticalFinding")).isSelected();
+        System.out.println("is checked");
         return EriEosIsChecked;
     }
 
-    static boolean isBatteryStatusSelected() {
-        boolean batteryIsChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[1]/span/span[1]/input")).isSelected();
-        return batteryIsChecked;
+    public static boolean isBatteryStatusSelected() {
+        return driver.findElement(By.id("batteryStatusParameter")).isSelected();
     }
 
     static void pressBatterieStatusCheckbox() {
-        driver.findElement(By.xpath("//input[@value='']")).click();
+        driver.findElement(By.id("batteryStatusParameter")).click();
     }
 
-    static void pressEriEosCCheckbox() {
-        driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div[2]/div[2]/table/tbody/tr/td[4]/div/span/span/input")).click();
+    public static void pressEriEosCheckbox() {
+        driver.findElement(By.id("batteryStatusCriticalFinding")).click();
     }
 
 
     public static void activateBatteryStatus() {
-
-        boolean isChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[1]/span/span[1]/input")).isSelected();
-        System.out.println("Batteriestatus ist: " + isChecked);
-        if (!isChecked) {
+        if (!isBatteryStatusSelected()) {
             pressBatterieStatusCheckbox();
         }
     }
 
     public static void deactivateBatteryStatus() {
-        boolean isChecked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[1]/td[1]/span/span[1]/input")).isSelected();
+        boolean isChecked = driver.findElement(By.id("batteryStatusParameter")).isSelected();
         //batterieStatusStatus = isChecked;
         if (isChecked) {
-            driver.findElement(By.xpath("//input[@value='']")).click();
+            driver.findElement(By.id("batteryStatusParameter")).click();
 
         }
 
     }
 
-    public static void activatedEriEosANDActivatedBatteryStatus() throws InterruptedException {
-        if (!isBatteryStatusSelected()) {
-            System.out.println("Batteriestatus: "+ !isBatteryStatusSelected());
-            activateBatteryStatus();
-            Thread.sleep(2000);
-            if (!isEriEosSelected()) {
-                System.out.println("eri and eos: "+ isEriEosSelected());
-                Thread.sleep(2000);
-                pressEriEosCCheckbox();
-            }
-        } else if (!isEriEosSelected()) {
-            System.out.println("eri and eos: "+ isEriEosSelected());
-            pressEriEosCCheckbox();
+    public static void activateEriEos() {
+        if (!isEriEosSelected()) {
+            pressEriEosCheckbox();
         }
     }
 
-    public static void activatedEriEosANDDeactivatedBatteryStatus() throws InterruptedException {
-        if (!isBatteryStatusSelected()) {
-            System.out.println("Batteriestatus: "+ !isBatteryStatusSelected());
-            activateBatteryStatus();
-            Thread.sleep(2000);
-            if (!isEriEosSelected()) {
-                System.out.println("eri and eos: "+ isEriEosSelected());
-                Thread.sleep(2000);
-                pressEriEosCCheckbox();
-                Thread.sleep(2000);
-                deactivateBatteryStatus();
-            }
-        } else if (!isEriEosSelected()) {
-            System.out.println("eri and eos: "+ isEriEosSelected());
-            pressEriEosCCheckbox();
+    public static void deactivateEriEos() {
+        boolean isChecked = driver.findElement(By.id("batteryStatusCriticalFinding")).isSelected();
+        //batterieStatusStatus = isChecked;
+        if (isChecked) {
+            driver.findElement(By.id("batteryStatusCriticalFinding")).click();
+
         }
+
     }
 
-    public static void deactivateERIEOS() {
-        if (!isBatteryStatusSelected()) {
-            activateBatteryStatus();
-            if (isEriEosSelected()) {
-                pressEriEosCCheckbox();
-            }
-        } else if (isEriEosSelected()) {
-            pressEriEosCCheckbox();
-        }
+    public static void onlyBatteryStatusActivated() throws InterruptedException {
+        activateBatteryStatus();
+        Thread.sleep(2000);
+    }
+
+    public static void activateAll() throws InterruptedException {
+        onlyBatteryStatusActivated();
+        Thread.sleep(1000);
+        activateEriEos();
+        Thread.sleep(2000);
+
+    }
+
+    public static void onlyEriEosActivated() throws InterruptedException {
+        activateAll();
+        Thread.sleep(1000);
+        deactivateBatteryStatus();
+        Thread.sleep(2000);
+    }
+
+    public static void deactivateAllBattery() throws InterruptedException {
+        activateAll();
+        Thread.sleep(1000);
+        deactivateEriEos();
+        Thread.sleep(1000);
+        deactivateBatteryStatus();
+        Thread.sleep(2000);
     }
 
     //TODO write a method that deactivates every checkbox

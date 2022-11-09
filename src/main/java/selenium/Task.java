@@ -1,6 +1,6 @@
 package selenium;
 
-//TODO Datefomrat muss angepasst werden
+//TODO Dateformat muss angepasst werden
 
 import java.util.Objects;
 
