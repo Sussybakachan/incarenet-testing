@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Function;
 
 import static selenium.CollectTasks.*;
 import static selenium.ExpectedTasks.abbottCrt;
@@ -80,57 +81,6 @@ public class CompareTasksInCardio {
         // activatedEriEosANDActivatedBatteryStatus();
         //  Thread.sleep(2000);
         // deactivateERIEOS();
-    }
-
-    public static void thresholdCheck() throws InterruptedException {
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button")).click();
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[2]/div/div/div/table/tbody/tr[2]")).click();       //showImplantTemplate
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//div[@id='root']/div/div[2]//div[6]")).click();
-        Thread.sleep(2000);
-
-        driver.findElement(By.xpath("//table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
-        Thread.sleep(2000);
-        deselectAll();
-        Thread.sleep(2000);
-
-
-
-        driver.findElement(By.xpath("//div/div/div[2]/div/button")).click();        //saveAndBack
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div[2]/div[2]/div[2]/form/div[2]/div/button")).click();      //save
-        Thread.sleep(2000);
-
-        System.out.println("Threshold Value modified");
-
-
-
-
-
-        /*driver.findElement(By.xpath("//div[@id='root']/div/div[2]//div[6]")).click();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[2]/td[3]/div/span/span/input")).click();      //CRTFinding
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[2]/td[3]/div/span/span/input")).click();      //showImplantTemplate
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]/div/span/span/input")).click();      //CRTCriticalFinding
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//table/tbody/tr[2]/td[4]/div/span/span/input")).click();     //showImplantTemplate
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div/div/div[2]/div/button")).click();        //saveAndBack
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div[2]/div[2]/div[2]/form/div[2]/div/button")).click();      //save
-        Thread.sleep(2000);
-
-        System.out.println("Threshold Value modified");
-
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();     //showImplantTemplate
-        Thread.sleep(2000);*/
-
     }
 //ist wichtig
 
