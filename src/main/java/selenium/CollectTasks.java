@@ -13,7 +13,6 @@ public class CollectTasks {
     String xpathTAble = "//table/tbody[@class]/tr[@index=";
 
     public static List<Task> collectedTasks = new ArrayList<>();
-
     CollectTasks() throws InterruptedException {
         this.getTasks();
     }
