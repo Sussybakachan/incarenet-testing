@@ -7,14 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
 
 import static selenium.CollectTasks.*;
-import static SeleniumThresholds.BatteryStatusRow.*;
-import static SeleniumThresholds.CRTRow.*;
-import static SeleniumThresholds.LVRow.*;
-import static SeleniumThresholds.Deselect.*;
-import static SeleniumThresholds.NoMeasurementsRow.*;
-
+import static selenium.ExpectedTasks.abbottCrt;
 
 
 public class CompareTasksInCardio {
@@ -35,21 +32,36 @@ public class CompareTasksInCardio {
         Thread.sleep(8000);
     }
 
-    public static void inCardioDash() throws InterruptedException {
+    public static void inCardioDash() throws Exception {
+        Thread.sleep(6000);
+        List<WebElement> p = driver.findElements(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[@class='KoNavItem']"));
+
+        int pp = p.size();
+        System.out.println(pp);
+        for (int i = 1; i<= p.size()+1; i++){
+           String f = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li["+ i + "]/a")).getAttribute("name");
+
+           // taskObject.setColor(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.COLOr.ordinal() + "]")).getAttribute("value"));
+            System.out.println(f);
+            if (Objects.equals(f, "incardio-dashboard")){
+                System.out.println(Objects.equals(f, "incardio-dashboard"));
+                driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li["+ i + "]/a")).click();
+                break;
+            }
+        }
+        Thread.sleep(8000);
+/*
         Actions actions = new Actions(driver);
         WebElement menu = driver.findElement(By.name("drop-services"));
         WebElement subMenu = driver.findElement(By.name("appMenu"));
         WebElement subSubMenu = driver.findElement(By.xpath("//*[@id=\"bs3TopMenu\"]/ul/li[6]/ul/li[11]/ul/li[4]/a"));
 
+
         actions.moveToElement(menu).moveToElement(subMenu).moveToElement(subSubMenu).click().build().perform();
         Thread.sleep(8000);
 
-        driver.switchTo().frame(0);
-        driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys("sel-abbott");
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//td[@value='Sel-Abbott']")).click();
-        Thread.sleep(2000);
-        //compareCrt();
+        choosepatient("Sel-MicroPort");
+        compareCrt(microPortExpectedList);
         //Testing checkboxes
       /*  driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[6]/div")).click();
         Thread.sleep(2000);
@@ -122,29 +134,54 @@ public class CompareTasksInCardio {
     }
 //ist wichtig
 
-    public static void comparison() throws InterruptedException {
+  //  public static void comparison() throws InterruptedException {}
+  static int successfulTAsks = 0;
+    //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
+    static void compareCrt(List<Task> listname) throws Exception {
 
-    }
-//TODO Uhrsymbol bei überschrittener Zeit wird bei dem Test nicht beachtet, muss aber beachtet werden
-static void compareCrt() throws InterruptedException {
+        CollectTasks collectTasks = new CollectTasks();
+        if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size() == 0){
+            System.out.println("Die Task wurde gewollt und erfolgreich NICHT erstellt.");
 
-        System.out.println("Funktionanfang");
-    int passedCounter = 0;
-    CollectTasks collectTasks = new CollectTasks();
-    for (int i = 0; i < collectedTasks.size(); i++) {
-        System.out.println("collected Tasks in der compareCrt Methode: "+ collectedTasks);
-        if (ExpectedTasks.expectedTask.equals(collectedTasks.get(i))) {
-            System.out.println("Die Task ist korrekt");
-            passedCounter++;
-
-        } else if (passedCounter < 1) {
-            //TODO beschreiben, welches expected Array (nicht) gefunden wurde
-            //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-            System.out.println("Die Task wurde nicht erstellt");
-            System.out.println("Funktionende");
+        }else if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size()>0)  {
+            System.out.println("Eine oder mehrere Tasks wurden ungewollt erstellt");
+            return;
         }
-    }}
 
+            System.out.println("the list size is: " + listname.size());
+            if(listname.size()<1){
+                throw new Exception("Some expected Task List did not get created");
+            }
+            System.out.println("Funktionanfang");
+        for (int i = 0; i < collectedTasks.size(); i++) {
+            successfulTAsks ++;
+            int passedCounter = 0;
+            for (int j = 0; j < listname.size(); j++) {
+                System.out.println("j: " + j + " i: " + i);
+                //System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
+                if (listname.get(j).equals(collectedTasks.get(i)) && PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getTargetDate()))) {
+                    System.out.println("Die Task ist korrekt " +"\n" + "\n" + collectedTasks.get(i).getTaskDescription() + "\n"+ "\n"+ " und "+ "\n"+ "\n"+ listname.get(j).getTaskDescription());
+                    passedCounter++;
+                    System.out.println(passedCounter);
+                    System.out.println("Amount of succsseful Tasks "+ successfulTAsks);
+                } else if (passedCounter < 1 && j== listname.size()-1) {
+                    //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
+                    //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
+                    System.out.println("Die Task wurde nicht gefunden, da "+ collectedTasks.get(i).getTaskDescription() + "nicht in der Expected Liste vorhanden ist");
+                    System.out.println("Funktionende");
+                }
+            }
+        }
+    }
+
+
+    public static void choosepatient(String p) throws InterruptedException {
+        driver.switchTo().frame(0);
+        driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys(p);
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//td[@value="+"'"+ p +"'"+ "]")).click();
+        Thread.sleep(2000);
+    }
 }
 
 
