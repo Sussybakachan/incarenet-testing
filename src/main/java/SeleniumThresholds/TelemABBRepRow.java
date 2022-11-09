@@ -16,28 +16,28 @@ import static selenium.CompareTasksInCardio.driver;
 public class TelemABBRepRow {
     //is selected
     static boolean isAbbParameterSelected() {
-        return driver.findElement(By.id("abbParameter")).isSelected();
+        return driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).isSelected();
 
     }
 
     static boolean isAbbFindingSelected() {
-        return driver.findElement(By.id("abbFinding")).isSelected();
+        return driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).isSelected();
     }
 
     static boolean isAbbCriticalFindingSelected() {
-        return driver.findElement(By.id("abbCriticalFinding")).isSelected();
+        return driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).isSelected();
     }
 
     static void pressAbbParameterCheckbox() {
-        driver.findElement(By.id("abbParameter")).click();
+        driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).click();
     }
 
     static void pressAbbFindingCheckbox() {
-        driver.findElement(By.id("abbFinding")).click();
+        driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).click();
     }
 
     static void pressAbbCriticalFindingCheckbox() {
-        driver.findElement(By.id("abbCriticalFinding")).click();
+        driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).click();
     }
 
     public static void activateAbbParameter() {
@@ -47,10 +47,9 @@ public class TelemABBRepRow {
     }
 
     public static void deactivateAbbParameter() {
-        boolean isChecked = driver.findElement(By.id("abbParameter")).isSelected();
-        //batterieStatusStatus = isChecked;
+        boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).isSelected();
         if (isChecked) {
-            driver.findElement(By.id("abbParameter")).click();
+            driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).click();
 
         }
 
@@ -64,7 +63,6 @@ public class TelemABBRepRow {
 
     public static void deactivateAbbFinding() {
         boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).click();
 
@@ -80,7 +78,6 @@ public class TelemABBRepRow {
 
     public static void deactivateAbbCritical() {
         boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).click();
 

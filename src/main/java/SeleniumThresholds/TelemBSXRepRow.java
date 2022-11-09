@@ -16,28 +16,28 @@ import static selenium.CompareTasksInCardio.driver;
 public class TelemBSXRepRow {
     //is selected
     static boolean isBsxParameterSelected() {
-        return driver.findElement(By.id("bsxParameter")).isSelected();
+        return driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).isSelected();
 
     }
 
     static boolean isBsxFindingSelected() {
-        return driver.findElement(By.id("bsxFinding")).isSelected();
+        return driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).isSelected();
     }
 
     static boolean isBsxCriticalFindingSelected() {
-        return driver.findElement(By.id("bsxCriticalFinding")).isSelected();
+        return driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).isSelected();
     }
 
     static void pressBsxParameterCheckbox() {
-        driver.findElement(By.id("bsxParameter")).click();
+        driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).click();
     }
 
     static void pressBsxFindingCheckbox() {
-        driver.findElement(By.id("bsxFinding")).click();
+        driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).click();
     }
 
     static void pressBsxCriticalFindingCheckbox() {
-        driver.findElement(By.id("bsxCriticalFinding")).click();
+        driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).click();
     }
 
     public static void activateBsxParameter() {
@@ -47,10 +47,9 @@ public class TelemBSXRepRow {
     }
 
     public static void deactivateBsxParameter() {
-        boolean isChecked = driver.findElement(By.id("bsxParameter")).isSelected();
-        //batterieStatusStatus = isChecked;
+        boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).isSelected();
         if (isChecked) {
-            driver.findElement(By.id("bsxParameter")).click();
+            driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).click();
 
         }
 
@@ -64,7 +63,6 @@ public class TelemBSXRepRow {
 
     public static void deactivateBsxFinding() {
         boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).click();
 
@@ -80,7 +78,6 @@ public class TelemBSXRepRow {
 
     public static void deactivateBsxCritical() {
         boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).click();
 

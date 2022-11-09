@@ -48,7 +48,6 @@ public class NoMeasurementsRow {
 
     public static void deactivateNoMeasurementsParameter() {
         boolean isChecked = driver.findElement(By.id("noMeasurementsParameter")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("noMeasurementsParameter")).click();
 
@@ -63,7 +62,6 @@ public class NoMeasurementsRow {
 
     public static void deactivateNoMeasurementsFinding() {
         boolean isChecked = driver.findElement(By.id("noMeasurementsFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("noMeasurementsFinding")).click();
 
@@ -79,7 +77,6 @@ public class NoMeasurementsRow {
 
     public static void deactivateNoMeasurementsCritical() {
         boolean isChecked = driver.findElement(By.id("noMeasurementsCriticalFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("noMeasurementsCriticalFinding")).click();
 
