@@ -66,7 +66,6 @@ public class TelemMicroportRepRow {
 
     public static void deactivateMicroportFinding() {
         boolean isChecked = driver.findElement(By.id("microportTelemonitoring-ReportFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("microportTelemonitoring-ReportFinding")).click();
 
@@ -82,7 +81,6 @@ public class TelemMicroportRepRow {
 
     public static void deactivateMicroportCritical() {
         boolean isChecked = driver.findElement(By.id("microportTelemonitoring-ReportCriticalFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("microportTelemonitoring-ReportCriticalFinding")).click();
 

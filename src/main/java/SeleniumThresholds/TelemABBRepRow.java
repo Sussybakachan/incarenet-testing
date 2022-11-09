@@ -48,7 +48,6 @@ public class TelemABBRepRow {
 
     public static void deactivateAbbParameter() {
         boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("abbottTelemonitoring-ReportParameter")).click();
 
@@ -64,7 +63,6 @@ public class TelemABBRepRow {
 
     public static void deactivateAbbFinding() {
         boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("abbottTelemonitoring-ReportFinding")).click();
 
@@ -80,7 +78,6 @@ public class TelemABBRepRow {
 
     public static void deactivateAbbCritical() {
         boolean isChecked = driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).click();
 

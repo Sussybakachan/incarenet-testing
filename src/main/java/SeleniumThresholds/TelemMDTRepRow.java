@@ -48,7 +48,6 @@ public class TelemMDTRepRow {
 
     public static void deactivateMdtParameter() {
         boolean isChecked = driver.findElement(By.id("MedtronicTelemonitoring-ReportParameter")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("MedtronicTelemonitoring-ReportParameter")).click();
 
@@ -64,7 +63,6 @@ public class TelemMDTRepRow {
 
     public static void deactivateMdtFinding() {
         boolean isChecked = driver.findElement(By.id("MedtronicTelemonitoring-ReportFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("MedtronicTelemonitoring-ReportFinding")).click();
 
@@ -80,7 +78,6 @@ public class TelemMDTRepRow {
 
     public static void deactivateMdtCritical() {
         boolean isChecked = driver.findElement(By.id("MedtronicTelemonitoring-ReportCriticalFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("MedtronicTelemonitoring-ReportCriticalFinding")).click();
 

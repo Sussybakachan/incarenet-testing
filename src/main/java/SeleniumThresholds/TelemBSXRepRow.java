@@ -48,7 +48,6 @@ public class TelemBSXRepRow {
 
     public static void deactivateBsxParameter() {
         boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).click();
 
@@ -64,7 +63,6 @@ public class TelemBSXRepRow {
 
     public static void deactivateBsxFinding() {
         boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).click();
 
@@ -80,7 +78,6 @@ public class TelemBSXRepRow {
 
     public static void deactivateBsxCritical() {
         boolean isChecked = driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).click();
 

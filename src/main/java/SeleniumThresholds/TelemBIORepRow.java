@@ -50,7 +50,6 @@ public class TelemBIORepRow {
 
     public static void deactivateBioParameter() {
         boolean isChecked = driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventParameter")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventParameter")).click();
 
@@ -66,7 +65,6 @@ public class TelemBIORepRow {
 
     public static void deactivateBioFinding() {
         boolean isChecked = driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventFinding")).click();
 
@@ -82,7 +80,6 @@ public class TelemBIORepRow {
 
     public static void deactivateBioCritical() {
         boolean isChecked = driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventCriticalFinding")).isSelected();
-        //batterieStatusStatus = isChecked;
         if (isChecked) {
             driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventCriticalFinding")).click();
 
