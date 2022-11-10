@@ -1,6 +1,9 @@
 package SeleniumThresholds;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import static selenium.CompareTasksInCardio.driver;
 
@@ -121,7 +124,23 @@ public class NoMeasurementsRow {
         activatedNoMeasurementsCritical(daysCriticalFinding);
         Thread.sleep(2000);
     }
+    public static void deactivateNMParameter() {
+        boolean isChecked = driver.findElement(By.id("noMeasurementsParameter")).isSelected();
+        if (isChecked) {
+            driver.findElement(By.id("noMeasurementsParameter")).click();
+        }
+    }
 
+    public static void deactivateNMFinding() throws InterruptedException {
+        boolean isChecked = driver.findElement(By.id("noMeasurementsFinding")).isSelected();
+        if (isChecked) {
+            WebElement checked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[9]/td[3]/div/div/div/input"));
+            Actions a = new Actions(driver);
+            a.moveToElement(checked).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
+            Thread.sleep(2000);
+            driver.findElement(By.id("noMeasurementsFinding")).click();
+        }
+    }
     public static void onlyFindingCriticalActivatedNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
         activateAllNM(daysFinding, daysCriticalFinding);
         Thread.sleep(2000);
