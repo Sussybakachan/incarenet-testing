@@ -17,7 +17,6 @@ public class ThresholdCheckMethod {
         Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@id='root']/div/div[2]//div[6]")).click();
         Thread.sleep(2000);
-
         driver.findElement(By.xpath("//table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
         Thread.sleep(2000);
         //deselectAll();
