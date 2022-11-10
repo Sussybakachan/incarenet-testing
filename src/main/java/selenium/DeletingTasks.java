@@ -14,7 +14,7 @@ public class DeletingTasks { static Actions action;
 
     static JavascriptExecutor js;
 
-    static void deleteTask() throws InterruptedException {
+    public static void deleteTask() throws InterruptedException {
         js = (JavascriptExecutor) driver;
         action = new Actions(driver);
         Thread.sleep(5000);
