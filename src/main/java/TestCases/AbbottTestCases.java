@@ -2,6 +2,8 @@ package TestCases;
 
 import AbbottTestCasesExpectedTasks.*;
 
+import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
+import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.*;
@@ -14,9 +16,13 @@ public class AbbottTestCases {
     String FfInputPath = rootDir + "\\input\\";
     String fileName;
 
+    public AbbottTestCases() throws Exception {
+        abbottTestCase1();
+    }
     public void abbottTestCase1() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck()
+        choosepatient("Sel-Abbott");
+        thresholdCheck();
         fileName = "Abbott Implant CRT 84%";
         String pathToOldHl7 = fileDirectory + fileName + ".hl7";
         String pathToInput = FfInputPath + fileName + ".hl7";
