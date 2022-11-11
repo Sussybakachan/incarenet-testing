@@ -6,10 +6,11 @@ import java.io.File;
 
 
 public class PasteFile {
+    static String pathToInput = System.getProperty("user.dir") + "input\\";
 
-    public static void pasteFile(String pathToOldHl7, String pathtoInput) {
+    public static void pasteFile(String pathToOldHl7, String pathToInput) {
         File source = new File(pathToOldHl7);
-        File dest = new File(pathtoInput);
+        File dest = new File(pathToInput);
 
         try {
             FileUtils.copyFile(source, dest);
