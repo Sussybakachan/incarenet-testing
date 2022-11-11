@@ -1,6 +1,9 @@
 package SeleniumThresholds;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import static selenium.CompareTasksInCardio.driver;
 
@@ -32,12 +35,18 @@ public class NoMeasurementsRow {
         driver.findElement(By.id("noMeasurementsParameter")).click();
     }
 
-    static void pressNoMeasurementsFindingCheckbox() {
+    static void pressNoMeasurementsFindingCheckbox(int daysFinding) {
         driver.findElement(By.id("noMeasurementsFinding")).click();
+        if (isNoMeasurementsFindingSelected()) {
+            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueB\"]")).sendKeys(Integer.toString(daysFinding));
+    }
     }
 
-    static void pressNoMeasurementsCriticalFindingCheckbox() {
+    static void pressNoMeasurementsCriticalFindingCheckbox(int daysCriticalFinding) {
         driver.findElement(By.id("noMeasurementsCriticalFinding")).click();
+        if (isNoMeasurementsCriticalFindingSelected()) {
+            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueB\"]")).sendKeys(Integer.toString(daysCriticalFinding));
+    }
     }
 
     public static void activatedNoMeasurementsParameter() {
@@ -54,9 +63,9 @@ public class NoMeasurementsRow {
         }
 
     }
-    public static void activatedNoMeasurementsFinding() {
+    public static void activatedNoMeasurementsFinding(int daysFinding) {
         if (!isNoMeasurementsFindingSelected()) {
-            pressNoMeasurementsFindingCheckbox();
+            pressNoMeasurementsFindingCheckbox(daysFinding);
         }
     }
 
@@ -69,9 +78,9 @@ public class NoMeasurementsRow {
 
     }
 
-    public static void activatedNoMeasurementsCritical() {
+    public static void activatedNoMeasurementsCritical(int daysCriticalFinding) {
         if (!isNoMeasurementsCriticalFindingSelected()) {
-            pressNoMeasurementsCriticalFindingCheckbox();
+            pressNoMeasurementsCriticalFindingCheckbox(daysCriticalFinding);
         }
     }
 
@@ -90,48 +99,64 @@ public class NoMeasurementsRow {
         Thread.sleep(2000);
     }
 
-    public static void findingParamActivatedNM() throws InterruptedException {
+    public static void findingParamActivatedNM(int daysFinding) throws InterruptedException {
 
         onlyParamActivatedNM();
         Thread.sleep(2000);
-        activatedNoMeasurementsFinding();
+        activatedNoMeasurementsFinding(daysFinding);
         Thread.sleep(2000);
 
     }
 
-    public static void criticalParamActivatedNM() throws InterruptedException {
+    public static void criticalParamActivatedNM(int daysCriticalFinding) throws InterruptedException {
 
         onlyParamActivatedNM();
         Thread.sleep(2000);
-        activatedNoMeasurementsCritical();
+        activatedNoMeasurementsCritical(daysCriticalFinding);
         Thread.sleep(2000);
 
     }
 
-    public static void activateAllNM() throws InterruptedException {
+    public static void activateAllNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
 
-        findingParamActivatedNM();
+        findingParamActivatedNM(daysFinding);
         Thread.sleep(2000);
-        activatedNoMeasurementsCritical();
+        activatedNoMeasurementsCritical(daysCriticalFinding);
         Thread.sleep(2000);
     }
+    public static void deactivateNMParameter() {
+        boolean isChecked = driver.findElement(By.id("noMeasurementsParameter")).isSelected();
+        if (isChecked) {
+            driver.findElement(By.id("noMeasurementsParameter")).click();
+        }
+    }
 
-    public static void onlyFindingCriticalActivatedNM() throws InterruptedException {
-        activateAllNM();
+    public static void deactivateNMFinding() throws InterruptedException {
+        boolean isChecked = driver.findElement(By.id("noMeasurementsFinding")).isSelected();
+        if (isChecked) {
+            WebElement checked = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/table/tbody/tr[9]/td[3]/div/div/div/input"));
+            Actions a = new Actions(driver);
+            a.moveToElement(checked).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
+            Thread.sleep(2000);
+            driver.findElement(By.id("noMeasurementsFinding")).click();
+        }
+    }
+    public static void onlyFindingCriticalActivatedNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
+        activateAllNM(daysFinding, daysCriticalFinding);
         Thread.sleep(2000);
         deactivateNoMeasurementsParameter();
         Thread.sleep(2000);
     }
 
-    public static void onlyFindingActivatedNM() throws InterruptedException {
-        findingParamActivatedNM();
+    public static void onlyFindingActivatedNM(int daysFinding) throws InterruptedException {
+        findingParamActivatedNM(daysFinding);
         Thread.sleep(2000);
         deactivateNoMeasurementsParameter();
         Thread.sleep(2000);
     }
 
-    public static void onlyCriticalActivatedNM() throws InterruptedException {
-        criticalParamActivatedNM();
+    public static void onlyCriticalActivatedNM(int daysCriticalFinding) throws InterruptedException {
+        criticalParamActivatedNM(daysCriticalFinding);
         Thread.sleep(2000);
         deactivateNoMeasurementsParameter();
         Thread.sleep(2000);

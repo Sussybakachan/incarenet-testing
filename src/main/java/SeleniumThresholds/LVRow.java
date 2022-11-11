@@ -34,17 +34,17 @@ public class LVRow {
         driver.findElement(By.id("lvParameter")).click();
     }
 
-    static void pressLvFindingCheckbox() {
+    static void pressLvFindingCheckboxAndAddValue(int lvFindingValue) {
         driver.findElement(By.id("lvFinding")).click();
         if (isLvFindingSelected()) {
-            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueA\"]")).sendKeys("97");
+            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueA\"]")).sendKeys(Integer.toString(lvFindingValue));
         }
     }
 
-    static void pressLvCriticalFindingCheckbox() {
+    static void pressLvCriticalFindingCheckbox(int lvCriticalFindingValue) {
         driver.findElement(By.id("lvCriticalFinding")).click();
         if (isLvCriticalFindingSelected()) {
-            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueB\"]")).sendKeys("90");
+            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueB\"]")).sendKeys(Integer.toString(lvCriticalFindingValue));
         }
     }
 
@@ -61,9 +61,9 @@ public class LVRow {
         }
     }
 
-    public static void activateLvFinding() {
+    public static void activateLvFinding(int lvFindingValue) {
         if (!isLvFindingSelected()) {
-            pressLvFindingCheckbox();
+            pressLvFindingCheckboxAndAddValue(lvFindingValue);
         }
     }
 
@@ -78,9 +78,9 @@ public class LVRow {
         }
     }
 
-    public static void activateLvCritical() {
+    public static void activateLvCritical(int lvCriticalFindingValue) {
         if (!isLvCriticalFindingSelected()) {
-            pressLvCriticalFindingCheckbox();
+            pressLvCriticalFindingCheckbox(lvCriticalFindingValue);
         }
     }
 
@@ -101,49 +101,49 @@ public class LVRow {
         Thread.sleep(2000);
     }
 
-    public static void findingParamActivatedLv() throws InterruptedException {
+    public static void findingParamActivatedLv(int lvFindingValue) throws InterruptedException {
 
         onlyParamActivatedLv();
         Thread.sleep(2000);
-        activateLvFinding();
+        activateLvFinding(lvFindingValue);
         Thread.sleep(2000);
 
-    }
+    } //TODO should lvFinding be activated?
 
-    public static void criticalParamActivatedLv() throws InterruptedException {
+    public static void criticalParamActivatedLv(int lvCriticalFindingValue) throws InterruptedException {
 
         onlyParamActivatedLv();
         Thread.sleep(2000);
-        activateLvCritical();
+        activateLvCritical(lvCriticalFindingValue);
         Thread.sleep(2000);
 
     }
 
-    public static void activateAllLv() throws InterruptedException {
+    public static void activateAllLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
 
-        findingParamActivatedLv();
+        findingParamActivatedLv(lvFindingValue);
         Thread.sleep(2000);
-        activateLvCritical();
+        activateLvCritical(lvCriticalFindingValue);
         Thread.sleep(2000);
     }
 
 
-    public static void onlyFindingCriticalActivatedLv() throws InterruptedException {
-        activateAllLv();
+    public static void onlyFindingCriticalActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
+        activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
         deactivateLvParameter();
         Thread.sleep(2000);
     }
 
-    public static void onlyFindingActivatedLv() throws InterruptedException {
-        findingParamActivatedLv();
+    public static void onlyFindingActivatedLv(int lvFindingValue) throws InterruptedException {
+        findingParamActivatedLv(lvFindingValue);
         Thread.sleep(2000);
         deactivateLvParameter();
         Thread.sleep(2000);
     }
 
-    public static void onlyCriticalActivatedLv() throws InterruptedException {
-        criticalParamActivatedLv();
+    public static void onlyCriticalActivatedLv(int lvCriticalFindingValue) throws InterruptedException {
+        criticalParamActivatedLv(lvCriticalFindingValue);
         Thread.sleep(2000);
         deactivateLvParameter();
         Thread.sleep(2000);
