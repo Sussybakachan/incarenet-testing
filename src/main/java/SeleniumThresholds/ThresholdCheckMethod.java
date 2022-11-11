@@ -5,13 +5,15 @@ import org.openqa.selenium.WebElement;
 import SeleniumThresholds.CRTRow.*;
 
 import java.util.List;
+import java.util.Objects;
 
 import static SeleniumThresholds.CRTRow.findingParamActivated;
 import static SeleniumThresholds.CRTRow.pressCrtFindingCheckboxAndAddValue;
+import static SeleniumThresholds.TelemABBRepRow.*;
 import static selenium.CompareTasksInCardio.driver;
 
 public class ThresholdCheckMethod {
-    public static void thresholdCheck() throws InterruptedException {
+    public static void thresholdCheck(String manufacturer, int testCase) throws InterruptedException {
         Thread.sleep(5000);
         //TODO I changed the path to the Schwellenwerte because he didn't find it with the other xpath
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[6]")).click();     //Schwellenwerte
@@ -26,7 +28,18 @@ public class ThresholdCheckMethod {
         Thread.sleep(5000);
         driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
         Thread.sleep(2000);
-        findingParamActivated(80);
+        if (manufacturer.equals("Abbott")){
+            switch (testCase){
+                case 1: findingParamActivatedAbb();
+                break;
+                case 2: onlyParamActivatedAbb();
+                break;
+                case 3: findingParamActivated(96);
+                        Thread.sleep(2000);
+
+            }
+        }
+
         Thread.sleep(2000);
         driver.findElement(By.xpath("//div/div/div[2]/div/button")).click();        //saveAndBack
         Thread.sleep(2000);
