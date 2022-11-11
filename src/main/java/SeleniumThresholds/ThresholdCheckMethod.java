@@ -5,10 +5,12 @@ import org.openqa.selenium.WebElement;
 import SeleniumThresholds.CRTRow.*;
 
 import java.util.List;
-import java.util.Objects;
 
-import static SeleniumThresholds.CRTRow.findingParamActivated;
-import static SeleniumThresholds.CRTRow.pressCrtFindingCheckboxAndAddValue;
+import static SeleniumThresholds.BatteryStatusRow.*;
+import static SeleniumThresholds.CRTRow.*;
+import static SeleniumThresholds.LVRow.*;
+import static SeleniumThresholds.NoMeasurementsRow.onlyFindingCriticalActivatedNM;
+import static SeleniumThresholds.TelemABBRepRow.*;
 import static SeleniumThresholds.TelemABBRepRow.*;
 import static selenium.CompareTasksInCardio.driver;
 
@@ -34,9 +36,14 @@ public class ThresholdCheckMethod {
                 break;
                 case 2: onlyParamActivatedAbb();
                 break;
-                case 3: findingParamActivated(96);
+                case 3: findingParamActivated(96, 85);
                         Thread.sleep(2000);
-
+                        findingParamActivatedAbb();
+                break;
+                case 4: onlyEriEosActivated();
+                        onlyFindingCriticalActivated(97, 85);
+                        onlyFindingCriticalActivatedLv(97, 85);
+                        onlyFindingCriticalActivatedNM(1,2);
             }
         }
 

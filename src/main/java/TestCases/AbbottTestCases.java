@@ -22,7 +22,7 @@ public class AbbottTestCases {
     public void abbottTestCase1() throws Exception {
         //Set Template needs to be done before
         choosepatient("Sel-Abbott");
-        //thresholdCheck();
+        thresholdCheck("Abbott", 1);
         fileName = "Abbott Implant CRT 84%";
         String pathToOldHl7 = fileDirectory + fileName + ".hl7";
         String pathToInput = FfInputPath + fileName + ".hl7";
