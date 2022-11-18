@@ -44,6 +44,31 @@ public class ThresholdCheckMethod {
                         onlyFindingCriticalActivated(97, 85);
                         onlyFindingCriticalActivatedLv(97, 85);
                         onlyFindingCriticalActivatedNM(1,2);
+                case 5: onlyBatteryStatusActivated();
+                    onlyParamActivated(97,85); //CRT
+                    onlyParamActivatedLv(97,85);
+                    onlyFindingCriticalActivatedNM(1,2);
+                    break;
+                case 6: BatteryStatusRow.activateAll();
+                    CRTRow.activateAll(97,85);
+                    activateAllLv(97,85);
+                    onlyFindingCriticalActivatedNM(1,2);
+                    break;
+                case 7: BatteryStatusRow.activateAll();
+                    onlyCriticalParamActivated(97,85); //CRT
+                    criticalParamActivatedLv(97,85);
+                    onlyFindingCriticalActivatedNM(1,2);
+                    break;
+                case 8: BatteryStatusRow.activateAll();
+                    findingParamActivated(97,85);
+                    findingParamActivatedLv(97, 85);
+                    onlyFindingCriticalActivatedNM(1,2);
+                    break;
+                case 9:
+                    //TODO CRT and LV are completely off, but still need to have 97 and 85 as values
+                    criticalParamActivatedAbb();
+                    onlyFindingCriticalActivatedNM(1,2);
+                    break;
             }
         }
 
