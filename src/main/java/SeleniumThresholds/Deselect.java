@@ -15,8 +15,8 @@ public class Deselect {
     //is selected
 
     public static void deselectAll() throws InterruptedException {
-        deactivateAllBattery();
-        deactivateAllCRT();
+        deselectAllBattery();
+        deselectAllCrt();
         deselectAllLv();
         deselectAllBio();
         deselectAllBsx();

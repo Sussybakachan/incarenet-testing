@@ -1,14 +1,15 @@
 package selenium;
 
 import AbbottTestCasesExpectedTasks.*;
-import BiotronikTestCasesExpertedTasks.*;
-import BostonTestCasesExpertedTasks.*;
-import MedtronicTestCasesExpertedTasks.*;
-import MicroPortTestCasesExpertedTasks.*;
+import BiotronikTestCasesExpectedTasks.*;
+import BostonTestCasesExpectedTasks.BostonExpectedTasksTestCase1;
+import BostonTestCasesExpectedTasks.*;
+import MedtronicTestCasesExpectedTasks.*;
+import MicroPortTestCasesExpectedTasks.*;
 
 import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.createAbbottGeneralYellowTask;
-import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.*;
-import static MicroPortTestCasesExpertedTasks.MicroPortExpectedTasksTestCase5.createMicroPortWhiteTask;
+import static BiotronikTestCasesExpectedTasks.BiotronikExpectedTasksTestCase2.*;
+import static MicroPortTestCasesExpectedTasks.MicroPortExpectedTasksTestCase5.createMicroPortWhiteTask;
 import static selenium.ExpectedTasks.createAbbottTestExpectedTask;
 
 public class CreationOfAllExpectedTasks {

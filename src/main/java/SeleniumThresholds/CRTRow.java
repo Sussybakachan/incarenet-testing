@@ -110,7 +110,7 @@ public class CRTRow {
 
     }
 
-    public static void activateAll(int crtValue, int crtCriticalValue) throws InterruptedException {
+    public static void activateAllCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
         if (!isCrtParameterSelected()) {
             System.out.println("CRT-Pacing: " + !isCrtParameterSelected());
             activateCrtParameter();
@@ -141,39 +141,38 @@ public class CRTRow {
     }
 
 
-    public static void findingParamActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue, crtCriticalValue);
+
+
+    public static void findingParamActivatedCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
+        activateAllCrt(crtValue,crtCriticalValue);
         Thread.sleep(1000);
         pressCrtCriticalFindingCheckbox();
         Thread.sleep(2000);
     }
 
 
-    public static void onlyFindingCriticalActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue, crtCriticalValue);
+    public static void onlyFindingCriticalActivatedCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
+        activateAllCrt(crtValue,crtCriticalValue);
         Thread.sleep(1000);
         pressCrtParameterCheckbox();
         Thread.sleep(2000);
     }
-
-    public static void onlyCriticalParamActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue, crtCriticalValue);
+    public static void criticalParamActivatedCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
+        activateAllCrt(crtValue,crtCriticalValue);
         Thread.sleep(1000);
         pressCrtFindingCheckbox();
         Thread.sleep(2000);
     }
-
-    public static void onlyParamActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue, crtCriticalValue);
+    public static void onlyParamActivatedCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
+        activateAllCrt(crtValue,crtCriticalValue);
         Thread.sleep(1000);
         pressCrtFindingCheckbox();
         Thread.sleep(1000);
         pressCrtCriticalFindingCheckbox();
         Thread.sleep(2000);
     }
-
-    public static void onlyFindingActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue, crtCriticalValue);
+    public static void onlyFindingActivatedCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
+        activateAllCrt(crtValue,crtCriticalValue);
         Thread.sleep(1000);
         pressCrtCriticalFindingCheckbox();
         Thread.sleep(1000);
@@ -182,8 +181,8 @@ public class CRTRow {
 
     }
 
-    public static void onlyCriticalActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue, crtCriticalValue);
+    public static void onlyCriticalActivatedCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
+        activateAllCrt(crtValue,crtCriticalValue);
         Thread.sleep(1000);
         pressCrtFindingCheckbox();
         Thread.sleep(1000);
@@ -191,7 +190,7 @@ public class CRTRow {
         Thread.sleep(2000);
     }
 
-    public static void deactivateAllCRT() throws InterruptedException {
+    public static void deselectAllCrt() throws InterruptedException {
         deactivateCrtFindingAndRemoveValue();
         Thread.sleep(1000);
         deactivateCrtCriticalAndRemoveValue();
