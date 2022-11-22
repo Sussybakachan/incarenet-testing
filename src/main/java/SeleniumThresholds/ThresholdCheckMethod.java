@@ -9,9 +9,10 @@ import java.util.List;
 import static SeleniumThresholds.BatteryStatusRow.*;
 import static SeleniumThresholds.CRTRow.*;
 import static SeleniumThresholds.LVRow.*;
-import static SeleniumThresholds.NoMeasurementsRow.onlyFindingCriticalActivatedNM;
+import static SeleniumThresholds.NoMeasurementsRow.*;
 import static SeleniumThresholds.TelemABBRepRow.*;
 import static SeleniumThresholds.TelemABBRepRow.*;
+import static SeleniumThresholds.TelemBIORepRow.*;
 import static selenium.CompareTasksInCardio.driver;
 
 public class ThresholdCheckMethod {
@@ -36,31 +37,31 @@ public class ThresholdCheckMethod {
                 break;
                 case 2: onlyParamActivatedAbb();
                 break;
-                case 3: findingParamActivated(96, 85);
+                case 3: findingParamActivatedCrt(96, 85);
                         Thread.sleep(2000);
                         findingParamActivatedAbb();
                 break;
                 case 4: onlyEriEosActivated();
-                        onlyFindingCriticalActivated(97, 85);
+                        onlyFindingCriticalActivatedCrt(97, 85);
                         onlyFindingCriticalActivatedLv(97, 85);
                         onlyFindingCriticalActivatedNM(1,2);
                 case 5: onlyBatteryStatusActivated();
-                    onlyParamActivated(97,85); //CRT
+                    onlyParamActivatedCrt(97,85); //CRT
                     onlyParamActivatedLv(97,85);
                     onlyFindingCriticalActivatedNM(1,2);
                     break;
                 case 6: BatteryStatusRow.activateAll();
-                    CRTRow.activateAll(97,85);
+                    activateAllCrt(97,85);
                     activateAllLv(97,85);
                     onlyFindingCriticalActivatedNM(1,2);
                     break;
                 case 7: BatteryStatusRow.activateAll();
-                    onlyCriticalParamActivated(97,85); //CRT
+                    criticalParamActivatedCrt(97,85); //CRT
                     criticalParamActivatedLv(97,85);
                     onlyFindingCriticalActivatedNM(1,2);
                     break;
                 case 8: BatteryStatusRow.activateAll();
-                    findingParamActivated(97,85);
+                    findingParamActivatedCrt(97,85);
                     findingParamActivatedLv(97, 85);
                     onlyFindingCriticalActivatedNM(1,2);
                     break;
@@ -70,6 +71,53 @@ public class ThresholdCheckMethod {
                     onlyFindingCriticalActivatedNM(1,2);
                     break;
             }
+        } else if (manufacturer.equals("Biotronik")) {
+            switch (testCase){
+                case 1: findingParamActivatedCrt(99, 95);
+                    findingParamActivatedLv(99, 95);
+                    findingParamActivatedBio();
+                    onlyFindingActivatedNM(1,7);
+                    break;
+                case 2: activateAll();
+                    criticalParamActivatedCrt(99, 95);
+                    criticalParamActivatedLv(99, 95);
+                    criticalParamActivatedBio();
+                    onlyFindingActivatedNM(1, 7);
+                    break;
+                case 3: onlyEriEosActivated();
+                    onlyFindingCriticalActivatedCrt(99, 95);
+                    findingParamActivatedLv(99, 95);
+                    onlyParamActivatedBio();
+                    onlyFindingActivatedNM(1, 7);
+                    break;
+                case 4: onlyEriEosActivated();
+                    onlyFindingCriticalActivatedCrt(99, 95);
+                    onlyFindingCriticalActivatedLv(99,  95);
+                    onlyParamActivatedBio();
+                    onlyFindingActivatedNM(1,7);
+                case 5: onlyEriEosActivated();
+                    onlyFindingCriticalActivatedCrt(99,95); //CRT
+                    onlyFindingCriticalActivatedCrt(99,95);
+                    onlyFindingActivatedNM(1,7);
+                    break;
+                case 6: onlyBatteryStatusActivated();
+                    onlyParamActivatedCrt(99,95);
+                    onlyParamActivatedLv(99,95);
+                    onlyFindingActivatedNM(1,7);
+                    break;
+                case 7: activateAll();
+                    activateAllCrt(99,95); //CRT
+                    activateAllLv(99,95);
+                    onlyFindingActivatedNM(1,7);
+                    break;
+                case 8: onlyFindingCriticalActivatedCrt(99,95);
+                    deselectAllCrt();
+                    onlyFindingCriticalActivatedLv(99, 95);
+                    deselectAllLv();
+                    onlyFindingActivatedNM(1,7);
+                    break;
+            }
+
         }
 
         Thread.sleep(2000);

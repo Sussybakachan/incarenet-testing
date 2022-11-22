@@ -2,15 +2,13 @@ package TestCases;
 
 import AbbottTestCasesExpectedTasks.*;
 
-import java.util.Arrays;
-
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
 import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
-import static selenium.PasteFile.*;
+import static selenium.PasteFile.pasteFile;
 
-public class AbbottTestCases {
+public class MicroPortTestCasesExpectedTasks {
     //Testcase1
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
@@ -18,7 +16,7 @@ public class AbbottTestCases {
     String FfInputPath = rootDir + "\\input\\";
     String[] fileName;
 
-    public AbbottTestCases() throws Exception {
+    public MicroPortTestCasesExpectedTasks() throws Exception {
         abbottTestCase1();
     }
     public void abbottTestCase1() throws Exception {
