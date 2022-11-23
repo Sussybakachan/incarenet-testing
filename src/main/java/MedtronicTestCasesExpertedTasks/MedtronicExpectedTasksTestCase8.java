@@ -10,10 +10,11 @@ public class MedtronicExpectedTasksTestCase8 {
     static Task MedtronicYellow98LvTask = new Task();
     static Task MedtronicYellow98CRTTask = new Task();
 
-    public MedtronicExpectedTasksTestCase8(){
+    public MedtronicExpectedTasksTestCase8() {
         createMedtronicYellow98LvTask();
         createMedtronicYellow98CrtTask();
     }
+
     public static List<Task> createMedtronicYellow98CrtTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
@@ -30,6 +31,7 @@ public class MedtronicExpectedTasksTestCase8 {
         MedtronicTestCase8List.add(MedtronicYellow98CRTTask);
         return MedtronicTestCase8List;
     }
+
     public static List<Task> createMedtronicYellow98LvTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""

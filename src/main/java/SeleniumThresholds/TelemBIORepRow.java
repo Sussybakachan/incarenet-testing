@@ -41,7 +41,6 @@ public class TelemBIORepRow {
     }
 
 
-
     public static void activateBioParameter() {
         if (!isBioParameterSelected()) {
             pressBioParameterCheckbox();

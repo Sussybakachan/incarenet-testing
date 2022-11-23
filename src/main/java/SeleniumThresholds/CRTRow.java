@@ -112,27 +112,27 @@ public class CRTRow {
 
     public static void activateAll(int crtValue, int crtCriticalValue) throws InterruptedException {
         if (!isCrtParameterSelected()) {
-            System.out.println("CRT-Pacing: "+ !isCrtParameterSelected());
+            System.out.println("CRT-Pacing: " + !isCrtParameterSelected());
             activateCrtParameter();
             Thread.sleep(2000);
             if (!isCrtFindingSelected() && !isCrtCriticalFindingSelected()) {
-                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
+                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: " + !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
                 Thread.sleep(2000);
                 pressCrtFindingCheckboxAndAddValue(crtValue);
                 pressCrtCriticalFindingCheckboxAndAddValue(crtCriticalValue);
             } else if (!isCrtFindingSelected() || !isCrtCriticalFindingSelected()) {
-                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
+                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: " + !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
                 Thread.sleep(2000);
-                if (!isCrtFindingSelected()){
+                if (!isCrtFindingSelected()) {
                     pressCrtFindingCheckboxAndAddValue(crtValue);
                 } else {
                     pressCrtCriticalFindingCheckboxAndAddValue(crtCriticalValue);
                 }
             }
         } else if (!isCrtFindingSelected() || !isCrtCriticalFindingSelected()) {
-            System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: "+ !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
+            System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: " + !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
             Thread.sleep(2000);
-            if (!isCrtFindingSelected()){
+            if (!isCrtFindingSelected()) {
                 pressCrtFindingCheckboxAndAddValue(crtValue);
             } else {
                 pressCrtCriticalFindingCheckboxAndAddValue(crtCriticalValue);
@@ -141,10 +141,8 @@ public class CRTRow {
     }
 
 
-
-
     public static void findingParamActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue,crtCriticalValue);
+        activateAll(crtValue, crtCriticalValue);
         Thread.sleep(1000);
         pressCrtCriticalFindingCheckbox();
         Thread.sleep(2000);
@@ -152,27 +150,30 @@ public class CRTRow {
 
 
     public static void onlyFindingCriticalActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue,crtCriticalValue);
+        activateAll(crtValue, crtCriticalValue);
         Thread.sleep(1000);
         pressCrtParameterCheckbox();
         Thread.sleep(2000);
     }
+
     public static void onlyCriticalParamActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue,crtCriticalValue);
+        activateAll(crtValue, crtCriticalValue);
         Thread.sleep(1000);
         pressCrtFindingCheckbox();
         Thread.sleep(2000);
     }
+
     public static void onlyParamActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue,crtCriticalValue);
+        activateAll(crtValue, crtCriticalValue);
         Thread.sleep(1000);
         pressCrtFindingCheckbox();
         Thread.sleep(1000);
         pressCrtCriticalFindingCheckbox();
         Thread.sleep(2000);
     }
+
     public static void onlyFindingActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue,crtCriticalValue);
+        activateAll(crtValue, crtCriticalValue);
         Thread.sleep(1000);
         pressCrtCriticalFindingCheckbox();
         Thread.sleep(1000);
@@ -182,7 +183,7 @@ public class CRTRow {
     }
 
     public static void onlyCriticalActivated(int crtValue, int crtCriticalValue) throws InterruptedException {
-        activateAll(crtValue,crtCriticalValue);
+        activateAll(crtValue, crtCriticalValue);
         Thread.sleep(1000);
         pressCrtFindingCheckbox();
         Thread.sleep(1000);

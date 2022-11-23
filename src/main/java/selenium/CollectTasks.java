@@ -10,9 +10,9 @@ import static selenium.CompareTasksInCardio.driver;
 
 public class CollectTasks {
 
+    public static List<Task> collectedTasks = new ArrayList<>();
     String xpathTAble = "//table/tbody[@class]/tr[@index=";
 
-    public static List<Task> collectedTasks = new ArrayList<>();
     CollectTasks() throws InterruptedException {
         this.getTasks();
     }

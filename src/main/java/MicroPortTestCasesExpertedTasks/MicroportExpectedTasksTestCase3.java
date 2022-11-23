@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MicroportExpectedTasksTestCase3 {
-    static Task microPortRedTask = new Task();
     public static List<Task> MicroPortTestCase3List = new ArrayList<>();
+    static Task microPortRedTask = new Task();
 
-    public MicroportExpectedTasksTestCase3(){
+    public MicroportExpectedTasksTestCase3() {
         createMicroPortRedTask();
     }
 
-    public static  List<Task> createMicroPortRedTask() {
+    public static List<Task> createMicroPortRedTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         microPortRedTask.setCheckBox("");

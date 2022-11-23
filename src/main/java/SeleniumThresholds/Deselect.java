@@ -1,18 +1,14 @@
 package SeleniumThresholds;
 
-import org.openqa.selenium.By;
-
-
-import static SeleniumThresholds.BatteryStatusRow.*;
-import static SeleniumThresholds.CRTRow.*;
-import static SeleniumThresholds.LVRow.*;
-import static SeleniumThresholds.NoMeasurementsRow.*;
-import static SeleniumThresholds.TelemABBRepRow.*;
-import static SeleniumThresholds.TelemBIORepRow.*;
-import static SeleniumThresholds.TelemBSXRepRow.*;
-import static SeleniumThresholds.TelemMDTRepRow.*;
-import static SeleniumThresholds.TelemMicroportRepRow.*;
-
+import static SeleniumThresholds.BatteryStatusRow.deactivateAllBattery;
+import static SeleniumThresholds.CRTRow.deactivateAllCRT;
+import static SeleniumThresholds.LVRow.deselectAllLv;
+import static SeleniumThresholds.NoMeasurementsRow.deselectAllNM;
+import static SeleniumThresholds.TelemABBRepRow.deselectAllAbb;
+import static SeleniumThresholds.TelemBIORepRow.deselectAllBio;
+import static SeleniumThresholds.TelemBSXRepRow.deselectAllBsx;
+import static SeleniumThresholds.TelemMDTRepRow.deselectAllMdt;
+import static SeleniumThresholds.TelemMicroportRepRow.deselectAllMicroport;
 
 
 public class Deselect {
@@ -29,7 +25,6 @@ public class Deselect {
         deselectAllMicroport();
         deselectAllNM();
     }
-
 
 
 }

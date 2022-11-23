@@ -2,7 +2,6 @@ package selenium;
 
 import AbbottTestCasesExpectedTasks.*;
 import BiotronikTestCasesExpertedTasks.*;
-import BostonTestCasesExpertedTasks.BostonExpectedTasksTestCase1;
 import BostonTestCasesExpertedTasks.*;
 import MedtronicTestCasesExpertedTasks.*;
 import MicroPortTestCasesExpertedTasks.*;
@@ -49,8 +48,8 @@ public class CreationOfAllExpectedTasks {
 
         //Boston
         BostonExpectedTasksTestCase1 bostonExpectedTasksTestCase1 = new BostonExpectedTasksTestCase1();
-        BostonExpectedTasksTestCase2 bostonExpectedTasksTestCase2  = new BostonExpectedTasksTestCase2();
-        BostonExpectedTasksTestCase3 bostonExpectedTasksTestCase3  = new BostonExpectedTasksTestCase3();
+        BostonExpectedTasksTestCase2 bostonExpectedTasksTestCase2 = new BostonExpectedTasksTestCase2();
+        BostonExpectedTasksTestCase3 bostonExpectedTasksTestCase3 = new BostonExpectedTasksTestCase3();
         BostonExpectedTasksTestCase4 bostonExpectedTasksTestCase4 = new BostonExpectedTasksTestCase4();
         BostonExpectedTasksTestCase5 bostonExpectedTasksTestCase5 = new BostonExpectedTasksTestCase5();
         BostonExpectedTasksTestCase6 bostonExpectedTasksTestCase6 = new BostonExpectedTasksTestCase6();
