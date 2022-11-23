@@ -6,19 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BiotronikExpectedTasksTestCase1 {
+    public static List<Task> BiotronikTestCase1List = new ArrayList<>();
     //TestCase1
     static Task Biotronik97generalTask = new Task();
     static Task Biotronik97LvTask = new Task();
-
     static Task Biotronik97CrtTask = new Task();
-    public static List<Task> BiotronikTestCase1List = new ArrayList<>();
-
 
     public static void createExpectedTasksBioTestCase1() {
         createBiotronik97CrtTask();
         createBiotronik97LvTask();
         createBiotronik97generalTask();
     }
+
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
     //I don't know if that makes a difference
@@ -44,7 +43,8 @@ public class BiotronikExpectedTasksTestCase1 {
 
         BiotronikTestCase1List.add(Biotronik97generalTask);
     }
-    public static  List<Task> createBiotronik97LvTask() {
+
+    public static List<Task> createBiotronik97LvTask() {
 
         Biotronik97LvTask.setCheckBox("");
         Biotronik97LvTask.setColor("warning");
@@ -61,7 +61,8 @@ public class BiotronikExpectedTasksTestCase1 {
         BiotronikTestCase1List.add(Biotronik97LvTask);
         return BiotronikTestCase1List;
     }
-    public static  List<Task> createBiotronik97CrtTask() {
+
+    public static List<Task> createBiotronik97CrtTask() {
 
         Biotronik97CrtTask.setCheckBox("");
         Biotronik97CrtTask.setColor("warning");

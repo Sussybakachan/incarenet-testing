@@ -7,12 +7,11 @@ import java.util.List;
 
 public class AbbottExpectedTasksTestCase3 {
 
+    public static List<Task> AbbottTestCase3List = new ArrayList<>();
     static Task AbbottYellowCRT84Task = new Task();
     static Task AbbottGeneralWhiteTask = new Task();
 
-    public static List<Task> AbbottTestCase3List = new ArrayList<>();
-
-    public AbbottExpectedTasksTestCase3(){
+    public AbbottExpectedTasksTestCase3() {
         createAbbottYellowCRT84Task();
         createAbbottGeneralWhiteTask();
     }
@@ -39,6 +38,7 @@ public class AbbottExpectedTasksTestCase3 {
         AbbottTestCase3List.add(AbbottYellowCRT84Task);
         return AbbottTestCase3List;
     }
+
     public static List<Task> createAbbottGeneralWhiteTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""

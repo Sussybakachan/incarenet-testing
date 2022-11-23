@@ -10,18 +10,18 @@ public class MicroportExpectedTasksTestCase7 {
     public static List<Task> MicroPortTestCase7List = new ArrayList<>();
     static Task MicroPortEriTask = new Task();
     static Task MicroPortEosTask = new Task();
-    
+
     static Task MicroPortEosAlarmTask = new Task();
     static Task MicroPortEriAlarmTask = new Task();
 
-    public MicroportExpectedTasksTestCase7(){
+    public MicroportExpectedTasksTestCase7() {
         createMicroPortEriTask();
         createMicroPortEosTask();
         createMicroPortEosAlarmTask();
         createMicroPortEriAlarmTask();
     }
 
-    public static  List<Task> createMicroPortEriTask() {
+    public static List<Task> createMicroPortEriTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         MicroPortEriTask.setCheckBox("");
@@ -39,7 +39,7 @@ public class MicroportExpectedTasksTestCase7 {
 
     }
 
-    public static  List<Task> createMicroPortEosTask() {
+    public static List<Task> createMicroPortEosTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         MicroPortEosTask.setCheckBox("");
@@ -53,11 +53,11 @@ public class MicroportExpectedTasksTestCase7 {
         MicroPortEosTask.setAction("Aufgabe an PBA weiterleiten");
 
         MicroPortTestCase7List.add(MicroPortEosTask);
-        return MicroPortTestCase7List;}
+        return MicroPortTestCase7List;
+    }
 
 
-
-    public static  List<Task> createMicroPortEosAlarmTask() {
+    public static List<Task> createMicroPortEosAlarmTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         MicroPortEosAlarmTask.setCheckBox("");
@@ -76,10 +76,11 @@ public class MicroportExpectedTasksTestCase7 {
         MicroPortEosAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
         MicroPortTestCase7List.add(MicroPortEosAlarmTask);
-        return MicroPortTestCase7List; }
+        return MicroPortTestCase7List;
+    }
 
 
-    public static  List<Task> createMicroPortEriAlarmTask() {
+    public static List<Task> createMicroPortEriAlarmTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         MicroPortEriAlarmTask.setCheckBox("");

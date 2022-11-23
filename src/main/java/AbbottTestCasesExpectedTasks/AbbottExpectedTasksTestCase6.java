@@ -6,17 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbbottExpectedTasksTestCase6 {
+    public static List<Task> AbbottTestCase6List = new ArrayList<>();
     static Task AbbottRedCRT84Task = new Task();
     static Task AbbottEriTask = new Task();
     static Task AbbottEosTask = new Task();
     static Task AbbottYellowCRT96Task = new Task();
-    public static List<Task> AbbottTestCase6List = new ArrayList<>();
-    public AbbottExpectedTasksTestCase6(){
+
+    public AbbottExpectedTasksTestCase6() {
         createAbbottRedCRT84Task();
         createAbbottYellowCRT96Task();
         createAbbottEosTask();
         createAbbottEriTask();
     }
+
     public static List<Task> createAbbottRedCRT84Task() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
@@ -35,6 +37,7 @@ public class AbbottExpectedTasksTestCase6 {
         AbbottTestCase6List.add(AbbottRedCRT84Task);
         return AbbottTestCase6List;
     }
+
     public static List<Task> createAbbottEriTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
@@ -53,6 +56,7 @@ public class AbbottExpectedTasksTestCase6 {
         AbbottTestCase6List.add(AbbottEriTask);
         return AbbottTestCase6List;
     }
+
     public static List<Task> createAbbottEosTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
@@ -71,6 +75,7 @@ public class AbbottExpectedTasksTestCase6 {
         AbbottTestCase6List.add(AbbottEosTask);
         return AbbottTestCase6List;
     }
+
     public static List<Task> createAbbottYellowCRT96Task() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""

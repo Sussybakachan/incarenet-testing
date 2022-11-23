@@ -7,9 +7,8 @@ import java.util.List;
 
 public class BostonExpectedTasksTestCase2 {
 
-    static Task BostonNoTask = new Task();
-
     public static List<Task> BostonEmptyTestCase = new ArrayList<>();
+    static Task BostonNoTask = new Task();
 
     public BostonExpectedTasksTestCase2() {
         createBostonNoTask();

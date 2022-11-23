@@ -6,11 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbbottExpectedTasksTestCase5 {
+    public static List<Task> AbbottTestCase5List = new ArrayList<>();
     static Task AbbottNoTask = new Task();
 
-    public static List<Task> AbbottTestCase5List = new ArrayList<>();
-
-    public AbbottExpectedTasksTestCase5(){
+    public AbbottExpectedTasksTestCase5() {
         createAbbottNoTask();
     }
 

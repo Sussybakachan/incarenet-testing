@@ -8,21 +8,17 @@ import java.util.List;
 public class BiotronikExpectedTasksTestCase7 {
 
 
+    public static List<Task> BiotronikTestCase7List = new ArrayList<>();
     static Task Biotronik93AlarmTask = new Task();
     static Task Biotronik97LvTask = new Task();
     static Task Biotronik93LvTask = new Task();
-
     static Task Biotronik97CRTTask = new Task();
     static Task Biotronik93CRTTask = new Task();
     static Task Biotronik97LVAlarmTask = new Task();
     static Task BiotronikERIAlarmTask = new Task();
     static Task BiotronikEOSAlarmTask = new Task();
-
     static Task BiotronikERITask = new Task();
-
     static Task BiotronikEOSTask = new Task();
-
-    public static List<Task> BiotronikTestCase7List = new ArrayList<>();
 
     public BiotronikExpectedTasksTestCase7() {
         createBiotronik93generalTaskCase7();
@@ -36,7 +32,8 @@ public class BiotronikExpectedTasksTestCase7 {
         this.createBiotronik93CrtTask();
         createBiotronik97CrtTask7();
     }
-    public static  List<Task> createBiotronik97CrtTask7() {
+
+    public static List<Task> createBiotronik97CrtTask7() {
 
         Biotronik97CRTTask.setCheckBox("");
         Biotronik97CRTTask.setColor("warning");
@@ -53,25 +50,8 @@ public class BiotronikExpectedTasksTestCase7 {
         BiotronikTestCase7List.add(Biotronik97CRTTask);
         return BiotronikTestCase7List;
     }
-    public  List<Task> createBiotronik93CrtTask() {
 
-        Biotronik93CRTTask.setCheckBox("");
-        Biotronik93CRTTask.setColor("danger");
-        Biotronik93CRTTask.setStartDate("2022-03-27T23:58:06.000Z");
-        // Biotronik93CrtTask.setReceiveDate("2022-10-26T12:34:14.265Z");
-        //Biotronik93CrtTask.setTargetDate("2022-10-27T12:34:14.265Z");
-        Biotronik93CRTTask.setTaskDescription("CRT-Stimulation: 93%");
-        Biotronik93CRTTask.setMeasurements("Bitte auswählen");
-        Biotronik93CRTTask.setPdf("https://www.biotronik-homemonitoring.com/hmsc_guiWeb/qs/2c9881dc78d1c39201790d5929842afeStatus_report_36682_11228833_2022-03-28_01-58-06.pdfEpisode_report_11228833_417_2022-03-28_01-58-06.pdfEpisode_report_11228833_414_2022-03-28_01-58-06.pdfEpisode_report_11228833_412_2022-03-28_01-58-06.pdfEpisode_report_11228833_408_2022-03-28_01-58-06.pdfEpisode_report_11228833_406_2022-03-28_01-58-06.pdfEpisode_report_11228833_396_2022-03-28_01-58-06.pdfEpisode_report_11228833_390_2022-03-28_01-58-06.pdfEpisode_report_11228833_389_2022-03-28_01-58-06.pdfEpisode_report_11228833_379_2022-03-28_01-58-06.pdfEpisode_report_11228833_367_2022-03-28_01-58-06.pdf");
-        Biotronik93CRTTask.setEmployee("");
-        Biotronik93CRTTask.setFurtherInformation("");
-        Biotronik93CRTTask.setAction("Aufgabe an PBA weiterleiten");
-
-        BiotronikTestCase7List.add(Biotronik93CRTTask);
-        return BiotronikTestCase7List;
-    }
-
-    public static  List<Task> createBiotronikERITask() {
+    public static List<Task> createBiotronikERITask() {
 
         BiotronikERITask.setCheckBox("");
         BiotronikERITask.setColor("danger");
@@ -88,7 +68,8 @@ public class BiotronikExpectedTasksTestCase7 {
         BiotronikTestCase7List.add(BiotronikERITask);
         return BiotronikTestCase7List;
     }
-    public static  List<Task> createBiotronikEOSTask() {
+
+    public static List<Task> createBiotronikEOSTask() {
 
         BiotronikEOSTask.setCheckBox("");
         BiotronikEOSTask.setColor("danger");
@@ -105,6 +86,7 @@ public class BiotronikExpectedTasksTestCase7 {
         BiotronikTestCase7List.add(BiotronikEOSTask);
         return BiotronikTestCase7List;
     }
+
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
     //I don't know if that makes a difference
@@ -135,7 +117,8 @@ public class BiotronikExpectedTasksTestCase7 {
         BiotronikTestCase7List.add(Biotronik93AlarmTask);
         return BiotronikTestCase7List;
     }
-    public static  List<Task> createBiotronik97LvTask() {
+
+    public static List<Task> createBiotronik97LvTask() {
 
         Biotronik97LvTask.setCheckBox("");
         Biotronik97LvTask.setColor("warning");
@@ -152,7 +135,8 @@ public class BiotronikExpectedTasksTestCase7 {
         BiotronikTestCase7List.add(Biotronik97LvTask);
         return BiotronikTestCase7List;
     }
-    public static  List<Task> createBiotronik93LVTask() {
+
+    public static List<Task> createBiotronik93LVTask() {
 
         Biotronik93LvTask.setCheckBox("");
         Biotronik93LvTask.setColor("danger");
@@ -170,8 +154,7 @@ public class BiotronikExpectedTasksTestCase7 {
         return BiotronikTestCase7List;
     }
 
-
-    public static  List<Task> createBiotronik97generalTaskCase7() {
+    public static List<Task> createBiotronik97generalTaskCase7() {
 
         Biotronik97LVAlarmTask.setCheckBox("");
         Biotronik97LVAlarmTask.setColor("warning");
@@ -193,7 +176,8 @@ public class BiotronikExpectedTasksTestCase7 {
         BiotronikTestCase7List.add(Biotronik97LVAlarmTask);
         return BiotronikTestCase7List;
     }
-    public static  List<Task> createBiotronikERIAlarmTask() {
+
+    public static List<Task> createBiotronikERIAlarmTask() {
 
         BiotronikERIAlarmTask.setCheckBox("");
         BiotronikERIAlarmTask.setColor("warning");
@@ -215,7 +199,8 @@ public class BiotronikExpectedTasksTestCase7 {
         BiotronikTestCase7List.add(BiotronikERIAlarmTask);
         return BiotronikTestCase7List;
     }
-    public static  List<Task> createBiotronikEOSAlarmTask() {
+
+    public static List<Task> createBiotronikEOSAlarmTask() {
 
         BiotronikEOSAlarmTask.setCheckBox("");
         BiotronikEOSAlarmTask.setColor("warning");
@@ -235,6 +220,24 @@ public class BiotronikExpectedTasksTestCase7 {
         BiotronikEOSAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
         BiotronikTestCase7List.add(BiotronikEOSAlarmTask);
+        return BiotronikTestCase7List;
+    }
+
+    public List<Task> createBiotronik93CrtTask() {
+
+        Biotronik93CRTTask.setCheckBox("");
+        Biotronik93CRTTask.setColor("danger");
+        Biotronik93CRTTask.setStartDate("2022-03-27T23:58:06.000Z");
+        // Biotronik93CrtTask.setReceiveDate("2022-10-26T12:34:14.265Z");
+        //Biotronik93CrtTask.setTargetDate("2022-10-27T12:34:14.265Z");
+        Biotronik93CRTTask.setTaskDescription("CRT-Stimulation: 93%");
+        Biotronik93CRTTask.setMeasurements("Bitte auswählen");
+        Biotronik93CRTTask.setPdf("https://www.biotronik-homemonitoring.com/hmsc_guiWeb/qs/2c9881dc78d1c39201790d5929842afeStatus_report_36682_11228833_2022-03-28_01-58-06.pdfEpisode_report_11228833_417_2022-03-28_01-58-06.pdfEpisode_report_11228833_414_2022-03-28_01-58-06.pdfEpisode_report_11228833_412_2022-03-28_01-58-06.pdfEpisode_report_11228833_408_2022-03-28_01-58-06.pdfEpisode_report_11228833_406_2022-03-28_01-58-06.pdfEpisode_report_11228833_396_2022-03-28_01-58-06.pdfEpisode_report_11228833_390_2022-03-28_01-58-06.pdfEpisode_report_11228833_389_2022-03-28_01-58-06.pdfEpisode_report_11228833_379_2022-03-28_01-58-06.pdfEpisode_report_11228833_367_2022-03-28_01-58-06.pdf");
+        Biotronik93CRTTask.setEmployee("");
+        Biotronik93CRTTask.setFurtherInformation("");
+        Biotronik93CRTTask.setAction("Aufgabe an PBA weiterleiten");
+
+        BiotronikTestCase7List.add(Biotronik93CRTTask);
         return BiotronikTestCase7List;
     }
 }
