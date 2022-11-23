@@ -19,7 +19,7 @@ public class PdfCheck {
 
     public static void pdfCheck() throws InterruptedException, IOException {
 
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div/div/div/button[2]")).click();
         Thread.sleep(2000);
 
 
@@ -49,8 +49,8 @@ public class PdfCheck {
             Thread.sleep(2000);
         }
 
-        String expectedPdf = "./src/main/java/ExpectedTasks/test.pdf";
-        String actualPdf = "./yigo.pdf";
+        String expectedPdf = "./src/main/java/ExpectedTasks/expected.pdf";
+        String actualPdf = "./test.pdf";
 
         PDFUtil pdfUtil = new PDFUtil();
 
