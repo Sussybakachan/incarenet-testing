@@ -1,6 +1,6 @@
 package TestCases;
 
-import AbbottTestCasesExpectedTasks.*;
+import MedtronicTestCasesExpectedTasks.*;
 
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
 import static selenium.CompareTasksInCardio.choosepatient;
@@ -8,57 +8,57 @@ import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.pasteFile;
 
-public class MedtronicTestCasesExpectedTasks {
+public class MedtronicTestCases {
     //Testcase1
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
-    String fileDirectory = rootDir + "\\src\\main\\resources\\Selenium-IDCO-Files\\Abbott\\";
-    String FfInputPath = rootDir + "\\input\\";
+    String fileDirectory = rootDir + "/src/main/resources/Medtronic/";
+    String FfInputPath = rootDir + "/input/";
     String[] fileName;
 
-    public MedtronicTestCasesExpectedTasks() throws Exception {
-        abbottTestCase1();
+    public MedtronicTestCases() throws Exception {
+        medtronicTestCase1();
     }
-    public void abbottTestCase1() throws Exception {
+    public void medtronicTestCase1() throws Exception {
         //Set Template needs to be done before
-        choosepatient("Sel-Abbott");
-        thresholdCheck("Abbott", 1);
-        fileName = new String[]{"Abbott Implant CRT 84%"};
+        choosepatient("Sel-Medtronic");
+        thresholdCheck("Medtronic", 1);
+        fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
        pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List);
+        compareCrt(MedtronicExpectedTasksTestCase1.MedtronicTestCase1List);
         deleteTask();
 }
-    public void abbottTestCase2() throws Exception {
+    public void medtronicTestCase2() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Abbott", 2)
-        fileName = new String[]{"Abbott Implant CRT 84%"};
+        //thresholdCheck("Medtronic", 2)
+        fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List);
+        compareCrt(MedtronicExpectedTasksTestCase2.MedtronicTestCase2List);
         deleteTask();
     }
 
-    public void abbottTestCase3() throws Exception {
+    public void medtronicTestCase3() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Abbott", 3)
-        fileName = new String[]{"Abbott Implant CRT 84%"};
+        //thresholdCheck("Medtronic", 3)
+        fileName = new String[]{"Medtronic Implant LV 76.95% 76.95% CRT"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase3.AbbottTestCase3List);
+        compareCrt(MedtronicExpectedTasksTestCase3.MedtronicTestCase3List);
         deleteTask();
     }
 
-    public void abbottTestCase4() throws Exception {
+    public void medtronicTestCase4() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Abbott", 4)
-        fileName = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
+        //thresholdCheck("Medtronic", 4)
+        fileName = new String[]{"Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%", "Medtronic Implant CRT 98.07% LV 98.07%", "Medtronic Implant LV 76.95% 76.95% CRT"};
         for (int i = 0; i < fileName.length; i++) {
             String a = fileName[i];
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
@@ -66,73 +66,73 @@ public class MedtronicTestCasesExpectedTasks {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase4.AbbottTestCase4List);
+        compareCrt(MedtronicExpectedTasksTestCase4.MedtronicTestCase4List);
         deleteTask();
     }
 
-    public void abbottTestCase5() throws Exception {
+    public void medtronicTestCase5() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Abbott", 5)
-        fileName = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
+        //thresholdCheck("Medtronic", 5)
+        fileName = new String[]{"Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%", "Medtronic Implant CRT 98.07% LV 98.07%", "Medtronic Implant LV 76.95% 76.95% CRT"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase5.AbbottTestCase5List);
+        compareCrt(MedtronicExpectedTasksTestCase5.MedtronicTestCase5List);
         deleteTask();
     }
 
-    public void abbottTestCase6() throws Exception {
+    public void medtronicTestCase6() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Abbott", 6)
-        fileName = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
+        //thresholdCheck("Medtronic", 6)
+        fileName = new String[]{"Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%", "Medtronic Implant CRT 98.07% LV 98.07%", "Medtronic Implant LV 76.95% 76.95% CRT"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase6.AbbottTestCase6List);
+        compareCrt(MedtronicExpectedTasksTestCase6.MedtronicTestCase6List);
         deleteTask();
     }
 
-    public void abbottTestCase7() throws Exception {
+    public void medtronicTestCase7() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Abbott", 7)
-        fileName = new String[]{"Abbott Implant manipulated Batt-stat ERI added 100% CRT", "Abbott Implant CRT 84%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", };
+        //thresholdCheck("Medtronic", 7)
+        fileName = new String[]{"Medtronic Implant LV 76.95% 76.95% CRT", "Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase7.AbbottTestCase7List);
+        compareCrt(MedtronicExpectedTasksTestCase7.MedtronicTestCase7List);
         deleteTask();
     }
 
-    public void abbottTestCase8() throws Exception {
+    public void medtronicTestCase8() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Abbott", 8)
-        fileName = new String[]{"Abbott Implant CRT 96%"};
+        //thresholdCheck("Medtronic", 8)
+        fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
         String pathToOldHl7 = fileDirectory + fileName[0]  + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase8.AbbottTestCase8List);
+        compareCrt(MedtronicExpectedTasksTestCase8.MedtronicTestCase8List);
         deleteTask();
     }
 
-    public void abbottTestCase9() throws Exception {
+    public void medtronicTestCase9() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Abbott", 9)
-        fileName = new String[]{"Abbott Implant CRT 84%"};
+        //thresholdCheck("Medtronic", 9)
+        fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List);
+        compareCrt(MedtronicExpectedTasksTestCase9.MedtronicTestCase9List);
         deleteTask();
     }
 

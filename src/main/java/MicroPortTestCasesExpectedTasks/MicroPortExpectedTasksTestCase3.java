@@ -5,11 +5,11 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MicroportExpectedTasksTestCase3 {
+public class MicroPortExpectedTasksTestCase3 {
     static Task microPortRedTask = new Task();
     public static List<Task> MicroPortTestCase3List = new ArrayList<>();
 
-    public MicroportExpectedTasksTestCase3(){
+    public MicroPortExpectedTasksTestCase3(){
         createMicroPortRedTask();
     }
 

@@ -5,7 +5,7 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MicroportExpectedTasksTestCase7 {
+public class MicroPortExpectedTasksTestCase7 {
 
     public static List<Task> MicroPortTestCase7List = new ArrayList<>();
     static Task MicroPortEriTask = new Task();
@@ -14,7 +14,7 @@ public class MicroportExpectedTasksTestCase7 {
     static Task MicroPortEosAlarmTask = new Task();
     static Task MicroPortEriAlarmTask = new Task();
 
-    public MicroportExpectedTasksTestCase7(){
+    public MicroPortExpectedTasksTestCase7(){
         createMicroPortEriTask();
         createMicroPortEosTask();
         createMicroPortEosAlarmTask();

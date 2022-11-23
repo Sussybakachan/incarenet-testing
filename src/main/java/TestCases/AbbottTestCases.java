@@ -2,8 +2,9 @@ package TestCases;
 
 import AbbottTestCasesExpectedTasks.*;
 
-import java.util.Arrays;
+import java.io.File;
 
+import static SeleniumThresholds.Deselect.*;
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
 import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
@@ -14,8 +15,8 @@ public class AbbottTestCases {
     //Testcase1
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
-    String fileDirectory = rootDir + "\\src\\main\\resources\\Selenium-IDCO-Files\\Abbott\\";
-    String FfInputPath = rootDir + "\\input\\";
+    String fileDirectory = rootDir + "/src/main/resources/Selenium-IDCO-Files/Abbott/";
+    String FfInputPath = new File(rootDir) + "/input/";
     String[] fileName;
 
     public AbbottTestCases() throws Exception {
@@ -28,10 +29,11 @@ public class AbbottTestCases {
         fileName = new String[]{"Abbott Implant CRT 84%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-       pasteFile(pathToOldHl7, pathToInput);
+        pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List);
         deleteTask();
+        deselectAll();
 }
     public void abbottTestCase2() throws Exception {
         //Set Template needs to be done before
@@ -62,7 +64,6 @@ public class AbbottTestCases {
         //thresholdCheck("Abbott", 4)
         fileName = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
         for (int i = 0; i < fileName.length; i++) {
-            String a = fileName[i];
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
