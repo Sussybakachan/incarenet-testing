@@ -12,8 +12,8 @@ public class BiotronikTestCases {
     //Testcase1
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
-    String fileDirectory = rootDir + "\\src\\main\\resources\\Selenium-IDCO-Files\\Biotronik\\";
-    String FfInputPath = rootDir + "\\input\\";
+    String fileDirectory = rootDir + "/src/main/resources/Biotronik/";
+    String FfInputPath = rootDir + "/input/";
     String[] fileName;
 
     public BiotronikTestCases() throws Exception {
@@ -36,7 +36,6 @@ public class BiotronikTestCases {
         //thresholdCheck("Biotronik", 2)
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%"};
         for (int i = 0; i < fileName.length; i++) {
-            String a = fileName[i];
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
@@ -51,7 +50,6 @@ public class BiotronikTestCases {
         //thresholdCheck("Biotronik", 3)
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%"};
         for (int i = 0; i < fileName.length; i++) {
-            String a = fileName[i];
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
@@ -66,7 +64,6 @@ public class BiotronikTestCases {
         //thresholdCheck("Biotronik", 4)
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%"};
         for (int i = 0; i < fileName.length; i++) {
-            String a = fileName[i];
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);

@@ -5,16 +5,16 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MicroportExpectedTasksTestCase4 {
+public class MicroPortExpectedTasksTestCase4 {
 
-    public static List<Task> MicroPortTestCase4List = new ArrayList<>();
     static Task microPortYellowTask = new Task();
+    public static List<Task> MicroPortTestCase4List = new ArrayList<>();
 
-    public MicroportExpectedTasksTestCase4() {
+    public MicroPortExpectedTasksTestCase4(){
         createMicroPortYellowTask();
     }
 
-    public static List<Task> createMicroPortYellowTask() {
+    public static  List<Task> createMicroPortYellowTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         microPortYellowTask.setCheckBox("");

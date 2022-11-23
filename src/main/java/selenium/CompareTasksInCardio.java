@@ -159,6 +159,7 @@ public class CompareTasksInCardio {
 
     public static void choosepatient(String p) throws InterruptedException {
         driver.switchTo().frame(0);
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys(p);
         Thread.sleep(2000);
         driver.findElement(By.xpath("//td[@value=" + "'" + p + "'" + "]")).click();

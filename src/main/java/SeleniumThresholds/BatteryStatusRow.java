@@ -86,7 +86,6 @@ public class BatteryStatusRow {
     }
 
     public static void deselectAllBattery() throws InterruptedException {
-        activateAll();
         Thread.sleep(1000);
         deactivateEriEos();
         Thread.sleep(1000);

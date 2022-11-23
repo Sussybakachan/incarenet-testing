@@ -23,7 +23,7 @@ public class LVRow {
     }
 
     static boolean isLvFindingSelected() {
-        return driver.findElement(By.id("lvFinding")).isSelected();
+        return driver.findElement(By.id("lvfinding")).isSelected();
     }
 
     static boolean isLvCriticalFindingSelected() {
@@ -42,7 +42,7 @@ public class LVRow {
     }
 
     private static void pressLvFindingCheckbox() {
-        driver.findElement(By.id("lvFinding")).click();
+        driver.findElement(By.id("lvfinding")).click();
     }
 
     static void pressLvCriticalFindingCheckboxAndAddValue(int lvCriticalFindingValue) {
@@ -55,7 +55,6 @@ public class LVRow {
     private static void pressLvCriticalFindingCheckbox() {
         driver.findElement(By.id("lvCriticalFinding")).click();
     }
-
     /*
         public static void activateLvParameter() {
             if (!isLvParameterSelected()) {
@@ -69,16 +68,15 @@ public class LVRow {
             driver.findElement(By.id("lvParameter")).click();
         }
     }
-
-    /*
-        public static void activateLvFinding(int lvFindingValue) {
-            if (!isLvFindingSelected()) {
-                pressLvFindingCheckboxAndAddValue(lvFindingValue);
+        /*
+            public static void activateLvFinding(int lvFindingValue) {
+                if (!isLvFindingSelected()) {
+                    pressLvFindingCheckboxAndAddValue(lvFindingValue);
+                }
             }
-        }
-    */
+        */
     public static void deactivateLvFinding() throws InterruptedException {
-        boolean isChecked = driver.findElement(By.id("lvFinding")).isSelected();
+        boolean isChecked = driver.findElement(By.id("lvfinding")).isSelected();
         if (isChecked) {
             WebElement checked = driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueA\"]"));
             Actions a = new Actions(driver);
@@ -87,6 +85,14 @@ public class LVRow {
             pressLvFindingCheckbox();
         }
     }
+
+    public static void deactivateLvFindingWithValue() throws InterruptedException {
+        boolean isChecked = driver.findElement(By.id("lvfinding")).isSelected();
+        if (isChecked) {
+            pressLvFindingCheckbox();
+        }
+    }
+
 /*
     public static void activateLvCritical(int lvCriticalFindingValue) {
         if (!isLvCriticalFindingSelected()) {
@@ -107,6 +113,14 @@ public class LVRow {
         }
     }
 
+    public static void deactivateLvCriticalWithValue() throws InterruptedException {
+        boolean isChecked = driver.findElement(By.id("lvCriticalFinding")).isSelected();
+        if (isChecked) {
+            pressLvCriticalFindingCheckbox();
+        }
+    }
+
+
 
     public static void findingParamActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
@@ -114,6 +128,7 @@ public class LVRow {
         pressLvCriticalFindingCheckbox();
         Thread.sleep(2000);
     }
+
 
 
     public static void activateAllLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
@@ -138,7 +153,6 @@ public class LVRow {
         pressLvParameterCheckbox();
         Thread.sleep(2000);
     }
-
     public static void onlyParamActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
@@ -147,7 +161,6 @@ public class LVRow {
         pressLvCriticalFindingCheckbox();
         Thread.sleep(2000);
     }
-
     public static void onlyFindingActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
@@ -164,6 +177,12 @@ public class LVRow {
         Thread.sleep(2000);
         pressLvParameterCheckbox();
         Thread.sleep(2000);
+    }
+
+    public static void deselectAllLvWithValue() throws InterruptedException {
+        deactivateLvFindingWithValue();
+        deactivateLvCriticalWithValue();
+        deactivateLvParameter();
     }
 
     public static void deselectAllLv() throws InterruptedException {

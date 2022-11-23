@@ -91,6 +91,13 @@ public class CRTRow {
 
     }
 
+    public static void deactivateCrtFindingWithValue() throws InterruptedException {
+        boolean isChecked = driver.findElement(By.id("crtFinding")).isSelected();
+        if (isChecked) {
+            pressCrtFindingCheckbox();
+        }
+    }
+
     public static void activateCrtCritical(int crtCriticalValue) {
         if (!isCrtCriticalFindingSelected()) {
             pressCrtCriticalFindingCheckboxAndAddValue(crtCriticalValue);
@@ -110,34 +117,22 @@ public class CRTRow {
 
     }
 
-    public static void activateAllCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
-        if (!isCrtParameterSelected()) {
-            System.out.println("CRT-Pacing: " + !isCrtParameterSelected());
-            activateCrtParameter();
-            Thread.sleep(2000);
-            if (!isCrtFindingSelected() && !isCrtCriticalFindingSelected()) {
-                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: " + !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
-                Thread.sleep(2000);
-                pressCrtFindingCheckboxAndAddValue(crtValue);
-                pressCrtCriticalFindingCheckboxAndAddValue(crtCriticalValue);
-            } else if (!isCrtFindingSelected() || !isCrtCriticalFindingSelected()) {
-                System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: " + !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
-                Thread.sleep(2000);
-                if (!isCrtFindingSelected()) {
-                    pressCrtFindingCheckboxAndAddValue(crtValue);
-                } else {
-                    pressCrtCriticalFindingCheckboxAndAddValue(crtCriticalValue);
-                }
-            }
-        } else if (!isCrtFindingSelected() || !isCrtCriticalFindingSelected()) {
-            System.out.println("CRT-Pacing Finding and CRT-Pacing Critical Finding: " + !isCrtFindingSelected() + " " + !isCrtCriticalFindingSelected());
-            Thread.sleep(2000);
-            if (!isCrtFindingSelected()) {
-                pressCrtFindingCheckboxAndAddValue(crtValue);
-            } else {
-                pressCrtCriticalFindingCheckboxAndAddValue(crtCriticalValue);
-            }
+    public static void deactivateCrtCriticalWithValue() throws InterruptedException {
+        boolean isChecked = driver.findElement(By.id("crtCriticalFinding")).isSelected();
+        if (isChecked) {
+            pressCrtCriticalFindingCheckbox();
         }
+
+    }
+
+    public static void activateAllCrt(int crtValue, int crtCriticalValue) throws InterruptedException {
+        pressCrtParameterCheckbox();
+        Thread.sleep(1000);
+        pressCrtFindingCheckboxAndAddValue(crtValue);
+        Thread.sleep(1000);
+        pressCrtCriticalFindingCheckboxAndAddValue(crtCriticalValue);
+        Thread.sleep(1000);
+
     }
 
 
@@ -190,13 +185,22 @@ public class CRTRow {
         Thread.sleep(2000);
     }
 
+    public static void deselectAllCrtWithValue() throws InterruptedException {
+        deactivateCrtFindingWithValue();
+        Thread.sleep(1000);
+        deactivateCrtCriticalWithValue();
+        Thread.sleep(1000);
+        deactivateCrtParameter();
+        Thread.sleep(2000);
+    }
+
     public static void deselectAllCrt() throws InterruptedException {
         deactivateCrtFindingAndRemoveValue();
         Thread.sleep(1000);
         deactivateCrtCriticalAndRemoveValue();
         Thread.sleep(1000);
         deactivateCrtParameter();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
     }
 
 }

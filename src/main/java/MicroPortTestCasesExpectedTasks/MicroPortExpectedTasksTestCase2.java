@@ -5,17 +5,17 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MicroportExpectedTasksTestCase2 {
+public class MicroPortExpectedTasksTestCase2 {
     public static List<Task> MicroPortTestCase2List = new ArrayList<>();
     static Task MicroPortEriTask = new Task();
     static Task MicroPortEosTask = new Task();
 
-    public MicroportExpectedTasksTestCase2() {
+    public MicroPortExpectedTasksTestCase2(){
         createMicroPortEriTask();
         createMicroPortEosTask();
     }
 
-    public static List<Task> createMicroPortEriTask() {
+    public static  List<Task> createMicroPortEriTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         MicroPortEriTask.setCheckBox("");
@@ -32,8 +32,7 @@ public class MicroportExpectedTasksTestCase2 {
         return MicroPortTestCase2List;
 
     }
-
-    public static List<Task> createMicroPortEosTask() {
+    public static  List<Task> createMicroPortEosTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         MicroPortEosTask.setCheckBox("");
