@@ -36,15 +36,20 @@ public class Task {
 
     @Override
     public String toString() {
-        return "checkBox=" + checkBox + '\n' +
-                "color=" + color + '\n' +
-                "startDate=" + startDate + '\n' +
-                "taskDescription=" + taskDescription + '\n' +
-                "measurements=" + measurements + '\n' +
-                "pdf=" + pdf + '\n' +
-                "employee=" + employee + '\n' +
-                "furtherInformation=" + furtherInformation + '\n' +
-                "action=" + action + '\n' + '\n';
+        return "Task{" +
+                "checkBox='" + checkBox + '\'' +
+                ", color='" + color + '\'' +
+                ", isIntentioanllyEmpty=" + isIntentioanllyEmpty +
+                ", startDate='" + startDate + '\'' +
+                ", receiveDate='" + receiveDate + '\'' +
+                ", targetDate='" + targetDate + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", measurements='" + measurements + '\'' +
+                ", pdf='" + pdf + '\'' +
+                ", employee='" + employee + '\'' +
+                ", furtherInformation='" + furtherInformation + '\'' +
+                ", action='" + action + '\'' +
+                '}';
     }
 
     @Override
