@@ -7,11 +7,10 @@ import java.util.List;
 
 public class AbbottExpectedTasksTestCase2 {
 
+    public static List<Task> AbbottTestCase2List = new ArrayList<>();
     static Task AbbottGeneralWhiteTask = new Task();
 
-    public static List<Task> AbbottTestCase2List = new ArrayList<>();
-
-    public AbbottExpectedTasksTestCase2(){
+    public AbbottExpectedTasksTestCase2() {
         createAbbottGeneralWhiteTask();
     }
 

@@ -10,10 +10,8 @@ import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 
-import static selenium.CollectTasks.*;
-import static selenium.ExpectedTasks.abbottCrt;
+import static selenium.CollectTasks.collectedTasks;
 
 
 public class CompareTasksInCardio {
@@ -23,6 +21,8 @@ public class CompareTasksInCardio {
 
 
     static JavascriptExecutor js;
+    //  public static void comparison() throws InterruptedException {}
+    static int successfulTAsks = 0;
 
     public static void loginP() throws InterruptedException, IOException {
         ReadingConfig rc = new ReadingConfig();
@@ -33,6 +33,7 @@ public class CompareTasksInCardio {
         driver.findElement(By.id("doLoginBtn")).click();
         Thread.sleep(8000);
     }
+//ist wichtig
 
     public static void inCardioDash() throws Exception {
         Thread.sleep(6000);
@@ -40,14 +41,14 @@ public class CompareTasksInCardio {
 
         int pp = p.size();
         System.out.println(pp);
-        for (int i = 1; i<= p.size()+1; i++){
-           String f = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li["+ i + "]/a")).getAttribute("name");
+        for (int i = 1; i <= p.size() + 1; i++) {
+            String f = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).getAttribute("name");
 
-           // taskObject.setColor(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.COLOr.ordinal() + "]")).getAttribute("value"));
+            // taskObject.setColor(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.COLOr.ordinal() + "]")).getAttribute("value"));
             System.out.println(f);
-            if (Objects.equals(f, "incardio-dashboard")){
+            if (Objects.equals(f, "incardio-dashboard")) {
                 System.out.println(Objects.equals(f, "incardio-dashboard"));
-                driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li["+ i + "]/a")).click();
+                driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).click();
                 break;
             }
         }
@@ -83,32 +84,26 @@ public class CompareTasksInCardio {
         //  Thread.sleep(2000);
         // deactivateERIEOS();
     }
-//ist wichtig
-
-  //  public static void comparison() throws InterruptedException {}
-  static int successfulTAsks = 0;
-
-
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     public static void compareCrt(List<Task> listname, String testcase) throws Exception {
 
         CollectTasks collectTasks = new CollectTasks();
-        if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size() == 0){
+        if (listname.get(0).isIntentioanllyEmpty() && collectedTasks.size() == 0) {
             System.out.println("Die Task wurde gewollt und erfolgreich NICHT erstellt.");
 
-        }else if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size()>0)  {
+        } else if (listname.get(0).isIntentioanllyEmpty() && collectedTasks.size() > 0) {
             System.out.println("Eine oder mehrere Tasks wurden ungewollt erstellt");
             return;
         }
 
-            System.out.println("the list size is: " + listname.size());
-            if(listname.size()<1){
-                throw new Exception("Some expected Task List did not get created");
-            }
-            System.out.println("Funktionanfang");
+        System.out.println("the list size is: " + listname.size());
+        if (listname.size() < 1) {
+            throw new Exception("Some expected Task List did not get created");
+        }
+        System.out.println("Funktionanfang");
         for (int i = 0; i < listname.size(); i++) {
-            successfulTAsks ++;
+            successfulTAsks++;
             int passedCounter = 0;
             for (int j = 0; j < collectedTasks.size(); j++) {
                 System.out.println("j: " + j + " i: " + i);
@@ -117,15 +112,15 @@ public class CompareTasksInCardio {
                         PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getReceiveDate())) &&
                         PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getTargetDate()))) {
 
-                    System.out.println("Die Task ist korrekt " +"\n" + "\n" + listname.get(i).getTaskDescription() + "\n"+ "\n"+ " und "+ "\n"+ "\n"+ collectedTasks.get(j).getTaskDescription());
+                    System.out.println("Die Task ist korrekt " + "\n" + "\n" + listname.get(i).getTaskDescription() + "\n" + "\n" + " und " + "\n" + "\n" + collectedTasks.get(j).getTaskDescription());
                     passedCounter++;
                     System.out.println(passedCounter);
-                    System.out.println("Amount of succsseful tasks "+ successfulTAsks);
+                    System.out.println("Amount of succsseful tasks " + successfulTAsks);
                     LoggerLoader.info(testcase + " was successful");
-                } else if (passedCounter < 1 && j== collectedTasks.size()-1) {
+                } else if (passedCounter < 1 && j == collectedTasks.size() - 1) {
                     //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
                     //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-                    System.out.println("Die Task wurde nicht gefunden, da "+ listname.get(i).getTaskDescription() + "nicht in der collected Liste vorhanden ist");
+                    System.out.println("Die Task wurde nicht gefunden, da " + listname.get(i) + "nicht in der collected Liste vorhanden ist");
                     System.out.println("Funktionende");
                 }
             }
@@ -137,7 +132,7 @@ public class CompareTasksInCardio {
         driver.switchTo().frame(0);
         driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys(p);
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//td[@value="+"'"+ p +"'"+ "]")).click();
+        driver.findElement(By.xpath("//td[@value=" + "'" + p + "'" + "]")).click();
         Thread.sleep(2000);
     }
 }

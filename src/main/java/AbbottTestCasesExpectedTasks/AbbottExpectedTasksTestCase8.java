@@ -1,17 +1,18 @@
 package AbbottTestCasesExpectedTasks;
+
 import selenium.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AbbottExpectedTasksTestCase8 {
+    public static List<Task> AbbottTestCase8List = new ArrayList<>();
     static Task AbbottYellowCRT96Task = new Task();
 
-    public static List<Task> AbbottTestCase8List = new ArrayList<>();
-
-    public AbbottExpectedTasksTestCase8(){
+    public AbbottExpectedTasksTestCase8() {
         createAbbottYellowCRT96Task();
     }
+
     public static List<Task> createAbbottYellowCRT96Task() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""

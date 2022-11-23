@@ -41,7 +41,6 @@ public class TelemMicroportRepRow {
     }
 
 
-
     public static void activateMicroportParameter() {
         if (!isMicroportParameterSelected()) {
             pressMicroportParameterCheckbox();

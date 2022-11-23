@@ -9,7 +9,7 @@ public class MedtronicExpectedTasksTestCase1 {
     public static List<Task> MedtronicTestCase1List = new ArrayList<>();
     static Task MedtronicYellowGeneralAlarmTask = new Task();
 
-    public MedtronicExpectedTasksTestCase1(){
+    public MedtronicExpectedTasksTestCase1() {
         createMedtronicYellowGeneralAlarmTask();
     }
 

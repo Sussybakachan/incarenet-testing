@@ -6,11 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MedtronicExpectedTasksTestCase5 {
+    public static List<Task> MedtronicTestCase5List = new ArrayList<>();
     static Task MedtronicNoTask = new Task();
 
-    public static List<Task> MedtronicTestCase5List = new ArrayList<>();
-
-    public MedtronicExpectedTasksTestCase5(){
+    public MedtronicExpectedTasksTestCase5() {
         createMedtronicNoTask();
     }
 

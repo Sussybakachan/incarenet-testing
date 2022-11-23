@@ -7,16 +7,17 @@ import java.util.List;
 
 public class AbbottExpectedTasksTestCase7 {
 
+    public static List<Task> AbbottTestCase7List = new ArrayList<>();
     static Task AbbottRedCRT84Task = new Task();
     static Task AbbottEriTask = new Task();
     static Task AbbottEosTask = new Task();
-    public static List<Task> AbbottTestCase7List = new ArrayList<>();
 
-    public AbbottExpectedTasksTestCase7(){
+    public AbbottExpectedTasksTestCase7() {
         createAbbottEosTask();
         createAbbottEriTask();
         createAbbottRedCRT84Task();
     }
+
     public static List<Task> createAbbottRedCRT84Task() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
@@ -35,6 +36,7 @@ public class AbbottExpectedTasksTestCase7 {
         AbbottTestCase7List.add(AbbottRedCRT84Task);
         return AbbottTestCase7List;
     }
+
     public static List<Task> createAbbottEriTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
@@ -53,6 +55,7 @@ public class AbbottExpectedTasksTestCase7 {
         AbbottTestCase7List.add(AbbottEriTask);
         return AbbottTestCase7List;
     }
+
     public static List<Task> createAbbottEosTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""

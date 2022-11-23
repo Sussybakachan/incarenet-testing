@@ -7,9 +7,8 @@ import java.util.List;
 
 public class BostonExpectedTasksTestCase6 {
 
-    static Task BostonRedTask = new Task();
-
     public static List<Task> BostonTestCase6List = new ArrayList<>();
+    static Task BostonRedTask = new Task();
 
 
     public BostonExpectedTasksTestCase6() {

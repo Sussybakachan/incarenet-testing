@@ -9,7 +9,7 @@ public class MicroportExpectedTasksTestCase6 {
     public static List<Task> MicroPortTestCase6List = new ArrayList<>();
     static Task MicroPortNoTask = new Task();
 
-    public MicroportExpectedTasksTestCase6(){
+    public MicroportExpectedTasksTestCase6() {
         createAbbottNoTask();
     }
 

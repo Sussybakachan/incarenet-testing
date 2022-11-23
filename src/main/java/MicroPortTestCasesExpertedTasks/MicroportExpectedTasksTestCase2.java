@@ -10,12 +10,12 @@ public class MicroportExpectedTasksTestCase2 {
     static Task MicroPortEriTask = new Task();
     static Task MicroPortEosTask = new Task();
 
-    public MicroportExpectedTasksTestCase2(){
+    public MicroportExpectedTasksTestCase2() {
         createMicroPortEriTask();
         createMicroPortEosTask();
     }
 
-    public static  List<Task> createMicroPortEriTask() {
+    public static List<Task> createMicroPortEriTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         MicroPortEriTask.setCheckBox("");
@@ -32,7 +32,8 @@ public class MicroportExpectedTasksTestCase2 {
         return MicroPortTestCase2List;
 
     }
-    public static  List<Task> createMicroPortEosTask() {
+
+    public static List<Task> createMicroPortEosTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         MicroPortEosTask.setCheckBox("");

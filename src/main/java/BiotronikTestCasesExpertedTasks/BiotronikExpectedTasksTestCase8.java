@@ -6,19 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BiotronikExpectedTasksTestCase8 {
+    public static List<Task> BiotronikTestCase8List = new ArrayList<>();
     static Task Biotronik97LVAlarmTask = new Task();
     static Task BiotronikERIAlarmTask = new Task();
     static Task BiotronikEOSAlarmTask = new Task();
     static Task Biotronik93AlarmTask = new Task();
 
-public BiotronikExpectedTasksTestCase8(){
-    createBiotronik93generalTaskCase7();
-    createBiotronik97generalTaskCase7();
-    createBiotronikERIAlarmTask();
-    createBiotronikEOSAlarmTask();
-}
-
-public static List<Task> BiotronikTestCase8List = new ArrayList<>();
+    public BiotronikExpectedTasksTestCase8() {
+        createBiotronik93generalTaskCase7();
+        createBiotronik97generalTaskCase7();
+        createBiotronikERIAlarmTask();
+        createBiotronikEOSAlarmTask();
+    }
 
     public static List<Task> createBiotronik93generalTaskCase7() {
 
@@ -47,7 +46,8 @@ public static List<Task> BiotronikTestCase8List = new ArrayList<>();
         BiotronikTestCase8List.add(Biotronik93AlarmTask);
         return BiotronikTestCase8List;
     }
-    public static  List<Task> createBiotronik97generalTaskCase7() {
+
+    public static List<Task> createBiotronik97generalTaskCase7() {
 
         Biotronik97LVAlarmTask.setCheckBox("");
         Biotronik97LVAlarmTask.setColor("warning");
@@ -69,7 +69,8 @@ public static List<Task> BiotronikTestCase8List = new ArrayList<>();
         BiotronikTestCase8List.add(Biotronik97LVAlarmTask);
         return BiotronikTestCase8List;
     }
-    public static  List<Task> createBiotronikERIAlarmTask() {
+
+    public static List<Task> createBiotronikERIAlarmTask() {
 
         BiotronikERIAlarmTask.setCheckBox("");
         BiotronikERIAlarmTask.setColor("warning");
@@ -91,7 +92,8 @@ public static List<Task> BiotronikTestCase8List = new ArrayList<>();
         BiotronikTestCase8List.add(BiotronikERIAlarmTask);
         return BiotronikTestCase8List;
     }
-    public static  List<Task> createBiotronikEOSAlarmTask() {
+
+    public static List<Task> createBiotronikEOSAlarmTask() {
 
         BiotronikEOSAlarmTask.setCheckBox("");
         BiotronikEOSAlarmTask.setColor("warning");

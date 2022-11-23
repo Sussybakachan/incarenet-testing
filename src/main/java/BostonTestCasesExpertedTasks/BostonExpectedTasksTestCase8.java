@@ -7,23 +7,15 @@ import java.util.List;
 
 public class BostonExpectedTasksTestCase8 {
 
-    static Task BostonRedLVTask = new Task();
-
-    static Task BostonYellowLVTask = new Task();
-
-    static Task BostonEriTask = new Task();
-
-    static Task BostonEosTask = new Task();
-
-    static Task BostonLv70AlarmTask = new Task();
-
-    static Task BostonLv85AlarmTask = new Task();
-
-    static Task BostonEosAlarmTask = new Task();
-
-    static Task BostonEriAlarmTask = new Task();
-
     public static List<Task> BostonTestCase8List = new ArrayList<>();
+    static Task BostonRedLVTask = new Task();
+    static Task BostonYellowLVTask = new Task();
+    static Task BostonEriTask = new Task();
+    static Task BostonEosTask = new Task();
+    static Task BostonLv70AlarmTask = new Task();
+    static Task BostonLv85AlarmTask = new Task();
+    static Task BostonEosAlarmTask = new Task();
+    static Task BostonEriAlarmTask = new Task();
 
 
     public BostonExpectedTasksTestCase8() {
@@ -55,6 +47,7 @@ public class BostonExpectedTasksTestCase8 {
         BostonTestCase8List.add(BostonRedLVTask);
         return BostonTestCase8List;
     }
+
     public static List<Task> createBostonYellowLVTask() {
 
         BostonYellowLVTask.setCheckBox("");
@@ -70,6 +63,7 @@ public class BostonExpectedTasksTestCase8 {
         BostonTestCase8List.add(BostonYellowLVTask);
         return BostonTestCase8List;
     }
+
     public static List<Task> createBostonEriTask() {
 
         BostonEriTask.setCheckBox("");
@@ -85,6 +79,7 @@ public class BostonExpectedTasksTestCase8 {
         BostonTestCase8List.add(BostonEriTask);
         return BostonTestCase8List;
     }
+
     public static List<Task> createBostonEosTask() {
 
         BostonEosTask.setCheckBox("");
@@ -124,6 +119,7 @@ public class BostonExpectedTasksTestCase8 {
         BostonTestCase8List.add(BostonLv70AlarmTask);
         return BostonTestCase8List;
     }
+
     public static List<Task> createBostonYellowLV85AlarmTask() {
 
         BostonLv85AlarmTask.setCheckBox("");
@@ -146,6 +142,7 @@ public class BostonExpectedTasksTestCase8 {
         BostonTestCase8List.add(BostonLv85AlarmTask);
         return BostonTestCase8List;
     }
+
     public static List<Task> createBostonEriAlarmTask() {
 
         BostonEriAlarmTask.setCheckBox("");
@@ -168,6 +165,7 @@ public class BostonExpectedTasksTestCase8 {
         BostonTestCase8List.add(BostonEriAlarmTask);
         return BostonTestCase8List;
     }
+
     public static List<Task> createBostonEosAlarmTask() {
 
         BostonEosAlarmTask.setCheckBox("");

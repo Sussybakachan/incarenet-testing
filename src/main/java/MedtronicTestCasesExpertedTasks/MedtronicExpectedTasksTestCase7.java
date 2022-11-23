@@ -14,7 +14,7 @@ public class MedtronicExpectedTasksTestCase7 {
     static Task MedtronicEosTask = new Task();
 
 
-    public MedtronicExpectedTasksTestCase7(){
+    public MedtronicExpectedTasksTestCase7() {
         createMedtronicRed76LvTask();
         createMedtronicEosTask();
         createMedtronicEriTask();
@@ -54,6 +54,7 @@ public class MedtronicExpectedTasksTestCase7 {
         MedtronicTestCase7List.add(MedtronicRed76CrtTask);
         return MedtronicTestCase7List;
     }
+
     public static List<Task> createMedtronicEriTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
@@ -70,6 +71,7 @@ public class MedtronicExpectedTasksTestCase7 {
         MedtronicTestCase7List.add(MedtronicEriTask);
         return MedtronicTestCase7List;
     }
+
     public static List<Task> createMedtronicEosTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
