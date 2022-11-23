@@ -22,6 +22,7 @@ import static selenium.DeletingTasks.deleteTask;
 
         import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
+import static selenium.PdfCheck.pdfCheck;
 
 
 public class StartTesting {
@@ -37,7 +38,7 @@ public class StartTesting {
         driver.manage().window().maximize();
         js = (JavascriptExecutor) driver;
         action = new Actions(driver);
-       // PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff2\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
+        //PasteFile.pasteFile("/home/fernand/Documents/sdx/biotronik/Biotronik Implant CRT 97% LV 97%.hl7", "/home/fernand/IdeaProjects/sdx-file-forwarder/input/Biotronik Implant CRT 97% LV 97%.hl7");
 
        //createTasks();
       createAllExpectedTasks();
@@ -45,8 +46,11 @@ public class StartTesting {
         loginP();
         inCardioDash();
         AbbottTestCases abbottTestCases = new AbbottTestCases();
+
         // thresholdCheck();
-       //comparison();
+        //comparison();
+        //driver.close();
 
     }
+
 }
