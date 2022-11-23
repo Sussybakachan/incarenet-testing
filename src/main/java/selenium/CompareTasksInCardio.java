@@ -1,5 +1,6 @@
 package selenium;
 
+import dsutilities.LoggerLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -86,8 +87,11 @@ public class CompareTasksInCardio {
 
   //  public static void comparison() throws InterruptedException {}
   static int successfulTAsks = 0;
+
+
+
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
-    public static void compareCrt(List<Task> listname) throws Exception {
+    public static void compareCrt(List<Task> listname, String testcase) throws Exception {
 
         CollectTasks collectTasks = new CollectTasks();
         if (listname.get(0).isIntentioanllyEmpty()&& collectedTasks.size() == 0){
@@ -103,21 +107,25 @@ public class CompareTasksInCardio {
                 throw new Exception("Some expected Task List did not get created");
             }
             System.out.println("Funktionanfang");
-        for (int i = 0; i < collectedTasks.size(); i++) {
+        for (int i = 0; i < listname.size(); i++) {
             successfulTAsks ++;
             int passedCounter = 0;
-            for (int j = 0; j < listname.size(); j++) {
+            for (int j = 0; j < collectedTasks.size(); j++) {
                 System.out.println("j: " + j + " i: " + i);
                 //System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
-                if (listname.get(j).equals(collectedTasks.get(i)) && PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getTargetDate()))) {
-                    System.out.println("Die Task ist korrekt " +"\n" + "\n" + collectedTasks.get(i).getTaskDescription() + "\n"+ "\n"+ " und "+ "\n"+ "\n"+ listname.get(j).getTaskDescription());
+                if (collectedTasks.get(j).equals(listname.get(i)) &&
+                        PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getReceiveDate())) &&
+                        PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getTargetDate()))) {
+
+                    System.out.println("Die Task ist korrekt " +"\n" + "\n" + listname.get(i).getTaskDescription() + "\n"+ "\n"+ " und "+ "\n"+ "\n"+ collectedTasks.get(j).getTaskDescription());
                     passedCounter++;
                     System.out.println(passedCounter);
-                    System.out.println("Amount of succsseful Tasks "+ successfulTAsks);
-                } else if (passedCounter < 1 && j== listname.size()-1) {
+                    System.out.println("Amount of succsseful tasks "+ successfulTAsks);
+                    LoggerLoader.info(testcase + " was successful");
+                } else if (passedCounter < 1 && j== collectedTasks.size()-1) {
                     //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
                     //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-                    System.out.println("Die Task wurde nicht gefunden, da "+ collectedTasks.get(i).getTaskDescription() + "nicht in der Expected Liste vorhanden ist");
+                    System.out.println("Die Task wurde nicht gefunden, da "+ listname.get(i).getTaskDescription() + "nicht in der collected Liste vorhanden ist");
                     System.out.println("Funktionende");
                 }
             }
