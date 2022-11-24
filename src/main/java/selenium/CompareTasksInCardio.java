@@ -8,10 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import static selenium.CollectTasks.collectedTasks;
 
 
 public class CompareTasksInCardio {
@@ -19,6 +18,8 @@ public class CompareTasksInCardio {
     public static WebDriver driver;
     static Actions action;
 
+   static List<FailedTasks> listOfFailedTasksAndReason = new ArrayList<>();
+    static List<String> successfulTestCases = new ArrayList<>();
 
     static JavascriptExecutor js;
     //  public static void comparison() throws InterruptedException {}
@@ -86,45 +87,59 @@ public class CompareTasksInCardio {
     }
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
-    public static void compareCrt(List<Task> listname, String testcase) throws Exception {
-
-        CollectTasks collectTasks = new CollectTasks();
-        if (listname.get(0).isIntentioanllyEmpty() && collectedTasks.size() == 0) {
+    public static void compareCrt(List<Task> listname, String testcase, List<Task> collectTasks) throws Exception {
+        FailedTasks b = new FailedTasks();
+        b.setManufacturerTestCase(testcase);
+        if (listname.get(0).isIntentioanllyEmpty() && collectTasks.size() == 0) {
             System.out.println("Die Task wurde gewollt und erfolgreich NICHT erstellt.");
-
-        } else if (listname.get(0).isIntentioanllyEmpty() && collectedTasks.size() > 0) {
+            successfulTestCases.add(testcase);
+            return;
+        } else if (listname.get(0).isIntentioanllyEmpty() && collectTasks.size() > 0) {
             System.out.println("Eine oder mehrere Tasks wurden ungewollt erstellt");
+            b.setReasonForFailure("Eine oder mehrere Tasks wurden ungewollt erstellt");
+            listOfFailedTasksAndReason.add(b);
             return;
         }
 
         System.out.println("the list size is: " + listname.size());
         if (listname.size() < 1) {
+            LoggerLoader.fatal("Some expected Task List did not get created: " + testcase);
             throw new Exception("Some expected Task List did not get created");
         }
         System.out.println("Funktionanfang");
+        List<Task> notFoundTasks = null;
         for (int i = 0; i < listname.size(); i++) {
             successfulTAsks++;
             int passedCounter = 0;
-            for (int j = 0; j < collectedTasks.size(); j++) {
+            for (int j = 0; j < collectTasks.size(); j++) {
                 System.out.println("j: " + j + " i: " + i);
-                //System.out.println("collected Tasks in der compareCrt Methode: " + collectedTasks);
-                if (collectedTasks.get(j).equals(listname.get(i)) &&
-                        PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getReceiveDate())) &&
-                        PatternTest.useRegex(String.valueOf(collectedTasks.get(j).getTargetDate()))) {
+                //System.out.println("collected Tasks in der compareCrt Methode: " + collectTasks);
+                if (collectTasks.get(j).equals(listname.get(i)) &&
+                        PatternTest.useRegex(String.valueOf(collectTasks.get(j).getReceiveDate())) &&
+                        PatternTest.useRegex(String.valueOf(collectTasks.get(j).getTargetDate()))) {
 
-                    System.out.println("Die Task ist korrekt " + "\n" + "\n" + listname.get(i).getTaskDescription() + "\n" + "\n" + " und " + "\n" + "\n" + collectedTasks.get(j).getTaskDescription());
+                    System.out.println("Die Task ist korrekt " + "\n" + "\n" + listname.get(i).getTaskDescription() + "\n" + "\n" + " und " + "\n" + "\n" + collectTasks.get(j).getTaskDescription());
                     passedCounter++;
                     System.out.println(passedCounter);
                     System.out.println("Amount of succsseful tasks " + successfulTAsks);
-                    LoggerLoader.info(testcase + " was successful");
-                } else if (passedCounter < 1 && j == collectedTasks.size() - 1) {
+
+                } else if (passedCounter < 1 && j == collectTasks.size() - 1) {
                     //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
                     //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
+
+                    notFoundTasks = new ArrayList<>();
+                    notFoundTasks.add(listname.get(i));
+
+
                     System.out.println("Die Task wurde nicht gefunden, da " + listname.get(i) + "nicht in der collected Liste vorhanden ist");
                     System.out.println("Funktionende");
+
                 }
             }
         }
+
+        b.setReasonForFailure("The expected Tasks did not get found: \n" + notFoundTasks);
+        listOfFailedTasksAndReason.add(b);
     }
 
 
