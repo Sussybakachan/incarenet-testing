@@ -35,6 +35,11 @@
             <artifactId>log4j-api</artifactId>
             <version>2.19.0</version>
         </dependency>
+        <dependency>
+            <groupId>de.danielbechler</groupId>
+            <artifactId>java-object-diff</artifactId>
+            <version>0.95</version>
+        </dependency>
 
         <dependency>
             <groupId>com.testautomationguru.pdfutil</groupId>
