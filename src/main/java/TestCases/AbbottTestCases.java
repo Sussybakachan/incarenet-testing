@@ -2,6 +2,7 @@ package TestCases;
 
 import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1;
 import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase2;
+import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase7;
 import selenium.CollectTasks;
 import selenium.Task;
 
@@ -35,7 +36,7 @@ public class AbbottTestCases {
      //   pasteFile(pathToOldHl7, pathToInput);
        // Thread.sleep(10000);
        // getGeneratedTasks();
-        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", getGeneratedTasks());
+        compareCrt(AbbottExpectedTasksTestCase7.AbbottTestCase7List, "Abbott1", getGeneratedTasks());
       //  deleteTask();
     }
 
@@ -44,7 +45,7 @@ public class AbbottTestCases {
         return collectTasks.getTasks();
     }
 
-   /*public void abbottTestCase2() throws Exception {
+   public void abbottTestCase2() throws Exception {
         //Set Template needs to be done before
         //thresholdCheck()
         fileName = "Abbott Implant CRT 84%";
@@ -54,7 +55,7 @@ public class AbbottTestCases {
         Thread.sleep(10000);
         //compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List);
         deleteTask();
-    } */
+    }
 
 }
 

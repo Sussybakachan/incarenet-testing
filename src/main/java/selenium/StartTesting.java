@@ -2,6 +2,8 @@ package selenium;
 
 //TODO typo in "Expected"-> "Experted"
 
+import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase6;
+import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase7;
 import TestCases.AbbottTestCases;
 import dsutilities.LoggerLoader;
 import org.openqa.selenium.JavascriptExecutor;
@@ -43,10 +45,14 @@ public class StartTesting {
         String fails;
         for (FailedTasks i : listOfFailedTasksAndReason) {
             fails = i.getManufacturerTestCase() + ": \n" + i.getReasonForFailure();
+            //TODO also replaces the "[]" everywhere in the tasks log, probably need to change that
+           fails = fails.replaceAll("\\[", "")
+                    .replaceAll("]", "").trim();
             failedTasksString.add(fails);
-        }LoggerLoader.info("Automation test finished");
+        }
+        LoggerLoader.info("Automation test finished");
         LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);
-        LoggerLoader.error("Following Testcase failed because the Task could not be found:\n " + failedTasksString);
+        LoggerLoader.error("Following Testcase failed because the Task could not be found:\n" + failedTasksString.toString());
 
     }
 }

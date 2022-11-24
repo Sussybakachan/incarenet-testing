@@ -138,7 +138,7 @@ public class CompareTasksInCardio {
             }
         }
 
-        b.setReasonForFailure("The expected Tasks did not get found: \n" + notFoundTasks);
+        b.setReasonForFailure(String.valueOf(notFoundTasks));
         listOfFailedTasksAndReason.add(b);
     }
 
