@@ -10,6 +10,7 @@ import static selenium.PasteFile.pasteFile;
 
 public class BostonTestCases {
     //Testcase1
+    GeneratedTasks g = new GeneratedTasks();
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
     String fileDirectory = rootDir + "/src/main/resources/Boston/";
@@ -28,7 +29,7 @@ public class BostonTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(BostonExpectedTasksTestCase1.BostonTestCase1List);
+        compareCrt(BostonExpectedTasksTestCase1.BostonTestCase1List, "Boston1", g.getGeneratedTasks());
         deleteTask();
     }
     public void BostonTestCase2() throws Exception {
@@ -41,7 +42,7 @@ public class BostonTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BostonExpectedTasksTestCase2.BostonEmptyTestCase);
+        compareCrt(BostonExpectedTasksTestCase2.BostonEmptyTestCase, "Boston2", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -55,7 +56,7 @@ public class BostonTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BostonExpectedTasksTestCase3.BostonTestCase3List);
+        compareCrt(BostonExpectedTasksTestCase3.BostonTestCase3List, "Boston3", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -69,7 +70,7 @@ public class BostonTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BostonExpectedTasksTestCase4.BostonTestCase4List);
+        compareCrt(BostonExpectedTasksTestCase4.BostonTestCase4List, "Boston4", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -81,7 +82,7 @@ public class BostonTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(BostonExpectedTasksTestCase5.BostonTestCase5List);
+        compareCrt(BostonExpectedTasksTestCase5.BostonTestCase5List, "Boston5", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -93,7 +94,7 @@ public class BostonTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(BostonExpectedTasksTestCase6.BostonTestCase6List);
+        compareCrt(BostonExpectedTasksTestCase6.BostonTestCase6List, "Boston6", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -105,7 +106,7 @@ public class BostonTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(BostonExpectedTasksTestCase7.BostonTestCase7List);
+        compareCrt(BostonExpectedTasksTestCase7.BostonTestCase7List, "Boston7", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -119,7 +120,7 @@ public class BostonTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BostonExpectedTasksTestCase8.BostonTestCase8List);
+        compareCrt(BostonExpectedTasksTestCase8.BostonTestCase8List, "Boston8", g.getGeneratedTasks());
         deleteTask();
     }
 

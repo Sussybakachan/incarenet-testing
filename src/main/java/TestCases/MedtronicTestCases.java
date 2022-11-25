@@ -12,6 +12,7 @@ public class MedtronicTestCases {
     //Testcase1
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
+    GeneratedTasks g = new GeneratedTasks();
     String fileDirectory = rootDir + "/src/main/resources/Medtronic/";
     String FfInputPath = rootDir + "/input/";
     String[] fileName;
@@ -28,7 +29,7 @@ public class MedtronicTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
        pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase1.MedtronicTestCase1List);
+        compareCrt(MedtronicExpectedTasksTestCase1.MedtronicTestCase1List, "Medtronic1", g.getGeneratedTasks());
         deleteTask();
 }
     public void medtronicTestCase2() throws Exception {
@@ -39,7 +40,7 @@ public class MedtronicTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase2.MedtronicTestCase2List);
+        compareCrt(MedtronicExpectedTasksTestCase2.MedtronicTestCase2List, "Medtronic2", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -51,7 +52,7 @@ public class MedtronicTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase3.MedtronicTestCase3List);
+        compareCrt(MedtronicExpectedTasksTestCase3.MedtronicTestCase3List, "Medtronic3", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -66,7 +67,7 @@ public class MedtronicTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase4.MedtronicTestCase4List);
+        compareCrt(MedtronicExpectedTasksTestCase4.MedtronicTestCase4List, "Medtronic4", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -80,7 +81,7 @@ public class MedtronicTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase5.MedtronicTestCase5List);
+        compareCrt(MedtronicExpectedTasksTestCase5.MedtronicTestCase5List, "Medtronic5", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -94,7 +95,7 @@ public class MedtronicTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase6.MedtronicTestCase6List);
+        compareCrt(MedtronicExpectedTasksTestCase6.MedtronicTestCase6List, "Medtronic6", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -108,7 +109,7 @@ public class MedtronicTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase7.MedtronicTestCase7List);
+        compareCrt(MedtronicExpectedTasksTestCase7.MedtronicTestCase7List, "Medtronic7", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -120,7 +121,7 @@ public class MedtronicTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase8.MedtronicTestCase8List);
+        compareCrt(MedtronicExpectedTasksTestCase8.MedtronicTestCase8List, "Medtronic8", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -132,7 +133,7 @@ public class MedtronicTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MedtronicExpectedTasksTestCase9.MedtronicTestCase9List);
+        compareCrt(MedtronicExpectedTasksTestCase9.MedtronicTestCase9List, "Medtronic9", g.getGeneratedTasks());
         deleteTask();
     }
 

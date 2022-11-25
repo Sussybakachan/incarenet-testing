@@ -1,9 +1,8 @@
 package TestCases;
 
-import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1;
-import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase2;
-import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase7;
+import AbbottTestCasesExpectedTasks.*;
 import selenium.CollectTasks;
+import selenium.PdfCheck;
 import selenium.Task;
 
 import java.util.List;
@@ -16,9 +15,11 @@ import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.pasteFile;
+import static selenium.PdfCheck.pdfCheck;
 
 public class AbbottTestCases {
     //Testcase1
+    GeneratedTasks g = new GeneratedTasks();
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
     String fileDirectory = rootDir + "/src/main/resources/Selenium-IDCO-Files/Abbott/";
@@ -26,29 +27,11 @@ public class AbbottTestCases {
     String[] fileName;
 
     public AbbottTestCases() throws Exception {
-        abbottTestCase1();
+        abbottTestCase2();
     }
 
     public void abbottTestCase1() throws Exception {
         //Set Template needs to be done before
-        choosepatient("Sel-Boston");
-       // thresholdCheck("Abbott", 1);
-      //  fileName = "Abbott Implant CRT 84%";
-      //  String pathToOldHl7 = fileDirectory + fileName + ".hl7";
-      //  String pathToInput = FfInputPath + fileName + ".hl7";
-     //   pasteFile(pathToOldHl7, pathToInput);
-       // Thread.sleep(10000);
-       // getGeneratedTasks();
-        compareCrt(AbbottExpectedTasksTestCase7.AbbottTestCase7List, "Abbott1", getGeneratedTasks());
-      //  deleteTask();
-    }
-
-    private List<Task> getGeneratedTasks() throws InterruptedException {
-        CollectTasks collectTasks = new CollectTasks();
-        return collectTasks.getTasks();
-    }
-
-   public void abbottTestCase2() throws Exception {
         choosepatient("Sel-Abbott");
         thresholdCheck("Abbott", 1);
         fileName = new String[]{"Abbott Implant CRT 84%"};
@@ -56,22 +39,26 @@ public class AbbottTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List);
-        deleteTask();
-        deselectAll();
-}
-    public void abbottTestCase2() throws Exception {
-        //Set Template needs to be done before
-        //thresholdCheck("Abbott", 2)
+       // getGeneratedTasks();
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+      //  deleteTask();
+    }
+
+
+
+   public void abbottTestCase2() throws Exception {
+        choosepatient("Sel-Abbott");
+        thresholdCheck("Abbott", 2);
         fileName = new String[]{"Abbott Implant CRT 84%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        //compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List);
+        compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List, "Abbott2", g.getGeneratedTasks());
+        pdfCheck();
         deleteTask();
-    }
-
+        deselectAll();
+}
     public void abbottTestCase3() throws Exception {
         //Set Template needs to be done before
         //thresholdCheck("Abbott", 3)
@@ -80,7 +67,7 @@ public class AbbottTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase3.AbbottTestCase3List);
+        compareCrt(AbbottExpectedTasksTestCase3.AbbottTestCase3List, "Abbott3", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -94,7 +81,7 @@ public class AbbottTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase4.AbbottTestCase4List);
+        compareCrt(AbbottExpectedTasksTestCase4.AbbottTestCase4List, "Abbott4", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -108,7 +95,8 @@ public class AbbottTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase5.AbbottTestCase5List);
+        compareCrt(AbbottExpectedTasksTestCase5.AbbottTestCase5List, "Abbott5", g.getGeneratedTasks());
+        deleteTask();
         deleteTask();
     }
 
@@ -122,7 +110,8 @@ public class AbbottTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase6.AbbottTestCase6List);
+        compareCrt(AbbottExpectedTasksTestCase6.AbbottTestCase6List, "Abbott6", g.getGeneratedTasks());
+        deleteTask();
         deleteTask();
     }
 
@@ -136,7 +125,8 @@ public class AbbottTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase7.AbbottTestCase7List);
+        compareCrt(AbbottExpectedTasksTestCase7.AbbottTestCase7List, "Abbott7", g.getGeneratedTasks());
+        deleteTask();
         deleteTask();
     }
 
@@ -148,7 +138,7 @@ public class AbbottTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase8.AbbottTestCase8List);
+        compareCrt(AbbottExpectedTasksTestCase8.AbbottTestCase8List, "Abbott8", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -160,7 +150,7 @@ public class AbbottTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List);
+        compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List, "Abbott9", g.getGeneratedTasks());
         deleteTask();
     }
 

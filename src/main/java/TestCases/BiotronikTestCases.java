@@ -10,6 +10,7 @@ import static selenium.PasteFile.pasteFile;
 
 public class BiotronikTestCases {
     //Testcase1
+    GeneratedTasks g = new GeneratedTasks();
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
     String fileDirectory = rootDir + "/src/main/resources/Biotronik/";
@@ -28,7 +29,7 @@ public class BiotronikTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
        pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(BiotronikExpectedTasksTestCase1.BiotronikTestCase1List);
+        compareCrt(BiotronikExpectedTasksTestCase1.BiotronikTestCase1List, "Biotronik1", g.getGeneratedTasks());
         deleteTask();
 }
     public void BiotronikTestCase2() throws Exception {
@@ -41,7 +42,7 @@ public class BiotronikTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BiotronikExpectedTasksTestCase2.BiotronikTestCase2List);
+        compareCrt(BiotronikExpectedTasksTestCase2.BiotronikTestCase2List, "Biotronik2", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -55,7 +56,7 @@ public class BiotronikTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BiotronikExpectedTasksTestCase3.BiotronikTestCase3List);
+        compareCrt(BiotronikExpectedTasksTestCase3.BiotronikTestCase3List, "Biotronik3", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -69,7 +70,7 @@ public class BiotronikTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BiotronikExpectedTasksTestCase4.BiotronikTestCase4List);
+        compareCrt(BiotronikExpectedTasksTestCase4.BiotronikTestCase4List, "Biotronik4", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -83,7 +84,7 @@ public class BiotronikTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BiotronikExpectedTasksTestCase5.BiotronikTestCase5List);
+        compareCrt(BiotronikExpectedTasksTestCase5.BiotronikTestCase5List, "Biotronik5", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -97,7 +98,7 @@ public class BiotronikTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BiotronikExpectedTasksTestCase6.BiotronikTestCase6List);
+        compareCrt(BiotronikExpectedTasksTestCase6.BiotronikTestCase6List, "Biotronik6", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -111,7 +112,7 @@ public class BiotronikTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(BiotronikExpectedTasksTestCase7.BiotronikTestCase7List);
+        compareCrt(BiotronikExpectedTasksTestCase7.BiotronikTestCase7List, "Biotronik7", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -123,7 +124,7 @@ public class BiotronikTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(BiotronikExpectedTasksTestCase8.BiotronikTestCase8List);
+        compareCrt(BiotronikExpectedTasksTestCase8.BiotronikTestCase8List, "Biotronik8", g.getGeneratedTasks());
         deleteTask();
     }
 

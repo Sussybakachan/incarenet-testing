@@ -10,6 +10,7 @@ import static selenium.PasteFile.pasteFile;
 
 public class MicroPortTestCases {
     //Testcase1
+    GeneratedTasks g = new GeneratedTasks();
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
     String fileDirectory = rootDir + "/src/main/resources/MicroPort/";
@@ -29,7 +30,7 @@ public class MicroPortTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
         };
-        compareCrt(MicroPortExpectedTasksTestCase1.MicroPortTestCase1List);
+        compareCrt(MicroPortExpectedTasksTestCase1.MicroPortTestCase1List, "MicroPort1", g.getGeneratedTasks());
         deleteTask();
 }
     public void microportTestCase2() throws Exception {
@@ -40,7 +41,7 @@ public class MicroPortTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MicroPortExpectedTasksTestCase2.MicroPortTestCase2List);
+        compareCrt(MicroPortExpectedTasksTestCase2.MicroPortTestCase2List, "MicroPort2", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -52,7 +53,7 @@ public class MicroPortTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MicroPortExpectedTasksTestCase3.MicroPortTestCase3List);
+        compareCrt(MicroPortExpectedTasksTestCase3.MicroPortTestCase3List, "MicroPort3", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -64,7 +65,7 @@ public class MicroPortTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MicroPortExpectedTasksTestCase4.MicroPortTestCase4List);
+        compareCrt(MicroPortExpectedTasksTestCase4.MicroPortTestCase4List, "MicroPort4", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -76,7 +77,7 @@ public class MicroPortTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
-        compareCrt(MicroPortExpectedTasksTestCase5.MicroPortTestCase5List);
+        compareCrt(MicroPortExpectedTasksTestCase5.MicroPortTestCase5List, "MicroPort5", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -90,7 +91,7 @@ public class MicroPortTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(MicroPortExpectedTasksTestCase6.MicroPortTestCase6List);
+        compareCrt(MicroPortExpectedTasksTestCase6.MicroPortTestCase6List, "MicroPort6", g.getGeneratedTasks());
         deleteTask();
     }
 
@@ -104,7 +105,7 @@ public class MicroPortTestCases {
             pasteFile(pathToOldHl7, pathToInput);
         };
         Thread.sleep(10000);
-        compareCrt(MicroPortExpectedTasksTestCase7.MicroPortTestCase7List);
+        compareCrt(MicroPortExpectedTasksTestCase7.MicroPortTestCase7List, "MicroPort7", g.getGeneratedTasks());
         deleteTask();
     }
 
