@@ -88,6 +88,7 @@ public class CompareTasksInCardio {
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     public static void compareCrt(List<Task> listname, String testcase, List<Task> collectTasks) throws Exception {
+        List<Task> notFoundTasks = new ArrayList<>();
         FailedTasks b = new FailedTasks();
         b.setManufacturerTestCase(testcase);
         if (listname.get(0).isIntentioanllyEmpty() && collectTasks.size() == 0) {
@@ -107,7 +108,6 @@ public class CompareTasksInCardio {
             throw new Exception("Some expected Task List did not get created");
         }
         System.out.println("Funktionanfang");
-        List<Task> notFoundTasks = null;
         for (int i = 0; i < listname.size(); i++) {
             successfulTAsks++;
             int passedCounter = 0;
@@ -126,11 +126,7 @@ public class CompareTasksInCardio {
                 } else if (passedCounter < 1 && j == collectTasks.size() - 1) {
                     //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
                     //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
-
-                    notFoundTasks = new ArrayList<>();
                     notFoundTasks.add(listname.get(i));
-
-
                     System.out.println("Die Task wurde nicht gefunden, da " + listname.get(i) + "nicht in der collected Liste vorhanden ist");
                     System.out.println("Funktionende");
 

@@ -44,7 +44,7 @@ public class Task {
                 "pdf=" + pdf + '\n' +
                 "employee=" + employee + '\n' +
                 "furtherInformation=" + furtherInformation + '\n' +
-                "action=" + action + '\n';
+                "action=" + action + '\n' + '\n';
     }
 
     @Override
