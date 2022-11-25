@@ -20,9 +20,9 @@ import static selenium.CompareTasksInCardio.driver;
 
 public class ThresholdCheckMethod {
     public static void thresholdCheck(String manufacturer, int testCase) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(9000);
         //TODO I changed the path to the Schwellenwerte because he didn't find it with the other xpath
-        driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div/div/div/button[6]")).click();     //Schwellenwerte
+        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[6]")).click();     //Schwellenwerte
         Thread.sleep(2000);
         //create a template if patient doesn't have one
         List<WebElement> bearbeitenButtonAnzahl = driver.findElements(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/form/div[1]/div/div/span"));
