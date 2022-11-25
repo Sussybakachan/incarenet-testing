@@ -1,17 +1,10 @@
 package selenium;
 
-//TODO typo in "Expected"-> "Experted"
-
-import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase6;
-import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase7;
 import TestCases.AbbottTestCases;
 import dsutilities.LoggerLoader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
@@ -24,6 +17,7 @@ public class StartTesting {
         //  System.out.println(PatternTest.useRegex("2022-12-26T12:34:14.265Z"));
         LoggerLoader.info("Automation test started");
         ReadingConfig rc = new ReadingConfig();
+
         System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
         driver = new ChromeDriver();
         driver.get(rc.loadProperty().getProperty("SERVER_URL"));
@@ -40,19 +34,13 @@ public class StartTesting {
         AbbottTestCases abbottTestCases = new AbbottTestCases();
         // thresholdCheck();
         //comparison();
-        List<String> failedTasksString;
-        failedTasksString = new ArrayList<>();
-        String fails;
-        for (FailedTasks i : listOfFailedTasksAndReason) {
-            fails = i.getManufacturerTestCase() + ": \n" + i.getReasonForFailure();
-            //TODO also replaces the "[]" everywhere in the tasks log, probably need to change that
-           fails = fails.replaceAll("\\[", "")
-                    .replaceAll("]", "").trim();
-            failedTasksString.add(fails);
-        }
+        LoggingDataModif loggingDataModif = new LoggingDataModif();
+        String actualString = loggingDataModif.editFailedTaskLogging();
         LoggerLoader.info("Automation test finished");
         LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);
-        LoggerLoader.error("Following Testcase failed because the Task could not be found:\n" + failedTasksString.toString());
+        LoggerLoader.error("Following Testcase(s) failed because the Task could not be found:\n" + actualString);
 
     }
+
+
 }

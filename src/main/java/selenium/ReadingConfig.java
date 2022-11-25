@@ -7,10 +7,8 @@ import java.util.Properties;
 public class ReadingConfig {
     Properties loadProperty() throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("src/main/java/selenium/config.properties");
+        FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
         prop.load(fis);
         return prop;
     }
-
-
 }
