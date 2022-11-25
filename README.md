@@ -2,4 +2,4 @@
 - Download the Chrome Webdriver that fitts your Chrome version
 
 2. configurate the config.properties (src/main/resources/config.properties):
-~~- The default path to the Chrome Webdriver is for Unix. If you are using Windows you need to configurate that path~~
+- The default path to the Chrome Webdriver is for Unix. If you are using Windows you might need to configurate that path 
