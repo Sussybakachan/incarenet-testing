@@ -25,14 +25,19 @@ public class CompareTasksInCardio {
     //  public static void comparison() throws InterruptedException {}
     static int successfulTAsks = 0;
 
+
     public static void loginP() throws InterruptedException, IOException {
-        ReadingConfig rc = new ReadingConfig();
-        driver.findElement(By.id("usernameField")).sendKeys(rc.loadProperty().getProperty("USERNAME"));
-        Thread.sleep(2000);
-        driver.findElement(By.id("passwordField")).sendKeys(rc.loadProperty().getProperty("PASSWORD"));
-        Thread.sleep(2000);
-        driver.findElement(By.id("doLoginBtn")).click();
-        Thread.sleep(8000);
+        try{
+            ReadingConfig rc = new ReadingConfig();
+            driver.findElement(By.id("usernameField")).sendKeys(rc.loadProperty().getProperty("USERNAME"));
+            Thread.sleep(2000);
+            driver.findElement(By.id("passwordField")).sendKeys(rc.loadProperty().getProperty("PASSWORD"));
+            Thread.sleep(2000);
+            driver.findElement(By.id("doLoginBtn")).click();
+            Thread.sleep(8000);
+        } catch (Exception e){
+            LoggerLoader.fatal("Login failed:\n Check config.properties or see if the server is unavailable");
+        }
     }
 //ist wichtig
 
@@ -42,16 +47,29 @@ public class CompareTasksInCardio {
 
         int pp = p.size();
         System.out.println(pp);
-        for (int i = 1; i <= p.size() + 1; i++) {
-            String f = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).getAttribute("name");
 
+        for (int i = 1; i <= p.size() + 1; i++) {
+            String f = null;
+            try {
+                f = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).getAttribute("name");
+            } catch (Exception e) {
+                LoggerLoader.fatal("Login failed:\nCheck config.properties or see if the server is unavailable");
+            }
             // taskObject.setColor(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.COLOr.ordinal() + "]")).getAttribute("value"));
             System.out.println(f);
-            if (Objects.equals(f, "incardio-dashboard")) {
-                System.out.println(Objects.equals(f, "incardio-dashboard"));
-                driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).click();
-                break;
-            }
+
+                if (Objects.equals(f, "incardio-dashboard")) {
+                    System.out.println(Objects.equals(f, "incardio-dashboard"));
+                    driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).click();
+                    break;
+                } else if (i == p.size()-1) {
+                    LoggerLoader.fatal("inCARDIO-Dashboard Tab could not be found. Check if the sol is available");
+                    throw new Exception();
+                }
+
+
+
+
         }
         Thread.sleep(8000);
 /*

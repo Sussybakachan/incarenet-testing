@@ -6,6 +6,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import javax.swing.*;
+
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
 
@@ -16,11 +18,21 @@ public class StartTesting {
         //  System.out.println(PatternTest.useRegex("2022-12-26T12:34:14.265Z"));
         //  System.out.println(PatternTest.useRegex("2022-12-26T12:34:14.265Z"));
         LoggerLoader.info("Automation test started");
-        ReadingConfig rc = new ReadingConfig();
 
-        System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
-        driver = new ChromeDriver();
-        driver.get(rc.loadProperty().getProperty("SERVER_URL"));
+        ReadingConfig rc = null;
+        try {
+            rc = new ReadingConfig();
+            System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
+            driver = new ChromeDriver();
+        } catch (Exception e) {
+            LoggerLoader.fatal(String.valueOf(e));
+        }
+        try{
+            driver.get(rc.loadProperty().getProperty("SERVER_URL"));
+        } catch (Exception e){
+            LoggerLoader.fatal(String.valueOf(e));
+        }
+
         driver.manage().window().maximize();
         js = (JavascriptExecutor) driver;
         action = new Actions(driver);
