@@ -6,7 +6,7 @@
 - The default path to the Chrome Webdriver is for Unix. If you are using Windows you might need to configurate that path 
 
 
-**3. The sdx-file-forwarder (ff) is necessary for execution. **
+**3. The sdx-file-forwarder (ff) is necessary for execution.**
 - Install the ff and configurate the config
 - configurate the input folder path in the config to the input folder in the sdx-test-project
 
