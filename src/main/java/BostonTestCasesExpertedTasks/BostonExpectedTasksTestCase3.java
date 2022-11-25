@@ -6,15 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BostonExpectedTasksTestCase3 {
-    static Task BostonRedLVTask = new Task();
-
-    static Task BostonYellowLVTask = new Task();
-
-    static Task BostonEriTask = new Task();
-
-    static Task BostonEosTask = new Task();
-
     public static List<Task> BostonTestCase3List = new ArrayList<>();
+    static Task BostonRedLVTask = new Task();
+    static Task BostonYellowLVTask = new Task();
+    static Task BostonEriTask = new Task();
+    static Task BostonEosTask = new Task();
 
 
     public BostonExpectedTasksTestCase3() {
@@ -43,6 +39,7 @@ public class BostonExpectedTasksTestCase3 {
         BostonTestCase3List.add(BostonRedLVTask);
         return BostonTestCase3List;
     }
+
     public static List<Task> createBostonYellowLVTask() {
 
         BostonYellowLVTask.setCheckBox("");
@@ -58,6 +55,7 @@ public class BostonExpectedTasksTestCase3 {
         BostonTestCase3List.add(BostonYellowLVTask);
         return BostonTestCase3List;
     }
+
     public static List<Task> createBostonEriTask() {
 
         BostonEriTask.setCheckBox("");
@@ -73,6 +71,7 @@ public class BostonExpectedTasksTestCase3 {
         BostonTestCase3List.add(BostonEriTask);
         return BostonTestCase3List;
     }
+
     public static List<Task> createBostonEosTask() {
 
         BostonEosTask.setCheckBox("");

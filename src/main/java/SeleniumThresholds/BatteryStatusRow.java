@@ -3,7 +3,7 @@ package SeleniumThresholds;
 
 import org.openqa.selenium.By;
 
-import static selenium.CompareTasksInCardio.*;
+import static selenium.CompareTasksInCardio.driver;
 
 
 //activateAll = activateEriEosANDActivateBatteryStatus

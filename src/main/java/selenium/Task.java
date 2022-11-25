@@ -6,25 +6,51 @@ import java.util.Objects;
 
 public class Task {
 
+    private String checkBox;
+    private String color;
+    private boolean isIntentioanllyEmpty;
+    private String startDate;
+    private String receiveDate;
+    private String targetDate;
+    private String taskDescription;
+    private String measurements;
+    private String pdf;
+    private String employee;
+    private String furtherInformation;
+    private String action;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return Objects.equals(getCheckBox(), task.getCheckBox()) && Objects.equals(getColor(), task.getColor()) && Objects.equals(getStartDate(), task.getStartDate()) && Objects.equals(getTaskDescription(), task.getTaskDescription()) && Objects.equals(getMeasurements(), task.getMeasurements()) && Objects.equals(getPdf(), task.getPdf()) && Objects.equals(getEmployee(), task.getEmployee()) && Objects.equals(getFurtherInformation(), task.getFurtherInformation()) && Objects.equals(getAction(), task.getAction());
-    //I took out the "Objects.equals(getReceiveDate(), task.getReceiveDate()) && Objects.equals(getTargetDate(), task.getTargetDate()) &&"
-    //so that they won't get compared to the equivalent attribute in the expected Task but instead will be compared to the pattern
-    //I did not change the Hashcode, Need to ask Iman if that is ok
+        return Objects.equals(getCheckBox(), task.getCheckBox()) && Objects.equals(getColor(),
+                task.getColor()) && Objects.equals(getStartDate(), task.getStartDate()) && Objects.equals(getTaskDescription(),
+                task.getTaskDescription()) && Objects.equals(getMeasurements(), task.getMeasurements()) && Objects.equals(getPdf(),
+                task.getPdf()) && Objects.equals(getEmployee(), task.getEmployee()) && Objects.equals(getFurtherInformation(),
+                task.getFurtherInformation()) && Objects.equals(getAction(), task.getAction());
+        //I took out the "Objects.equals(getReceiveDate(), task.getReceiveDate()) && Objects.equals(getTargetDate(), task.getTargetDate()) &&"
+        //so that they won't get compared to the equivalent attribute in the expected Task but instead will be compared to the pattern
+        //I did not change the Hashcode, Need to ask Iman if that is ok
+    }
+
+    @Override
+    public String toString() {
+        return "checkBox=" + checkBox + '\n' +
+                "color=" + color + '\n' +
+                "startDate=" + startDate + '\n' +
+                "taskDescription=" + taskDescription + '\n' +
+                "measurements=" + measurements + '\n' +
+                "pdf=" + pdf + '\n' +
+                "employee=" + employee + '\n' +
+                "furtherInformation=" + furtherInformation + '\n' +
+                "action=" + action + '\n' + '\n';
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getCheckBox(), getColor(), getStartDate(), getReceiveDate(), getTargetDate(), getTaskDescription(), getMeasurements(), getPdf(), getEmployee(), getFurtherInformation(), getAction());
     }
-
-    private String checkBox;
-
-    private String color;
 
     public String getColor() {
         return color;
@@ -105,26 +131,6 @@ public class Task {
     public void setIntentioanllyEmpty(boolean intentioanllyEmpty) {
         isIntentioanllyEmpty = intentioanllyEmpty;
     }
-
-    private boolean isIntentioanllyEmpty;
-    private String startDate;
-
-    private String receiveDate;
-
-    private String targetDate;
-
-    private String taskDescription;
-
-    private String measurements;
-
-    private String pdf;
-
-    private String employee;
-
-    private String furtherInformation;
-
-    private String action;
-
 
     public String getCheckBox() {
         return checkBox;

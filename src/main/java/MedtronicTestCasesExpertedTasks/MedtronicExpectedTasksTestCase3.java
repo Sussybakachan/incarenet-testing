@@ -11,7 +11,7 @@ public class MedtronicExpectedTasksTestCase3 {
     static Task MedtronicYellow76LvTask = new Task();
 
 
-    public MedtronicExpectedTasksTestCase3(){
+    public MedtronicExpectedTasksTestCase3() {
         createMedtronicYellow76LvTask();
         createMedtronicYellow76generalAlarmTask();
     }
@@ -32,6 +32,7 @@ public class MedtronicExpectedTasksTestCase3 {
         MedtronicTestCase3List.add(MedtronicYellow76LvTask);
         return MedtronicTestCase3List;
     }
+
     public static List<Task> createMedtronicYellow76generalAlarmTask() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""

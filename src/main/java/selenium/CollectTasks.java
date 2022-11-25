@@ -10,14 +10,10 @@ import static selenium.CompareTasksInCardio.driver;
 
 public class CollectTasks {
 
+    public List<Task> collectedTasks = new ArrayList<>();
     String xpathTAble = "//table/tbody[@class]/tr[@index=";
 
-    public static List<Task> collectedTasks = new ArrayList<>();
-    CollectTasks() throws InterruptedException {
-        this.getTasks();
-    }
-
-    List<Task> getTasks() throws InterruptedException {
+    public List<Task> getTasks() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
         Thread.sleep(2000);
 

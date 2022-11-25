@@ -6,9 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbbottExpectedTasksTestCase9 {
-    static Task AbbottGeneralRedTask = new Task();
-
     public static List<Task> AbbottTestCase9List = new ArrayList<>();
+    static Task AbbottGeneralRedTask = new Task();
 
     public AbbottExpectedTasksTestCase9() {
         createAbbottGeneralRedTask();

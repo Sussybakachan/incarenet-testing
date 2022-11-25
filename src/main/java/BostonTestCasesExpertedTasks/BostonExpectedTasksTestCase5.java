@@ -1,12 +1,13 @@
 package BostonTestCasesExpertedTasks;
+
 import selenium.Task;
 
 import java.util.ArrayList;
 import java.util.List;
-public class BostonExpectedTasksTestCase5 {
-    static Task BostonYellowLVTask = new Task();
 
+public class BostonExpectedTasksTestCase5 {
     public static List<Task> BostonTestCase5List = new ArrayList<>();
+    static Task BostonYellowLVTask = new Task();
 
     public BostonExpectedTasksTestCase5() {
         createBostonYellowLVTask();
