@@ -62,7 +62,7 @@ public class CompareTasksInCardio {
                     System.out.println(Objects.equals(f, "incardio-dashboard"));
                     driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).click();
                     break;
-                } else if (i == p.size()-1) {
+                } else if (i == p.size()) {
                     LoggerLoader.fatal("inCARDIO-Dashboard Tab could not be found. Check if the sol is available");
                     throw new Exception();
                 }
