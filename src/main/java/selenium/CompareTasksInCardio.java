@@ -147,13 +147,14 @@ public class CompareTasksInCardio {
                     notFoundTasks.add(listname.get(i));
                     System.out.println("Die Task wurde nicht gefunden, da " + listname.get(i) + "nicht in der collected Liste vorhanden ist");
                     System.out.println("Funktionende");
-                    b.setReasonForFailure(String.valueOf(notFoundTasks));
-                    listOfFailedTasksAndReason.add(b);
                 }
             }
+
         }
-
-
+        if (notFoundTasks.size()>1){
+            b.setReasonForFailure(String.valueOf(notFoundTasks));
+            listOfFailedTasksAndReason.add(b);
+        }
     }
 
 
