@@ -135,7 +135,7 @@ public class CompareTasksInCardio {
                 if (collectTasks.get(j).equals(listname.get(i)) &&
                         PatternTest.useRegex(String.valueOf(collectTasks.get(j).getReceiveDate())) &&
                         PatternTest.useRegex(String.valueOf(collectTasks.get(j).getTargetDate()))) {
-
+                    successfulTestCases.add(testcase);
                     System.out.println("Die Task ist korrekt " + "\n" + "\n" + listname.get(i).getTaskDescription() + "\n" + "\n" + " und " + "\n" + "\n" + collectTasks.get(j).getTaskDescription());
                     passedCounter++;
                     System.out.println(passedCounter);
@@ -147,13 +147,14 @@ public class CompareTasksInCardio {
                     notFoundTasks.add(listname.get(i));
                     System.out.println("Die Task wurde nicht gefunden, da " + listname.get(i) + "nicht in der collected Liste vorhanden ist");
                     System.out.println("Funktionende");
-
                 }
             }
-        }
 
-        b.setReasonForFailure(String.valueOf(notFoundTasks));
-        listOfFailedTasksAndReason.add(b);
+        }
+        if (notFoundTasks.size()>1){
+            b.setReasonForFailure(String.valueOf(notFoundTasks));
+            listOfFailedTasksAndReason.add(b);
+        }
     }
 
 
