@@ -53,7 +53,6 @@ public class TelemBIORepRow {
             driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventParameter")).click();
 
         }
-
     }
 
     public static void activateBioFinding() {
@@ -68,7 +67,6 @@ public class TelemBIORepRow {
             driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventFinding")).click();
 
         }
-
     }
 
     public static void activateBioCritical() {
@@ -83,17 +81,14 @@ public class TelemBIORepRow {
             driver.findElement(By.id("BiotronikTelemonitoringReportWithoutEventCriticalFinding")).click();
 
         }
-
     }
 
     public static void onlyParamActivatedBio() throws InterruptedException {
-
         activateBioParameter();
         Thread.sleep(2000);
     }
 
     public static void findingParamActivatedBio() throws InterruptedException {
-
         onlyParamActivatedBio();
         Thread.sleep(2000);
         activateBioFinding();
@@ -102,7 +97,6 @@ public class TelemBIORepRow {
     }
 
     public static void criticalParamActivatedBio() throws InterruptedException {
-
         onlyParamActivatedBio();
         Thread.sleep(2000);
         activateBioCritical();
@@ -125,6 +119,7 @@ public class TelemBIORepRow {
     }
 
     public static void deselectAllBio() throws InterruptedException {
+        onlyParamActivatedBio();
         deactivateBioFinding();
         deactivateBioCritical();
         deactivateBioParameter();

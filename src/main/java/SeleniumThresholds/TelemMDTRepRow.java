@@ -52,7 +52,6 @@ public class TelemMDTRepRow {
             driver.findElement(By.id("MedtronicTelemonitoring-ReportParameter")).click();
 
         }
-
     }
 
     public static void activateMdtFinding() {
@@ -67,7 +66,6 @@ public class TelemMDTRepRow {
             driver.findElement(By.id("MedtronicTelemonitoring-ReportFinding")).click();
 
         }
-
     }
 
     public static void activateMdtCritical() {
@@ -86,13 +84,11 @@ public class TelemMDTRepRow {
     }
 
     public static void onlyParamActivatedMdt() throws InterruptedException {
-
         activateMdtParameter();
         Thread.sleep(2000);
     }
 
     public static void findingParamActivatedMdt() throws InterruptedException {
-
         onlyParamActivatedMdt();
         Thread.sleep(2000);
         activateMdtFinding();
@@ -101,7 +97,6 @@ public class TelemMDTRepRow {
     }
 
     public static void criticalParamActivatedMdt() throws InterruptedException {
-
         onlyParamActivatedMdt();
         Thread.sleep(2000);
         activateMdtCritical();
@@ -124,6 +119,7 @@ public class TelemMDTRepRow {
     }
 
     public static void deselectAllMdt() throws InterruptedException {
+        onlyParamActivatedMdt();
         deactivateMdtFinding();
         deactivateMdtCritical();
         deactivateMdtParameter();

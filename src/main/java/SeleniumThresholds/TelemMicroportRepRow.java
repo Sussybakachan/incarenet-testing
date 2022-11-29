@@ -54,7 +54,6 @@ public class TelemMicroportRepRow {
             driver.findElement(By.id("microportTelemonitoring-ReportParameter")).click();
 
         }
-
     }
 
     public static void activateMicroportFinding() {
@@ -69,7 +68,6 @@ public class TelemMicroportRepRow {
             driver.findElement(By.id("microportTelemonitoring-ReportFinding")).click();
 
         }
-
     }
 
     public static void activateMicroportCritical() {
@@ -84,17 +82,14 @@ public class TelemMicroportRepRow {
             driver.findElement(By.id("microportTelemonitoring-ReportCriticalFinding")).click();
 
         }
-
     }
 
     public static void onlyParamActivatedMicroport() throws InterruptedException {
-
         activateMicroportParameter();
         Thread.sleep(2000);
     }
 
     public static void findingParamActivatedMicroport() throws InterruptedException {
-
         onlyParamActivatedMicroport();
         Thread.sleep(2000);
         activateMicroportFinding();
@@ -103,7 +98,6 @@ public class TelemMicroportRepRow {
     }
 
     public static void criticalParamActivatedMicroport() throws InterruptedException {
-
         onlyParamActivatedMicroport();
         Thread.sleep(2000);
         activateMicroportCritical();
@@ -126,6 +120,7 @@ public class TelemMicroportRepRow {
     }
 
     public static void deselectAllMicroport() throws InterruptedException {
+        onlyParamActivatedMicroport();
         deactivateMicroportFinding();
         deactivateMicroportCritical();
         deactivateMicroportParameter();

@@ -34,10 +34,17 @@ public class LVRow {
         driver.findElement(By.id("lvParameter")).click();
     }
 
-    static void pressLvFindingCheckboxAndAddValue(int lvFindingValue) {
-        pressLvFindingCheckbox();
-        if (isLvFindingSelected()) {
-            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueA\"]")).sendKeys(Integer.toString(lvFindingValue));
+    public static void activateLvParameter() {
+
+        if (!isLvParameterSelected()) {
+            pressLvParameterCheckbox();
+        }
+    }
+
+    public static void deactivateLvParameter() {
+        boolean isChecked = driver.findElement(By.id("lvParameter")).isSelected();
+        if (isChecked) {
+            driver.findElement(By.id("lvParameter")).click();
         }
     }
 
@@ -45,40 +52,17 @@ public class LVRow {
         driver.findElement(By.id("lvfinding")).click();
     }
 
-    static void pressLvCriticalFindingCheckboxAndAddValue(int lvCriticalFindingValue) {
-        pressLvCriticalFindingCheckbox();
-        if (isLvCriticalFindingSelected()) {
-            driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueB\"]")).sendKeys(Integer.toString(lvCriticalFindingValue));
+    public static void activateLvFinding(int lvFindingValue) {
+        if (!isLvFindingSelected()) {
+            pressLvFindingCheckbox();
+            driver.findElement(By.id("[object Object]-parameterB-params-valueA")).sendKeys(Integer.toString(lvFindingValue));
         }
     }
 
-    private static void pressLvCriticalFindingCheckbox() {
-        driver.findElement(By.id("lvCriticalFinding")).click();
-    }
-    /*
-        public static void activateLvParameter() {
-            if (!isLvParameterSelected()) {
-                pressLvParameterCheckbox();
-            }
-        }
-        */
-    public static void deactivateLvParameter() {
-        boolean isChecked = driver.findElement(By.id("lvParameter")).isSelected();
-        if (isChecked) {
-            driver.findElement(By.id("lvParameter")).click();
-        }
-    }
-        /*
-            public static void activateLvFinding(int lvFindingValue) {
-                if (!isLvFindingSelected()) {
-                    pressLvFindingCheckboxAndAddValue(lvFindingValue);
-                }
-            }
-        */
     public static void deactivateLvFinding() throws InterruptedException {
         boolean isChecked = driver.findElement(By.id("lvfinding")).isSelected();
         if (isChecked) {
-            WebElement checked = driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueA\"]"));
+            WebElement checked = driver.findElement(By.id("[object Object]-parameterB-params-valueA"));
             Actions a = new Actions(driver);
             a.moveToElement(checked).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
             Thread.sleep(2000);
@@ -93,19 +77,21 @@ public class LVRow {
         }
     }
 
-/*
-    public static void activateLvCritical(int lvCriticalFindingValue) {
-        if (!isLvCriticalFindingSelected()) {
-            pressLvCriticalFindingCheckboxAndAddValue(lvCriticalFindingValue);
-        }
+    private static void pressLvCriticalFindingCheckbox() {
+        driver.findElement(By.id("lvCriticalFinding")).click();
     }
 
-    */
+    public static void activateLvCritical(int lvCriticalFindingValue) {
+        if (!isLvCriticalFindingSelected()) {
+            pressLvCriticalFindingCheckbox();
+            driver.findElement(By.id("[object Object]-parameterB-params-valueB")).sendKeys(Integer.toString(lvCriticalFindingValue));
+        }
+    }
 
     public static void deactivateLvCritical() throws InterruptedException {
         boolean isChecked = driver.findElement(By.id("lvCriticalFinding")).isSelected();
         if (isChecked) {
-            WebElement checked = driver.findElement(By.xpath("//*[@id=\"[object Object]-parameterB-params-valueB\"]"));
+            WebElement checked = driver.findElement(By.id("[object Object]-parameterB-params-valueB"));
             Actions a = new Actions(driver);
             a.moveToElement(checked).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
             Thread.sleep(2000);
@@ -121,74 +107,81 @@ public class LVRow {
     }
 
 
+    public static void activateAllLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
+        activateLvParameter();
+        Thread.sleep(2000);
+        activateLvFinding(lvFindingValue);
+        Thread.sleep(2000);
+        activateLvCritical(lvCriticalFindingValue);
+        Thread.sleep(2000);
+    }
 
     public static void findingParamActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
-        pressLvCriticalFindingCheckbox();
-        Thread.sleep(2000);
-    }
-
-
-
-    public static void activateAllLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
-        pressLvParameterCheckbox();
-        Thread.sleep(2000);
-        pressLvFindingCheckboxAndAddValue(lvFindingValue);
-        Thread.sleep(2000);
-        pressLvCriticalFindingCheckboxAndAddValue(lvCriticalFindingValue);
+        deactivateLvCriticalWithValue();
         Thread.sleep(2000);
     }
 
     public static void criticalParamActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
-        pressLvFindingCheckbox();
+        deactivateLvFindingWithValue();
         Thread.sleep(2000);
     }
 
     public static void onlyFindingCriticalActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
-        pressLvParameterCheckbox();
+        deactivateLvParameter();
         Thread.sleep(2000);
     }
     public static void onlyParamActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
-        pressLvFindingCheckbox();
+        deactivateLvFindingWithValue();
         Thread.sleep(2000);
-        pressLvCriticalFindingCheckbox();
+        deactivateLvCriticalWithValue();
         Thread.sleep(2000);
     }
     public static void onlyFindingActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
-        pressLvCriticalFindingCheckbox();
+        deactivateLvCriticalWithValue();
         Thread.sleep(2000);
-        pressLvParameterCheckbox();
+        deactivateLvParameter();
         Thread.sleep(2000);
     }
 
     public static void onlyCriticalActivatedLv(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
         activateAllLv(lvFindingValue, lvCriticalFindingValue);
         Thread.sleep(2000);
-        pressLvFindingCheckbox();
+        deactivateLvFindingWithValue();
         Thread.sleep(2000);
-        pressLvParameterCheckbox();
+        deactivateLvParameter();
         Thread.sleep(2000);
     }
 
-    public static void deselectAllLvWithValue() throws InterruptedException {
+    public static void deselectAllLvWithValue(int lvFindingValue, int lvCriticalFindingValue) throws InterruptedException {
+        activateAllLv(lvFindingValue, lvCriticalFindingValue);
+        Thread.sleep(1000);
         deactivateLvFindingWithValue();
+        Thread.sleep(1000);
         deactivateLvCriticalWithValue();
+        Thread.sleep(1000);
         deactivateLvParameter();
+        Thread.sleep(2000);
     }
 
     public static void deselectAllLv() throws InterruptedException {
+        activateAllLv(0,0);
+        Thread.sleep(1000);
         deactivateLvFinding();
+        Thread.sleep(1000);
         deactivateLvCritical();
+        Thread.sleep(1000);
         deactivateLvParameter();
+        Thread.sleep(2000);
     }
 
 

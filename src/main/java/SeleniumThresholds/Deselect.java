@@ -20,7 +20,7 @@ public class Deselect {
 
     public static void deselectAll() throws InterruptedException {
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div/div/div/button[6]")).click();
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[6]")).click();
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
         Thread.sleep(2000);
@@ -38,7 +38,7 @@ public class Deselect {
         Thread.sleep(2000);
         driver.findElement(By.id("saveAndBack")).click();        //saveAndBack
         Thread.sleep(2000);
-        driver.findElement(By.xpath("save")).click();      //save
+        driver.findElement(By.id("save")).click();      //save
         Thread.sleep(2000);
 
         System.out.println("Threshold reset");

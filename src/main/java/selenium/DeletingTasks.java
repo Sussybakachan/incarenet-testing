@@ -44,6 +44,6 @@ public class DeletingTasks {
         driver.findElement(By.id("archiveTasksButton")).click();
         Thread.sleep(2000);
         driver.findElement(By.id("confirmButton")).click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
     }
 }

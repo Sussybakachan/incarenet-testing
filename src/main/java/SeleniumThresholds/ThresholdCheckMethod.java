@@ -130,10 +130,8 @@ public class ThresholdCheckMethod {
                     onlyFindingActivatedNM(1, 7);
                     break;
                 case 8:
-                    onlyFindingCriticalActivatedCrt(99, 95);
-                    deselectAllCrt();
-                    onlyFindingCriticalActivatedLv(99, 95);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(99, 95);
+                    deselectAllLvWithValue(99, 95);
                     onlyFindingActivatedNM(1, 7);
                     break;
             }
@@ -141,96 +139,78 @@ public class ThresholdCheckMethod {
         } else if (manufacturer.equals("Boston")) {
             switch (testCase) {
                 case 1:
-                    activateAllCrt(86, 80);
-                    deselectAllCrt();
-                    onlyFindingCriticalActivatedLv(85, 80);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(86, 80);
+                    deselectAllLvWithValue(85, 80);
                     onlyParamActivatedBsx();
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 2:
                     onlyBatteryStatusActivated();
-                    activateAllCrt(86, 80);
-                    deselectAllCrt();
+                    deselectAllCrtWithValue(86, 80);
                     onlyParamActivatedLv(86, 80);
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 3:
                     activateAll();
-                    activateAllCrt(86, 80);
-                    deselectAllCrt();
+                    deselectAllCrtWithValue(86, 80);
                     activateAllLv(86, 80);
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 4:
                     activateAll();
-                    activateAllCrt(86, 80);
-                    deselectAllCrt();
+                    deselectAllCrtWithValue(86, 80);
                     criticalParamActivatedLv(86, 80);
                     onlyFindingCriticalActivatedNM(3, 7);
                 case 5:
-                    activateAllCrt(98, 99);
-                    activateAllCrt(86, 80); //CRT
-                    deselectAllCrt();
+                    deselectAllCrtWithValue(98, 99);
                     findingParamActivatedLv(86, 80);
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 6:
-                    activateAllCrt(86, 80);
-                    deselectAllCrt();
-                    activateAllLv(85, 80);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(86, 80);
+                    deselectAllLvWithValue(85, 80);
                     criticalParamActivatedBsx();
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 7:
-                    activateAllCrt(86, 80); //CRT
-                    deselectAllCrt();
-                    activateAllLv(85, 80);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(86, 80); //CRT
+                    deselectAllLvWithValue(85, 80);
                     findingParamActivatedBsx();
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 8:
                     activateAll();
-                    activateAllCrt(86, 80);
-                    deselectAllCrt();
+                    deselectAllCrtWithValue(86, 80);
                     activateAllLv(86, 80);
                     onlyParamActivatedBsx();
-                    onlyFindingCriticalActivatedNM(0, 0);
+                    onlyFindingCriticalActivatedNM(1, 2);
                     break;
             }
 
         } else if (manufacturer.equals("Medtronic")) {
             switch (testCase) {
                 case 1:
-                    activateAllCrt(98, 77);
-                    deselectAllCrt();
-                    onlyFindingCriticalActivatedLv(98, 77);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(98, 77);
+                    deselectAllLvWithValue(98, 77);
                     findingParamActivatedMdt();
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 2:
-                    activateAllCrt(98, 77);
-                    deselectAllCrt();
-                    onlyFindingCriticalActivatedLv(98, 77);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(98, 77);
+                    deselectAllLvWithValue(98, 77);
                     onlyParamActivatedMdt();
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 3:
-                    activateAllCrt(98, 77);
-                    deselectAllCrt();
+                    deselectAllCrtWithValue(98, 77);
                     findingParamActivatedLv(98, 77);
                     findingParamActivatedMdt();
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 4:
                     onlyEriEosActivated();
-                    onlyFindingCriticalActivatedCrt(99, 77);
-                    deselectAllCrt();
-                    onlyFindingCriticalActivatedLv(99, 77);
+                    deselectAllCrtWithValue(99, 77);
+                    deselectAllLvWithValue(99, 77);
                     onlyFindingCriticalActivatedNM(3, 7);
                 case 5:
                     onlyBatteryStatusActivated();
@@ -256,10 +236,8 @@ public class ThresholdCheckMethod {
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 9:
-                    activateAllCrt(98, 77);
-                    deselectAllCrt();
-                    activateAllLv(98, 77);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(98, 77);
+                    deselectAllLvWithValue(98, 77);
                     criticalParamActivatedMdt();
                     onlyFindingCriticalActivatedNM(3, 7);
             }
@@ -267,48 +245,37 @@ public class ThresholdCheckMethod {
         } else if (manufacturer.equals("MicroPort")) {
             switch (testCase) {
                 case 1:
-                    activateAllCrt(98, 99);
-                    deselectAllCrt();
-                    onlyFindingCriticalActivatedLv(98, 99);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(98, 99);
+                    deselectAllLvWithValue(98, 99);
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 2:
                     activateAll();
-                    activateAllCrt(98, 99);
-                    deselectAllCrt();
-                    activateAllLv(98, 99);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(98, 99);
+                    deselectAllLvWithValue(98, 99);
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 3:
-                    activateAllCrt(98, 99);
-                    deselectAllCrt();
-                    activateAllLv(98, 99);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(98, 99);
+                    deselectAllLvWithValue(98, 99);
                     criticalParamActivatedMicroport();
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 4:
-                    activateAllCrt(98, 99);
-                    deselectAllCrt();
-                    activateAllLv(98, 99);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(98, 99);
+                    deselectAllLvWithValue(98, 99);
                     findingParamActivatedMicroport();
                     onlyFindingCriticalActivatedNM(3, 7);
                 case 5:
-                    activateAllCrt(98, 99);  //CRT
-                    deselectAllCrt();
-                    activateAllLv(98, 99);
+                    deselectAllCrtWithValue(98, 99);  //CRT
+                    deselectAllLvWithValue(98, 99);
                     onlyParamActivatedMicroport();
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 6:
                     onlyBatteryStatusActivated();
-                    activateAllCrt(98, 99);
-                    deselectAllCrt();
-                    activateAllLv(98, 99);
-                    deselectAllLv();
+                    deselectAllCrtWithValue(98, 99);
+                    deselectAllLvWithValue(98, 99);
                     onlyFindingCriticalActivatedNM(3, 7);
                     break;
                 case 7:
