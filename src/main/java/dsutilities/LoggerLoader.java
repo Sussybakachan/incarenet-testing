@@ -3,6 +3,8 @@ package dsutilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static selenium.CompareTasksInCardio.driver;
+
 
 // import "import dsutilities.LoggerLoader;" into the class you want to use the logger
 // depending on the Loggerlevel you want to use, type e.g.: LoggerLoader.info("start");
@@ -27,6 +29,7 @@ public class LoggerLoader {
 
     public static void fatal(String message) {
         logger.fatal(message);
+        driver.close();
     }
 
     public static void debug(String message) {
