@@ -18,7 +18,7 @@ public class CompareTasksInCardio {
     public static WebDriver driver;
     static Actions action;
 
-   static List<FailedTasks> listOfFailedTasksAndReason = new ArrayList<>();
+    static List<FailedTasks> listOfFailedTasksAndReason = new ArrayList<>();
     static List<String> successfulTestCases = new ArrayList<>();
 
     static JavascriptExecutor js;
@@ -35,7 +35,7 @@ public class CompareTasksInCardio {
             Thread.sleep(2000);
             driver.findElement(By.id("doLoginBtn")).click();
             Thread.sleep(8000);
-        } catch (Exception e){
+        } catch (Exception e) {
             LoggerLoader.fatal("Login failed:\n Check config.properties or see if the server is unavailable");
         }
     }
@@ -58,14 +58,14 @@ public class CompareTasksInCardio {
             // taskObject.setColor(driver.findElement(By.xpath(xpathTAble + i + "]/td[" + TaskElements.COLOr.ordinal() + "]")).getAttribute("value"));
             System.out.println(f);
 
-                if (Objects.equals(f, "incardio-dashboard")) {
-                    System.out.println(Objects.equals(f, "incardio-dashboard"));
-                    driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).click();
-                    break;
-                } else if (i == p.size()) {
-                    LoggerLoader.fatal("inCARDIO-Dashboard Tab could not be found. Check if the sol is available");
-                    throw new Exception();
-                }
+            if (Objects.equals(f, "incardio-dashboard")) {
+                System.out.println(Objects.equals(f, "incardio-dashboard"));
+                driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).click();
+                break;
+            } else if (i == p.size()) {
+                LoggerLoader.fatal("inCARDIO-Dashboard Tab could not be found. Check if the sol is available");
+                throw new Exception();
+            }
 
 
 
@@ -106,6 +106,9 @@ public class CompareTasksInCardio {
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     public static void compareCrt(List<Task> listname, String testcase, List<Task> collectTasks) throws Exception {
+        if (collectTasks.size() > listname.size() || collectTasks.size() < listname.size()) {
+            LoggerLoader.error("Eine oder mehrere Tasks, die nicht hätten erstellt werden dürfen, wurden erstellt.");
+        }
         List<Task> notFoundTasks = new ArrayList<>();
         FailedTasks b = new FailedTasks();
         b.setManufacturerTestCase(testcase);
@@ -132,11 +135,9 @@ public class CompareTasksInCardio {
             for (int j = 0; j < collectTasks.size(); j++) {
                 System.out.println("j: " + j + " i: " + i);
                 //System.out.println("collected Tasks in der compareCrt Methode: " + collectTasks);
-                if (collectTasks.get(j).equals(listname.get(i)) &&
-                        PatternTest.useRegex(String.valueOf(collectTasks.get(j).getReceiveDate())) &&
-                        PatternTest.useRegex(String.valueOf(collectTasks.get(j).getTargetDate()))) {
+                if (collectTasks.get(j).equals(listname.get(i)) && PatternTest.useRegex(String.valueOf(collectTasks.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(collectTasks.get(j).getTargetDate()))) {
                     successfulTestCases.add(testcase);
-                    System.out.println("Die Task ist korrekt " + "\n" + "\n" + listname.get(i).getTaskDescription() + "\n" + "\n" + " und " + "\n" + "\n" + collectTasks.get(j).getTaskDescription());
+                    System.out.println("Die Task ist korrekt " + "\n" + "\n" + listname.get(i) + "\n" + "\n" + " und " + "\n" + "\n" + collectTasks.get(j));
                     passedCounter++;
                     System.out.println(passedCounter);
                     System.out.println("Amount of succsseful tasks " + successfulTAsks);
@@ -151,12 +152,11 @@ public class CompareTasksInCardio {
             }
 
         }
-        if (notFoundTasks.size()>1){
+        if (notFoundTasks.size() > 1) {
             b.setReasonForFailure(String.valueOf(notFoundTasks));
             listOfFailedTasksAndReason.add(b);
         }
     }
-
 
     public static void choosepatient(String p) throws InterruptedException {
         driver.switchTo().frame(0);
