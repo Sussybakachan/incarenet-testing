@@ -106,8 +106,22 @@ public class CompareTasksInCardio {
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     public static void compareCrt(List<Task> listname, String testcase, List<Task> collectTasks) throws Exception {
-        if (collectTasks.size() > listname.size() || collectTasks.size() < listname.size()) {
+        int amountOfSurplusTasks;
+        int amountOfMissingTasks;
+        boolean hasSurplusTasks;
+        boolean hasMissingTasks;
+
+
+        if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() > listname.size()) {
+            amountOfSurplusTasks = collectTasks.size() - listname.size();
+            hasSurplusTasks = true;
+            LoggerLoader.error(amountOfSurplusTasks + " unexpected tasks got created.");
+        }
+        if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() < listname.size()) {
             LoggerLoader.error("Eine oder mehrere Tasks, die nicht hätten erstellt werden dürfen, wurden erstellt.");
+            amountOfMissingTasks = listname.size() - collectTasks.size();
+            hasMissingTasks = true;
+            LoggerLoader.error( amountOfMissingTasks + " less tasks got created than expected.");
         }
         List<Task> notFoundTasks = new ArrayList<>();
         FailedTasks b = new FailedTasks();
@@ -155,7 +169,7 @@ public class CompareTasksInCardio {
         if (notFoundTasks.size() > 1) {
             b.setReasonForFailure(String.valueOf(notFoundTasks));
             listOfFailedTasksAndReason.add(b);
-        }
+        } else
     }
 
     public static void choosepatient(String p) throws InterruptedException {
