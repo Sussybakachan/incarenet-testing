@@ -170,19 +170,21 @@ public class CompareTasksInCardio {
             }
 
         }
-        if (notFoundTasks.size() > 1 || hasSurplusTasks) {
+        if (notFoundTasks.size() > 0 || hasSurplusTasks) {
             List<String> failMessageArray = new ArrayList<>();
             if (hasSurplusTasks){
-                b.setReasonForFailure(amountOfSurplusTasks + " more tasks got created than expected" +  "\n" +
+                b.setReasonForFailure(amountOfSurplusTasks + " more task(s) got created than expected" +  "\n" +
                         createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray) +
                         "\n");
                 listOfFailedTasksAndReason.add(b);
             }
             if (hasMissingTasks){
-                b.setReasonForFailure(amountOfMissingTasks + " more tasks were expected" + "\n" + "Following tasks did not get found: " + "\n" + notFoundTasks);
+                b.setReasonForFailure(amountOfMissingTasks + " more task(s) were expected" + "\n" + createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray) +
+                        "\n");
                 listOfFailedTasksAndReason.add(b);
             } if (!hasSurplusTasks && !hasMissingTasks){
-                b.setReasonForFailure("Following tasks did not get found: " + "\n" + notFoundTasks);
+                b.setReasonForFailure( createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray) +
+                        "\n");
                 listOfFailedTasksAndReason.add(b);
             }
 
