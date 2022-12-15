@@ -15,7 +15,7 @@ public class CollectTasks {
 
     public List<Task> getTasks() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         List<WebElement> l = driver.findElements(By.xpath("//table/tbody[@class]/tr[@index]"));
         int s = l.size();

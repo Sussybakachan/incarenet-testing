@@ -19,10 +19,6 @@ public class PdfCheck {
 
     public static void pdfCheck() throws InterruptedException, IOException {
 
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div/div/div/button[2]")).click();
-        Thread.sleep(2000);
-
-
         List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[2]/td[8]/ol/li"));
         Thread.sleep(2000);
 
