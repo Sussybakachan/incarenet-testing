@@ -50,7 +50,8 @@ public class StartTesting {
         String actualString = loggingDataModif.editFailedTaskLogging();
         LoggerLoader.info("Automation test finished");
         LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);
-        LoggerLoader.error("Following Testcase(s) failed:\n" + actualString);
+        LoggerLoader.error("Following Testcase(s) failed because the Task could not be found:\n" + actualString);
+        driver.close();
 
     }
 
