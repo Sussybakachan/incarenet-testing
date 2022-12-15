@@ -106,16 +106,15 @@ public class CompareTasksInCardio {
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     public static void compareCrt(List<Task> listname, String testcase, List<Task> collectTasks) throws Exception {
-        int amountOfSurplusTasks;
-        int amountOfMissingTasks;
-        boolean hasSurplusTasks;
-        boolean hasMissingTasks;
+        int amountOfSurplusTasks = 0;
+        int amountOfMissingTasks = 0;
+        boolean hasSurplusTasks = false;
+        boolean hasMissingTasks = false;
 
 
         if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() > listname.size()) {
             amountOfSurplusTasks = collectTasks.size() - listname.size();
             hasSurplusTasks = true;
-            LoggerLoader.error(amountOfSurplusTasks + " unexpected tasks got created.");
         }
         if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() < listname.size()) {
             LoggerLoader.error("Eine oder mehrere Tasks, die nicht hätten erstellt werden dürfen, wurden erstellt.");
@@ -150,7 +149,6 @@ public class CompareTasksInCardio {
                 System.out.println("j: " + j + " i: " + i);
                 //System.out.println("collected Tasks in der compareCrt Methode: " + collectTasks);
                 if (collectTasks.get(j).equals(listname.get(i)) && PatternTest.useRegex(String.valueOf(collectTasks.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(collectTasks.get(j).getTargetDate()))) {
-                    successfulTestCases.add(testcase);
                     System.out.println("Die Task ist korrekt " + "\n" + "\n" + listname.get(i) + "\n" + "\n" + " und " + "\n" + "\n" + collectTasks.get(j));
                     passedCounter++;
                     System.out.println(passedCounter);
@@ -167,9 +165,22 @@ public class CompareTasksInCardio {
 
         }
         if (notFoundTasks.size() > 1) {
-            b.setReasonForFailure(String.valueOf(notFoundTasks));
-            listOfFailedTasksAndReason.add(b);
-        } else
+            if (hasSurplusTasks){
+                b.setReasonForFailure(amountOfSurplusTasks + " additional unexpected tasks got created." + "\n" + "Following tasks did not get found: " + notFoundTasks);
+                listOfFailedTasksAndReason.add(b);
+            }
+            if (hasMissingTasks){
+                b.setReasonForFailure(amountOfMissingTasks + " expected tasks did not get created." + "\n" + "Following tasks did not get found: " + notFoundTasks);
+                listOfFailedTasksAndReason.add(b);
+            } else {
+                b.setReasonForFailure("Following tasks did not get found: " + notFoundTasks);
+                listOfFailedTasksAndReason.add(b);
+            }
+
+
+        } else {
+            successfulTestCases.add(testcase);
+        }
     }
 
     public static void choosepatient(String p) throws InterruptedException {
