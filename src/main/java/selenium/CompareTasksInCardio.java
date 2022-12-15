@@ -106,10 +106,17 @@ public class CompareTasksInCardio {
 
     //TODO Uhrsymbol bei überschrittener Zeit und Handsymbol wird bei dem Test nicht beachtet, muss aber beachtet werden, eventuell gibt es noch weitere Ausprägungen
     public static void compareCrt(List<Task> listname, String testcase, List<Task> collectTasks) throws Exception {
+        List<Task> duplicateElements = new ArrayList<>();
+        List<Task> foundExpectedTasks = new ArrayList<>();
+        List<Task> notFoundTasks = new ArrayList<>();
+        List<Task> notFoundCreatedTasks = new ArrayList<>();
+        FailedTasks b = new FailedTasks();
+        b.setManufacturerTestCase(testcase);
         int amountOfSurplusTasks = 0;
         int amountOfMissingTasks = 0;
         boolean hasSurplusTasks = false;
         boolean hasMissingTasks = false;
+        int expectedTaskFoundCounter = 0;
 
 
         if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() > listname.size()) {
@@ -117,14 +124,11 @@ public class CompareTasksInCardio {
             hasSurplusTasks = true;
         }
         if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() < listname.size()) {
-            LoggerLoader.error("Eine oder mehrere Tasks, die nicht hätten erstellt werden dürfen, wurden erstellt.");
             amountOfMissingTasks = listname.size() - collectTasks.size();
             hasMissingTasks = true;
             LoggerLoader.error( amountOfMissingTasks + " less tasks got created than expected.");
         }
-        List<Task> notFoundTasks = new ArrayList<>();
-        FailedTasks b = new FailedTasks();
-        b.setManufacturerTestCase(testcase);
+
         if (listname.get(0).isIntentioanllyEmpty() && collectTasks.size() == 0) {
             System.out.println("Die Task wurde gewollt und erfolgreich NICHT erstellt.");
             successfulTestCases.add(testcase);
@@ -153,6 +157,8 @@ public class CompareTasksInCardio {
                     passedCounter++;
                     System.out.println(passedCounter);
                     System.out.println("Amount of succsseful tasks " + successfulTAsks);
+                    foundExpectedTasks.add(listname.get(i));
+
 
                 } else if (passedCounter < 1 && j == collectTasks.size() - 1) {
                     //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
@@ -164,16 +170,19 @@ public class CompareTasksInCardio {
             }
 
         }
-        if (notFoundTasks.size() > 1) {
+        if (notFoundTasks.size() > 1 || hasSurplusTasks) {
+            List<String> failMessageArray = new ArrayList<>();
             if (hasSurplusTasks){
-                b.setReasonForFailure(amountOfSurplusTasks + " additional unexpected tasks got created." + "\n" + "Following tasks did not get found: " + notFoundTasks);
+                b.setReasonForFailure(amountOfSurplusTasks + " more tasks got created than expected" +  "\n" +
+                        createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray) +
+                        "\n");
                 listOfFailedTasksAndReason.add(b);
             }
             if (hasMissingTasks){
-                b.setReasonForFailure(amountOfMissingTasks + " expected tasks did not get created." + "\n" + "Following tasks did not get found: " + notFoundTasks);
+                b.setReasonForFailure(amountOfMissingTasks + " more tasks were expected" + "\n" + "Following tasks did not get found: " + "\n" + notFoundTasks);
                 listOfFailedTasksAndReason.add(b);
-            } else {
-                b.setReasonForFailure("Following tasks did not get found: " + notFoundTasks);
+            } if (!hasSurplusTasks && !hasMissingTasks){
+                b.setReasonForFailure("Following tasks did not get found: " + "\n" + notFoundTasks);
                 listOfFailedTasksAndReason.add(b);
             }
 
@@ -181,6 +190,62 @@ public class CompareTasksInCardio {
         } else {
             successfulTestCases.add(testcase);
         }
+    }
+
+    private static List<String> createSpecificFailedTestMessage(List<Task> listname, List<Task> collectTasks, List<Task> notFoundTasks, List<Task> notFoundCreatedTasks, int amountOfMissingTasks,List<Task> foundExpectedTasks, List<Task> duplicateElements, List<String> failMessageArray) {
+        if(!getAdditionalNotDoubleTasks(listname, collectTasks, notFoundCreatedTasks, amountOfMissingTasks).equals("")){
+            failMessageArray.add("\n"+"Following tasks are not duplicates and are not expected: " + "\n" + getAdditionalNotDoubleTasks(listname, collectTasks, notFoundCreatedTasks, amountOfMissingTasks)+ "\n");
+        }
+        if(!lookForDuplicateTasks(foundExpectedTasks, duplicateElements).equals("")){
+            failMessageArray.add("\n"+"Following tasks got found more than once: " + "\n" + lookForDuplicateTasks(foundExpectedTasks, duplicateElements)+ "\n");
+        }
+        if(!notFoundTasks.isEmpty()){
+            failMessageArray.add("Following expected tasks did not get found: " + notFoundTasks);
+        }
+        return failMessageArray;
+    }
+
+    private static String lookForDuplicateTasks(List<Task> foundExpectedTasks, List<Task> duplicateElements) {
+        String duplicateElementsAsString = "";
+        for (int i = 0; i < foundExpectedTasks.size(); i++) {
+            for (int j = i + 1 ; j < foundExpectedTasks.size(); j++) {
+                if (foundExpectedTasks.get(i).equals(foundExpectedTasks.get(j))) {
+                    duplicateElements.add(foundExpectedTasks.get(i));
+                }
+            }
+        }
+        for (Task d :
+                duplicateElements) {
+            duplicateElementsAsString = String.valueOf(d);
+        }
+        return duplicateElementsAsString;
+    }
+
+    private static String getAdditionalNotDoubleTasks(List<Task> listname, List<Task> collectTasks, List<Task> notFoundCreatedTasks, int amountOfMissingTasks) {
+        String notFoundCreatedTasksAsString = "";
+        for (int i = 0; i < collectTasks.size(); i++) {
+            int passedCounter = 0;
+            for (int j = 0; j < listname.size(); j++) {
+                System.out.println("j: " + j + " i: " + i);
+                if (listname.get(j).equals(collectTasks.get(i)) && PatternTest.useRegex(String.valueOf(collectTasks.get(j).getReceiveDate())) && PatternTest.useRegex(String.valueOf(collectTasks.get(j).getTargetDate()))) {
+                    passedCounter++;
+                    System.out.println(passedCounter);
+                } else if (passedCounter < 1 && j == listname.size() - 1) {
+                    //TODO beschreiben, welches expected Array (nicht) gefunden wurde und welches Attribut nicht übereinstimmt
+                    //TODO wenn passedCounter größer als 1: Task wurde mehrfach gefunden
+                    // notFoundTasks.add(listname.get(i));
+                    notFoundCreatedTasks.add(collectTasks.get(i));
+                    for (Task s :
+                            notFoundCreatedTasks) {
+                        notFoundCreatedTasksAsString = String.valueOf(s);
+                    }
+                    System.out.println("Following tasks could not have been assigned to a expected Task: " + collectTasks.get(i));
+                    System.out.println("Funktionende");
+                }
+            }
+
+        }
+        return (notFoundCreatedTasksAsString);
     }
 
     public static void choosepatient(String p) throws InterruptedException {
