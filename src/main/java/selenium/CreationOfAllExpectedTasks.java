@@ -1,14 +1,15 @@
 package selenium;
 
 import AbbottTestCasesExpectedTasks.*;
-import BiotronikTestCasesExpertedTasks.*;
-import BostonTestCasesExpertedTasks.*;
-import MedtronicTestCasesExpertedTasks.*;
-import MicroPortTestCasesExpertedTasks.*;
+import BiotronikTestCasesExpectedTasks.*;
+import BostonTestCasesExpectedTasks.BostonExpectedTasksTestCase1;
+import BostonTestCasesExpectedTasks.*;
+import MedtronicTestCasesExpectedTasks.*;
+import MicroPortTestCasesExpectedTasks.*;
 
 import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.createAbbottGeneralYellowTask;
-import static BiotronikTestCasesExpertedTasks.BiotronikExpectedTasksTestCase2.*;
-import static MicroPortTestCasesExpertedTasks.MicroPortExpectedTasksTestCase5.createMicroPortWhiteTask;
+import static BiotronikTestCasesExpectedTasks.BiotronikExpectedTasksTestCase2.*;
+import static MicroPortTestCasesExpectedTasks.MicroPortExpectedTasksTestCase5.createMicroPortWhiteTask;
 import static selenium.ExpectedTasks.createAbbottTestExpectedTask;
 
 public class CreationOfAllExpectedTasks {
@@ -68,13 +69,13 @@ public class CreationOfAllExpectedTasks {
         MedtronicExpectedTasksTestCase9 medtronicExpectedTasksTestCase9 = new MedtronicExpectedTasksTestCase9();
 
         //MicroPort
-        MicroportExpectedTasksTestCase1 microportExpectedTasksTestCase1 = new MicroportExpectedTasksTestCase1();
-        MicroportExpectedTasksTestCase2 microportExpectedTasksTestCase2 = new MicroportExpectedTasksTestCase2();
-        MicroportExpectedTasksTestCase3 microportExpectedTasksTestCase3 = new MicroportExpectedTasksTestCase3();
-        MicroportExpectedTasksTestCase4 microportExpectedTasksTestCase4 = new MicroportExpectedTasksTestCase4();
+        MicroPortExpectedTasksTestCase1 microportExpectedTasksTestCase1 = new MicroPortExpectedTasksTestCase1();
+        MicroPortExpectedTasksTestCase2 microportExpectedTasksTestCase2 = new MicroPortExpectedTasksTestCase2();
+        MicroPortExpectedTasksTestCase3 microportExpectedTasksTestCase3 = new MicroPortExpectedTasksTestCase3();
+        MicroPortExpectedTasksTestCase4 microportExpectedTasksTestCase4 = new MicroPortExpectedTasksTestCase4();
         MicroPortExpectedTasksTestCase5 microPortExpectedTasksTestCase5 = new MicroPortExpectedTasksTestCase5();
-        MicroportExpectedTasksTestCase6 microportExpectedTasksTestCase6 = new MicroportExpectedTasksTestCase6();
-        MicroportExpectedTasksTestCase7 microportExpectedTasksTestCase7 = new MicroportExpectedTasksTestCase7();
+        MicroPortExpectedTasksTestCase6 microportExpectedTasksTestCase6 = new MicroPortExpectedTasksTestCase6();
+        MicroPortExpectedTasksTestCase7 microportExpectedTasksTestCase7 = new MicroPortExpectedTasksTestCase7();
 
     }
 

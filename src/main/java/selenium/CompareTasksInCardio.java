@@ -42,7 +42,7 @@ public class CompareTasksInCardio {
 //ist wichtig
 
     public static void inCardioDash() throws Exception {
-        Thread.sleep(6000);
+        Thread.sleep(8000);
         List<WebElement> p = driver.findElements(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[@class='KoNavItem']"));
 
         int pp = p.size();
@@ -160,6 +160,7 @@ public class CompareTasksInCardio {
 
     public static void choosepatient(String p) throws InterruptedException {
         driver.switchTo().frame(0);
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys(p);
         Thread.sleep(2000);
         driver.findElement(By.xpath("//td[@value=" + "'" + p + "'" + "]")).click();

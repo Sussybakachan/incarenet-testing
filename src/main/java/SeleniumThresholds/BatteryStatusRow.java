@@ -16,7 +16,6 @@ public class BatteryStatusRow {
 
     public static boolean isEriEosSelected() {
         boolean EriEosIsChecked = driver.findElement(By.id("batteryStatusCriticalFinding")).isSelected();
-        System.out.println("is checked");
         return EriEosIsChecked;
     }
 
@@ -65,17 +64,19 @@ public class BatteryStatusRow {
 
     }
 
-    public static void onlyBatteryStatusActivated() throws InterruptedException {
-        activateBatteryStatus();
-        Thread.sleep(2000);
-    }
-
     public static void activateAll() throws InterruptedException {
-        onlyBatteryStatusActivated();
+        activateBatteryStatus();
         Thread.sleep(1000);
         activateEriEos();
         Thread.sleep(2000);
 
+    }
+
+    public static void onlyBatteryStatusActivated() throws InterruptedException {
+        activateAll();
+        Thread.sleep(1000);
+        deactivateEriEos();
+        Thread.sleep(2000);
     }
 
     public static void onlyEriEosActivated() throws InterruptedException {
@@ -85,7 +86,8 @@ public class BatteryStatusRow {
         Thread.sleep(2000);
     }
 
-    public static void deactivateAllBattery() throws InterruptedException {
+    public static void deselectAllBattery() throws InterruptedException {
+        Thread.sleep(1000);
         activateAll();
         Thread.sleep(1000);
         deactivateEriEos();

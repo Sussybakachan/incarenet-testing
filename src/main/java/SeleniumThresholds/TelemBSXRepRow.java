@@ -52,7 +52,6 @@ public class TelemBSXRepRow {
             driver.findElement(By.id("BostonTelemonitoringReportWithoutEventParameter")).click();
 
         }
-
     }
 
     public static void activateBsxFinding() {
@@ -67,7 +66,6 @@ public class TelemBSXRepRow {
             driver.findElement(By.id("BostonTelemonitoringReportWithoutEventFinding")).click();
 
         }
-
     }
 
     public static void activateBsxCritical() {
@@ -82,17 +80,14 @@ public class TelemBSXRepRow {
             driver.findElement(By.id("BostonTelemonitoringReportWithoutEventCriticalFinding")).click();
 
         }
-
     }
 
     public static void onlyParamActivatedBsx() throws InterruptedException {
-
         activateBsxParameter();
         Thread.sleep(2000);
     }
 
     public static void findingParamActivatedBsx() throws InterruptedException {
-
         onlyParamActivatedBsx();
         Thread.sleep(2000);
         activateBsxFinding();
@@ -101,7 +96,6 @@ public class TelemBSXRepRow {
     }
 
     public static void criticalParamActivatedBsx() throws InterruptedException {
-
         onlyParamActivatedBsx();
         Thread.sleep(2000);
         activateBsxCritical();
@@ -124,6 +118,7 @@ public class TelemBSXRepRow {
     }
 
     public static void deselectAllBsx() throws InterruptedException {
+        onlyParamActivatedBsx();
         deactivateBsxFinding();
         deactivateBsxCritical();
         deactivateBsxParameter();

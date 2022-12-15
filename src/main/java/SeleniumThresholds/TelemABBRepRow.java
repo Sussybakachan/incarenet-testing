@@ -82,17 +82,14 @@ public class TelemABBRepRow {
             driver.findElement(By.id("abbottTelemonitoring-ReportCriticalFinding")).click();
 
         }
-
     }
 
     public static void onlyParamActivatedAbb() throws InterruptedException {
-
         activateAbbParameter();
         Thread.sleep(2000);
     }
 
     public static void findingParamActivatedAbb() throws InterruptedException {
-
         onlyParamActivatedAbb();
         Thread.sleep(2000);
         activateAbbFinding();
@@ -101,7 +98,6 @@ public class TelemABBRepRow {
     }
 
     public static void criticalParamActivatedAbb() throws InterruptedException {
-
         onlyParamActivatedAbb();
         Thread.sleep(2000);
         activateAbbCritical();
@@ -124,6 +120,7 @@ public class TelemABBRepRow {
     }
 
     public static void deselectAllAbb() throws InterruptedException {
+        onlyParamActivatedAbb();
         deactivateAbbFinding();
         deactivateAbbCritical();
         deactivateAbbParameter();
