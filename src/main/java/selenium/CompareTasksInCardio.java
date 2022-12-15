@@ -196,13 +196,13 @@ public class CompareTasksInCardio {
 
     private static List<String> createSpecificFailedTestMessage(List<Task> listname, List<Task> collectTasks, List<Task> notFoundTasks, List<Task> notFoundCreatedTasks, int amountOfMissingTasks,List<Task> foundExpectedTasks, List<Task> duplicateElements, List<String> failMessageArray) {
         if(!getAdditionalNotDoubleTasks(listname, collectTasks, notFoundCreatedTasks, amountOfMissingTasks).equals("")){
-            failMessageArray.add("\n"+"Following tasks are not duplicates and are not expected: " + "\n" + getAdditionalNotDoubleTasks(listname, collectTasks, notFoundCreatedTasks, amountOfMissingTasks)+ "\n");
+            failMessageArray.add("\n"+"FOLLOWING TASKS ARE NOT DUPLICATE AND ARE NOT EXPECTED: " + "\n" + getAdditionalNotDoubleTasks(listname, collectTasks, notFoundCreatedTasks, amountOfMissingTasks)+ "\n");
         }
         if(!lookForDuplicateTasks(foundExpectedTasks, duplicateElements).equals("")){
-            failMessageArray.add("\n"+"Following tasks got found more than once: " + "\n" + lookForDuplicateTasks(foundExpectedTasks, duplicateElements)+ "\n");
+            failMessageArray.add("\n"+"FOLLOWING TASKS GOT FOUND MORE THAN ONCE: " + "\n" + lookForDuplicateTasks(foundExpectedTasks, duplicateElements)+ "\n");
         }
         if(!notFoundTasks.isEmpty()){
-            failMessageArray.add("Following expected tasks did not get found: " + notFoundTasks);
+            failMessageArray.add("\n" + "FOLLOWING EXPECTED TASKS DID NOT GET FOUND: " + notFoundTasks);
         }
         return failMessageArray;
     }
