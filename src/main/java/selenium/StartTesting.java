@@ -45,13 +45,13 @@ public class StartTesting {
         inCardioDash();
         AbbottTestCases abbottTestCases = new AbbottTestCases();
         //TODO method-> in utils.java
-        BiotronikTestCases biotronikTestCases = new BiotronikTestCases();
+        //BiotronikTestCases biotronikTestCases = new BiotronikTestCases();
         //TODO method-> in utils.java
-        BostonTestCases bostonTestCases = new BostonTestCases();
+        //BostonTestCases bostonTestCases = new BostonTestCases();
         //TODO method-> in utils.java
-        MedtronicTestCases medtronicTestCases = new MedtronicTestCases();
+        //MedtronicTestCases medtronicTestCases = new MedtronicTestCases();
         //TODO method-> in utils.java
-        MicroPortTestCases microPortTestCases = new MicroPortTestCases();
+        //MicroPortTestCases microPortTestCases = new MicroPortTestCases();
         // thresholdCheck();
         //comparison();
         LoggingDataModif loggingDataModif = new LoggingDataModif();

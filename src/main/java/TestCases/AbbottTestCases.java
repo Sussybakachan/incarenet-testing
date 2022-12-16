@@ -46,7 +46,7 @@ public class AbbottTestCases {
        String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
        String pathToInput = FfInputPath + fileName[0] + ".hl7";
        pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(10000);
+        Thread.sleep(15000);
        // getGeneratedTasks();
         compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
      pdfCheck();
@@ -62,7 +62,7 @@ public class AbbottTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
-       Thread.sleep(10000);
+       Thread.sleep(15000);
         compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List, "Abbott2", g.getGeneratedTasks());
         pdfCheck();
         deleteTask();
@@ -92,7 +92,6 @@ public class AbbottTestCases {
         };
         Thread.sleep(15000);
         compareCrt(AbbottExpectedTasksTestCase4.AbbottTestCase4List, "Abbott4", g.getGeneratedTasks());
-        deleteTask();
         deselectAll();
     }
 
@@ -107,7 +106,6 @@ public class AbbottTestCases {
         };
         Thread.sleep(10000);
         compareCrt(AbbottExpectedTasksTestCase5.AbbottTestCase5List, "Abbott5", g.getGeneratedTasks());
-        deleteTask();
         deselectAll();
     }
 
