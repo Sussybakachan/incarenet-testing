@@ -1,6 +1,6 @@
 package selenium;
 
-import TestCases.AbbottTestCases;
+import TestCases.*;
 import dsutilities.LoggerLoader;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -44,13 +44,20 @@ public class StartTesting {
         loginP();
         inCardioDash();
         AbbottTestCases abbottTestCases = new AbbottTestCases();
+        //TODO method-> in utils.java
+        //BiotronikTestCases biotronikTestCases = new BiotronikTestCases();
+        //TODO method-> in utils.java
+        //BostonTestCases bostonTestCases = new BostonTestCases();
+        //TODO method-> in utils.java
+        //MedtronicTestCases medtronicTestCases = new MedtronicTestCases();
+        //TODO method-> in utils.java
+        //MicroPortTestCases microPortTestCases = new MicroPortTestCases();
         // thresholdCheck();
         //comparison();
         LoggingDataModif loggingDataModif = new LoggingDataModif();
-        String actualString = loggingDataModif.editFailedTaskLogging();
         LoggerLoader.info("Automation test finished");
         LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);
-        LoggerLoader.error("Following Testcase(s) failed:\n" + actualString);
+        LoggerLoader.info("Following Testcase(s) failed:\n" + loggingDataModif.editFailedTaskLogging());
         driver.close();
 
     }

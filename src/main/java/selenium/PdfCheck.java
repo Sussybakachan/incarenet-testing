@@ -3,8 +3,11 @@ package selenium;
 
 
 import com.testautomationguru.utility.PDFUtil;
+import dsutilities.LoggerLoader;
 import org.openqa.selenium.By;
 import static selenium.CompareTasksInCardio.driver;
+import static selenium.CompareTasksInCardio.successfulTestCases;
+
 import org.openqa.selenium.WebElement;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,7 +21,8 @@ public class PdfCheck {
 
 
     public static void pdfCheck() throws InterruptedException, IOException {
-
+try{
+    Thread.sleep(2000);
         List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[2]/td[8]/ol/li"));
         Thread.sleep(2000);
 
@@ -57,6 +61,10 @@ public class PdfCheck {
         File that = new File(actualPdf);
         that.delete();
 
+    } catch (Exception e) {
+    //TODO add testcase to failed testcase if no pdf was found and a task should have been created.
+    LoggingDataModif loggingDataModif = new LoggingDataModif();
+    LoggerLoader.error("No PDF found");
     }
-
+    }
 }

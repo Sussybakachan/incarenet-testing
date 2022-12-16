@@ -6,7 +6,9 @@ import java.util.List;
 import static selenium.CompareTasksInCardio.listOfFailedTasksAndReason;
 
 public class LoggingDataModif {
-    
+    public LoggingDataModif(){
+        editFailedTaskLogging();
+    }
     public String editFailedTaskLogging() {
         List<String> failedTasksString;
         failedTasksString = new ArrayList<>();

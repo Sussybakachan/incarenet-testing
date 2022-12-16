@@ -19,7 +19,7 @@ public class CompareTasksInCardio {
     static Actions action;
 
     static List<FailedTasks> listOfFailedTasksAndReason = new ArrayList<>();
-    static List<String> successfulTestCases = new ArrayList<>();
+    public static List<String> successfulTestCases = new ArrayList<>();
 
     static JavascriptExecutor js;
     //  public static void comparison() throws InterruptedException {}

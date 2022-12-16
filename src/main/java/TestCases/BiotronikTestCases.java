@@ -2,6 +2,7 @@ package TestCases;
 
 import BiotronikTestCasesExpectedTasks.*;
 
+import static SeleniumThresholds.Deselect.deselectAll;
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
 import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
@@ -19,6 +20,12 @@ public class BiotronikTestCases {
 
     public BiotronikTestCases() throws Exception {
         biotronikTestCase1();
+        biotronikTestCase2();
+        biotronikTestCase3();
+        biotronikTestCase5();
+        biotronikTestCase6();
+        biotronikTestCase7();
+        biotronikTestCase8();
     }
     public void biotronikTestCase1() throws Exception {
         //Set Template needs to be done before
@@ -31,10 +38,11 @@ public class BiotronikTestCases {
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase1.BiotronikTestCase1List, "Biotronik1", g.getGeneratedTasks());
         deleteTask();
+        deselectAll();
 }
-    public void BiotronikTestCase2() throws Exception {
+    public void biotronikTestCase2() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Biotronik", 2)
+        thresholdCheck("Biotronik", 2);
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
@@ -44,11 +52,12 @@ public class BiotronikTestCases {
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase2.BiotronikTestCase2List, "Biotronik2", g.getGeneratedTasks());
         deleteTask();
+        deselectAll();
     }
 
-    public void BiotronikTestCase3() throws Exception {
+    public void biotronikTestCase3() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Biotronik", 3)
+        thresholdCheck("Biotronik", 3);
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
@@ -58,11 +67,12 @@ public class BiotronikTestCases {
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase3.BiotronikTestCase3List, "Biotronik3", g.getGeneratedTasks());
         deleteTask();
+        deselectAll();
     }
 
-    public void BiotronikTestCase4() throws Exception {
+    public void biotronikTestCase4() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Biotronik", 4)
+        thresholdCheck("Biotronik", 4);
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
@@ -72,11 +82,12 @@ public class BiotronikTestCases {
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase4.BiotronikTestCase4List, "Biotronik4", g.getGeneratedTasks());
         deleteTask();
+        deselectAll();
     }
 
-    public void BiotronikTestCase5() throws Exception {
+    public void biotronikTestCase5() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Biotronik", 5)
+        thresholdCheck("Biotronik", 5);
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
@@ -86,11 +97,12 @@ public class BiotronikTestCases {
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase5.BiotronikTestCase5List, "Biotronik5", g.getGeneratedTasks());
         deleteTask();
+        deselectAll();
     }
 
-    public void BiotronikTestCase6() throws Exception {
+    public void biotronikTestCase6() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Biotronik", 6)
+        thresholdCheck("Biotronik", 6);
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
@@ -100,11 +112,12 @@ public class BiotronikTestCases {
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase6.BiotronikTestCase6List, "Biotronik6", g.getGeneratedTasks());
         deleteTask();
+        deselectAll();
     }
 
-    public void BiotronikTestCase7() throws Exception {
+    public void biotronikTestCase7() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Biotronik", 7)
+        thresholdCheck("Biotronik", 7);
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%", };
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
@@ -114,11 +127,12 @@ public class BiotronikTestCases {
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase7.BiotronikTestCase7List, "Biotronik7", g.getGeneratedTasks());
         deleteTask();
+        deselectAll();
     }
 
-    public void BiotronikTestCase8() throws Exception {
+    public void biotronikTestCase8() throws Exception {
         //Set Template needs to be done before
-        //thresholdCheck("Biotronik", 8)
+        thresholdCheck("Biotronik", 8);
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%"};
         String pathToOldHl7 = fileDirectory + fileName[0]  + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
@@ -126,6 +140,7 @@ public class BiotronikTestCases {
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase8.BiotronikTestCase8List, "Biotronik8", g.getGeneratedTasks());
         deleteTask();
+        deselectAll();
     }
 
 }
