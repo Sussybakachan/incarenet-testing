@@ -67,7 +67,7 @@ public class AbbottTestCases {
         pdfCheck();
         deleteTask();
         deselectAll();
-}
+   }
     public void abbottTestCase3() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 3);
