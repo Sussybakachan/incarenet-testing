@@ -17,6 +17,16 @@ public class BiotronikExpectedTasksTestCase2 {
     static Task BiotronikEOSAlarmTask = new Task();
     static Task BiotronikERIAlarmTask = new Task();
 
+    public BiotronikExpectedTasksTestCase2() {
+        createBiotronik93generalTask();
+        createBiotronik93LvTask();
+        createBiotronik93CrtTask();
+        createBiotronikERITask();
+        createBiotronikEOSTask();
+        createBiotronikEOSAlarmTask();
+        createBiotronikERIAlarmTask();
+    }
+
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
     //I don't know if that makes a difference
