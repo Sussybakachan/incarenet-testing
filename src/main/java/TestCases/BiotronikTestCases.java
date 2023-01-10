@@ -14,7 +14,7 @@ public class BiotronikTestCases {
     GeneratedTasks g = new GeneratedTasks();
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
-    String fileDirectory = rootDir + "/src/main/resources/Biotronik/";
+    String fileDirectory = rootDir + "/src/main/resources/Selenium-IDCO-Files/Biotronik/";
     String FfInputPath = rootDir + "/input/";
     String[] fileName;
 
@@ -34,7 +34,7 @@ public class BiotronikTestCases {
         fileName = new String[]{"Biotronik Implant CRT 97% LV 97%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-       pasteFile(pathToOldHl7, pathToInput);
+        pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase1.BiotronikTestCase1List, "Biotronik1", g.getGeneratedTasks());
         deleteTask();

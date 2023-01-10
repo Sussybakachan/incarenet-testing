@@ -83,88 +83,50 @@ public class NoMeasurementsRow {
 
     }
 
-    private static void pressNoMeasurementsCriticalFindingCheckbox() {
-        driver.findElement(By.id("noMeasurementsCriticalFinding")).click();
-    }
-
-    public static void activatedNoMeasurementsCritical(int daysCriticalFinding) {
-        if (!isNoMeasurementsCriticalFindingSelected()) {
-            pressNoMeasurementsCriticalFindingCheckbox();
-            driver.findElement(By.id("[object Object]-noMeasurementReceived-params-criticalNoMeasurements")).sendKeys(Integer.toString(daysCriticalFinding));
-        }
-    }
-
-    public static void deactivateNoMeasurementsCritical() throws InterruptedException {
-        boolean isChecked = driver.findElement(By.id("noMeasurementsCriticalFinding")).isSelected();
-        if (isChecked) {
-            WebElement checked = driver.findElement(By.id("[object Object]-noMeasurementReceived-params-criticalNoMeasurements"));
-            Actions a = new Actions(driver);
-            a.moveToElement(checked).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
-            Thread.sleep(2000);
-            pressNoMeasurementsCriticalFindingCheckbox();
-
-        }
-
-    }
-        public static void deactivateNoMeasurementsCriticalWithValue() throws InterruptedException {
-            boolean isChecked = driver.findElement(By.id("noMeasurementsCriticalFinding")).isSelected();
-            if (isChecked) {
-                pressNoMeasurementsCriticalFindingCheckbox();
-            }
-
-    }
-
-    public static void activateAllNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
+    public static void activateAllNM(int daysFinding) throws InterruptedException {
         activatedNoMeasurementsParameter();
         Thread.sleep(1000);
         activatedNoMeasurementsFinding(daysFinding);
-        Thread.sleep(1000);
-        activatedNoMeasurementsCritical(daysCriticalFinding);
         Thread.sleep(2000);
     }
 
-    public static void onlyParamActivatedNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
-        activateAllNM(daysFinding, daysCriticalFinding);
+    public static void onlyParamActivatedNM(int daysFinding) throws InterruptedException {
+        activateAllNM(daysFinding);
         Thread.sleep(1000);
         deactivateNoMeasurementsFindingWithValue();
-        Thread.sleep(1000);
-        deactivateNoMeasurementsCriticalWithValue();
         Thread.sleep(2000);
     }
 
-    public static void findingParamActivatedNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
-        activateAllNM(daysFinding, daysCriticalFinding);
+    public static void findingParamActivatedNM(int daysFinding) throws InterruptedException {
+        activateAllNM(daysFinding);
         Thread.sleep(1000);
-        deactivateNoMeasurementsCriticalWithValue();
         Thread.sleep(2000);
 
     }
 
-    public static void criticalParamActivatedNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
-        activateAllNM(daysFinding, daysCriticalFinding);
+    public static void criticalParamActivatedNM(int daysFinding) throws InterruptedException {
+        activateAllNM(daysFinding);
         Thread.sleep(1000);
         deactivateNoMeasurementsFindingWithValue();
         Thread.sleep(2000);
 
     }
-    public static void onlyFindingCriticalActivatedNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
-        activateAllNM(daysFinding, daysCriticalFinding);
+    public static void onlyFindingCriticalActivatedNM(int daysFinding) throws InterruptedException {
+        activateAllNM(daysFinding);
         Thread.sleep(1000);
         deactivateNoMeasurementsParameter();
         Thread.sleep(2000);
     }
 
-    public static void onlyFindingActivatedNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
-        activateAllNM(daysFinding, daysCriticalFinding);
-        Thread.sleep(2000);
-        deactivateNoMeasurementsCriticalWithValue();
+    public static void onlyFindingActivatedNM(int daysFinding) throws InterruptedException {
+        activateAllNM(daysFinding);
         Thread.sleep(2000);
         deactivateNoMeasurementsParameter();
         Thread.sleep(2000);
     }
 
-    public static void onlyCriticalActivatedNM(int daysFinding, int daysCriticalFinding) throws InterruptedException {
-        activateAllNM(daysFinding, daysCriticalFinding);
+    public static void onlyCriticalActivatedNM(int daysFinding) throws InterruptedException {
+        activateAllNM(daysFinding);
         Thread.sleep(2000);
         deactivateNoMeasurementsFindingWithValue();
         Thread.sleep(2000);
@@ -172,23 +134,19 @@ public class NoMeasurementsRow {
         Thread.sleep(2000);
     }
 
-    public static void deselectAllNMWithValue(int daysFinding, int daysCriticalFinding) throws InterruptedException {
-        activateAllNM(daysFinding, daysCriticalFinding);
+    public static void deselectAllNMWithValue(int daysFinding) throws InterruptedException {
+        activateAllNM(daysFinding);
         Thread.sleep(1000);
         deactivateNoMeasurementsFindingWithValue();
-        Thread.sleep(1000);
-        deactivateNoMeasurementsCriticalWithValue();
         Thread.sleep(1000);
         deactivateNoMeasurementsParameter();
         Thread.sleep(2000);
     }
 
     public static void deselectAllNM() throws InterruptedException {
-        activateAllNM(0,0);
+        activateAllNM(0);
         Thread.sleep(1000);
         deactivateNoMeasurementsFinding();
-        Thread.sleep(1000);
-        deactivateNoMeasurementsCritical();
         Thread.sleep(1000);
         deactivateNoMeasurementsParameter();
         Thread.sleep(2000);
