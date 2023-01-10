@@ -14,7 +14,7 @@ public class MedtronicTestCases {
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
     GeneratedTasks g = new GeneratedTasks();
-    String fileDirectory = rootDir + "/src/main/resources/Medtronic/";
+    String fileDirectory = rootDir + "/src/main/resources/Selenium-IDCO-Files/Medtronic/";
     String FfInputPath = rootDir + "/input/";
     String[] fileName;
 
@@ -80,7 +80,6 @@ public class MedtronicTestCases {
         };
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase4.MedtronicTestCase4List, "Medtronic4", g.getGeneratedTasks());
-        deleteTask();
         deselectAll();
     }
 
@@ -95,7 +94,6 @@ public class MedtronicTestCases {
         };
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase5.MedtronicTestCase5List, "Medtronic5", g.getGeneratedTasks());
-        deleteTask();
         deselectAll();
     }
 
