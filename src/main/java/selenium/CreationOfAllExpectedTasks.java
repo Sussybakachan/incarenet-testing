@@ -2,13 +2,10 @@ package selenium;
 
 import AbbottTestCasesExpectedTasks.*;
 import BiotronikTestCasesExpectedTasks.*;
-import BostonTestCasesExpectedTasks.BostonExpectedTasksTestCase1;
 import BostonTestCasesExpectedTasks.*;
 import MedtronicTestCasesExpectedTasks.*;
 import MicroPortTestCasesExpectedTasks.*;
 
-import static AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1.createAbbottGeneralYellowTask;
-import static BiotronikTestCasesExpectedTasks.BiotronikExpectedTasksTestCase2.*;
 import static MicroPortTestCasesExpectedTasks.MicroPortExpectedTasksTestCase5.createMicroPortWhiteTask;
 import static selenium.ExpectedTasks.createAbbottTestExpectedTask;
 
@@ -31,15 +28,8 @@ public class CreationOfAllExpectedTasks {
         AbbottExpectedTasksTestCase9 abbottExpectedTasksTestCase9 = new AbbottExpectedTasksTestCase9();
 
         //Biotronik
-        createBiotronikERIAlarmTask();
-        createBiotronikEOSAlarmTask();
-        createBiotronikEOSTask();
-        createBiotronikERITask();
-        createBiotronik93CrtTask();
-        createBiotronik93LvTask();
-        createBiotronik93generalTask();
-        createAbbottTestExpectedTask();
-        createAbbottGeneralYellowTask();
+        BiotronikExpectedTasksTestCase1 biotronikExpectedTasksTestCase1 = new BiotronikExpectedTasksTestCase1();
+        BiotronikExpectedTasksTestCase2 biotronikExpectedTasksTestCase2 = new BiotronikExpectedTasksTestCase2();
         BiotronikExpectedTasksTestCase3 biotronikExpectedTasksTestCase3 = new BiotronikExpectedTasksTestCase3();
         BiotronikExpectedTasksTestCase4 biotronikExpectedTasksTestCase4 = new BiotronikExpectedTasksTestCase4();
         BiotronikExpectedTasksTestCase5 biotronikExpectedTasksTestCase5 = new BiotronikExpectedTasksTestCase5();
