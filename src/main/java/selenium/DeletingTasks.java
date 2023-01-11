@@ -24,13 +24,6 @@ public class DeletingTasks {
         Thread.sleep(5000);
         List<WebElement> l = driver.findElements(By.xpath("//table/tbody[@class]/tr[@index]"));
         int s = l.size();
-        Thread.sleep(15000);
-        driver.switchTo().parentFrame();
-        Thread.sleep(10000);
-        driver.findElement(By.xpath("/html/body/div[7]/div[1]/span/span[1]")).click();
-        Thread.sleep(3000);
-        driver.switchTo().frame(0);
-        Thread.sleep(5000);
         js.executeScript("window.scrollBy(0,50)");
         Thread.sleep(4000);
         for (int i = 2; i < s + 2; i++) {
@@ -63,3 +56,16 @@ public class DeletingTasks {
         }
     }
 }
+
+/*Thread.sleep(15000);
+        driver.switchTo().parentFrame();
+        Thread.sleep(10000);
+        driver.findElement(By.xpath("/html/body/div[7]/div[1]/span/span[1]")).click();
+        Thread.sleep(3000);
+        driver.switchTo().frame(0);
+        Thread.sleep(5000);
+
+        #popup closing
+
+
+        */
