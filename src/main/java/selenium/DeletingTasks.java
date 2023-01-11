@@ -24,6 +24,7 @@ public class DeletingTasks {
             Thread.sleep(5000);
             List<WebElement> l = driver.findElements(By.xpath("//table/tbody[@class]/tr[@index]"));
             int s = l.size();
+            Thread.sleep(4000);
             js.executeScript("window.scrollBy(0,50)");
             Thread.sleep(4000);
             for (int i = 2; i < s + 2; i++) {
