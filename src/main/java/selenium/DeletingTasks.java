@@ -31,7 +31,8 @@ public class DeletingTasks {
         Thread.sleep(3000);
         driver.switchTo().frame(0);
         Thread.sleep(5000);
-
+        js.executeScript("window.scrollBy(0,50)");
+        Thread.sleep(4000);
         for (int i = 2; i < s + 2; i++) {
             Thread.sleep(4000);
             driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
@@ -50,6 +51,8 @@ public class DeletingTasks {
         Thread.sleep(2000);
         driver.findElement(By.id("confirmButton")).click();
         Thread.sleep(5000);
+        js.executeScript("window.scrollBy(0,-50)");
+        Thread.sleep(4000);
     } catch (Exception e) {
             LoggingDataModif loggingDataModif = new LoggingDataModif();
             LoggerLoader.fatal("Some Error occurred while trying to delete the Tasks: " + e);
