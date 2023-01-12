@@ -117,6 +117,7 @@ public class CompareTasksInCardio {
         boolean hasSurplusTasks = false;
         boolean hasMissingTasks = false;
         int expectedTaskFoundCounter = 0;
+        System.out.println(testcase);
 
 
         if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() > listname.size()) {
