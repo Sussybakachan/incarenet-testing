@@ -1,6 +1,8 @@
 package SeleniumThresholds;
 
+import dsutilities.LoggerLoader;
 import org.openqa.selenium.By;
+import selenium.LoggingDataModif;
 
 
 import static SeleniumThresholds.BatteryStatusRow.*;
@@ -13,12 +15,16 @@ import static SeleniumThresholds.TelemBSXRepRow.*;
 import static SeleniumThresholds.TelemMDTRepRow.*;
 import static SeleniumThresholds.TelemMicroportRepRow.*;
 import static selenium.CompareTasksInCardio.driver;
+import static selenium.CompareTasksInCardio.successfulTestCases;
 
 
 public class Deselect {
     //is selected
 
     public static void deselectAll() throws InterruptedException {
+        try {
+
+
         Thread.sleep(6000);
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[6]")).click();
         Thread.sleep(3000);
@@ -42,8 +48,13 @@ public class Deselect {
         Thread.sleep(2000);
 
         System.out.println("Threshold reset");
+    } catch (Exception e){
+            LoggingDataModif loggingDataModif = new LoggingDataModif();
+            LoggerLoader.fatal("Some Error occurred while trying to deselect the thresholds: "+ e );
+            LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);
+            LoggerLoader.info("Following Testcase(s) failed:\n" + loggingDataModif.editFailedTaskLogging());
+        }
     }
-
 
 
 }

@@ -2,8 +2,10 @@ package SeleniumThresholds;
 
 import dsutilities.LoggerLoader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import SeleniumThresholds.CRTRow.*;
+import org.openqa.selenium.interactions.Actions;
 import selenium.LoggingDataModif;
 
 import java.util.List;
@@ -21,6 +23,10 @@ import static selenium.CompareTasksInCardio.driver;
 import static selenium.CompareTasksInCardio.successfulTestCases;
 
 public class ThresholdCheckMethod {
+    static Actions action;
+
+
+    static JavascriptExecutor js;
     public static void thresholdCheck(String manufacturer, int testCase) throws InterruptedException {
         Thread.sleep(9000);
         try {
@@ -39,6 +45,9 @@ public class ThresholdCheckMethod {
                 driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
                 Thread.sleep(2000);
             } else {
+                js = (JavascriptExecutor) driver;
+                action = new Actions(driver);
+                js.executeScript("window.scrollBy(0,200)");
                 Thread.sleep(2000);
                 driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
                 Thread.sleep(2000);
