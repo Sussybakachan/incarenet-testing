@@ -12,7 +12,7 @@ public class BiotronikExpectedTasksTestCase1 {
     static Task Biotronik97LvTask = new Task();
     static Task Biotronik97CrtTask = new Task();
 
-    public static void createExpectedTasksBioTestCase1() {
+    public BiotronikExpectedTasksTestCase1() {
         createBiotronik97CrtTask();
         createBiotronik97LvTask();
         createBiotronik97generalTask();
