@@ -8,7 +8,7 @@ import java.io.File;
 public class PasteFile {
     static String pathToInput = System.getProperty("user.dir") + "input\\";
 
-    public static void pasteFile(String pathToOldHl7, String pathToInput) {
+    public static void pasteFile(String pathToOldHl7, String pathToInput) throws InterruptedException {
         File source = new File(pathToOldHl7);
         File dest = new File(pathToInput);
 
@@ -17,6 +17,6 @@ public class PasteFile {
         } catch (Exception var5) {
             var5.printStackTrace();
         }
-
+        Thread.sleep(20000);
     }
 }
