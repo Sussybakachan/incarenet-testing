@@ -18,6 +18,7 @@ public class CreationOfAllExpectedTasks {
     public static void createAllExpectedTasks() {
 
         //Abbott
+        AbbottExpectedTasksTestCase1 abbottExpectedTasksTestCase1 = new AbbottExpectedTasksTestCase1();
         AbbottExpectedTasksTestCase2 abbottExpectedTasksTestCase2 = new AbbottExpectedTasksTestCase2();
         AbbottExpectedTasksTestCase3 abbottExpectedTasksTestCase3 = new AbbottExpectedTasksTestCase3();
         AbbottExpectedTasksTestCase4 abbottExpectedTasksTestCase4 = new AbbottExpectedTasksTestCase4();

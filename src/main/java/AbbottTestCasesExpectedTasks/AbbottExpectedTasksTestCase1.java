@@ -10,6 +10,11 @@ public class AbbottExpectedTasksTestCase1 {
     //TestCase1
     static Task AbbottGeneralYellowTask = new Task();
 
+    public AbbottExpectedTasksTestCase1() {
+        createAbbottGeneralYellowTask();
+    }
+
+
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
     //I don't know if that makes a difference
