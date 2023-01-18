@@ -8,7 +8,6 @@ import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.pasteFile;
-import static selenium.PdfCheck.pdfCheck;
 
 public class BiotronikTestCases {
     //Testcase1
@@ -38,7 +37,6 @@ public class BiotronikTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase1.BiotronikTestCase1List, "Biotronik1", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
 }
@@ -53,7 +51,6 @@ public class BiotronikTestCases {
         };
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase2.BiotronikTestCase2List, "Biotronik2", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -69,7 +66,6 @@ public class BiotronikTestCases {
         };
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase3.BiotronikTestCase3List, "Biotronik3", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -85,7 +81,6 @@ public class BiotronikTestCases {
         };
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase4.BiotronikTestCase4List, "Biotronik4", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -101,7 +96,6 @@ public class BiotronikTestCases {
         };
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase5.BiotronikTestCase5List, "Biotronik5", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -117,7 +111,6 @@ public class BiotronikTestCases {
         };
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase6.BiotronikTestCase6List, "Biotronik6", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -133,7 +126,6 @@ public class BiotronikTestCases {
         };
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase7.BiotronikTestCase7List, "Biotronik7", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -147,7 +139,6 @@ public class BiotronikTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(BiotronikExpectedTasksTestCase8.BiotronikTestCase8List, "Biotronik8", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }

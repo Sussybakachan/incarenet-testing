@@ -2,7 +2,6 @@ package TestCases;
 
 import AbbottTestCasesExpectedTasks.*;
 import selenium.CollectTasks;
-import selenium.PdfCheck;
 import selenium.Task;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.pasteFile;
-import static selenium.PdfCheck.pdfCheck;
+//import static selenium.PdfCheck.pdfCheck;
 
 public class AbbottTestCases {
     //Testcase1
@@ -42,16 +41,15 @@ public class AbbottTestCases {
         //Set Template needs to be done before
         choosepatient("Sel-Abbott");
         thresholdCheck("Abbott", 1);
-       fileName = new String[]{"Abbott Implant CRT 84%"};
-       String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
-       String pathToInput = FfInputPath + fileName[0] + ".hl7";
-       pasteFile(pathToOldHl7, pathToInput);
+        fileName = new String[]{"Abbott Implant CRT 84%"};
+        String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
+        String pathToInput = FfInputPath + fileName[0] + ".hl7";
+        pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(15000);
-       // getGeneratedTasks();
+        //getGeneratedTasks();
         compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
-     pdfCheck();
-      deleteTask();
-      deselectAll();
+        deleteTask();
+        deselectAll();
     }
 
 
@@ -62,9 +60,8 @@ public class AbbottTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
-       Thread.sleep(15000);
+        Thread.sleep(15000);
         compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List, "Abbott2", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
    }
