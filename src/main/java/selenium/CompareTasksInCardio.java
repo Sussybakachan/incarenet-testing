@@ -124,7 +124,7 @@ public class CompareTasksInCardio {
 
         if (!listname.get(0).isIntentioanllyEmpty() && !pdfCheck()) {
             hasNoPdf = true;
-            LoggerLoader.error("No PDF found");
+            LoggerLoader.error("No PDF was found or the content was not expected");
         }
         if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() == 0) {
             System.out.println("Es wurde keine Task erstellt");
@@ -226,7 +226,7 @@ public class CompareTasksInCardio {
             failMessageArray.add("\n" + "FOLLOWING EXPECTED TASKS DID NOT GET FOUND: " + notFoundTasks);
         }
         if (hasNoPdf){
-            failMessageArray.add("\n" + "PDF DID NOT GET FOUND: ");
+            failMessageArray.add("\n" + "No PDF was found or the content was not expected ");
         }
         return failMessageArray;
     }
