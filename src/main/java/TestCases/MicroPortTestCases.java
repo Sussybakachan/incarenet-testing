@@ -45,9 +45,11 @@ public class MicroPortTestCases {
         //Set Template needs to be done before
         thresholdCheck("MicroPort", 2);
         fileName = new String[]{"added ERI", "added EOS"};
-        String pathToOldHl7 = fileDirectory + fileName[0] + ".json";
-        String pathToInput = FfInputPath + fileName[0] + ".json";
-        pasteFile(pathToOldHl7, pathToInput);
+        for (int i = 0; i < fileName.length; i++) {
+            String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
+            String pathToInput = FfInputPath + fileName[i] + ".json";
+            pasteFile(pathToOldHl7, pathToInput);
+        };
         Thread.sleep(10000);
         compareCrt(MicroPortExpectedTasksTestCase2.MicroPortTestCase2List, "MicroPort2", g.getGeneratedTasks());
         pdfCheck();
