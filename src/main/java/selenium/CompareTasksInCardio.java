@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static selenium.PdfCheck.pdfCheck;
+
 
 public class CompareTasksInCardio {
 
@@ -116,14 +118,26 @@ public class CompareTasksInCardio {
         int amountOfMissingTasks = 0;
         boolean hasSurplusTasks = false;
         boolean hasMissingTasks = false;
+        boolean hasNoPdf = false;
         int expectedTaskFoundCounter = 0;
         System.out.println(testcase);
 
+        if (!listname.get(0).isIntentioanllyEmpty() && !pdfCheck()) {
+            hasNoPdf = true;
+            LoggerLoader.error("No PDF was found or the content was not expected");
+        }
+        if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() == 0) {
+            System.out.println("Es wurde keine Task erstellt");
+            b.setReasonForFailure("Es wurde keine Task erstellt");
+            listOfFailedTasksAndReason.add(b);
+            return;
+        }
 
         if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() > listname.size()) {
             amountOfSurplusTasks = collectTasks.size() - listname.size();
             hasSurplusTasks = true;
         }
+
         if (!listname.get(0).isIntentioanllyEmpty() && collectTasks.size() < listname.size()) {
             amountOfMissingTasks = listname.size() - collectTasks.size();
             hasMissingTasks = true;
@@ -157,7 +171,7 @@ public class CompareTasksInCardio {
                     System.out.println("Die Task ist korrekt " + "\n" + "\n" + listname.get(i) + "\n" + "\n" + " und " + "\n" + "\n" + collectTasks.get(j));
                     passedCounter++;
                     System.out.println(passedCounter);
-                    System.out.println("Amount of succsseful tasks " + successfulTAsks);
+                    System.out.println("Amount of successful tasks " + successfulTAsks);
                     foundExpectedTasks.add(listname.get(i));
 
 
@@ -175,27 +189,33 @@ public class CompareTasksInCardio {
             List<String> failMessageArray = new ArrayList<>();
             if (hasSurplusTasks){
                 b.setReasonForFailure(amountOfSurplusTasks + " more task(s) got created than expected" +  "\n" +
-                        createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray) +
+                        createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray, hasNoPdf) +
                         "\n");
                 listOfFailedTasksAndReason.add(b);
             }
             if (hasMissingTasks){
-                b.setReasonForFailure(amountOfMissingTasks + " more task(s) were expected" + "\n" + createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray) +
+                b.setReasonForFailure(amountOfMissingTasks + " more task(s) were expected" + "\n" + createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray, hasNoPdf) +
                         "\n");
                 listOfFailedTasksAndReason.add(b);
-            } if (!hasSurplusTasks && !hasMissingTasks){
-                b.setReasonForFailure( createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray) +
+            }
+            if (!hasSurplusTasks && !hasMissingTasks) {
+                b.setReasonForFailure(createSpecificFailedTestMessage(listname, collectTasks, notFoundTasks, notFoundCreatedTasks, amountOfMissingTasks, foundExpectedTasks, duplicateElements, failMessageArray, hasNoPdf) +
                         "\n");
                 listOfFailedTasksAndReason.add(b);
             }
 
-
-        } else {
+        } else if (hasNoPdf){
+            List<String> failMessageArray = new ArrayList<>();
+            b.setReasonForFailure(amountOfMissingTasks + " more task(s) were expected" + "\n" + createSpecificFailedTestMessage(listname, collectTasks,notFoundTasks, notFoundCreatedTasks,amountOfMissingTasks,foundExpectedTasks,duplicateElements,failMessageArray, hasNoPdf) +
+                    "\n");
+            listOfFailedTasksAndReason.add(b);
+        }
+        else {
             successfulTestCases.add(testcase);
         }
     }
 
-    private static List<String> createSpecificFailedTestMessage(List<Task> listname, List<Task> collectTasks, List<Task> notFoundTasks, List<Task> notFoundCreatedTasks, int amountOfMissingTasks,List<Task> foundExpectedTasks, List<Task> duplicateElements, List<String> failMessageArray) {
+    private static List<String> createSpecificFailedTestMessage(List<Task> listname, List<Task> collectTasks, List<Task> notFoundTasks, List<Task> notFoundCreatedTasks, int amountOfMissingTasks,List<Task> foundExpectedTasks, List<Task> duplicateElements, List<String> failMessageArray, boolean hasNoPdf) {
         if(!getAdditionalNotDoubleTasks(listname, collectTasks, notFoundCreatedTasks, amountOfMissingTasks).equals("")){
             failMessageArray.add("\n"+"FOLLOWING TASKS ARE NOT DUPLICATE AND ARE NOT EXPECTED: " + "\n" + getAdditionalNotDoubleTasks(listname, collectTasks, notFoundCreatedTasks, amountOfMissingTasks)+ "\n");
         }
@@ -204,6 +224,9 @@ public class CompareTasksInCardio {
         }
         if(!notFoundTasks.isEmpty()){
             failMessageArray.add("\n" + "FOLLOWING EXPECTED TASKS DID NOT GET FOUND: " + notFoundTasks);
+        }
+        if (hasNoPdf){
+            failMessageArray.add("\n" + "No PDF was found or the content was not expected ");
         }
         return failMessageArray;
     }
