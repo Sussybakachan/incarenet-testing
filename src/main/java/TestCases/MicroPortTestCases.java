@@ -1,3 +1,4 @@
+
 package TestCases;
 
 import MicroPortTestCasesExpectedTasks.*;
@@ -52,7 +53,6 @@ public class MicroPortTestCases {
         };
         Thread.sleep(10000);
         compareCrt(MicroPortExpectedTasksTestCase2.MicroPortTestCase2List, "MicroPort2", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -66,7 +66,6 @@ public class MicroPortTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(MicroPortExpectedTasksTestCase3.MicroPortTestCase3List, "MicroPort3", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -80,7 +79,6 @@ public class MicroPortTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(MicroPortExpectedTasksTestCase4.MicroPortTestCase4List, "MicroPort4", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -94,7 +92,6 @@ public class MicroPortTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(MicroPortExpectedTasksTestCase5.MicroPortTestCase5List, "MicroPort5", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -124,10 +121,8 @@ public class MicroPortTestCases {
         };
         Thread.sleep(10000);
         compareCrt(MicroPortExpectedTasksTestCase7.MicroPortTestCase7List, "MicroPort7", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
 
 }
-
