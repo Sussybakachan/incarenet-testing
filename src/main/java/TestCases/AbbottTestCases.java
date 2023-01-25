@@ -13,8 +13,8 @@ import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
 import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
+import static selenium.PasteFile.inputIsEmpty;
 import static selenium.PasteFile.pasteFile;
-//import static selenium.PdfCheck.pdfCheck;
 
 public class AbbottTestCases {
     //Testcase1
@@ -35,6 +35,7 @@ public class AbbottTestCases {
         abbottTestCase7();
         abbottTestCase8();
         abbottTestCase9();
+        abbottTestCase10();
     }
 
     public void abbottTestCase1() throws Exception {
@@ -45,7 +46,8 @@ public class AbbottTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(15000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         //getGeneratedTasks();
         compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
         deleteTask();
@@ -60,7 +62,8 @@ public class AbbottTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(15000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List, "Abbott2", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -72,7 +75,8 @@ public class AbbottTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase3.AbbottTestCase3List, "Abbott3", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -87,13 +91,15 @@ public class AbbottTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
         };
-        Thread.sleep(15000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase4.AbbottTestCase4List, "Abbott4", g.getGeneratedTasks());
         deselectAll();
     }
 
     public void abbottTestCase5() throws Exception {
         //Set Template needs to be done before
+        choosepatient("Sel-Abbott");
         thresholdCheck("Abbott", 5);
         fileName = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
         for (int i = 0; i < fileName.length; i++) {
@@ -101,7 +107,8 @@ public class AbbottTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
         };
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase5.AbbottTestCase5List, "Abbott5", g.getGeneratedTasks());
         deselectAll();
     }
@@ -115,7 +122,8 @@ public class AbbottTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
         };
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase6.AbbottTestCase6List, "Abbott6", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -130,7 +138,8 @@ public class AbbottTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
             pasteFile(pathToOldHl7, pathToInput);
         };
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase7.AbbottTestCase7List, "Abbott7", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -143,7 +152,8 @@ public class AbbottTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0]  + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase8.AbbottTestCase8List, "Abbott8", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -156,8 +166,25 @@ public class AbbottTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List, "Abbott9", g.getGeneratedTasks());
+        deleteTask();
+        deselectAll();
+    }
+
+    public void abbottTestCase10() throws Exception {
+        //Set Template needs to be done before
+        thresholdCheck("Abbott", 10);
+        fileName = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
+        for (int i = 0; i < fileName.length; i++) {
+            String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
+            String pathToInput = FfInputPath + fileName[i] + ".hl7";
+            pasteFile(pathToOldHl7, pathToInput);
+        };
+        Thread.sleep(3000);
+        inputIsEmpty();
+        //compareCrt(AbbottExpectedTasksTestCase10.AbbottTestCase10List, "Abbott10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }

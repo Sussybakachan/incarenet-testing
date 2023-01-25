@@ -17,6 +17,17 @@ public class PasteFile {
         } catch (Exception var5) {
             var5.printStackTrace();
         }
-        Thread.sleep(20000);
     }
+
+    public static void inputIsEmpty() throws InterruptedException {
+        File input = new File(System.getProperty("user.dir") + "/input");
+        while (!FileUtils.listFiles(input, null, true).isEmpty()) {
+            // Wait for some time
+            Thread.sleep(1000); // Wait for 1 second
+        }
+        System.out.println("Folder is now empty");
+        Thread.sleep(3000);
+
+    }
+
 }
