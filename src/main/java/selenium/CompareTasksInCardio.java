@@ -122,7 +122,7 @@ public class CompareTasksInCardio {
         int expectedTaskFoundCounter = 0;
         System.out.println(testcase);
 
-        if (!listname.get(0).isIntentioanllyEmpty() && !pdfCheck()) {
+        if (!listname.get(0).isIntentioanllyEmpty() && !pdfCheck(testcase)) {
             hasNoPdf = true;
             LoggerLoader.error("No PDF was found or the content was not expected");
         }

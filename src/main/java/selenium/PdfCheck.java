@@ -17,17 +17,20 @@ import java.util.Base64;
 public class PdfCheck {
 
 
-    public static boolean pdfCheck() throws InterruptedException {
+    public static boolean pdfCheck(String testcase) throws InterruptedException {
         Thread.sleep(2000);
         List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[2]/td[8]/ol/li"));
         Thread.sleep(2000);
 
         int f = list.size();
-        System.out.println(f);
+        int m = 1;
 
         try {
 
-            for (int i = 1; i <= 1; i++) {
+            if (testcase.contains("Biotronik")){
+                m=2;
+            }
+            for (int i = m; i <= m; i++) {
                 driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[2]/td[8]/ol/li[" + i + "]/a")).click();
                 Thread.sleep(3000);
                 String src = driver.findElement(By.xpath("/html/body/div[4]/div[3]/iframe")).getAttribute("src");
