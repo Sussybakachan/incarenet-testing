@@ -47,6 +47,9 @@ public class CreationOfAllExpectedTasks {
         BostonExpectedTasksTestCase6 bostonExpectedTasksTestCase6 = new BostonExpectedTasksTestCase6();
         BostonExpectedTasksTestCase7 bostonExpectedTasksTestCase7 = new BostonExpectedTasksTestCase7();
         BostonExpectedTasksTestCase8 bostonExpectedTasksTestCase8 = new BostonExpectedTasksTestCase8();
+        BostonExpectedTasksTestCase9 bostonExpectedTasksTestCase9 = new BostonExpectedTasksTestCase9();
+        BostonExpectedTasksTestCase10 bostonExpectedTasksTestCase10 = new BostonExpectedTasksTestCase10();
+        BostonExpectedTasksTestCase11 bostonExpectedTasksTestCase11 = new BostonExpectedTasksTestCase11();
 
         //Medtronic
         MedtronicExpectedTasksTestCase1 medtronicExpectedTasksTestCase1 = new MedtronicExpectedTasksTestCase1();

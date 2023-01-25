@@ -29,10 +29,24 @@ public class DeletingTasks {
             Thread.sleep(4000);
             for (int i = 2; i < s + 2; i++) {
                 Thread.sleep(4000);
-                driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
-                Thread.sleep(3000);
-                driver.findElement(By.xpath("/html/body/div[4]/div/div[1]/label/span[1]/span[1]/input")).click();
-                Thread.sleep(5000);
+                try{
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
+                    Thread.sleep(3000);
+                }catch (Exception e){
+                    js.executeScript("window.scrollBy(0,1)");
+                    Thread.sleep(4000);
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
+                    Thread.sleep(3000);
+                }
+                try {
+                    driver.findElement(By.xpath("/html/body/div[4]/div/div[1]/label/span[1]/span[1]/input")).click();
+                    Thread.sleep(5000);
+                }catch (Exception e){
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
+                    Thread.sleep(3000);
+                    driver.findElement(By.xpath("/html/body/div[4]/div/div[1]/label/span[1]/span[1]/input")).click();
+                    Thread.sleep(5000);
+                }
                 try{
                     driver.findElement(By.id("saveMeasurement")).click();
                 } catch (Exception e) {
@@ -43,12 +57,12 @@ public class DeletingTasks {
                 Thread.sleep(7000);
                 try{
                    // driver.findElement(By.id("doneButton")).click();
-                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button")).click(); //doneButton
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
                     Thread.sleep(4000);
                 } catch (Exception e){
                     js.executeScript("window.scrollBy(115,0)");
                    // driver.findElement(By.id("doneButton")).click();
-                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button")).click(); //doneButton
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
                     Thread.sleep(4000);
                 }
 

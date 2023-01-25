@@ -39,12 +39,11 @@ public class BostonTestCases {
         //Set Template needs to be done before
         choosepatient("Sel-Boston");
         thresholdCheck("Boston", 1);
-        fileName = new String[]{"lv 70%", "ERI", "EOS", "lv 85%"};
-        for (int i = 0; i < fileName.length; i++) {
-            String pathToOldHl7 = fileDirectory8 + fileName[i] + ".hl7";
-            String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            pasteFile(pathToOldHl7, pathToInput);
-        };
+        fileName = new String[]{"Boston Implant added LV 85%"};
+        String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
+        String pathToInput = FfInputPath + fileName[0] + ".hl7";
+        pasteFile(pathToOldHl7, pathToInput);
+        pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(3000);
         inputIsEmpty();
         compareCrt(BostonExpectedTasksTestCase1.BostonTestCase1List, "Boston1", g.getGeneratedTasks());
@@ -62,7 +61,7 @@ public class BostonTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        compareCrt(BostonExpectedTasksTestCase2.BostonEmptyTestCase, "Boston2", g.getGeneratedTasks());
+        compareCrt(BostonExpectedTasksTestCase2.BostonTestCase2List, "Boston2", g.getGeneratedTasks());
         deselectAll();
     }
 

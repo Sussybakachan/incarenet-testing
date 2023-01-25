@@ -5,27 +5,92 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BostonExpectedTasksTestCase2 {
-    public static List<Task> BostonTestCase2List = new ArrayList<>();
-
+public class BostonExpectedTasksTestCase9 {
+    public static List<Task> BostonTestCase9List = new ArrayList<>();
+    static Task BostonRedLVTask = new Task();
+    static Task BostonYellowLVTask = new Task();
+    static Task BostonEriTask = new Task();
+    static Task BostonEosTask = new Task();
     static Task BostonLv70AlarmTask = new Task();
     static Task BostonLv85AlarmTask = new Task();
     static Task BostonEosAlarmTask = new Task();
     static Task BostonEriAlarmTask = new Task();
 
-    public BostonExpectedTasksTestCase2() {
+    public BostonExpectedTasksTestCase9(){
+        createBostonRedLVTask();
+        createBostonEosTask();
+        createBostonEriTask();
+        createBostonYellowLVTask();
+        createBostonYellowLV85AlarmTask();
+        createBostonEriAlarmTask();
         createBostonRedLv70AlarmTask();
         createBostonEosAlarmTask();
-        createBostonEriAlarmTask();
-        createBostonYellowLV85AlarmTask();
+
     }
 
+    public static List<Task> createBostonRedLVTask() {
 
+        BostonRedLVTask.setCheckBox("");
+        BostonRedLVTask.setColor("danger");
+        BostonRedLVTask.setStartDate("2022-03-22T10:27:00.000Z");
+        BostonRedLVTask.setTaskDescription("LV-Stimulation: 70%");
+        BostonRedLVTask.setMeasurements("Bitte auswählen");
+        BostonRedLVTask.setPdf("RVAT-483 - EreignisdetailberichtATR-3347 - EreignisdetailberichtKombinierter Follow-up BerichtEingangs-EGM-BerichtBericht Herzinsuffizienz-ManagementBericht Arrhythmie-Logbuch");
+        BostonRedLVTask.setEmployee("");
+        BostonRedLVTask.setFurtherInformation("");
+        BostonRedLVTask.setAction("Aufgabe an PBA weiterleiten");
 
-    //instead of calling all the create methods in one big create methode we could create
-    //new objects of the classes
-    //I don't know if that makes a difference
+        BostonTestCase9List.add(BostonRedLVTask);
+        return BostonTestCase9List;
+    }
 
+    public static List<Task> createBostonYellowLVTask() {
+
+        BostonYellowLVTask.setCheckBox("");
+        BostonYellowLVTask.setColor("warning");
+        BostonYellowLVTask.setStartDate("2022-03-22T10:27:00.000Z");
+        BostonYellowLVTask.setTaskDescription("LV-Stimulation: 85%");
+        BostonYellowLVTask.setMeasurements("Bitte auswählen");
+        BostonYellowLVTask.setPdf("RVAT-483 - EreignisdetailberichtATR-3347 - EreignisdetailberichtKombinierter Follow-up BerichtEingangs-EGM-BerichtBericht Herzinsuffizienz-ManagementBericht Arrhythmie-Logbuch");
+        BostonYellowLVTask.setEmployee("");
+        BostonYellowLVTask.setFurtherInformation("");
+        BostonYellowLVTask.setAction("Aufgabe an PBA weiterleiten");
+
+        BostonTestCase9List.add(BostonYellowLVTask);
+        return BostonTestCase9List;
+    }
+
+    public static List<Task> createBostonEriTask() {
+
+        BostonEriTask.setCheckBox("");
+        BostonEriTask.setColor("danger");
+        BostonEriTask.setStartDate("2022-03-22T10:27:00.000Z");
+        BostonEriTask.setTaskDescription("Batteriestatus: ERI");
+        BostonEriTask.setMeasurements("Bitte auswählen");
+        BostonEriTask.setPdf("RVAT-483 - EreignisdetailberichtATR-3347 - EreignisdetailberichtKombinierter Follow-up BerichtEingangs-EGM-BerichtBericht Herzinsuffizienz-ManagementBericht Arrhythmie-Logbuch");
+        BostonEriTask.setEmployee("");
+        BostonEriTask.setFurtherInformation("");
+        BostonEriTask.setAction("Aufgabe an PBA weiterleiten");
+
+        BostonTestCase9List.add(BostonEriTask);
+        return BostonTestCase9List;
+    }
+
+    public static List<Task> createBostonEosTask() {
+
+        BostonEosTask.setCheckBox("");
+        BostonEosTask.setColor("danger");
+        BostonEosTask.setStartDate("2022-03-22T10:27:00.000Z");
+        BostonEosTask.setTaskDescription("Batteriestatus: EOS");
+        BostonEosTask.setMeasurements("Bitte auswählen");
+        BostonEosTask.setPdf("RVAT-483 - EreignisdetailberichtATR-3347 - EreignisdetailberichtKombinierter Follow-up BerichtEingangs-EGM-BerichtBericht Herzinsuffizienz-ManagementBericht Arrhythmie-Logbuch");
+        BostonEosTask.setEmployee("");
+        BostonEosTask.setFurtherInformation("");
+        BostonEosTask.setAction("Aufgabe an PBA weiterleiten");
+
+        BostonTestCase9List.add(BostonEosTask);
+        return BostonTestCase9List;
+    }
 
     //alarm tasks
     public static List<Task> createBostonRedLv70AlarmTask() {
@@ -47,8 +112,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonLv70AlarmTask.setFurtherInformation("");
         BostonLv70AlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonLv70AlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase9List.add(BostonLv70AlarmTask);
+        return BostonTestCase9List;
     }
 
     public static List<Task> createBostonYellowLV85AlarmTask() {
@@ -70,8 +135,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonLv85AlarmTask.setFurtherInformation("");
         BostonLv85AlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonLv85AlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase9List.add(BostonLv85AlarmTask);
+        return BostonTestCase9List;
     }
 
     public static List<Task> createBostonEriAlarmTask() {
@@ -93,8 +158,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonEriAlarmTask.setFurtherInformation("");
         BostonEriAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonEriAlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase9List.add(BostonEriAlarmTask);
+        return BostonTestCase9List;
     }
 
     public static List<Task> createBostonEosAlarmTask() {
@@ -116,7 +181,7 @@ public class BostonExpectedTasksTestCase2 {
         BostonEosAlarmTask.setFurtherInformation("");
         BostonEosAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonEosAlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase9List.add(BostonEosAlarmTask);
+        return BostonTestCase9List;
     }
 }

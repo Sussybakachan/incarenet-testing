@@ -5,29 +5,13 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BostonExpectedTasksTestCase2 {
-    public static List<Task> BostonTestCase2List = new ArrayList<>();
-
+public class BostonExpectedTasksTestCase10 {
+    public static List<Task> BostonTestCase10List = new ArrayList<>();
     static Task BostonLv70AlarmTask = new Task();
     static Task BostonLv85AlarmTask = new Task();
     static Task BostonEosAlarmTask = new Task();
     static Task BostonEriAlarmTask = new Task();
 
-    public BostonExpectedTasksTestCase2() {
-        createBostonRedLv70AlarmTask();
-        createBostonEosAlarmTask();
-        createBostonEriAlarmTask();
-        createBostonYellowLV85AlarmTask();
-    }
-
-
-
-    //instead of calling all the create methods in one big create methode we could create
-    //new objects of the classes
-    //I don't know if that makes a difference
-
-
-    //alarm tasks
     public static List<Task> createBostonRedLv70AlarmTask() {
 
         BostonLv70AlarmTask.setCheckBox("");
@@ -47,8 +31,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonLv70AlarmTask.setFurtherInformation("");
         BostonLv70AlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonLv70AlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase10List.add(BostonLv70AlarmTask);
+        return BostonTestCase10List;
     }
 
     public static List<Task> createBostonYellowLV85AlarmTask() {
@@ -70,8 +54,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonLv85AlarmTask.setFurtherInformation("");
         BostonLv85AlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonLv85AlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase10List.add(BostonLv85AlarmTask);
+        return BostonTestCase10List;
     }
 
     public static List<Task> createBostonEriAlarmTask() {
@@ -93,8 +77,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonEriAlarmTask.setFurtherInformation("");
         BostonEriAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonEriAlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase10List.add(BostonEriAlarmTask);
+        return BostonTestCase10List;
     }
 
     public static List<Task> createBostonEosAlarmTask() {
@@ -116,7 +100,7 @@ public class BostonExpectedTasksTestCase2 {
         BostonEosAlarmTask.setFurtherInformation("");
         BostonEosAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonEosAlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase10List.add(BostonEosAlarmTask);
+        return BostonTestCase10List;
     }
 }
