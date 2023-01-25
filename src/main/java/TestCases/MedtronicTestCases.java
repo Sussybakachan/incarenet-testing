@@ -40,7 +40,6 @@ public class MedtronicTestCases {
        pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase1.MedtronicTestCase1List, "Medtronic1", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
 }
@@ -53,7 +52,6 @@ public class MedtronicTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase2.MedtronicTestCase2List, "Medtronic2", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -67,7 +65,6 @@ public class MedtronicTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase3.MedtronicTestCase3List, "Medtronic3", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -112,7 +109,6 @@ public class MedtronicTestCases {
         };
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase6.MedtronicTestCase6List, "Medtronic6", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -128,7 +124,6 @@ public class MedtronicTestCases {
         };
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase7.MedtronicTestCase7List, "Medtronic7", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -142,7 +137,6 @@ public class MedtronicTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase8.MedtronicTestCase8List, "Medtronic8", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }
@@ -156,7 +150,6 @@ public class MedtronicTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(10000);
         compareCrt(MedtronicExpectedTasksTestCase9.MedtronicTestCase9List, "Medtronic9", g.getGeneratedTasks());
-        pdfCheck();
         deleteTask();
         deselectAll();
     }

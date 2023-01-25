@@ -42,11 +42,13 @@ public class DeletingTasks {
                 }
                 Thread.sleep(7000);
                 try{
-                    driver.findElement(By.id("doneButton")).click();
+                   // driver.findElement(By.id("doneButton")).click();
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button")).click(); //doneButton
                     Thread.sleep(4000);
                 } catch (Exception e){
                     js.executeScript("window.scrollBy(115,0)");
-                    driver.findElement(By.id("doneButton")).click();
+                   // driver.findElement(By.id("doneButton")).click();
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button")).click(); //doneButton
                     Thread.sleep(4000);
                 }
 
