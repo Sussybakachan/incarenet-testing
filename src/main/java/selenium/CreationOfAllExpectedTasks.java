@@ -27,7 +27,7 @@ public class CreationOfAllExpectedTasks {
         AbbottExpectedTasksTestCase7 abbottExpectedTasksTestCase7 = new AbbottExpectedTasksTestCase7();
         AbbottExpectedTasksTestCase8 abbottExpectedTasksTestCase8 = new AbbottExpectedTasksTestCase8();
         AbbottExpectedTasksTestCase9 abbottExpectedTasksTestCase9 = new AbbottExpectedTasksTestCase9();
-
+        AbbottExpectedTasksTestCase10 abbottExpectedTasksTestCase10 = new AbbottExpectedTasksTestCase10();
         //Biotronik
         BiotronikExpectedTasksTestCase1 biotronikExpectedTasksTestCase1 = new BiotronikExpectedTasksTestCase1();
         BiotronikExpectedTasksTestCase2 biotronikExpectedTasksTestCase2 = new BiotronikExpectedTasksTestCase2();
