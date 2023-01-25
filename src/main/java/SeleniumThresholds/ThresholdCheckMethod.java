@@ -250,6 +250,12 @@ public class ThresholdCheckMethod {
                         onlyParamActivatedBsx();
                         onlyFindingCriticalActivatedNM(3);
                         break;
+                    case 12:
+                        deselectAllCrtWithValue(86, 80);
+                        deselectAllLvWithValue(86, 80);
+                        onlyParamActivatedBsx();
+                        onlyFindingCriticalActivatedNM(3);
+                        break;
                 }
 
             } else if (manufacturer.equals("Medtronic")) {
