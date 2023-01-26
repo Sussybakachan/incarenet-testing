@@ -25,14 +25,15 @@ import static selenium.CompareTasksInCardio.successfulTestCases;
 public class ThresholdCheckMethod {
     static Actions action;
 
-
+static boolean firstTestCaseOfManufacturer = true;
     static JavascriptExecutor js;
     public static void thresholdCheck(String manufacturer, int testCase) throws InterruptedException {
         Thread.sleep(9000);
         try {
-            if (testCase == 1) {
+            if (firstTestCaseOfManufacturer) {
                 //TODO I changed the path to the Schwellenwerte because he didn't find it with the other xpath
                 driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[6]")).click();     //Schwellenwerte
+                firstTestCaseOfManufacturer = false;
                 Thread.sleep(2000);
                 //create a template if patient doesn't have one
                 List<WebElement> bearbeitenButtonAnzahl = driver.findElements(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/form/div[1]/div/div/span"));
@@ -246,7 +247,7 @@ public class ThresholdCheckMethod {
                         break;
                     case 11:
                         deselectAllCrtWithValue(86, 80);
-                        findingParamActivatedLv(86, 80);
+                        findingParamActivatedLv(85, 80);
                         onlyParamActivatedBsx();
                         onlyFindingCriticalActivatedNM(3);
                         break;

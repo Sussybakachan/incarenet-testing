@@ -170,14 +170,14 @@ public class MedtronicTestCases {
 
     public void medtronicTestCase10() throws Exception {
         //Set Template needs to be done before
-        thresholdCheck("Medtronic", 9);
+        thresholdCheck("Medtronic", 10);
         fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(MedtronicExpectedTasksTestCase10.MedtronicTestCase10List, "Medtronic10", g.getGeneratedTasks());
+        compareCrt(MedtronicExpectedTasksTestCase10.MedtronicTestCase10List, "Medtronic10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }

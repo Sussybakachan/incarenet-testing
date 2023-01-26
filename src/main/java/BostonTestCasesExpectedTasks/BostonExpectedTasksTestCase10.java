@@ -12,6 +12,13 @@ public class BostonExpectedTasksTestCase10 {
     static Task BostonEosAlarmTask = new Task();
     static Task BostonEriAlarmTask = new Task();
 
+    public BostonExpectedTasksTestCase10() {
+        createBostonRedLv70AlarmTask();
+        createBostonEosAlarmTask();
+        createBostonEriAlarmTask();
+        createBostonYellowLV85AlarmTask();
+    }
+
     public static List<Task> createBostonRedLv70AlarmTask() {
 
         BostonLv70AlarmTask.setCheckBox("");

@@ -16,7 +16,6 @@ public class BostonExpectedTasksTestCase11 {
     }
 
     public static List<Task> BostonTestCase11List = new ArrayList<>();
-    static Task BostonRedLVTask = new Task();
     static Task BostonYellowLVTask = new Task();
 
     static Task BostonLv70AlarmTask = new Task();
