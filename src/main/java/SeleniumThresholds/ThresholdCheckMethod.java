@@ -25,14 +25,15 @@ import static selenium.CompareTasksInCardio.successfulTestCases;
 public class ThresholdCheckMethod {
     static Actions action;
 
-
+static boolean firstTestCaseOfManufacturer = true;
     static JavascriptExecutor js;
     public static void thresholdCheck(String manufacturer, int testCase) throws InterruptedException {
         Thread.sleep(9000);
         try {
-            if (testCase == 1) {
+            if (firstTestCaseOfManufacturer) {
                 //TODO I changed the path to the Schwellenwerte because he didn't find it with the other xpath
                 driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[6]")).click();     //Schwellenwerte
+                firstTestCaseOfManufacturer = false;
                 Thread.sleep(2000);
                 //create a template if patient doesn't have one
                 List<WebElement> bearbeitenButtonAnzahl = driver.findElements(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/form/div[1]/div/div/span"));
@@ -56,15 +57,20 @@ public class ThresholdCheckMethod {
             if (manufacturer.equals("Abbott")) {
                 switch (testCase) {
                     case 1:
+                        deselectAllCrtWithValue(96, 85);
+                        deselectAllLvWithValue(97, 85);
                         findingParamActivatedAbb();
                         onlyFindingCriticalActivatedNM(3);
                         break;
                     case 2:
+                        deselectAllCrtWithValue(96, 85);
+                        deselectAllLvWithValue(97, 85);
                         onlyParamActivatedAbb();
                         onlyFindingCriticalActivatedNM(3);
                         break;
                     case 3:
                         findingParamActivatedCrt(96, 85);
+                        onlyFindingActivatedLv(97, 85);
                         findingParamActivatedAbb();
                         onlyFindingCriticalActivatedNM(3);
                         break;
@@ -98,8 +104,15 @@ public class ThresholdCheckMethod {
                         onlyFindingCriticalActivatedNM(3);
                         break;
                     case 9:
-                        //TODO CRT and LV are completely off, but still need to have 97 and 85 as values
+                        deselectAllCrtWithValue(96, 85);
+                        deselectAllLvWithValue(97, 85);
                         criticalParamActivatedAbb();
+                        onlyFindingCriticalActivatedNM(3);
+                        break;
+                    case 10:
+                        deselectAllCrtWithValue(96, 85);
+                        deselectAllLvWithValue(97, 85);
+                        onlyParamActivatedAbb();
                         onlyFindingCriticalActivatedNM(3);
                         break;
                 }
@@ -155,6 +168,18 @@ public class ThresholdCheckMethod {
                         deselectAllLvWithValue(99, 95);
                         onlyFindingActivatedNM(1);
                         break;
+                    case 9:
+                        onlyBatteryStatusActivated();
+                        findingParamActivatedCrt(99, 95);
+                        findingParamActivatedLv(99, 95);
+                        onlyFindingActivatedNM(1);
+                        break;
+                    case 10:
+                        activateAll();
+                        criticalParamActivatedCrt(99, 95);
+                        criticalParamActivatedLv(99, 95);
+                        onlyFindingActivatedNM(1);
+                        break;
                 }
 
             } else if (manufacturer.equals("Boston")) {
@@ -205,7 +230,26 @@ public class ThresholdCheckMethod {
                         deselectAllCrtWithValue(86, 80);
                         activateAllLv(86, 80);
                         onlyParamActivatedBsx();
-                        onlyFindingCriticalActivatedNM(1);
+                        onlyFindingCriticalActivatedNM(3);
+                        break;
+                    case 9:
+                        activateAll();
+                        deselectAllCrtWithValue(86, 80);
+                        activateAllLv(86, 80);
+                        onlyFindingCriticalActivatedNM(3);
+                        break;
+                    case 10:
+                        onlyEriEosActivated();
+                        deselectAllCrtWithValue(86, 80);
+                        onlyFindingCriticalActivatedLv(86, 80);
+                        onlyParamActivatedBsx();
+                        onlyFindingCriticalActivatedNM(3);
+                        break;
+                    case 11:
+                        deselectAllCrtWithValue(86, 80);
+                        findingParamActivatedLv(85, 80);
+                        onlyParamActivatedBsx();
+                        onlyFindingCriticalActivatedNM(3);
                         break;
                 }
 
@@ -231,8 +275,8 @@ public class ThresholdCheckMethod {
                         break;
                     case 4:
                         onlyEriEosActivated();
-                        deselectAllCrtWithValue(99, 77);
-                        deselectAllLvWithValue(99, 77);
+                        onlyFindingCriticalActivatedCrt(99, 77);
+                        onlyFindingCriticalActivatedLv(99, 77);
                         onlyFindingCriticalActivatedNM(3);
                         break;
                     case 5:
@@ -262,6 +306,12 @@ public class ThresholdCheckMethod {
                         deselectAllCrtWithValue(98, 77);
                         deselectAllLvWithValue(98, 77);
                         criticalParamActivatedMdt();
+                        onlyFindingCriticalActivatedNM(3);
+                        break;
+                    case 10:
+                        deselectAllCrtWithValue(98, 77);
+                        deselectAllLvWithValue(98, 77);
+                        onlyParamActivatedMdt();
                         onlyFindingCriticalActivatedNM(3);
                         break;
                 }
@@ -306,6 +356,18 @@ public class ThresholdCheckMethod {
                     case 7:
                         activateAll(); //CRT
                         onlyParamActivatedMicroport();
+                        break;
+                    case 8:
+                        deselectAllCrtWithValue(98, 99); //CRT
+                        deselectAllLvWithValue(98, 99);
+                        onlyParamActivatedMicroport();
+                        onlyFindingActivatedNM(3);
+                        break;
+                    case 9:
+                        onlyEriEosActivated();
+                        deselectAllCrtWithValue(98, 99); //CRT
+                        deselectAllLvWithValue(98, 99);
+                        onlyFindingActivatedNM(3);
                         break;
 
                 }

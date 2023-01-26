@@ -14,6 +14,7 @@ public class CollectTasks {
     String xpathTAble = "//table/tbody[@class]/tr[@index=";
 
     public List<Task> getTasks() throws InterruptedException {
+        Thread.sleep(5000);
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
         Thread.sleep(5000);
 

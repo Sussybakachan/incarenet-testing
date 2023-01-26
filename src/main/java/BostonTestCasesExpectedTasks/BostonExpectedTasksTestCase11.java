@@ -5,29 +5,40 @@ import selenium.Task;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BostonExpectedTasksTestCase2 {
-    public static List<Task> BostonTestCase2List = new ArrayList<>();
+public class BostonExpectedTasksTestCase11 {
+
+    public BostonExpectedTasksTestCase11(){
+        createBostonYellowLVTask();
+        createBostonEosAlarmTask();
+        createBostonEriAlarmTask();
+        createBostonRedLv70AlarmTask();
+        createBostonYellowLV85AlarmTask();
+    }
+
+    public static List<Task> BostonTestCase11List = new ArrayList<>();
+    static Task BostonYellowLVTask = new Task();
 
     static Task BostonLv70AlarmTask = new Task();
     static Task BostonLv85AlarmTask = new Task();
     static Task BostonEosAlarmTask = new Task();
     static Task BostonEriAlarmTask = new Task();
 
-    public BostonExpectedTasksTestCase2() {
-        createBostonRedLv70AlarmTask();
-        createBostonEosAlarmTask();
-        createBostonEriAlarmTask();
-        createBostonYellowLV85AlarmTask();
+
+    public static List<Task> createBostonYellowLVTask() {
+
+        BostonYellowLVTask.setCheckBox("");
+        BostonYellowLVTask.setColor("warning");
+        BostonYellowLVTask.setStartDate("2022-03-22T10:27:00.000Z");
+        BostonYellowLVTask.setTaskDescription("LV-Stimulation: 70%");
+        BostonYellowLVTask.setMeasurements("Bitte auswählen");
+        BostonYellowLVTask.setPdf("RVAT-483 - EreignisdetailberichtATR-3347 - EreignisdetailberichtKombinierter Follow-up BerichtEingangs-EGM-BerichtBericht Herzinsuffizienz-ManagementBericht Arrhythmie-Logbuch");
+        BostonYellowLVTask.setEmployee("");
+        BostonYellowLVTask.setFurtherInformation("");
+        BostonYellowLVTask.setAction("Aufgabe an PBA weiterleiten");
+
+        BostonTestCase11List.add(BostonYellowLVTask);
+        return BostonTestCase11List;
     }
-
-
-
-    //instead of calling all the create methods in one big create methode we could create
-    //new objects of the classes
-    //I don't know if that makes a difference
-
-
-    //alarm tasks
     public static List<Task> createBostonRedLv70AlarmTask() {
 
         BostonLv70AlarmTask.setCheckBox("");
@@ -47,8 +58,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonLv70AlarmTask.setFurtherInformation("");
         BostonLv70AlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonLv70AlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase11List.add(BostonLv70AlarmTask);
+        return BostonTestCase11List;
     }
 
     public static List<Task> createBostonYellowLV85AlarmTask() {
@@ -70,8 +81,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonLv85AlarmTask.setFurtherInformation("");
         BostonLv85AlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonLv85AlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase11List.add(BostonLv85AlarmTask);
+        return BostonTestCase11List;
     }
 
     public static List<Task> createBostonEriAlarmTask() {
@@ -93,8 +104,8 @@ public class BostonExpectedTasksTestCase2 {
         BostonEriAlarmTask.setFurtherInformation("");
         BostonEriAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonEriAlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase11List.add(BostonEriAlarmTask);
+        return BostonTestCase11List;
     }
 
     public static List<Task> createBostonEosAlarmTask() {
@@ -116,7 +127,7 @@ public class BostonExpectedTasksTestCase2 {
         BostonEosAlarmTask.setFurtherInformation("");
         BostonEosAlarmTask.setAction("Aufgabe an PBA weiterleiten");
 
-        BostonTestCase2List.add(BostonEosAlarmTask);
-        return BostonTestCase2List;
+        BostonTestCase11List.add(BostonEosAlarmTask);
+        return BostonTestCase11List;
     }
 }

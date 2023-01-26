@@ -45,7 +45,7 @@ public class AbbottExpectedTasksTestCase7 {
         AbbottEriTask.setStartDate("2022-03-24T22:10:25.000Z");
         // AbbottGeneralYellowTask.setReceiveDate("2022-11-02T09:15:39.618Z");
         //  AbbottGeneralYellowTask.setTargetDate("2022-11-03T09:15:39.617Z");
-        AbbottEriTask.setTaskDescription("Batteriestatus: ERI");
+        AbbottEriTask.setTaskDescription("<Batteriestatus: ERI>");
         AbbottEriTask.setMeasurements("Bitte auswählen");
         AbbottEriTask.setPdf("Brady Episode Report (Episode) 20220316093421Heart in FocusAT/AFCongestion MonitoringAlert SummaryExtended DiagnosticsDirect Trend 1 Year ReportFastPath SummaryEpisodes SummaryExtended EpisodesDiagnostics SummaryMRI Summary ReportTest ResultsWrap-up OverviewParameterReal Time EGM Report 20220317020028");
         AbbottEriTask.setEmployee("");

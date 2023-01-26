@@ -8,8 +8,8 @@ import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
 import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
+import static selenium.PasteFile.inputIsEmpty;
 import static selenium.PasteFile.pasteFile;
-import static selenium.PdfCheck.pdfCheck;
 
 public class MicroPortTestCases {
     //Testcase1
@@ -28,6 +28,8 @@ public class MicroPortTestCases {
         microportTestCase5();
         microportTestCase6();
         microportTestCase7();
+        microportTestCase8();
+        microportTestCase9();
     }
     public void microportTestCase1() throws Exception {
         //Set Template needs to be done before
@@ -39,6 +41,8 @@ public class MicroPortTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".json";
             pasteFile(pathToOldHl7, pathToInput);
         };
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(MicroPortExpectedTasksTestCase1.MicroPortTestCase1List, "MicroPort1", g.getGeneratedTasks());
         deselectAll();
 }
@@ -51,7 +55,8 @@ public class MicroPortTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".json";
             pasteFile(pathToOldHl7, pathToInput);
         };
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(MicroPortExpectedTasksTestCase2.MicroPortTestCase2List, "MicroPort2", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -64,7 +69,8 @@ public class MicroPortTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".json";
         String pathToInput = FfInputPath + fileName[0] + ".json";
         pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(MicroPortExpectedTasksTestCase3.MicroPortTestCase3List, "MicroPort3", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -77,7 +83,8 @@ public class MicroPortTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".json";
         String pathToInput = FfInputPath + fileName[0] + ".json";
         pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(MicroPortExpectedTasksTestCase4.MicroPortTestCase4List, "MicroPort4", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -90,7 +97,8 @@ public class MicroPortTestCases {
         String pathToOldHl7 = fileDirectory + fileName[0] + ".json";
         String pathToInput = FfInputPath + fileName[0] + ".json";
         pasteFile(pathToOldHl7, pathToInput);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(MicroPortExpectedTasksTestCase5.MicroPortTestCase5List, "MicroPort5", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -105,7 +113,8 @@ public class MicroPortTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".json";
             pasteFile(pathToOldHl7, pathToInput);
         };
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(MicroPortExpectedTasksTestCase6.MicroPortTestCase6List, "MicroPort6", g.getGeneratedTasks());
         deselectAll();
     }
@@ -119,8 +128,41 @@ public class MicroPortTestCases {
             String pathToInput = FfInputPath + fileName[i] + ".json";
             pasteFile(pathToOldHl7, pathToInput);
         };
-        Thread.sleep(10000);
+        Thread.sleep(3000);
+        inputIsEmpty();
         compareCrt(MicroPortExpectedTasksTestCase7.MicroPortTestCase7List, "MicroPort7", g.getGeneratedTasks());
+        deleteTask();
+        deselectAll();
+    }
+
+    public void microportTestCase8() throws Exception {
+        //Set Template needs to be done before
+        thresholdCheck("MicroPort", 8);
+        fileName = new String[]{"added EOS", "added ERI", "4 9 10 13 14 60 24 A30"};
+        for (int i = 0; i < fileName.length; i++) {
+            String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
+            String pathToInput = FfInputPath + fileName[i] + ".json";
+            pasteFile(pathToOldHl7, pathToInput);
+        };
+        Thread.sleep(3000);
+        inputIsEmpty();
+        compareCrt(MicroPortExpectedTasksTestCase8.MicroPortTestCase8List, "MicroPort8", g.getGeneratedTasks());
+        deleteTask();
+        deselectAll();
+    }
+
+    public void microportTestCase9() throws Exception {
+        //Set Template needs to be done before
+        thresholdCheck("MicroPort", 9);
+        fileName = new String[]{"added EOS", "added ERI"};
+        for (int i = 0; i < fileName.length; i++) {
+            String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
+            String pathToInput = FfInputPath + fileName[i] + ".json";
+            pasteFile(pathToOldHl7, pathToInput);
+        };
+        Thread.sleep(3000);
+        inputIsEmpty();
+        compareCrt(MicroPortExpectedTasksTestCase9.MicroPortTestCase9List, "MicroPort9", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }
