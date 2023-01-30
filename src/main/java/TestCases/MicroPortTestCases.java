@@ -138,7 +138,7 @@ public class MicroPortTestCases {
     public void microportTestCase8() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("MicroPort", 8);
-        fileName = new String[]{"added EOS", "added ERI"};
+        fileName = new String[]{"added EOS", "added ERI", "4 9 10 13 14 60 24 A30"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
             String pathToInput = FfInputPath + fileName[i] + ".json";
@@ -146,7 +146,7 @@ public class MicroPortTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(MicroPortExpectedTasksTestCase8.MicroPortTestCase8List, "MicroPort8", g.getGeneratedTasks());
+        compareCrt(MicroPortExpectedTasksTestCase8.MicroPortTestCase8List, "MicroPort8", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }
@@ -162,7 +162,7 @@ public class MicroPortTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(MicroPortExpectedTasksTestCase9.MicroPortTestCase9List, "MicroPort9", g.getGeneratedTasks());
+        compareCrt(MicroPortExpectedTasksTestCase9.MicroPortTestCase9List, "MicroPort9", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }

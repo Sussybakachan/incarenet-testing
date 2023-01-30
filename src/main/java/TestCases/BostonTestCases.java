@@ -61,7 +61,7 @@ public class BostonTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        compareCrt(BostonExpectedTasksTestCase2.BostonEmptyTestCase, "Boston2", g.getGeneratedTasks());
+        compareCrt(BostonExpectedTasksTestCase2.BostonTestCase2List, "Boston2", g.getGeneratedTasks());
         deselectAll();
     }
 
@@ -84,6 +84,7 @@ public class BostonTestCases {
 
     public void bostonTestCase4() throws Exception {
         //Set Template needs to be done before
+
         thresholdCheck("Boston", 4);
         fileName = new String[]{"EOS", "lv 70%", "ERI"};
         for (int i = 0; i < fileName.length; i++) {
@@ -100,6 +101,7 @@ public class BostonTestCases {
 
     public void bostonTestCase5() throws Exception {
         //Set Template needs to be done before
+
         thresholdCheck("Boston", 5);
         fileName = new String[]{"lv 85%"};
         String pathToOldHl7 = fileDirectory8 + fileName[0] + ".hl7";
@@ -167,7 +169,7 @@ public class BostonTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(BostonExpectedTasksTestCase9.BostonTestCase9List, "Boston9", g.getGeneratedTasks());
+        compareCrt(BostonExpectedTasksTestCase9.BostonTestCase9List, "Boston9", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }
@@ -183,7 +185,7 @@ public class BostonTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(BostonExpectedTasksTestCase10.BostonTestCase10List, "Boston10", g.getGeneratedTasks());
+        compareCrt(BostonExpectedTasksTestCase10.BostonTestCase10List, "Boston10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }
@@ -199,7 +201,7 @@ public class BostonTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(BostonExpectedTasksTestCase11.BostonTestCase11List, "Boston11", g.getGeneratedTasks());
+        compareCrt(BostonExpectedTasksTestCase11.BostonTestCase11List, "Boston11", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }
