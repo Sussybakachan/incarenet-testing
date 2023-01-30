@@ -54,8 +54,6 @@ public class AbbottTestCases {
         deselectAll();
     }
 
-
-
    public void abbottTestCase2() throws Exception {
         thresholdCheck("Abbott", 2);
         fileName = new String[]{"Abbott Implant CRT 84%"};
@@ -71,10 +69,12 @@ public class AbbottTestCases {
     public void abbottTestCase3() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 3);
-        fileName = new String[]{"Abbott Implant CRT 84%"};
-        String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
-        String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        pasteFile(pathToOldHl7, pathToInput);
+        fileName = new String[]{"Abbott Implant CRT 84%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT", "Abbott Implant CRT 96%"};
+        for (int i = 0; i < fileName.length; i++) {
+            String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
+            String pathToInput = FfInputPath + fileName[i] + ".hl7";
+            pasteFile(pathToOldHl7, pathToInput);
+        }
         Thread.sleep(3000);
         inputIsEmpty();
         compareCrt(AbbottExpectedTasksTestCase3.AbbottTestCase3List, "Abbott3", g.getGeneratedTasks());
@@ -99,7 +99,6 @@ public class AbbottTestCases {
 
     public void abbottTestCase5() throws Exception {
         //Set Template needs to be done before
-        choosepatient("Sel-Abbott");
         thresholdCheck("Abbott", 5);
         fileName = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
         for (int i = 0; i < fileName.length; i++) {
