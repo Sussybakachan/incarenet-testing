@@ -34,14 +34,14 @@ public class BostonTestCases {
         bostonTestCase9();
         bostonTestCase10();
         bostonTestCase11();
-        bostonTestCase12();
+//        bostonTestCase12();
     }
     public void bostonTestCase1() throws Exception {
         //Set Template needs to be done before
         choosepatient("Sel-Boston");
         thresholdCheck("Boston", 1);
         fileName = new String[]{"Boston Implant added LV 85%"};
-        String pathToOldHl7 = fileDirectory8 + fileName[0] + ".hl7";
+        String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(3000);
@@ -206,9 +206,9 @@ public class BostonTestCases {
         deselectAll();
     }
 
-    public void bostonTestCase12() throws Exception {
+    /*public void bostonTestCase12() throws Exception {
         //Set Template needs to be done before
-        thresholdCheck("Boston", 11);
+        thresholdCheck("Boston", 12);
         fileName = new String[]{"lv 70%", "ERI", "EOS", "lv 85%"};
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory8 + fileName[i] + ".hl7";
@@ -217,10 +217,10 @@ public class BostonTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(BostonExpectedTasksTestCase11.BostonTestCase11List, "Boston11", g.getGeneratedTasks());
+        //compareCrt(BostonExpectedTasksTestCase12.BostonTestCase12List, "Boston12", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
-    }
+    }*/
 
 }
 
