@@ -28,8 +28,8 @@ public class BiotronikTestCases {
         biotronikTestCase6();
         biotronikTestCase7();
         biotronikTestCase8();
-        /*biotronikTestCase9();
-        biotronikTestCase10();*/
+        biotronikTestCase9();
+        biotronikTestCase10();
     }
     public void biotronikTestCase1() throws Exception {
         //Set Template needs to be done before
@@ -157,7 +157,7 @@ public class BiotronikTestCases {
         deselectAll();
     }
 
-    /*public void biotronikTestCase9() throws Exception {
+    public void biotronikTestCase9() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Biotronik", 9);
         fileName = new String[]{"Biotronik Implant CRT 93% LV 93%"};
@@ -183,7 +183,7 @@ public class BiotronikTestCases {
         compareCrt(BiotronikExpectedTasksTestCase10.BiotronikTestCase10List, "Biotronik10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
-    }*/
+    }
 
 }
 
