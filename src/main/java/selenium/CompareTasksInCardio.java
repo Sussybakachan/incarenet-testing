@@ -45,12 +45,12 @@ public class CompareTasksInCardio {
 
     public static void inCardioDash() throws Exception {
         Thread.sleep(8000);
-        List<WebElement> p = driver.findElements(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[@class='KoNavItem']"));
+        List<WebElement> p = driver.findElements(By.xpath("//*[@id=\"mainPageNavigation\"]/ul/li"));
 
         int pp = p.size();
         System.out.println(pp);
 
-        for (int i = 1; i <= p.size() + 1; i++) {
+        for (int i = 1; i <= 3; i++) {
             String f = null;
             try {
                 f = driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[" + i + "]/a")).getAttribute("name");
@@ -275,6 +275,9 @@ public class CompareTasksInCardio {
     }
 
     public static void choosepatient(String p) throws InterruptedException {
+
+        Thread.sleep(20000);
+
         driver.switchTo().frame(0);
         Thread.sleep(2000);
         driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys(p);
