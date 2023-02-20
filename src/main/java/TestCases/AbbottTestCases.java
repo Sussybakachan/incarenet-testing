@@ -183,7 +183,7 @@ public class AbbottTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(AbbottExpectedTasksTestCase10.AbbottTestCase10List, "Abbott10", g.getGeneratedTasks());
+        compareCrt(AbbottExpectedTasksTestCase10.AbbottTestCase10List, "Abbott10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }

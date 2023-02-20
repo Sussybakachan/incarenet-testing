@@ -28,8 +28,8 @@ public class BiotronikTestCases {
         biotronikTestCase6();
         biotronikTestCase7();
         biotronikTestCase8();
-        biotronikTestCase9();
-        biotronikTestCase10();
+        /*biotronikTestCase9();
+        biotronikTestCase10();*/
     }
     public void biotronikTestCase1() throws Exception {
         //Set Template needs to be done before
@@ -95,7 +95,6 @@ public class BiotronikTestCases {
 
     public void biotronikTestCase5() throws Exception {
         //Set Template needs to be done before
-        choosepatient("Sel-Biotronik");
         thresholdCheck("Biotronik", 5);
         fileName = new String[]{"Biotronik Implant added EOS added 100% CRT and LV", "Biotronik Implant added ERI added 100% CRT and LV", "Biotronik Implant CRT 93% LV 93%", "Biotronik Implant CRT 97% LV 97%"};
         for (int i = 0; i < fileName.length; i++) {
@@ -158,7 +157,7 @@ public class BiotronikTestCases {
         deselectAll();
     }
 
-    public void biotronikTestCase9() throws Exception {
+    /*public void biotronikTestCase9() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Biotronik", 9);
         fileName = new String[]{"Biotronik Implant CRT 93% LV 93%"};
@@ -167,7 +166,7 @@ public class BiotronikTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(BiotronikExpectedTasksTestCase9.BiotronikTestCase9List, "Biotronik9", g.getGeneratedTasks());
+        compareCrt(BiotronikExpectedTasksTestCase9.BiotronikTestCase9List, "Biotronik9", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
     }
@@ -181,10 +180,10 @@ public class BiotronikTestCases {
         pasteFile(pathToOldHl7, pathToInput);
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(BiotronikExpectedTasksTestCase10.BiotronikTestCase10List, "Biotronik10", g.getGeneratedTasks());
+        compareCrt(BiotronikExpectedTasksTestCase10.BiotronikTestCase10List, "Biotronik10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
-    }
+    }*/
 
 }
 

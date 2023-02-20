@@ -163,7 +163,6 @@ public class MicroPortTestCases {
         Thread.sleep(3000);
         inputIsEmpty();
         compareCrt(MicroPortExpectedTasksTestCase9.MicroPortTestCase9List, "MicroPort9", g.getGeneratedTasks());
-        deleteTask();
         deselectAll();
     }
 
