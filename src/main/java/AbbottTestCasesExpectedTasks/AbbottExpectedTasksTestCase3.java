@@ -69,7 +69,7 @@ public class AbbottExpectedTasksTestCase3 {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         AbbottGeneralWhiteTask96.setCheckBox("");
-        AbbottGeneralWhiteTask96.setColor("normal");
+        AbbottGeneralWhiteTask96.setColor("warning");
         AbbottGeneralWhiteTask96.setStartDate("2022-02-28T00:11:44.000Z");
         // AbbottGeneralYellowTask.setReceiveDate("2022-11-02T09:15:39.618Z");
         //  AbbottGeneralYellowTask.setTargetDate("2022-11-03T09:15:39.617Z");
@@ -88,7 +88,7 @@ public class AbbottExpectedTasksTestCase3 {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         AbbottGeneralWhiteTaskEOS.setCheckBox("");
-        AbbottGeneralWhiteTaskEOS.setColor("normal");
+        AbbottGeneralWhiteTaskEOS.setColor("warning");
         AbbottGeneralWhiteTaskEOS.setStartDate("2022-02-28T00:11:44.000Z");
         // AbbottGeneralYellowTask.setReceiveDate("2022-11-02T09:15:39.618Z");
         //  AbbottGeneralYellowTask.setTargetDate("2022-11-03T09:15:39.617Z");
@@ -107,7 +107,7 @@ public class AbbottExpectedTasksTestCase3 {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         AbbottGeneralWhiteTaskERI.setCheckBox("");
-        AbbottGeneralWhiteTaskERI.setColor("normal");
+        AbbottGeneralWhiteTaskERI.setColor("warning");
         AbbottGeneralWhiteTaskERI.setStartDate("2022-02-28T00:11:44.000Z");
         // AbbottGeneralYellowTask.setReceiveDate("2022-11-02T09:15:39.618Z");
         //  AbbottGeneralYellowTask.setTargetDate("2022-11-03T09:15:39.617Z");
