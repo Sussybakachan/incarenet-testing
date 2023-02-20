@@ -14,7 +14,7 @@ public class BiotronikExpectedTasksTestCase6 {
     static Task BiotronikEOSAlarmTask = new Task();
 
     public BiotronikExpectedTasksTestCase6() {
-        this.createBiotronik93generalTaskCase6();
+        createBiotronik93generalTaskCase6();
         createBiotronikEOSAlarmTask();
         createBiotronikERIAlarmTask();
         createBiotronik97generalTaskCase6();
@@ -92,7 +92,7 @@ public class BiotronikExpectedTasksTestCase6 {
     //instead of calling all the create methods in one big create methode we could create
     //new objects of the classes
     //I don't know if that makes a difference
-    public List<Task> createBiotronik93generalTaskCase6() {
+    public static List<Task> createBiotronik93generalTaskCase6() {
 
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         Biotronik93AlarmTask.setCheckBox("");

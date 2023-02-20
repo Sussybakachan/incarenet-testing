@@ -29,7 +29,7 @@ public class BiotronikExpectedTasksTestCase7 {
         createBiotronik97LvTask();
         createBiotronikERITask();
         createBiotronikEOSTask();
-        this.createBiotronik93CrtTask();
+        createBiotronik93CrtTask();
         createBiotronik97CrtTask7();
     }
 
@@ -223,7 +223,7 @@ public class BiotronikExpectedTasksTestCase7 {
         return BiotronikTestCase7List;
     }
 
-    public List<Task> createBiotronik93CrtTask() {
+    public static List<Task> createBiotronik93CrtTask() {
 
         Biotronik93CRTTask.setCheckBox("");
         Biotronik93CRTTask.setColor("danger");

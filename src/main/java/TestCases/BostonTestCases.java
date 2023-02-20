@@ -34,7 +34,7 @@ public class BostonTestCases {
         bostonTestCase9();
         bostonTestCase10();
         bostonTestCase11();
-//        bostonTestCase12();
+        bostonTestCase12();
     }
     public void bostonTestCase1() throws Exception {
         //Set Template needs to be done before
@@ -206,7 +206,7 @@ public class BostonTestCases {
         deselectAll();
     }
 
-    /*public void bostonTestCase12() throws Exception {
+    public void bostonTestCase12() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Boston", 12);
         fileName = new String[]{"lv 70%", "ERI", "EOS", "lv 85%"};
@@ -217,10 +217,10 @@ public class BostonTestCases {
         };
         Thread.sleep(3000);
         inputIsEmpty();
-        //compareCrt(BostonExpectedTasksTestCase12.BostonTestCase12List, "Boston12", g.getGeneratedTasks());
+        compareCrt(BostonExpectedTasksTestCase12.BostonTestCase12List, "Boston12", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
-    }*/
+    }
 
 }
 
