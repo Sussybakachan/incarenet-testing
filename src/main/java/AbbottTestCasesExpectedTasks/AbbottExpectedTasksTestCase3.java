@@ -70,13 +70,13 @@ public class AbbottExpectedTasksTestCase3 {
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         AbbottGeneralWhiteTask96.setCheckBox("");
         AbbottGeneralWhiteTask96.setColor("warning");
-        AbbottGeneralWhiteTask96.setStartDate("2022-02-28T00:11:44.000Z");
+        AbbottGeneralWhiteTask96.setStartDate("2022-03-24T22:10:25.000Z");
         // AbbottGeneralYellowTask.setReceiveDate("2022-11-02T09:15:39.618Z");
         //  AbbottGeneralYellowTask.setTargetDate("2022-11-03T09:15:39.617Z");
         AbbottGeneralWhiteTask96.setTaskDescription("CRT-Stimulation: 96.0%\n" +
                 "Batteriestatus: MOS");
         AbbottGeneralWhiteTask96.setMeasurements("Bitte auswählen");
-        AbbottGeneralWhiteTask96.setPdf("Brady Episode Report (Episode) 20220202104502Heart in FocusCongestion MonitoringAlert SummaryExtended DiagnosticsDirect Trend 1 Year ReportFastPath SummaryEpisodes SummaryExtended EpisodesDiagnostics SummaryTest ResultsWrap-up OverviewParameterReal Time EGM Report 20220228020022");
+        AbbottGeneralWhiteTask96.setPdf("Brady Episode Report (Episode) 20220316093421Heart in FocusAT/AFCongestion MonitoringAlert SummaryExtended DiagnosticsDirect Trend 1 Year ReportFastPath SummaryEpisodes SummaryExtended EpisodesDiagnostics SummaryMRI Summary ReportTest ResultsWrap-up OverviewParameterReal Time EGM Report 20220317020028");
         AbbottGeneralWhiteTask96.setEmployee("");
         AbbottGeneralWhiteTask96.setFurtherInformation("");
         AbbottGeneralWhiteTask96.setAction("Aufgabe an PBA weiterleiten");
@@ -89,13 +89,13 @@ public class AbbottExpectedTasksTestCase3 {
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         AbbottGeneralWhiteTaskEOS.setCheckBox("");
         AbbottGeneralWhiteTaskEOS.setColor("warning");
-        AbbottGeneralWhiteTaskEOS.setStartDate("2022-02-28T00:11:44.000Z");
+        AbbottGeneralWhiteTaskEOS.setStartDate("2022-03-24T22:10:25.000Z");
         // AbbottGeneralYellowTask.setReceiveDate("2022-11-02T09:15:39.618Z");
         //  AbbottGeneralYellowTask.setTargetDate("2022-11-03T09:15:39.617Z");
         AbbottGeneralWhiteTaskEOS.setTaskDescription("CRT-Stimulation: 100.0%\n" +
                 "Batteriestatus: EOS");
         AbbottGeneralWhiteTaskEOS.setMeasurements("Bitte auswählen");
-        AbbottGeneralWhiteTaskEOS.setPdf("Brady Episode Report (Episode) 20220202104502Heart in FocusCongestion MonitoringAlert SummaryExtended DiagnosticsDirect Trend 1 Year ReportFastPath SummaryEpisodes SummaryExtended EpisodesDiagnostics SummaryTest ResultsWrap-up OverviewParameterReal Time EGM Report 20220228020022");
+        AbbottGeneralWhiteTaskEOS.setPdf("Brady Episode Report (Episode) 20220316093421Heart in FocusAT/AFCongestion MonitoringAlert SummaryExtended DiagnosticsDirect Trend 1 Year ReportFastPath SummaryEpisodes SummaryExtended EpisodesDiagnostics SummaryMRI Summary ReportTest ResultsWrap-up OverviewParameterReal Time EGM Report 20220317020028");
         AbbottGeneralWhiteTaskEOS.setEmployee("");
         AbbottGeneralWhiteTaskEOS.setFurtherInformation("");
         AbbottGeneralWhiteTaskEOS.setAction("Aufgabe an PBA weiterleiten");
@@ -108,13 +108,13 @@ public class AbbottExpectedTasksTestCase3 {
         //setCheckbox beinhaltet möglicherweise was anderes als ""
         AbbottGeneralWhiteTaskERI.setCheckBox("");
         AbbottGeneralWhiteTaskERI.setColor("warning");
-        AbbottGeneralWhiteTaskERI.setStartDate("2022-02-28T00:11:44.000Z");
+        AbbottGeneralWhiteTaskERI.setStartDate("2022-03-24T22:10:25.000Z");
         // AbbottGeneralYellowTask.setReceiveDate("2022-11-02T09:15:39.618Z");
         //  AbbottGeneralYellowTask.setTargetDate("2022-11-03T09:15:39.617Z");
         AbbottGeneralWhiteTaskERI.setTaskDescription("CRT-Stimulation: 100.0%\n" +
                 "Batteriestatus: ERI");
         AbbottGeneralWhiteTaskERI.setMeasurements("Bitte auswählen");
-        AbbottGeneralWhiteTaskERI.setPdf("Brady Episode Report (Episode) 20220202104502Heart in FocusCongestion MonitoringAlert SummaryExtended DiagnosticsDirect Trend 1 Year ReportFastPath SummaryEpisodes SummaryExtended EpisodesDiagnostics SummaryTest ResultsWrap-up OverviewParameterReal Time EGM Report 20220228020022");
+        AbbottGeneralWhiteTaskERI.setPdf("Brady Episode Report (Episode) 20220316093421Heart in FocusAT/AFCongestion MonitoringAlert SummaryExtended DiagnosticsDirect Trend 1 Year ReportFastPath SummaryEpisodes SummaryExtended EpisodesDiagnostics SummaryMRI Summary ReportTest ResultsWrap-up OverviewParameterReal Time EGM Report 20220317020028");
         AbbottGeneralWhiteTaskERI.setEmployee("");
         AbbottGeneralWhiteTaskERI.setFurtherInformation("");
         AbbottGeneralWhiteTaskERI.setAction("Aufgabe an PBA weiterleiten");
