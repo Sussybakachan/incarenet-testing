@@ -12,32 +12,35 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
-            <configuration>
-                <archive>
-                   <manifest>
-                       <addClasspath>true</addClasspath>
-                       <mainClass>selenium.StartTesting</mainClass>
-                       <classpathPrefix>dependency-jars/</classpathPrefix>
-                   </manifest>
-                </archive>
-            </configuration>
+           <executions>
+               <execution>
+                   <id>default-jar</id>
+                   <phase>none</phase>
+               </execution>
+           </executions>
         </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>3.5.0</version>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <configuration>
+                <finalName>build-jar-inside-docker-1</finalName>
+                <appendAssemblyId>false</appendAssemblyId>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <archive>
+                    <manifest>
+                        <mainClass>selenium.StartTesting</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
             <executions>
                 <execution>
-                    <id>copy-dependencies</id>
+                    <id>make-assembly</id>
                     <phase>package</phase>
                     <goals>
-                        <goal>copy-dependencies</goal>
+                        <goal>single</goal>
                     </goals>
-                    <configuration>
-                        <outputDirectory>
-                            target/dependency-jars/
-                        </outputDirectory>
-                    </configuration>
                 </execution>
             </executions>
         </plugin>
@@ -54,6 +57,13 @@
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>

@@ -4,4 +4,4 @@ COPY . .
 
 RUN mvn clean package
 
-ENTRYPOINT ["java", "-jar", "/target/sdx-testing-projects-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/target/build-jar-inside-docker-1.jar"]

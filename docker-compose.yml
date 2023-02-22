@@ -33,6 +33,6 @@ services:
     command: http://localhost:4444/wd/hub
     depends_on:
       chrome:
-        condition: service_healthy
+        condition: service_started
       hub:
         condition: service_started
