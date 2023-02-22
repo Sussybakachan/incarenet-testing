@@ -4,4 +4,4 @@ COPY . .
 
 RUN mvn clean package
 
-CMD ["java", "-jar", "/target/sdx-testing-projects-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/target/sdx-testing-projects-1.0-SNAPSHOT.jar"]

@@ -3,3 +3,4 @@
 /out/
 /target/
 /Chrome Webdriver/chromedriver.exe
+*.log
