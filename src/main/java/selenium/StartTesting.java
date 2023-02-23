@@ -56,12 +56,8 @@ public class StartTesting {
         // System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
            loginP();
            inCardioDash();
-           choosepatient("Sel-Biotronik");
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
-        Thread.sleep(5000);
-        deleteTask();
-       // AbbottTestCases abbottTestCases = new AbbottTestCases();
+
+        AbbottTestCases abbottTestCases = new AbbottTestCases();
         //TODO method-> in utils.java
        // BiotronikTestCases biotronikTestCases = new BiotronikTestCases();
         //TODO method-> in utils.java
