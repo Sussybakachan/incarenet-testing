@@ -2,14 +2,20 @@ package selenium;
 
 import TestCases.*;
 import dsutilities.LoggerLoader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import javax.swing.*;
 
+import java.net.URL;
+
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
+import static selenium.DeletingTasks.deleteTask;
 
 
 public class StartTesting {
@@ -21,9 +27,16 @@ public class StartTesting {
 
         ReadingConfig rc = null;
         try {
-            rc = new ReadingConfig();
-            System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
-            driver = new ChromeDriver();
+            if(args.length>0){
+                String seleniumWebdriverURL = args[0];
+                ChromeOptions options = new ChromeOptions();
+                driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
+            } else {
+                rc = new ReadingConfig();
+                System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
+                driver = new ChromeDriver();
+            }
+
         } catch (Exception e) {
             LoggerLoader.fatal(String.valueOf(e));
         }
@@ -39,17 +52,22 @@ public class StartTesting {
         // PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff2\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
 
         //createTasks();
-        createAllExpectedTasks();
+         createAllExpectedTasks();
         // System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
-        loginP();
-        inCardioDash();
-        AbbottTestCases abbottTestCases = new AbbottTestCases();
+           loginP();
+           inCardioDash();
+           choosepatient("Sel-Biotronik");
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
+        Thread.sleep(5000);
+        deleteTask();
+       // AbbottTestCases abbottTestCases = new AbbottTestCases();
         //TODO method-> in utils.java
-        //BiotronikTestCases biotronikTestCases = new BiotronikTestCases();
+       // BiotronikTestCases biotronikTestCases = new BiotronikTestCases();
         //TODO method-> in utils.java
-        //BostonTestCases bostonTestCases = new BostonTestCases();
+   // BostonTestCases bostonTestCases = new BostonTestCases();
         //TODO method-> in utils.java
-        //MedtronicTestCases medtronicTestCases = new MedtronicTestCases();
+       // MedtronicTestCases medtronicTestCases = new MedtronicTestCases();
         //TODO method-> in utils.java
         //MicroPortTestCases microPortTestCases = new MicroPortTestCases();
         // thresholdCheck();
