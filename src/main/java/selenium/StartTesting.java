@@ -26,9 +26,9 @@ public class StartTesting {
         LoggerLoader.info("Automation test started");
 
         ReadingConfig rc = null;
+        String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
         try {
-            if(args.length>0){
-                String seleniumWebdriverURL = args[0];
+            if(seleniumWebdriverURL != null){
                 ChromeOptions options = new ChromeOptions();
                 driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
             } else {
@@ -40,6 +40,7 @@ public class StartTesting {
         } catch (Exception e) {
             LoggerLoader.fatal(String.valueOf(e));
         }
+        LoggerLoader.info("Weitergegangen");
         try{
             driver.get(rc.loadProperty().getProperty("SERVER_URL"));
         } catch (Exception e){
