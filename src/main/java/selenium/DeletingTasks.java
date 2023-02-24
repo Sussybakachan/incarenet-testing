@@ -5,7 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static selenium.CompareTasksInCardio.driver;
@@ -15,9 +18,13 @@ public class DeletingTasks {
     static Actions action;
 
 
+
+
     static JavascriptExecutor js;
 
     public static void deleteTask() throws InterruptedException {
+        int deletedTaskAmount = 0;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         try{
             js = (JavascriptExecutor) driver;
             action = new Actions(driver);
@@ -39,34 +46,33 @@ public class DeletingTasks {
                     driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
                     Thread.sleep(3000);
                 }
-                try {
-                    driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).click();
-                    Thread.sleep(5000);
-                }catch (Exception e){
-                    js.executeScript("window.scrollBy(-100,0)");
-                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
-                    Thread.sleep(3000);
-                    driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).click();
-                    Thread.sleep(5000);
-                }
-                try{
-                    driver.findElement(By.id("saveMeasurement")).click();
-                } catch (Exception e) {
-                    js.executeScript("window.scrollBy(0,115)");
-                    Thread.sleep(4000);
-                    driver.findElement(By.id("saveMeasurement")).click();
-                }
+                checkKeineMaßnahmen(wait, i);
+                saveMeasurements(wait, i);
                 Thread.sleep(7000);
                 try{
                    // driver.findElement(By.id("doneButton")).click();
+                    System.out.println("first try done button");
                     js.executeScript("window.scrollBy(100,0)");
+                    Thread.sleep(2000);
                     driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
+                    //driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
                     Thread.sleep(4000);
                 } catch (Exception e){
+                    try{ System.out.println("second try done button");
                     js.executeScript("window.scrollBy(100,0)");
                    // driver.findElement(By.id("doneButton")).click();
                     driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
-                    Thread.sleep(4000);
+                    Thread.sleep(4000); }
+                    catch(Exception p){
+                        System.out.println("third try done button (switch tabs)");
+                        driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
+                        Thread.sleep(5000);
+                        driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[2]/div")).click();
+                        Thread.sleep(5000);
+                        WebElement element3 = wait.until(
+                                ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")));
+                        element3.click();
+                    }
                 }
 
             }
@@ -76,6 +82,7 @@ public class DeletingTasks {
             driver.findElement(By.id("archiveTasksButton")).click();
             Thread.sleep(2000);
             driver.findElement(By.id("confirmButton")).click();
+            System.out.println(deletedTaskAmount + " Tasks out of " + s + "deleted");
             Thread.sleep(5000);
             js.executeScript("window.scrollBy(0,-115)");
             Thread.sleep(4000);
@@ -88,6 +95,124 @@ public class DeletingTasks {
 
         }
     }
+
+    private static void saveMeasurements(WebDriverWait wait, int i) throws InterruptedException {
+        boolean pressedSuccessfully = false;
+
+        try{
+            System.out.println("first try saveMeasurement");
+            driver.findElement(By.id("saveMeasurement")).click();
+            pressedSuccessfully = true;
+        } catch (Exception e) {
+            try{
+                System.out.println("second try saveMeasurement");
+                js.executeScript("window.scrollBy(0,115)");
+                Thread.sleep(4000);
+                driver.findElement(By.id("saveMeasurement")).click();
+                pressedSuccessfully = true;
+            } catch (Exception r){
+                while(!pressedSuccessfully){
+                try{
+                    System.out.println("third try save Measurement");
+                    driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[2]/div")).click();
+                    Thread.sleep(5000);
+                    js.executeScript("window.scrollBy(0,115)");
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).click();
+                    WebElement element = wait.until(
+                            ExpectedConditions.elementToBeClickable(By.id("saveMeasurement")));
+                    element.click();
+                        System.out.println("third try: save button clicked");
+                    Thread.sleep(5000);
+                        pressedSuccessfully = true;
+                } catch (Exception x){
+                    Thread.sleep(2000);
+                }
+
+
+
+
+
+                    }
+            }
+
+        }
+    }
+
+    private static void checkKeineMaßnahmen(WebDriverWait wait, int i) throws InterruptedException {
+       boolean pressedSuccessfully = false;
+
+        try {
+            System.out.println("first try input field");
+            WebElement foo = new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(driver -> driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")));
+            foo.click();
+          /*  WebElement element = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")));
+           element.click(); */
+            //driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).click();
+            Thread.sleep(5000);
+            System.out.println("first try end");
+            pressedSuccessfully = true;
+        }catch (Exception e){
+            try{
+                System.out.println("second try input field");
+                js.executeScript("window.scrollBy(-100,0)");
+                driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
+                WebElement element = wait.until(
+                        ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")));
+                element.click();
+                //driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).click();
+                Thread.sleep(5000);
+                System.out.println("second try input field last line");
+                pressedSuccessfully = true;
+            }
+            catch (Exception f){
+                while(!pressedSuccessfully){
+                try{
+                    System.out.println("third try input field (switch tabs)");
+                    driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[2]/div")).click();
+                    Thread.sleep(5000);
+                    js.executeScript("window.scrollBy(0,115)");
+                    Thread.sleep(5000);
+                    js.executeScript("window.scrollBy(-300,0)");
+                    Thread.sleep(5000);
+                    js.executeScript("window.scrollBy(-100,0)");
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
+                    Thread.sleep(5000);
+                    js.executeScript("window.scrollBy(-100,0)");
+                    Thread.sleep(5000);
+                    List<WebElement> p = driver.findElements(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input"));
+                    System.out.println(p.get(0) + " <- the element");
+                    if (p.size()>0){
+                        System.out.println("input checkbox is visible");
+                    }
+                    boolean enabled = driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).isEnabled();
+if(enabled){
+    System.out.println("input is enabled");
+}
+boolean displayed = driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).isDisplayed();
+if (displayed){
+    System.out.println("input is displayed");
+}
+                    Thread.sleep(2000);
+                    driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).click();
+                    System.out.println("third try input field successful");
+                    pressedSuccessfully= true;
+                } catch (Exception j){
+                    Thread.sleep(2000);
+                    System.out.println("third try inputfield retying");
+                }
+                }
+        }
+    } }
 }
 
 /*Thread.sleep(15000);
