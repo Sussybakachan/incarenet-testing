@@ -30,12 +30,21 @@ public class CompareTasksInCardio {
 
     public static void loginP() throws InterruptedException, IOException {
         try{
+            System.out.println("test1");
             ReadingConfig rc = new ReadingConfig();
+            System.out.println("test2");
             driver.findElement(By.id("usernameField")).sendKeys(rc.loadProperty().getProperty("USERNAME"));
+            System.out.println(rc.loadProperty().getProperty("USERNAME"));
             Thread.sleep(2000);
             driver.findElement(By.id("passwordField")).sendKeys(rc.loadProperty().getProperty("PASSWORD"));
+            System.out.println(rc.loadProperty().getProperty("PASSWORD"));
+            Thread.sleep(2000);
+            System.out.println("test3");
+            boolean isDisplayed = driver.findElement(By.id("doLoginBtn")).isDisplayed();
+            System.out.println(isDisplayed);
             Thread.sleep(2000);
             driver.findElement(By.id("doLoginBtn")).click();
+            System.out.println("test4");
             Thread.sleep(8000);
         } catch (Exception e) {
             LoggerLoader.fatal("Login failed:\n Check config.properties or see if the server is unavailable");
@@ -43,8 +52,34 @@ public class CompareTasksInCardio {
     }
 //ist wichtig
 
+
     public static void inCardioDash() throws Exception {
-        Thread.sleep(8000);
+        Thread.sleep(20000);
+        try {
+            // Get the <html> element
+            WebElement htmlElement = driver.findElement(By.tagName("html"));
+
+// Get the inner HTML of the <html> element
+            String innerHTML = htmlElement.getAttribute("innerHTML");
+
+// Print the inner HTML to the console
+            System.out.println(innerHTML);
+        } catch (Exception l){
+            System.out.println("didn't work because :" + "\n"+ l);
+        }
+
+        try {
+            boolean isDisplayed = driver.findElement(By.id("doLoginBtn")).isDisplayed();
+            System.out.println("login failed: " + isDisplayed + "\n Still on login page");
+        } catch (Exception bb){
+            System.out.println("not in login page anymore ");
+        }
+        try {
+            boolean isDisplayed = driver.findElement(By.xpath("/html/body/div[3]/nav/div/div[1]/a")).isDisplayed();
+            System.out.println("inSuite button: " +  isDisplayed);
+        } catch (Exception vv){
+            System.out.println("No inSuite button found");
+        }
         List<WebElement> p = driver.findElements(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[@class='KoNavItem']"));
 
         int pp = p.size();

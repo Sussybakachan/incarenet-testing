@@ -15,7 +15,6 @@ import java.net.URL;
 
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
-import static selenium.DeletingTasks.deleteTask;
 
 
 public class StartTesting {
@@ -28,11 +27,11 @@ public class StartTesting {
         ReadingConfig rc = null;
         String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
         try {
+            rc = new ReadingConfig();
             if(seleniumWebdriverURL != null){
                 ChromeOptions options = new ChromeOptions();
                 driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
             } else {
-                rc = new ReadingConfig();
                 System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
                 driver = new ChromeDriver();
             }
@@ -42,12 +41,16 @@ public class StartTesting {
         }
         LoggerLoader.info("Weitergegangen");
         try{
-            driver.get(rc.loadProperty().getProperty("SERVER_URL"));
+           driver.get(rc.loadProperty().getProperty("SERVER_URL"));
+          /*  System.out.println(rc.loadProperty().getProperty("SERVER_URL"));
+            System.out.println(rc.loadProperty().getProperty("PASSWORD"));
+            System.out.println(rc.loadProperty().getProperty("USERNAME")); */
         } catch (Exception e){
             LoggerLoader.fatal(String.valueOf(e));
         }
 
         driver.manage().window().maximize();
+        LoggerLoader.info("Window maximized");
         js = (JavascriptExecutor) driver;
         action = new Actions(driver);
         // PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff2\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
