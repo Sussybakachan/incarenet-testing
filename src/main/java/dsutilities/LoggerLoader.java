@@ -29,7 +29,11 @@ public class LoggerLoader {
 
     public static void fatal(String message) {
         logger.fatal(message);
-        driver.close();
+        if (driver!=null){
+            driver.close();
+
+        }
+        System.exit(-1);
     }
 
     public static void debug(String message) {

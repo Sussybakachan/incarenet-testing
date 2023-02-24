@@ -2,11 +2,16 @@ package selenium;
 
 import TestCases.*;
 import dsutilities.LoggerLoader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import javax.swing.*;
+
+import java.net.URL;
 
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
@@ -20,10 +25,17 @@ public class StartTesting {
         LoggerLoader.info("Automation test started");
 
         ReadingConfig rc = null;
+        String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
         try {
-            rc = new ReadingConfig();
-            System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
-            driver = new ChromeDriver();
+            if(seleniumWebdriverURL != null){
+                ChromeOptions options = new ChromeOptions();
+                driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
+            } else {
+                rc = new ReadingConfig();
+                System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
+                driver = new ChromeDriver();
+            }
+
         } catch (Exception e) {
             LoggerLoader.fatal(String.valueOf(e));
         }
