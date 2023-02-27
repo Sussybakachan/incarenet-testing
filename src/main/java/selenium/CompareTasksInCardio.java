@@ -67,6 +67,18 @@ public class CompareTasksInCardio {
         } catch (Exception l){
             System.out.println("didn't work because :" + "\n"+ l);
         }
+        try {
+            // Get the <html> element
+            WebElement htmlElement = driver.findElement(By.tagName("html"));
+
+// Get the inner HTML of the <html> element
+            String outerHTML = htmlElement.getAttribute("outerHTML");
+
+// Print the inner HTML to the console
+           LoggerLoader.info("Outer HTML: \n \n \n" + outerHTML);
+        } catch (Exception l){
+            System.out.println("didn't work because :" + "\n"+ l);
+        }
 
         try {
             boolean isDisplayed = driver.findElement(By.id("doLoginBtn")).isDisplayed();
