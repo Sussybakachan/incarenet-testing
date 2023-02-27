@@ -1,7 +1,7 @@
 Currently only working fot the german version of inCARDIO-Dashboard
 The testcases are created according to the Getemed Test Procedures (Not yet reviewed and approved by Getemend)
 
-
+**Installation guide**
 
 **1. Download the Chrome Webdriver for Selenium and paste the file into the "Chrome Webdriver" directory in the project**
 - Download the Chrome Webdriver that fits your Chrome version
@@ -45,6 +45,5 @@ The testcases are created according to the Getemed Test Procedures (Not yet revi
 - To create the proper task the Patient needs a PBA
 - You can add a PBA in Patients>look up the patient
 
-
-
-
+**What to do if the program crashes/closes?**
+- (needs to be added)
