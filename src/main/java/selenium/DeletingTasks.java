@@ -23,9 +23,9 @@ public class DeletingTasks {
     static JavascriptExecutor js;
 
     public static void deleteTask() throws InterruptedException {
-        int deletedTaskAmount = 0;
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         try{
+            int deletedTaskAmount = 0;
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             js = (JavascriptExecutor) driver;
             action = new Actions(driver);
             Thread.sleep(5000);
@@ -57,12 +57,18 @@ public class DeletingTasks {
                     driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
                     //driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
                     Thread.sleep(4000);
+                    deletedTaskAmount++;
+                    System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
                 } catch (Exception e){
                     try{ System.out.println("second try done button");
                     js.executeScript("window.scrollBy(100,0)");
                    // driver.findElement(By.id("doneButton")).click();
                     driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
-                    Thread.sleep(4000); }
+                    Thread.sleep(4000);
+                        deletedTaskAmount++;
+                        System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
+                    }
+
                     catch(Exception p){
                         System.out.println("third try done button (switch tabs)");
                         driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
@@ -72,6 +78,8 @@ public class DeletingTasks {
                         WebElement element3 = wait.until(
                                 ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")));
                         element3.click();
+                        deletedTaskAmount++;
+                        System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
                     }
                 }
 
@@ -82,7 +90,7 @@ public class DeletingTasks {
             driver.findElement(By.id("archiveTasksButton")).click();
             Thread.sleep(2000);
             driver.findElement(By.id("confirmButton")).click();
-            System.out.println(deletedTaskAmount + " Tasks out of " + s + "deleted");
+
             Thread.sleep(5000);
             js.executeScript("window.scrollBy(0,-115)");
             Thread.sleep(4000);
@@ -101,7 +109,9 @@ public class DeletingTasks {
 
         try{
             System.out.println("first try saveMeasurement");
-            driver.findElement(By.id("saveMeasurement")).click();
+            WebElement element = driver.findElement(By.id("saveMeasurement"));
+            JavascriptExecutor js= (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", element);
             pressedSuccessfully = true;
         } catch (Exception e) {
             try{
@@ -123,9 +133,33 @@ public class DeletingTasks {
                     driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
                     Thread.sleep(5000);
                     driver.findElement(By.xpath("/html/body/div[4]/div/div[2]/label/span[1]/span[1]/input")).click();
+                    Thread.sleep(5000);
+                    List<WebElement> p = driver.findElements(By.id("saveMeasurement"));
+                    System.out.println(p.get(0) + " <- the element");
+                    if (p.size()>0){
+                        System.out.println("Save measurement button checkbox is visible");
+                    }
+                    boolean enabled = driver.findElement(By.id("saveMeasurement")).isEnabled();
+                    if(enabled){
+                        System.out.println("Save measurement button is enabled");
+                    }
+                    boolean displayed = driver.findElement(By.id("saveMeasurement")).isDisplayed();
+                    if (displayed){
+                        System.out.println("Save measurement button is displayed");
+                    }
+
+                    Thread.sleep(4000);
+                    WebElement element = driver.findElement(By.id("saveMeasurement"));
+                    JavascriptExecutor js= (JavascriptExecutor) driver;
+                    js.executeScript("arguments[0].click();", element);
+
+
+                    /* driver.findElement(By.id("saveMeasurement")).click();
+                    */
+                    /*
                     WebElement element = wait.until(
                             ExpectedConditions.elementToBeClickable(By.id("saveMeasurement")));
-                    element.click();
+                    element.click(); */
                         System.out.println("third try: save button clicked");
                     Thread.sleep(5000);
                         pressedSuccessfully = true;
