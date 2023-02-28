@@ -2,6 +2,8 @@ package SeleniumThresholds;
 
 import dsutilities.LoggerLoader;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import selenium.LoggingDataModif;
 
 
@@ -20,14 +22,29 @@ import static selenium.CompareTasksInCardio.successfulTestCases;
 
 public class Deselect {
     //is selected
+    static Actions action;
 
+
+    static JavascriptExecutor js;
     public static void deselectAll() throws InterruptedException {
+        //added some scrolling, hopefully this won't break anything. Had no issues on my laptop.
         try {
+            js = (JavascriptExecutor) driver;
+            action = new Actions(driver);
+        try{
+            Thread.sleep(6000);
+            driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[6]")).click();
+            Thread.sleep(3000);
+        } catch (Exception e){
+            Thread.sleep(3000);
+            js.executeScript("window.scrollBy(115,0)");
+            Thread.sleep(3000);
+            js.executeScript("window.scrollBy(0,200)");
+            Thread.sleep(6000);
+            driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[6]")).click();
+            Thread.sleep(3000);
+        }
 
-
-        Thread.sleep(6000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[6]")).click();
-        Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
         Thread.sleep(2000);
 
