@@ -1,11 +1,11 @@
 package TestCases;
 
 import BostonTestCasesExpectedTasks.*;
+import org.openqa.selenium.By;
 
 import static SeleniumThresholds.Deselect.deselectAll;
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
-import static selenium.CompareTasksInCardio.choosepatient;
-import static selenium.CompareTasksInCardio.compareCrt;
+import static selenium.CompareTasksInCardio.*;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.inputIsEmpty;
 import static selenium.PasteFile.pasteFile;
@@ -25,7 +25,7 @@ public class BostonTestCases {
     public BostonTestCases() throws Exception {
         choosepatient("Sel-Boston");
         bostonTestCase1();
-      /*  bostonTestCase2();
+        bostonTestCase2();
         bostonTestCase3();
         bostonTestCase4();
         bostonTestCase5();
@@ -35,7 +35,7 @@ public class BostonTestCases {
         bostonTestCase9();
         bostonTestCase10();
         bostonTestCase11();
-        bostonTestCase12(); */
+        bostonTestCase12();
     }
     public void bostonTestCase1() throws Exception {
         //Set Template needs to be done before

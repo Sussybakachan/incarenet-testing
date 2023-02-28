@@ -1,6 +1,7 @@
 package TestCases;
 
 import AbbottTestCasesExpectedTasks.*;
+import org.openqa.selenium.By;
 import selenium.CollectTasks;
 import selenium.Task;
 
@@ -10,8 +11,7 @@ import java.io.File;
 
 import static SeleniumThresholds.Deselect.*;
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
-import static selenium.CompareTasksInCardio.choosepatient;
-import static selenium.CompareTasksInCardio.compareCrt;
+import static selenium.CompareTasksInCardio.*;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.inputIsEmpty;
 import static selenium.PasteFile.pasteFile;
@@ -27,7 +27,7 @@ public class AbbottTestCases {
 
     public AbbottTestCases() throws Exception {
         choosepatient("Sel-Abbott");
-      /*  abbottTestCase1();
+        abbottTestCase1();
         abbottTestCase2();
         abbottTestCase3();
         abbottTestCase4();
@@ -35,7 +35,7 @@ public class AbbottTestCases {
         abbottTestCase6();
         abbottTestCase7();
         abbottTestCase8();
-        abbottTestCase9(); */
+        abbottTestCase9();
         abbottTestCase10();
     }
 

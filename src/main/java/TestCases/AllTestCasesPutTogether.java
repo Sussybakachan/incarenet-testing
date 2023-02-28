@@ -10,12 +10,12 @@ public class AllTestCasesPutTogether {
         new AbbottTestCases();
         goToICDPatientList();
         new BostonTestCases();
-      /*  goToICDPatientList();
+        goToICDPatientList();
         new BiotronikTestCases();
         goToICDPatientList();
         new MedtronicTestCases();
         goToICDPatientList();
-        new MicroPortTestCases(); */
+        new MicroPortTestCases();
     }
     void goToICDPatientList() throws InterruptedException {
         Thread.sleep(2000);
