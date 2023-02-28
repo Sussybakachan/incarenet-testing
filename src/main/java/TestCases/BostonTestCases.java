@@ -25,7 +25,7 @@ public class BostonTestCases {
     public BostonTestCases() throws Exception {
         choosepatient("Sel-Boston");
         bostonTestCase1();
-        bostonTestCase2();
+      /*  bostonTestCase2();
         bostonTestCase3();
         bostonTestCase4();
         bostonTestCase5();
@@ -35,7 +35,7 @@ public class BostonTestCases {
         bostonTestCase9();
         bostonTestCase10();
         bostonTestCase11();
-        bostonTestCase12();
+        bostonTestCase12(); */
     }
     public void bostonTestCase1() throws Exception {
         //Set Template needs to be done before

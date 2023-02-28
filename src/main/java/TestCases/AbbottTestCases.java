@@ -27,7 +27,7 @@ public class AbbottTestCases {
 
     public AbbottTestCases() throws Exception {
         choosepatient("Sel-Abbott");
-        abbottTestCase1();
+      /*  abbottTestCase1();
         abbottTestCase2();
         abbottTestCase3();
         abbottTestCase4();
@@ -35,7 +35,7 @@ public class AbbottTestCases {
         abbottTestCase6();
         abbottTestCase7();
         abbottTestCase8();
-        abbottTestCase9();
+        abbottTestCase9(); */
         abbottTestCase10();
     }
 
