@@ -19,7 +19,7 @@ public class PdfCheck {
 
     public static boolean pdfCheck(String testcase) throws InterruptedException {
         Thread.sleep(2000);
-        List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[2]/td[8]/ol/li"));
+        List<WebElement> list = driver.findElements(By.xpath("//table/tbody/tr[2]/td[8]/ol/li"));
         Thread.sleep(2000);
 
         int f = list.size();
@@ -31,9 +31,9 @@ public class PdfCheck {
                 m=2;
             }
             for (int i = m; i <= m; i++) {
-                driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[2]/td[8]/ol/li[" + i + "]/a")).click();
+                driver.findElement(By.xpath("//table/tbody/tr[2]/td[8]/ol/li[" + i + "]/a")).click();
                 Thread.sleep(3000);
-                String src = driver.findElement(By.xpath("/html/body/div[4]/div[3]/iframe")).getAttribute("src");
+                String src = driver.findElement(By.xpath("/html/body/div[6]/div[3]/iframe")).getAttribute("src");
                 System.out.println(src);
 
                 String[] arrOfStr = src.split(",");
@@ -46,7 +46,7 @@ public class PdfCheck {
                 out.write(decoded);
                 out.close();
 
-                driver.findElement(By.xpath("/html/body/div[4]/div[3]/div/button")).click();
+                driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/button")).click();
                 Thread.sleep(2000);
             }
 

@@ -44,7 +44,7 @@ public class NoMeasurementsRow {
     }
 
     private static void pressNoMeasurementsFindingCheckbox() {
-        driver.findElement(By.id("[object Object]-noMeasurementReceived-params-min")).click();
+        driver.findElement(By.id("noMeasurementsFinding")).click();
     }
 
     public static void activatedNoMeasurementsFinding(int daysFinding) {
