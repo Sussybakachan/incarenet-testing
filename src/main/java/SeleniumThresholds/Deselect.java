@@ -26,9 +26,11 @@ public class Deselect {
 
 
         Thread.sleep(6000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[6]")).click();
+        //driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[6]")).click();
+        driver.findElement(By.id("thresholdValue")).click();    //new develop branch ehealth
         Thread.sleep(3000);
-        driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
+        //driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();
+        driver.findElement(By.id("showImplantTemplate")).click();    //new develop branch ehealth
         Thread.sleep(2000);
 
         deselectAllBattery();

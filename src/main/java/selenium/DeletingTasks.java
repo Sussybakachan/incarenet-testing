@@ -52,19 +52,24 @@ public class DeletingTasks {
                 try{
                     driver.findElement(By.id("saveMeasurement")).click();
                 } catch (Exception e) {
+                    js.executeScript("window.scrollBy(-100,0)");
+                    driver.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[7]/div/div/div")).click();
+                    Thread.sleep(3000);
+                    driver.findElement(By.xpath("/html/body/div[6]/div/div[2]/label/span[1]/span[1]/input")).click();
+                    Thread.sleep(5000);
                     js.executeScript("window.scrollBy(0,115)");
                     Thread.sleep(4000);
                     driver.findElement(By.id("saveMeasurement")).click();
                 }
                 Thread.sleep(7000);
                 try{
-                   // driver.findElement(By.id("doneButton")).click();
+                    // driver.findElement(By.id("doneButton")).click();
                     js.executeScript("window.scrollBy(100,0)");
                     driver.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
                     Thread.sleep(4000);
                 } catch (Exception e){
                     js.executeScript("window.scrollBy(100,0)");
-                   // driver.findElement(By.id("doneButton")).click();
+                    // driver.findElement(By.id("doneButton")).click();
                     driver.findElement(By.xpath("//table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
                     Thread.sleep(4000);
                 }

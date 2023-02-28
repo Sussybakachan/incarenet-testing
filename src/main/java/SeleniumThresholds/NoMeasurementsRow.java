@@ -23,7 +23,7 @@ public class NoMeasurementsRow {
     }
 
     static boolean isNoMeasurementsFindingSelected() {
-        return driver.findElement(By.id("[object Object]-noMeasurementReceived-params-min")).isSelected();
+        return driver.findElement(By.id("noMeasurementsFinding")).isSelected();
     }
 
     static void pressNoMeasurementsParameterCheckbox() {
@@ -55,7 +55,7 @@ public class NoMeasurementsRow {
     }
 
     public static void deactivateNoMeasurementsFinding() throws InterruptedException {
-        boolean isChecked = driver.findElement(By.id("[object Object]-noMeasurementReceived-params-min")).isSelected();
+        boolean isChecked = driver.findElement(By.id("noMeasurementsFinding")).isSelected();
         if (isChecked) {
             WebElement checked = driver.findElement(By.id("[object Object]-noMeasurementReceived-params-min"));
             Actions a = new Actions(driver);
