@@ -46,4 +46,5 @@ The testcases are created according to the Getemed Test Procedures (Not yet revi
 - You can add a PBA in Patients>look up the patient
 
 **What to do if the program crashes/closes?**
-- (needs to be added)
+- if the program closes because of an error the created tasks might still be there and need to be deleted on the server
+- same needs to be applied to the thresholds, they need to be reset to an empty template
