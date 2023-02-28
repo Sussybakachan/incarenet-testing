@@ -23,6 +23,7 @@ public class BostonTestCases {
     String[] fileName;
 
     public BostonTestCases() throws Exception {
+        choosepatient("Sel-Boston");
         bostonTestCase1();
         bostonTestCase2();
         bostonTestCase3();
@@ -38,7 +39,6 @@ public class BostonTestCases {
     }
     public void bostonTestCase1() throws Exception {
         //Set Template needs to be done before
-        choosepatient("Sel-Boston");
         thresholdCheck("Boston", 1);
         fileName = new String[]{"Boston Implant added LV 85%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
@@ -62,6 +62,7 @@ public class BostonTestCases {
         Thread.sleep(3000);
         inputIsEmpty();
         compareCrt(BostonExpectedTasksTestCase2.BostonTestCase2List, "Boston2", g.getGeneratedTasks());
+        deleteTask();
         deselectAll();
     }
 
@@ -84,7 +85,6 @@ public class BostonTestCases {
 
     public void bostonTestCase4() throws Exception {
         //Set Template needs to be done before
-
         thresholdCheck("Boston", 4);
         fileName = new String[]{"EOS", "lv 70%", "ERI"};
         for (int i = 0; i < fileName.length; i++) {

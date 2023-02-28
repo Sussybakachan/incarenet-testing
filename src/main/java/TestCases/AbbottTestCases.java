@@ -26,6 +26,7 @@ public class AbbottTestCases {
     String[] fileName;
 
     public AbbottTestCases() throws Exception {
+        choosepatient("Sel-Abbott");
         abbottTestCase1();
         abbottTestCase2();
         abbottTestCase3();
@@ -40,7 +41,6 @@ public class AbbottTestCases {
 
     public void abbottTestCase1() throws Exception {
         //Set Template needs to be done before
-        choosepatient("Sel-Abbott");
         thresholdCheck("Abbott", 1);
         fileName = new String[]{"Abbott Implant CRT 84%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";

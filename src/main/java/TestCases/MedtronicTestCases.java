@@ -20,6 +20,7 @@ public class MedtronicTestCases {
     String[] fileName;
 
     public MedtronicTestCases() throws Exception {
+        choosepatient("Sel-Medtronic");
         medtronicTestCase1();
         medtronicTestCase2();
         medtronicTestCase3();
@@ -33,7 +34,6 @@ public class MedtronicTestCases {
     }
     public void medtronicTestCase1() throws Exception {
         //Set Template needs to be done before
-        choosepatient("Sel-Medtronic");
         thresholdCheck("Medtronic", 1);
         fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";

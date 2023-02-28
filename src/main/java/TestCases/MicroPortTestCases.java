@@ -21,6 +21,7 @@ public class MicroPortTestCases {
     String[] fileName;
 
     public MicroPortTestCases() throws Exception {
+        choosepatient("Sel-MicroPort");
         microportTestCase1();
         microportTestCase2();
         microportTestCase3();
@@ -33,7 +34,6 @@ public class MicroPortTestCases {
     }
     public void microportTestCase1() throws Exception {
         //Set Template needs to be done before
-        choosepatient("Sel-MicroPort");
         thresholdCheck("MicroPort", 1);
         fileName = new String[]{"added EOS", "added ERI", "[A9] Ventrikuläre Elektrodenimped"};
         for (int i = 0; i < fileName.length; i++) {
