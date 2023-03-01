@@ -4,6 +4,12 @@ services:
   chrome:
     image: selenium/standalone-chrome
     container_name: web-chrome
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "4444"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
 
 
 
@@ -11,10 +17,11 @@ services:
     build: .
     environment:
       SELENIUM_WEBDRIVER_URL: http://chrome:4444
-  #  volumes:
-   #   - type: bind
-   #     source: ./input
-    #    target: ./input
+    volumes:
+      - type: bind
+        source: ./input
+        # XXX /testrunner hardcoded in the dockerfile instead testrunner-application should allow us to configure where the input path is
+        target: /testrunner/input
     depends_on:
       chrome:
-        condition: service_started
+        condition: service_healthy
