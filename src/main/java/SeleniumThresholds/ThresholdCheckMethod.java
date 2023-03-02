@@ -43,14 +43,14 @@ static boolean firstTestCaseOfManufacturer = true;
                     driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[1]/span/span[1]/input")).click();
                 }
                 Thread.sleep(5000);
-                driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
+                driver.findElement(By.id("showImplantTemplate")).click();       //showImplantTemplate
                 Thread.sleep(2000);
             } else {
                 js = (JavascriptExecutor) driver;
                 action = new Actions(driver);
                 js.executeScript("window.scrollBy(0,200)");
                 Thread.sleep(2000);
-                driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/table/tbody/tr[9]/td[4]/div/button")).click();       //showImplantTemplate
+                driver.findElement(By.id("showImplantTemplate")).click();       //showImplantTemplate
                 Thread.sleep(2000);
             }
 
