@@ -273,9 +273,12 @@ public class CompareTasksInCardio {
         }
         return (notFoundCreatedTasksAsString);
     }
-
+static int switchFrame = 0;
     public static void choosepatient(String p) throws InterruptedException {
-        driver.switchTo().frame(0);
+        if (switchFrame == 0){
+            driver.switchTo().frame(0);
+            switchFrame++;
+        }
         Thread.sleep(2000);
         driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys(p);
         Thread.sleep(2000);

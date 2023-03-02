@@ -55,6 +55,9 @@ public class StartTesting {
         // System.out.println("expectedTask checkbox: " + expectedTask.getCheckBox() + expectedTask.getAction() + expectedTask.getTaskDescription() + expectedTask.getColor() + expectedTask.getEmployee() + expectedTask.getStartDate() + expectedTask.getReceiveDate() + expectedTask.getTargetDate() + expectedTask.getMeasurements() + expectedTask.getPdf() + expectedTask.getFurtherInformation());
         loginP();
         inCardioDash();
+
+        AllTestCasesPutTogether allTestCasesPutTogether = new AllTestCasesPutTogether();
+        /*
         AbbottTestCases abbottTestCases = new AbbottTestCases();
         //TODO method-> in utils.java
         //BiotronikTestCases biotronikTestCases = new BiotronikTestCases();
@@ -65,7 +68,7 @@ public class StartTesting {
         //TODO method-> in utils.java
         //MicroPortTestCases microPortTestCases = new MicroPortTestCases();
         // thresholdCheck();
-        //comparison();
+        //comparison(); */
         LoggingDataModif loggingDataModif = new LoggingDataModif();
         LoggerLoader.info("Automation test finished");
         LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);

@@ -1,11 +1,11 @@
 package TestCases;
 
 import BostonTestCasesExpectedTasks.*;
+import org.openqa.selenium.By;
 
 import static SeleniumThresholds.Deselect.deselectAll;
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
-import static selenium.CompareTasksInCardio.choosepatient;
-import static selenium.CompareTasksInCardio.compareCrt;
+import static selenium.CompareTasksInCardio.*;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.inputIsEmpty;
 import static selenium.PasteFile.pasteFile;

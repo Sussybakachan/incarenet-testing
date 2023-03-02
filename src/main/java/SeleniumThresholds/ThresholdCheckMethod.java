@@ -4,10 +4,10 @@ import dsutilities.LoggerLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import SeleniumThresholds.CRTRow.*;
 import org.openqa.selenium.interactions.Actions;
 import selenium.LoggingDataModif;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static SeleniumThresholds.BatteryStatusRow.*;
@@ -20,20 +20,27 @@ import static SeleniumThresholds.TelemBSXRepRow.*;
 import static SeleniumThresholds.TelemMDTRepRow.*;
 import static SeleniumThresholds.TelemMicroportRepRow.*;
 import static selenium.CompareTasksInCardio.driver;
-import static selenium.CompareTasksInCardio.successfulTestCases;
 
 public class ThresholdCheckMethod {
     static Actions action;
 
-static boolean firstTestCaseOfManufacturer = true;
     static JavascriptExecutor js;
+
+    static List<String> usedManufacturers = new ArrayList<String>();
     public static void thresholdCheck(String manufacturer, int testCase) throws InterruptedException {
         Thread.sleep(9000);
         try {
-            if (firstTestCaseOfManufacturer) {
+            usedManufacturers.add(manufacturer);
+           // System.out.println(usedManufacturers);
+            int lastIndex = usedManufacturers.size() - 1;
+            int secondLastIndex = 0;
+            if(usedManufacturers.size() > 1) {
+                secondLastIndex = usedManufacturers.size()-2;
+            }
+            //System.out.println(usedManufacturers.get(lastIndex) + usedManufacturers.get(secondLastIndex));
+            if (usedManufacturers.size() == 1 || !usedManufacturers.get(lastIndex).equals(usedManufacturers.get(secondLastIndex))) {
                 //TODO I changed the path to the Schwellenwerte because he didn't find it with the other xpath
                 driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[1]/div[6]")).click();     //Schwellenwerte
-                firstTestCaseOfManufacturer = false;
                 Thread.sleep(2000);
                 //create a template if patient doesn't have one
                 List<WebElement> bearbeitenButtonAnzahl = driver.findElements(By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/form/div[1]/div/div/span"));

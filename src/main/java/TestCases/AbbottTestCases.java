@@ -1,6 +1,7 @@
 package TestCases;
 
 import AbbottTestCasesExpectedTasks.*;
+import org.openqa.selenium.By;
 import selenium.CollectTasks;
 import selenium.Task;
 
@@ -10,8 +11,7 @@ import java.io.File;
 
 import static SeleniumThresholds.Deselect.*;
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
-import static selenium.CompareTasksInCardio.choosepatient;
-import static selenium.CompareTasksInCardio.compareCrt;
+import static selenium.CompareTasksInCardio.*;
 import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.inputIsEmpty;
 import static selenium.PasteFile.pasteFile;
