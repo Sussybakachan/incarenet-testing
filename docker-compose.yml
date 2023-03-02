@@ -4,11 +4,11 @@ services:
   chrome:
     image: selenium/standalone-chrome
     container_name: web-chrome
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "4444"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
+   # healthcheck:
+     # test: ["CMD", "nc", "-z", "localhost", "4444"]
+     # interval: 10s
+     # timeout: 5s
+      #retries: 3
 
 
 
@@ -24,4 +24,4 @@ services:
         target: /testrunner/input
     depends_on:
       chrome:
-        condition: service_healthy
+        condition: service_started
