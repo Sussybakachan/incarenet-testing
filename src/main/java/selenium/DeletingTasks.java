@@ -18,12 +18,10 @@ public class DeletingTasks {
     static Actions action;
 
 
-
-
     static JavascriptExecutor js;
 
     public static void deleteTask() throws InterruptedException {
-        try{
+        try {
             int deletedTaskAmount = 0;
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             js = (JavascriptExecutor) driver;
@@ -32,7 +30,7 @@ public class DeletingTasks {
             List<WebElement> l = driver.findElements(By.xpath("//table/tbody[@class]/tr[@index]"));
             int s = l.size();
             Thread.sleep(2000);
-            if (s==0) {
+            if (s == 0) {
                 System.out.println("No Tasks Found");
             } else {
                 Thread.sleep(2000);
@@ -42,73 +40,211 @@ public class DeletingTasks {
                     Thread.sleep(4000);
                     try {
                         js.executeScript("window.scrollBy(-300,0)");
-                        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
+                        Thread.sleep(8000);
+                        WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div"));
+                        js.executeScript("arguments[0].click();", element);
                         Thread.sleep(3000);
                     } catch (Exception e) {
-                        js.executeScript("window.scrollBy(-100,0)");
-                        Thread.sleep(4000);
-                        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
-                        Thread.sleep(3000);
-                    }
-                    checkKeineMaßnahmen(wait, i);
-                    saveMeasurements(wait, i);
-                    Thread.sleep(7000);
+                        try {
+                            js.executeScript("window.scrollBy(-100,0)");
+                            Thread.sleep(4000);
+                            driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div")).click();
+                            Thread.sleep(3000);
+                        } catch (Exception f) {
+                            boolean pressedSuccessfully = false;
+                            int tryNumber = 1;
+                            while (!pressedSuccessfully) {
+                                try {
+                                    System.out.println(tryNumber + " try dropdown menu (switch tabs)");
+                                    driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
+                                    Thread.sleep(5000);
+                                    driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[2]/div")).click();
+                                    Thread.sleep(5000);
+                                    js.executeScript("window.scrollBy(0,115)");
+                                    Thread.sleep(5000);
+                                    js.executeScript("window.scrollBy(-300,0)");
+                                    Thread.sleep(8000);
+                                    WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[7]/div/div/div/div"));
+                                    js.executeScript("arguments[0].click();", element);
+                                    Thread.sleep(3000);
+                                    System.out.println(tryNumber + " try dopdown menu successful");
+                                    pressedSuccessfully = true;
+                                } catch (Exception j) {
+                                    tryNumber++;
+                                    Thread.sleep(2000);
+                                    System.out.println("dropdown menu retying");
+                                }
+                            }
+                        }
+
+
+                }
+                checkKeineMaßnahmen(wait, i);
+                saveMeasurements(wait, i);
+                Thread.sleep(7000);
+                try {
+                    // driver.findElement(By.id("doneButton")).click();
+                    System.out.println("first try done button");
+                    js.executeScript("window.scrollBy(100,0)");
+                    Thread.sleep(6000);
+                    pressDoneButton(); //doneButton
+                    //driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
+                    Thread.sleep(4000);
+                    deletedTaskAmount++;
+                    System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
+                } catch (Exception e) {
                     try {
-                        // driver.findElement(By.id("doneButton")).click();
-                        System.out.println("first try done button");
+                        System.out.println("second try done button");
                         js.executeScript("window.scrollBy(100,0)");
-                        Thread.sleep(2000);
-                        driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
-                        //driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
+                        // driver.findElement(By.id("doneButton")).click();
+                        pressDoneButton(); //doneButton
                         Thread.sleep(4000);
                         deletedTaskAmount++;
                         System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
-                    } catch (Exception e) {
-                        try {
-                            System.out.println("second try done button");
-                            js.executeScript("window.scrollBy(100,0)");
-                            // driver.findElement(By.id("doneButton")).click();
-                            driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")).click(); //doneButton
-                            Thread.sleep(4000);
-                            deletedTaskAmount++;
-                            System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
-                        } catch (Exception p) {
-                            System.out.println("third try done button (switch tabs)");
-                            driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
-                            Thread.sleep(5000);
-                            driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[2]/div")).click();
-                            Thread.sleep(5000);
-                            WebElement element3 = wait.until(
-                                    ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[" + i + "]/td[11]/div/button[1]")));
-                            element3.click();
-                            deletedTaskAmount++;
-                            System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
+                    } catch (Exception p) {
+                        boolean pressedSuccessfully = false;
+                        int tryNumber = 1;
+                        while (!pressedSuccessfully) {
+                            try {
+                                System.out.println(tryNumber + " try done button (switch tabs)");
+                                driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
+                                Thread.sleep(5000);
+                                driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[2]/div")).click();
+                                Thread.sleep(5000);
+                                WebElement doneButton =  driver.findElement(By.xpath("//span[text()='Erledigt']"));
+                                js.executeScript("arguments[0].click();", doneButton);
+                                deletedTaskAmount++;
+                                System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
+                            }catch (Exception f){
+                                tryNumber++;
+                                Thread.sleep(2000);
+                                System.out.println("dropdown menu retying");
+                            }
                         }
-                    }
 
+                    }
                 }
-                Thread.sleep(2000);
-                js.executeScript("window.scrollBy(0,-115)");
-                Thread.sleep(4000);
+
+            }
+            Thread.sleep(4000);
+            js.executeScript("window.scrollBy(0,-115)");
+            Thread.sleep(4000);
+
+            //choose all
+            try{
                 driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/thead/tr/th[1]/span/span[1]/input")).click();
                 Thread.sleep(4000);
                 js.executeScript("window.scrollBy(115,0)");
                 Thread.sleep(4000);
-                driver.findElement(By.id("archiveTasksButton")).click();
-                Thread.sleep(2000);
-                driver.findElement(By.id("confirmButton")).click();
+            } catch (Exception d){
+                boolean pressedSuccessfully = false;
+                int tryNumber = 1;
+                while (!pressedSuccessfully) {
+                    try {
+                        System.out.println(tryNumber + " try choose all tasks checkbox (switch tabs)");
+                        driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
+                        Thread.sleep(5000);
+                        driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[2]/div")).click();
+                        Thread.sleep(5000);
+                        WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/thead/tr/th[1]/span/span[1]/input"));
+                        js.executeScript("arguments[0].click();", element);
+                        Thread.sleep(4000);
+                        System.out.println(tryNumber + " try choose all tasks checkbox successful");
+                        js.executeScript("window.scrollBy(115,0)");
+                        Thread.sleep(4000);
+                        pressedSuccessfully = true;
+                    }catch (Exception spaceMonkey){
+                        tryNumber++;
+                        Thread.sleep(2000);
+                        System.out.println("choose all tasks checkbox retrying");
+                    }
 
-                Thread.sleep(5000);
 
+                }
             }
-        } catch (Exception e) {
-            LoggingDataModif loggingDataModif = new LoggingDataModif();
-            LoggerLoader.fatal("Some Error occurred while trying to delete the Tasks: " + e);
-            LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);
-            LoggerLoader.info("Following Testcase(s) failed:\n" + loggingDataModif.editFailedTaskLogging());
-            driver.close();
+            //archive
+                try{
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/thead/tr/th[1]/span/span[1]/input")).click();
+                    Thread.sleep(4000);
+                } catch (Exception d){
+                    boolean pressedSuccessfully = false;
+                    int tryNumber = 1;
+                    while (!pressedSuccessfully) {
+                        try {
+                            System.out.println(tryNumber + " try archiveTasksButton (switch tabs)");
+                            driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[6]/div[1]")).click();
+                            Thread.sleep(5000);
+                            driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[2]/div")).click();
+                            Thread.sleep(5000);
+                            WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/thead/tr/th[1]/span/span[1]/input"));
+                            js.executeScript("arguments[0].click();", element);
+                            Thread.sleep(4000);
+                            js.executeScript("window.scrollBy(115,0)");
+                            Thread.sleep(4000);
+                            WebElement archiveTasksButton =  driver.findElement(By.id("archiveTasksButton"));
+                            js.executeScript("arguments[0].click();", archiveTasksButton);
+                            System.out.println(tryNumber + " archiveTasksButton successful");
+                            Thread.sleep(2000);
+                            pressedSuccessfully = true;
+                        }catch (Exception helpMe){
+                            tryNumber++;
+                            Thread.sleep(2000);
+                            System.out.println("archiveTasksButton retrying");
+                        }
 
+
+                    }
+
+
+                }
+                //confirm
+                try{
+                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/thead/tr/th[1]/span/span[1]/input")).click();
+                    Thread.sleep(4000);
+                } catch (Exception d){
+                    boolean pressedSuccessfully = false;
+                    int tryNumber = 1;
+                    while (!pressedSuccessfully) {
+                        try {
+                            System.out.println(tryNumber + " try confirmButton (waiting)");
+                            Thread.sleep(10000);
+                            WebElement element = driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/thead/tr/th[1]/span/span[1]/input"));
+                            js.executeScript("arguments[0].click();", element);
+                            Thread.sleep(4000);
+                            js.executeScript("window.scrollBy(115,0)");
+                            Thread.sleep(4000);
+                            WebElement archiveTasksButton =  driver.findElement(By.id("archiveTasksButton"));
+                            js.executeScript("arguments[0].click();", archiveTasksButton);
+                            Thread.sleep(4000);
+                            WebElement confirmButton =  driver.findElement(By.id("confirmButton"));
+                            js.executeScript("arguments[0].click();", confirmButton);
+                            Thread.sleep(5000);
+                            System.out.println(tryNumber + " try confirmButton successful");
+                            pressedSuccessfully = true;
+
+                        }catch (Exception helpMe){
+                            tryNumber++;
+                            Thread.sleep(2000);
+                            System.out.println("confirmButton retrying");
+                        }
+                    }
+                }
         }
+    } catch (Exception e)
+
+    {
+        LoggingDataModif loggingDataModif = new LoggingDataModif();
+        LoggerLoader.fatal("Some Error occurred while trying to delete the Tasks: " + e);
+        LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);
+        LoggerLoader.info("Following Testcase(s) failed:\n" + loggingDataModif.editFailedTaskLogging());
+        driver.close();
+
+    }
+
+}
+
+    private static void pressDoneButton() {
+        driver.findElement(By.xpath("//span[text()='Erledigt']")).click();
     }
 
     private static void saveMeasurements(WebDriverWait wait, int i) throws InterruptedException {
