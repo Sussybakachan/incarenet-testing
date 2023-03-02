@@ -9,7 +9,7 @@ COPY . .
 #COPY pom.xml .
 
 #next time running will use cache in target directory
-RUN --mount=type=cache,target=C:\Users\dboiko\.m2 mvn clean package
+RUN --mount=type=cache,target=C:\Users\dboiko\.m2 mvn clean install
 
 FROM openjdk:17-jdk-alpine
 
