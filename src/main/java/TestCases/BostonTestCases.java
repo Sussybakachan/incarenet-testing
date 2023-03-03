@@ -17,8 +17,8 @@ public class BostonTestCases {
     GeneratedTasks g = new GeneratedTasks();
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
-    String fileDirectory = rootDir + "/src/main/resources/Selenium-IDCO-Files/Boston/Boston without internal Alarms/";
-    String fileDirectory8 = rootDir + "/src/main/resources/Selenium-IDCO-Files/Boston/Boston files with alarms but for the Medizinpodukttesting/";
+    String fileDirectory = rootDir + "/resources/Selenium-IDCO-Files/Boston/Boston without internal Alarms/";
+    String fileDirectory8 = rootDir + "/resources/Selenium-IDCO-Files/Boston/Boston files with alarms but for the Medizinpodukttesting/";
     String FfInputPath = rootDir + "/input/";
     String[] fileName;
 

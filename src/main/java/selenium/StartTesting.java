@@ -29,8 +29,7 @@ public class StartTesting {
         try {
             rc = new ReadingConfig();
             if(seleniumWebdriverURL != null){
-                ChromeOptions options = new ChromeOptions();
-                driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
+
             } else {
                 System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
                 driver = new ChromeDriver();
