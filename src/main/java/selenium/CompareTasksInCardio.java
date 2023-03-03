@@ -5,9 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +21,19 @@ import static selenium.PdfCheck.pdfCheck;
 
 public class CompareTasksInCardio {
 
-    public static WebDriver driver;
+    //public static RemoteWebDriver driver;
+    static String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
+    static ChromeOptions options = new ChromeOptions();
+    public static RemoteWebDriver driver;
+
+    static {
+        try {
+            driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     static Actions action;
 
     static List<FailedTasks> listOfFailedTasksAndReason = new ArrayList<>();
@@ -55,7 +71,7 @@ public class CompareTasksInCardio {
 
     public static void inCardioDash() throws Exception {
         Thread.sleep(20000);
-        try {
+  /*      try {
             // Get the <html> element
             WebElement htmlElement = driver.findElement(By.tagName("html"));
 
@@ -79,7 +95,7 @@ public class CompareTasksInCardio {
         } catch (Exception l){
             System.out.println("didn't work because :" + "\n"+ l);
         }
-
+*/
         try {
             boolean isDisplayed = driver.findElement(By.id("doLoginBtn")).isDisplayed();
             System.out.println("login failed: " + isDisplayed + "\n Still on login page");

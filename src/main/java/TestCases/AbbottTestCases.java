@@ -21,7 +21,7 @@ public class AbbottTestCases {
     GeneratedTasks g = new GeneratedTasks();
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
-    String fileDirectory = rootDir + "/src/main/resources/Selenium-IDCO-Files/Abbott/";
+    String fileDirectory = rootDir + "/resources/Selenium-IDCO-Files/Abbott/";
     String FfInputPath = new File(rootDir) + "/input/";
     String[] fileName;
 
