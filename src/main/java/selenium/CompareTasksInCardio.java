@@ -46,6 +46,7 @@ public class CompareTasksInCardio {
 
     public static void loginP() throws InterruptedException, IOException {
         try{
+            Thread.sleep(10000);
             System.out.println("test1");
             ReadingConfig rc = new ReadingConfig();
             System.out.println("test2");
@@ -95,7 +96,9 @@ public class CompareTasksInCardio {
         } catch (Exception l){
             System.out.println("didn't work because :" + "\n"+ l);
         }
+
 */
+        //driver.get("https://www.google.com/");
         try {
             boolean isDisplayed = driver.findElement(By.id("doLoginBtn")).isDisplayed();
             System.out.println("login failed: " + isDisplayed + "\n Still on login page");
