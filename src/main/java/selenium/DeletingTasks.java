@@ -52,7 +52,7 @@ public class DeletingTasks {
                             Thread.sleep(3000);
                         } catch (Exception f) {
                             boolean pressedSuccessfully = false;
-                            int tryNumber = 1;
+                            int tryNumber = 3;
                             while (!pressedSuccessfully) {
                                 try {
                                     System.out.println(tryNumber + " try dropdown menu (switch tabs)");
@@ -103,7 +103,7 @@ public class DeletingTasks {
                         System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
                     } catch (Exception p) {
                         boolean pressedSuccessfully = false;
-                        int tryNumber = 1;
+                        int tryNumber = 3;
                         while (!pressedSuccessfully) {
                             try {
                                 System.out.println(tryNumber + " try done button (switch tabs)");
@@ -115,6 +115,7 @@ public class DeletingTasks {
                                 js.executeScript("arguments[0].click();", doneButton);
                                 deletedTaskAmount++;
                                 System.out.println(deletedTaskAmount + " Tasks out of " + s + " deleted");
+                                pressedSuccessfully = true;
                             }catch (Exception f){
                                 tryNumber++;
                                 Thread.sleep(2000);
@@ -138,7 +139,7 @@ public class DeletingTasks {
                 Thread.sleep(4000);
             } catch (Exception d){
                 boolean pressedSuccessfully = false;
-                int tryNumber = 1;
+                int tryNumber = 2;
                 while (!pressedSuccessfully) {
                     try {
                         System.out.println(tryNumber + " try choose all tasks checkbox (switch tabs)");
@@ -164,11 +165,12 @@ public class DeletingTasks {
             }
             //archive
                 try{
-                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/thead/tr/th[1]/span/span[1]/input")).click();
+                    driver.findElement(By.id("archiveTasksButton")).click();
                     Thread.sleep(4000);
+
                 } catch (Exception d){
                     boolean pressedSuccessfully = false;
-                    int tryNumber = 1;
+                    int tryNumber = 2;
                     while (!pressedSuccessfully) {
                         try {
                             System.out.println(tryNumber + " try archiveTasksButton (switch tabs)");
@@ -199,11 +201,11 @@ public class DeletingTasks {
                 }
                 //confirm
                 try{
-                    driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/thead/tr/th[1]/span/span[1]/input")).click();
+                    driver.findElement(By.id("confirmButton")).click();
                     Thread.sleep(4000);
                 } catch (Exception d){
                     boolean pressedSuccessfully = false;
-                    int tryNumber = 1;
+                    int tryNumber = 2;
                     while (!pressedSuccessfully) {
                         try {
                             System.out.println(tryNumber + " try confirmButton (waiting)");
