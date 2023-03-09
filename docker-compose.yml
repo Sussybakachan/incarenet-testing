@@ -20,32 +20,65 @@ services:
    # ports:
   #    - "4444:4444"
 
-  chrome_video:
-    image: selenium/video:ffmpeg-4.3.1-20230221
-    volumes:
-      - ./videos:/videos
-    depends_on:
-      testrunner:
-        condition: service_healthy
+ # chrome_video:
+ #   image: selenium/video:ffmpeg-4.3.1-20230221
+  #  volumes:
+  #    - ./videos:/videos
+  #  depends_on:
+  #    testrunner:
+  #      condition: service_healthy
 
+ #   environment:
+ #     - DISPLAY_CONTAINER_NAME=chrome
+ #     - FILE_NAME=chrome_video.mp4
+
+  file_forwarder:
+    image: gitlab.semdatex.de:5005/semdatex/sdx-file-forwarder:latest
+    container_name: "out"
+    ports:
+      - 2200:2200
+  #  volumes:
+    #  - type: bind
+        # example: source: "C:\cloverleav\complicated\folder\structure"
+       # source: C:\Users\dboiko\IdeaProjects\Second-sdx-testing-projects\input
+        # NOTE: the __NAME__ of the directory has to be the same as the NAME given in the environment!
+        #target: /mnt/test
     environment:
-      - DISPLAY_CONTAINER_NAME=chrome
-      - FILE_NAME=chrome_video.mp4
+      NAME: out
+      FORWARD_DQV_MSGS: on
+      DQV_TOKEN: -*-
+      DQV_URL: -*- (e.g. https://dcm1al4fpj.hub.doc-cirrus.com)
+      DQV_FILTERING: on
+      DQV_LOCATION_ID: -*-
+      DQV_USER_ID: -*-
+      DQV_DEVICE_TYPE: -*-
+      FORWARD_ICN_MSGS: "on"
+      ICN_TOKEN: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjdXNGM2OWpmRlNsVU5xR0xYaEl6RWE4YWZPdTI5ZlpQYkZRQk5hWEtnT3VCQVRYN3BqWUxIcHdjRk5mYnFWb3Ii.dB2wTg0fMAuRhGNk8YnVAsy7rGLFy2E2MSPjk0U_iB4"
+      ICN_URL: "https://cnx12003dp.hub.doc-cirrus.com"
+      ICN_FILTERING: on
+      ICN_LOCATION_ID: 000000000000000000000001
+      ICN_DEVICE_TYPE: Abbott
+      DEV_MODE: on
+      HOST: hostname
+    volumes:
+      - fileforwarder:/mnt/out
 
   testrunner:
     build: .
     environment:
       SELENIUM_WEBDRIVER_URL: http://chrome:4444
     volumes:
-      - type: bind
-        source: ./input
-        # XXX /testrunner hardcoded in the dockerfile instead testrunner-application should allow us to configure where the input path is
-        target: /testrunner/input
+      - fileforwarder:/input
     depends_on:
       chrome:
         condition: service_healthy
+      file_forwarder:
+        condition: service_started
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:3333" ]
       interval: 10s
       timeout: 10s
       retries: 6
+
+volumes:
+  fileforwarder:
