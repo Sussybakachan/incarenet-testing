@@ -13,6 +13,7 @@ import javax.swing.*;
 
 import java.net.URL;
 
+import static selenium.ChromeWebDriver.driver;
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
 
@@ -27,8 +28,8 @@ public class StartTesting {
         InsuiteServerConfig insuiteServerConfig = new InsuiteServerConfig();
         ReadingConfig rc = null;
         rc = new ReadingConfig();
-        //TODO ask Iman about how to put that into own class
-        initiateChromeWebDriver(rc);
+        ChromeWebDriver chromeWebDriver= new ChromeWebDriver();
+        chromeWebDriver.initiateChromeWebDriver(rc);
         LoggerLoader.info("Weitergegangen");
         try{
             insuiteServerConfig.getInSuiteURL();
@@ -67,24 +68,6 @@ public class StartTesting {
 
     }
 
-    private static void initiateChromeWebDriver(ReadingConfig rc) {
-        try {
-            //Use the remote chrom webdriver if the Env. variable is empty
-            String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
-            if(seleniumWebdriverURL == null){
-                System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--remote-allow-origins=*");
-                driver = new ChromeDriver(options);
-                LoggerLoader.info("Using local Chrome Webdriver");
-            } else {
-                ChromeOptions options = new ChromeOptions();
-                driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
-                LoggerLoader.info("Using Remote Chrome Webdriver");
-            }
-        } catch (Exception e) {
-            LoggerLoader.fatal(String.valueOf(e));
-        }
-    }
+
 
 }

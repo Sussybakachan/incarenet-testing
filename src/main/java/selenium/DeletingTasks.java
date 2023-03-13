@@ -8,7 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
-import static selenium.CompareTasksInCardio.driver;
+
+import static selenium.ChromeWebDriver.driver;
 import static selenium.CompareTasksInCardio.successfulTestCases;
 
 public class DeletingTasks {

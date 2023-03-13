@@ -5,7 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import static selenium.CompareTasksInCardio.driver;
+import static selenium.ChromeWebDriver.driver;
 
 //activateAllCrt = activateCrtFindingANDActivateCrtCriticalFindingANDActivateCrtParameter
 //findingParamActivatedCrt = activateCrtFindingANDDeactivateCrtCriticalFindingANDActivateCrtParameter

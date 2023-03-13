@@ -6,7 +6,8 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static selenium.CompareTasksInCardio.driver;
+import static selenium.ChromeWebDriver.driver;
+
 
 public class CollectTasks {
 

@@ -3,9 +3,7 @@ package selenium;
 import dsutilities.LoggerLoader;
 
 import java.io.IOException;
-
-
-import static selenium.CompareTasksInCardio.driver;
+import static selenium.ChromeWebDriver.driver;
 
 public class InsuiteServerConfig {
 

@@ -16,24 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static selenium.ChromeWebDriver.driver;
 import static selenium.PdfCheck.pdfCheck;
 
 
 public class CompareTasksInCardio {
-
-    //public static RemoteWebDriver driver;
-    static String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
-    static ChromeOptions options = new ChromeOptions();
-    public static RemoteWebDriver driver;
-
-    static {
-        try {
-            driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     static Actions action;
 
     static List<FailedTasks> listOfFailedTasksAndReason = new ArrayList<>();

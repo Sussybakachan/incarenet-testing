@@ -3,7 +3,7 @@ package dsutilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static selenium.CompareTasksInCardio.driver;
+import static selenium.ChromeWebDriver.driver;
 
 
 // import "import dsutilities.LoggerLoader;" into the class you want to use the logger
