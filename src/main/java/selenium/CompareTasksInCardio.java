@@ -5,19 +5,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static selenium.ChromeWebDriver.driver;
 import static selenium.PdfCheck.pdfCheck;
 
 
 public class CompareTasksInCardio {
-
-    public static WebDriver driver;
     static Actions action;
 
     static List<FailedTasks> listOfFailedTasksAndReason = new ArrayList<>();
@@ -30,12 +33,22 @@ public class CompareTasksInCardio {
 
     public static void loginP() throws InterruptedException, IOException {
         try{
+            Thread.sleep(10000);
+            System.out.println("test1");
             ReadingConfig rc = new ReadingConfig();
+            System.out.println("test2");
             driver.findElement(By.id("usernameField")).sendKeys(rc.loadProperty().getProperty("USERNAME"));
+            System.out.println(rc.loadProperty().getProperty("USERNAME"));
             Thread.sleep(2000);
             driver.findElement(By.id("passwordField")).sendKeys(rc.loadProperty().getProperty("PASSWORD"));
+            System.out.println(rc.loadProperty().getProperty("PASSWORD"));
+            Thread.sleep(2000);
+            System.out.println("test3");
+            boolean isDisplayed = driver.findElement(By.id("doLoginBtn")).isDisplayed();
+            System.out.println(isDisplayed);
             Thread.sleep(2000);
             driver.findElement(By.id("doLoginBtn")).click();
+            System.out.println("test4");
             Thread.sleep(8000);
         } catch (Exception e) {
             LoggerLoader.fatal("Login failed:\n Check config.properties or see if the server is unavailable");
@@ -45,6 +58,45 @@ public class CompareTasksInCardio {
 
     public static void inCardioDash() throws Exception {
         Thread.sleep(8000);
+  /*      try {
+            // Get the <html> element
+            WebElement htmlElement = driver.findElement(By.tagName("html"));
+
+// Get the inner HTML of the <html> element
+            String innerHTML = htmlElement.getAttribute("innerHTML");
+
+// Print the inner HTML to the console
+            System.out.println(innerHTML);
+        } catch (Exception l){
+            System.out.println("didn't work because :" + "\n"+ l);
+        }
+        try {
+            // Get the <html> element
+            WebElement htmlElement = driver.findElement(By.tagName("html"));
+
+// Get the inner HTML of the <html> element
+            String outerHTML = htmlElement.getAttribute("outerHTML");
+
+// Print the inner HTML to the console
+           LoggerLoader.info("Outer HTML: \n \n \n" + outerHTML);
+        } catch (Exception l){
+            System.out.println("didn't work because :" + "\n"+ l);
+        }
+
+*/
+        //driver.get("https://www.google.com/");
+        try {
+            boolean isDisplayed = driver.findElement(By.id("doLoginBtn")).isDisplayed();
+            System.out.println("login failed: " + isDisplayed + "\n Still on login page");
+        } catch (Exception bb){
+            System.out.println("not in login page anymore ");
+        }
+        try {
+            boolean isDisplayed = driver.findElement(By.xpath("/html/body/div[3]/nav/div/div[1]/a")).isDisplayed();
+            System.out.println("inSuite button: " +  isDisplayed);
+        } catch (Exception vv){
+            System.out.println("No inSuite button found");
+        }
         List<WebElement> p = driver.findElements(By.xpath("/html/body/div[4]/div[1]/div/div[1]/ul/li[@class='KoNavItem']"));
 
         int pp = p.size();

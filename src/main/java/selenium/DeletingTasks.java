@@ -11,7 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-import static selenium.CompareTasksInCardio.driver;
+
+import static selenium.ChromeWebDriver.driver;
 import static selenium.CompareTasksInCardio.successfulTestCases;
 
 public class DeletingTasks {

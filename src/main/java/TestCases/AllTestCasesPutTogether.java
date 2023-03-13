@@ -2,7 +2,7 @@ package TestCases;
 
 import org.openqa.selenium.By;
 
-import static selenium.CompareTasksInCardio.driver;
+import static selenium.ChromeWebDriver.driver;
 
 public class AllTestCasesPutTogether {
 

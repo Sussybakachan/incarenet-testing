@@ -15,7 +15,7 @@ public class BiotronikTestCases {
     GeneratedTasks g = new GeneratedTasks();
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
-    String fileDirectory = rootDir + "/src/main/resources/Selenium-IDCO-Files/Biotronik/";
+    String fileDirectory = rootDir + "/resources/Selenium-IDCO-Files/Biotronik/";
     String FfInputPath = rootDir + "/input/";
     String[] fileName;
 

@@ -19,7 +19,8 @@ import static SeleniumThresholds.TelemBIORepRow.*;
 import static SeleniumThresholds.TelemBSXRepRow.*;
 import static SeleniumThresholds.TelemMDTRepRow.*;
 import static SeleniumThresholds.TelemMicroportRepRow.*;
-import static selenium.CompareTasksInCardio.driver;
+import static selenium.ChromeWebDriver.driver;
+import static selenium.CompareTasksInCardio.successfulTestCases;
 
 public class ThresholdCheckMethod {
     static Actions action;

@@ -10,35 +10,25 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import javax.swing.*;
-
 import java.net.URL;
-
+import static selenium.ChromeWebDriver.driver;
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
 
 
 public class StartTesting {
 
+
     public static void main(String[] args) throws Exception {
         //  System.out.println(PatternTest.useRegex("2022-12-26T12:34:14.265Z"));
         //  System.out.println(PatternTest.useRegex("2022-12-26T12:34:14.265Z"));
         LoggerLoader.info("Automation test started");
-
+        InsuiteServerConfig insuiteServerConfig = new InsuiteServerConfig();
         ReadingConfig rc = null;
-        String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
-        try {
-            if(seleniumWebdriverURL != null){
-                ChromeOptions options = new ChromeOptions();
-                driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
-            } else {
-                rc = new ReadingConfig();
-                System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
-                driver = new ChromeDriver();
-            }
-
-        } catch (Exception e) {
-            LoggerLoader.fatal(String.valueOf(e));
-        }
+        rc = new ReadingConfig();
+        ChromeWebDriver chromeWebDriver= new ChromeWebDriver();
+        chromeWebDriver.initiateChromeWebDriver(rc);
+        LoggerLoader.info("Weitergegangen");
         try{
             driver.get(rc.loadProperty().getProperty("SERVER_URL"));
         } catch (Exception e){
@@ -56,9 +46,10 @@ public class StartTesting {
         loginP();
         inCardioDash();
 
-        AllTestCasesPutTogether allTestCasesPutTogether = new AllTestCasesPutTogether();
-        /*
+        //AllTestCasesPutTogether allTestCasesPutTogether = new AllTestCasesPutTogether();
+
         AbbottTestCases abbottTestCases = new AbbottTestCases();
+        /*
         //TODO method-> in utils.java
         //BiotronikTestCases biotronikTestCases = new BiotronikTestCases();
         //TODO method-> in utils.java

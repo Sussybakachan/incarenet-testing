@@ -15,7 +15,7 @@ public class MedtronicTestCases {
     String rootDir= System.getProperty("user.dir");
 //TODO need to make it ubuntu path
     GeneratedTasks g = new GeneratedTasks();
-    String fileDirectory = rootDir + "/src/main/resources/Selenium-IDCO-Files/Medtronic/";
+    String fileDirectory = rootDir + "/resources/Selenium-IDCO-Files/Medtronic/";
     String FfInputPath = rootDir + "/input/";
     String[] fileName;
 

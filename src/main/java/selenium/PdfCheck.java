@@ -4,7 +4,7 @@ package selenium;
 
 import com.testautomationguru.utility.PDFUtil;
 import org.openqa.selenium.By;
-import static selenium.CompareTasksInCardio.driver;
+
 
 import org.openqa.selenium.WebElement;
 import java.io.File;
@@ -12,6 +12,8 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Base64;
+
+import static selenium.ChromeWebDriver.driver;
 
 
 public class PdfCheck {
