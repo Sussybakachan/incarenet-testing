@@ -30,12 +30,13 @@ public class StartTesting {
         chromeWebDriver.initiateChromeWebDriver(rc);
         LoggerLoader.info("Weitergegangen");
         try{
-            driver.get(rc.loadProperty().getProperty("SERVER_URL"));
+            insuiteServerConfig.getInSuiteURL();
         } catch (Exception e){
             LoggerLoader.fatal(String.valueOf(e));
         }
 
         driver.manage().window().maximize();
+        LoggerLoader.info("Window maximized");
         js = (JavascriptExecutor) driver;
         action = new Actions(driver);
         // PasteFile.pasteFile("C:\\Users\\dboiko\\IdeaProjects\\Selenium-Plugin2\\hl7\\Atriale Arrhythmielast über dem Grenzwert.hl7", "C:\\File-Forwarder-Armee\\ff2\\input\\Atriale Arrhythmielast über dem Grenzwert.hl7");
