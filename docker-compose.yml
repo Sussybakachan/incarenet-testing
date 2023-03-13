@@ -1,4 +1,8 @@
 version: "3.9"
+
+x-inSuiteServerURL: &inSuiteServerURL
+  ICN_URL: https://cnx12003dp.hub.doc-cirrus.com
+
 services:
 
   chrome:
@@ -54,7 +58,7 @@ services:
       DQV_DEVICE_TYPE: -*-
       FORWARD_ICN_MSGS: "on"
       ICN_TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjdXNGM2OWpmRlNsVU5xR0xYaEl6RWE4YWZPdTI5ZlpQYkZRQk5hWEtnT3VCQVRYN3BqWUxIcHdjRk5mYnFWb3Ii.dB2wTg0fMAuRhGNk8YnVAsy7rGLFy2E2MSPjk0U_iB4
-      ICN_URL: https://cnx12003dp.hub.doc-cirrus.com
+      <<: *inSuiteServerURL
       ICN_FILTERING: on
       ICN_LOCATION_ID: 000000000000000000000001
       ICN_DEVICE_TYPE: Abbott
@@ -62,12 +66,12 @@ services:
       HOST: hostname
     volumes:
       - fileforwarder:/mnt/out
-#http://chrome:4444
+
   testrunner:
     build: .
     environment:
       SELENIUM_WEBDRIVER_URL: http://chrome:4444
-      INSUITE_URL: https://cnx12003dp.hub.doc-cirrus.com/
+      <<: *inSuiteServerURL
     volumes:
       - fileforwarder:/input
     depends_on:
