@@ -18,6 +18,7 @@ import java.util.Objects;
 
 import static selenium.ChromeWebDriver.driver;
 import static selenium.PdfCheck.pdfCheck;
+import static selenium.cleanupTasks.cleanupTasks;
 
 
 public class CompareTasksInCardio {
@@ -327,6 +328,12 @@ public class CompareTasksInCardio {
     }
 static int switchFrame = 0;
     public static void choosepatient(String p) throws InterruptedException {
+
+        cleanupTasks(p);
+        Thread.sleep(2000);
+        driver.switchTo().parentFrame();
+        driver.findElement(By.id("home")).click();
+        Thread.sleep(2000);
         if (switchFrame == 0){
             driver.switchTo().frame(0);
             switchFrame++;

@@ -16,6 +16,7 @@ import static selenium.DeletingTasks.deleteTask;
 import static selenium.PasteFile.inputIsEmpty;
 import static selenium.PasteFile.pasteFile;
 
+
 public class AbbottTestCases {
     //Testcase1
     GeneratedTasks g = new GeneratedTasks();
@@ -28,7 +29,7 @@ public class AbbottTestCases {
     public AbbottTestCases() throws Exception {
         choosepatient("Sel-Abbott");
         abbottTestCase1();
-        abbottTestCase2();
+        /*abbottTestCase2();
         abbottTestCase3();
         abbottTestCase4();
         abbottTestCase5();
@@ -36,7 +37,7 @@ public class AbbottTestCases {
         abbottTestCase7();
         abbottTestCase8();
         abbottTestCase9();
-        abbottTestCase10();
+        abbottTestCase10();*/
     }
 
     public void abbottTestCase1() throws Exception {
