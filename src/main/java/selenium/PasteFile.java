@@ -4,7 +4,9 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class PasteFile {
@@ -21,7 +23,7 @@ public class PasteFile {
         }
     }
 
-    public static void inputIsEmpty() throws InterruptedException {
+    public static void checkIfFilesGotSend(List<String> fileName) throws InterruptedException {
         File input = new File(System.getProperty("user.dir") + "/input");
 
         List<String> extensions = Arrays.asList("hl7", "xml");
@@ -36,6 +38,8 @@ public class PasteFile {
         }
 
         System.out.println("All files with extensions " + extensions + " have been processed or removed from the folder.");
+        Thread.sleep(5000);
+        checkUnsuccessfullySendFiles(input, fileName);
     }
 
 
@@ -64,6 +68,28 @@ public class PasteFile {
         return name.substring(lastDotIndex + 1);
     }
 
+    public static void checkUnsuccessfullySendFiles(File folder, List<String> originalPaths) {
+        Set<String> originalNames = new HashSet<>();
+
+        // Extract the original file names from the paths
+        for (String path : originalPaths) {
+            File file = new File(path);
+            originalNames.add(file.getName());
+        }
+
+        File[] files = folder.listFiles();
+
+        // Check if any file names have been modified to include ".ignore" or ".skipped"
+        for (File file : files) {
+            if (file.isFile() && !file.getName().equals(".ignore") &&
+                    (file.getName().endsWith(".ignore") || file.getName().endsWith(".skipped"))) {
+                String originalName = file.getName().substring(0, file.getName().lastIndexOf('.'));
+                if (originalNames.contains(originalName)) {
+                    System.out.println("File " + originalName + " has been modified to " + file.getName());
+                }
+            }
+        }
+    }
 /*
         while (!FileUtils.listFiles(input, null, true).isEmpty()) {
             // Wait for some time
