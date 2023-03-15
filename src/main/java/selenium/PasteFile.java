@@ -10,9 +10,9 @@ import java.util.Set;
 
 
 public class PasteFile {
-    static String pathToInput = System.getProperty("user.dir") + "input\\";
+     String pathToInput = System.getProperty("user.dir") + "input\\";
 
-    public static void pasteFile(String pathToOldHl7, String pathToInput) throws InterruptedException {
+    public void pasteFile(String pathToOldHl7, String pathToInput) throws InterruptedException {
         File source = new File(pathToOldHl7);
         File dest = new File(pathToInput);
 
@@ -23,7 +23,7 @@ public class PasteFile {
         }
     }
 
-    public static void checkIfFilesGotSend(List<String> fileName) throws InterruptedException {
+    public void checkIfFilesGotSend(List<String> fileName) throws InterruptedException {
         File input = new File(System.getProperty("user.dir") + "/input");
 
         List<String> extensions = Arrays.asList("hl7", "xml");
@@ -44,7 +44,7 @@ public class PasteFile {
 
 
 
-    private static boolean hasFilesWithExtensions(File input, List<String> extensions) {
+    private boolean hasFilesWithExtensions(File input, List<String> extensions) {
         // Get the list of files in the folder
         File[] files = input.listFiles();
 
@@ -59,7 +59,7 @@ public class PasteFile {
         return false;
     }
 
-    private static String getFileExtension(File file) {
+    private String getFileExtension(File file) {
         String name = file.getName();
         int lastDotIndex = name.lastIndexOf('.');
         if (lastDotIndex == -1) {
@@ -68,7 +68,7 @@ public class PasteFile {
         return name.substring(lastDotIndex + 1);
     }
 
-    public static void checkUnsuccessfullySendFiles(File folder, List<String> originalPaths) {
+    public void checkUnsuccessfullySendFiles(File folder, List<String> originalPaths) {
         Set<String> originalNames = new HashSet<>();
 
         // Extract the original file names from the paths
