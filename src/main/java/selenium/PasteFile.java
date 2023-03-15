@@ -1,5 +1,6 @@
 package selenium;
 
+import dsutilities.LoggerLoader;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -85,7 +86,7 @@ public class PasteFile {
                     (file.getName().endsWith(".ignore") || file.getName().endsWith(".skipped"))) {
                 String originalName = file.getName().substring(0, file.getName().lastIndexOf('.'));
                 if (originalNames.contains(originalName)) {
-                    System.out.println("File " + originalName + " has been modified to " + file.getName());
+                    LoggerLoader.info(originalName + " was not send to inCARDIO-Dashboard, file type was changed to:" + file.getName());
                 }
             }
         }
