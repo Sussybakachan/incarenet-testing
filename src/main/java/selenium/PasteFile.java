@@ -86,7 +86,7 @@ public class PasteFile {
                     (file.getName().endsWith(".ignore") || file.getName().endsWith(".skipped"))) {
                 String originalName = file.getName().substring(0, file.getName().lastIndexOf('.'));
                 if (originalNames.contains(originalName)) {
-                    LoggerLoader.info(originalName + " was not send to inCARDIO-Dashboard, file type was changed to:" + file.getName());
+                    LoggerLoader.error("\n\"" + originalName + "\" was not send to inCARDIO-Dashboard \n file extension was changed to: \"" + file.getName().substring(file.getName().lastIndexOf('.')) + "\"");
                 }
             }
         }
