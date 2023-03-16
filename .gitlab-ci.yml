@@ -16,4 +16,4 @@ build image:
       - docker build -t $CI_REGISTRY_IMAGE .
       - echo $CI_REGISTRY_IMAGE
       - docker push $CI_REGISTRY_IMAGE
-      - docker run -dt --name testing sdx-testing-projects
+      - docker run --rm testing sdx-testing-projects
