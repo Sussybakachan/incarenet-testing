@@ -12,8 +12,12 @@ build image:
     services:
       - docker:dind
     script:
-      - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
-      - docker build -t $CI_REGISTRY_IMAGE .
-      - echo $CI_REGISTRY_IMAGE
-      - docker push $CI_REGISTRY_IMAGE
-      - docker run --rm testing sdx-testing-projects
+      - apk add --no-cache podman
+      - podman login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+      - podman pull $CI_REGISTRY_IMAGE/semdatex/sdx-file-forwarder:latest
+      - podman run --rm -d --name out -p 2200:2200 -e NAME=out -e FORWARD_DQV_MSGS=on -e DQV_TOKEN=$DQV_TOKEN -e DQV_URL=$DQV_URL -e DQV_FILTERING=on -e DQV_LOCATION_ID=$DQV_LOCATION_ID -e DQV_USER_ID=$DQV_USER_ID -e DQV_DEVICE_TYPE=$DQV_DEVICE_TYPE -e FORWARD_ICN_MSGS=on -e ICN_TOKEN=$ICN_TOKEN -e ICN_URL=$ICN_URL -e ICN_FILTERING=on -e ICN_LOCATION_ID=$ICN_LOCATION_ID -e ICN_DEVICE_TYPE=$ICN_DEVICE_TYPE -e DEV_MODE=on -e HOST=hostname -v fileforwarder:/mnt/out $CI_REGISTRY_IMAGE/semdatex/sdx-file-forwarder:latest
+      - podman run --rm -it --name testrunner --link chrome:chrome -e SELENIUM_WEBDRIVER_URL=http://chrome:4444 -e ICN_URL=$ICN_URL -e ICN_LOCATION_ID=$ICN_LOCATION_ID -e ICN_DEVICE_TYPE=$ICN_DEVICE_TYPE -v fileforwarder:/input $CI_REGISTRY_IMAGE/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest python manage.py test
+    dependencies:
+      - chrome
+    variables:
+      DOCKER_TLS_CERTDIR: ""
