@@ -1,14 +1,16 @@
 package TestCases;
 
 import MedtronicTestCasesExpectedTasks.*;
+import selenium.PasteFile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static SeleniumThresholds.Deselect.deselectAll;
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
 import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
-import static selenium.PasteFile.inputIsEmpty;
-import static selenium.PasteFile.pasteFile;
 
 public class MedtronicTestCases {
     //Testcase1
@@ -17,6 +19,7 @@ public class MedtronicTestCases {
     GeneratedTasks g = new GeneratedTasks();
     String fileDirectory = rootDir + "/resources/Selenium-IDCO-Files/Medtronic/";
     String FfInputPath = rootDir + "/input/";
+    PasteFile sendingIdcoFile = new PasteFile();
     String[] fileName;
 
     public MedtronicTestCases() throws Exception {
@@ -36,11 +39,13 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 1);
         fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
+        List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase1.MedtronicTestCase1List, "Medtronic1", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -49,13 +54,15 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 2);
         fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%", "Medtronic Implant LV 76.95% 76.95% CRT", "Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%"};
+        List<String> originalPaths = new ArrayList<String>();
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase2.MedtronicTestCase2List, "Medtronic2", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -65,13 +72,15 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 3);
         fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%", "Medtronic Implant LV 76.95% 76.95% CRT", "Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%"};
+        List<String> originalPaths = new ArrayList<String>();
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase3.MedtronicTestCase3List, "Medtronic3", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -81,14 +90,16 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 4);
         fileName = new String[]{"Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%", "Medtronic Implant CRT 98.07% LV 98.07%", "Medtronic Implant LV 76.95% 76.95% CRT"};
+        List<String> originalPaths = new ArrayList<String>();
         for (int i = 0; i < fileName.length; i++) {
             String a = fileName[i];
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase4.MedtronicTestCase4List, "Medtronic4", g.getGeneratedTasks());
         deselectAll();
     }
@@ -97,13 +108,15 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 5);
         fileName = new String[]{"Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%", "Medtronic Implant CRT 98.07% LV 98.07%", "Medtronic Implant LV 76.95% 76.95% CRT"};
+        List<String> originalPaths = new ArrayList<String>();
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase5.MedtronicTestCase5List, "Medtronic5", g.getGeneratedTasks());
         deselectAll();
     }
@@ -112,13 +125,15 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 6);
         fileName = new String[]{"Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%", "Medtronic Implant CRT 98.07% LV 98.07%", "Medtronic Implant LV 76.95% 76.95% CRT"};
+        List<String> originalPaths = new ArrayList<String>();
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase6.MedtronicTestCase6List, "Medtronic6", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -128,13 +143,15 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 7);
         fileName = new String[]{"Medtronic Implant LV 76.95% 76.95% CRT", "Medtronic Implant added EOS and added LV 100%", "Medtronic Implant added ERI and added LV 100%"};
+        List<String> originalPaths = new ArrayList<String>();
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase7.MedtronicTestCase7List, "Medtronic7", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -144,11 +161,13 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 8);
         fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
+        List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0]  + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase8.MedtronicTestCase8List, "Medtronic8", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -158,11 +177,13 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 9);
         fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
+        List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase9.MedtronicTestCase9List, "Medtronic9", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -172,11 +193,13 @@ public class MedtronicTestCases {
         //Set Template needs to be done before
         thresholdCheck("Medtronic", 10);
         fileName = new String[]{"Medtronic Implant CRT 98.07% LV 98.07%"};
+        List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        inputIsEmpty();
+        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase10.MedtronicTestCase10List, "Medtronic10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
