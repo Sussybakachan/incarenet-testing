@@ -1,5 +1,7 @@
 inCARDIO-Dashboard-Selenium-test job:
   image: maven:3.8.5-openjdk-17
+  tags:
+    - testing-runner
   script:
     - echo "test123123"
 
@@ -14,3 +16,4 @@ build image:
       - docker build -t $CI_REGISTRY_IMAGE .
       - echo $CI_REGISTRY_IMAGE
       - docker push $CI_REGISTRY_IMAGE
+      - docker run -dt --name testing sdx-testing-projects
