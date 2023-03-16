@@ -6,7 +6,7 @@ inCARDIO-Dashboard-Selenium-test job:
 build image:
     image: docker
     tags:
-      - testing runner
+      - testing-runner
     services:
       - docker:dind
     script:
