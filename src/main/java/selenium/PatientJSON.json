@@ -1,0 +1,35 @@
+{
+  "jsonrpc": "2.0",
+  "method": "patient.savePatient",
+  "params": {
+    "query": {
+      "patientData": {
+        "addresses": [
+          {
+            "houseno": "",
+            "zip": "12068",
+            "city": "ad",
+            "kind": "OFFICIAL",
+            "country": "Deutschland",
+            "countryCode": "D"
+          }
+        ],
+        "firstname": "Hoya",
+        "lastname": "Se",
+        "partnerIds": [
+          {
+            "partnerId": "CARDIO",
+            "patientId": "13121312",
+            "selectedType": "Abbott"
+          }
+        ],
+        "dob": "2010-10-10T09:00:00.000Z",
+        "talk": "MR",
+        "gender": "MALE",
+        "locationId": "640f17f3f033b78f153e0e52"
+      }
+    },
+    "fields": []
+  },
+  "id": 10
+}
