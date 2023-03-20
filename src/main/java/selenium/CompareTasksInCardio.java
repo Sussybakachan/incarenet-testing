@@ -327,6 +327,7 @@ public class CompareTasksInCardio {
     }
 static int switchFrame = 0;
     public static void choosepatient(String p) throws InterruptedException {
+        try{
         if (switchFrame == 0){
             driver.switchTo().frame(0);
             switchFrame++;
@@ -336,6 +337,9 @@ static int switchFrame = 0;
         Thread.sleep(2000);
         driver.findElement(By.xpath("//td[@value=" + "'" + p + "'" + "]")).click();
         Thread.sleep(2000);
+    }catch (Exception e){
+        LoggerLoader.error("Patient or inCARDIO-Dashboard patient-search-input-field not found: " + p);
+        }
     }
 }
 
