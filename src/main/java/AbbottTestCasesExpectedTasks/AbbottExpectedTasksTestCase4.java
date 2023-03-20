@@ -2,14 +2,15 @@ package AbbottTestCasesExpectedTasks;
 
 import selenium.Task;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AbbottExpectedTasksTestCase4 {
-    public static List<Task> AbbottTestCase4List = new ArrayList<>();
-    static Task AbbottNoTask = new Task();
+    public static final List<Task> AbbottTestCase4List = new ArrayList<>();
 
-    public AbbottExpectedTasksTestCase4() {
+    @PostConstruct
+    private void initTask(){
         createAbbottNoTask();
     }
 
@@ -17,10 +18,9 @@ public class AbbottExpectedTasksTestCase4 {
     //new objects of the classes
     //I don't know if that makes a difference
     public static List<Task> createAbbottNoTask() {
-
-        //setCheckbox beinhaltet möglicherweise was anderes als ""
-        AbbottNoTask.setIntentioanllyEmpty(true);
-        AbbottTestCase4List.add(AbbottNoTask);
+        Task abbottNoTask = new Task();
+        abbottNoTask.setIntentioanllyEmpty(true);
+        AbbottTestCase4List.add(abbottNoTask);
         return AbbottTestCase4List;
     }
 }

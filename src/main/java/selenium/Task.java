@@ -6,18 +6,20 @@ import java.util.Objects;
 
 public class Task {
 
-    private String checkBox;
+    private String checkBox = "";
     private String color;
     private boolean isIntentioanllyEmpty;
     private String startDate;
     private String receiveDate;
     private String targetDate;
     private String taskDescription;
-    private String measurements;
+    private String measurements = "Bitte auswählen";
     private String pdf;
-    private String employee;
-    private String furtherInformation;
+    private String employee = "";
+    private String furtherInformation = "";
     private String action;
+
+
 
     @Override
     public boolean equals(Object o) {
