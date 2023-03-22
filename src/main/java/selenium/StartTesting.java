@@ -2,15 +2,10 @@ package selenium;
 
 import TestCases.*;
 import dsutilities.LoggerLoader;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import javax.swing.*;
-import java.net.URL;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
+
 import static selenium.ChromeWebDriver.driver;
 import static selenium.CompareTasksInCardio.*;
 import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;

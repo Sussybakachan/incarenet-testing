@@ -337,6 +337,32 @@ static int switchFrame = 0;
         driver.findElement(By.xpath("//td[@value=" + "'" + p + "'" + "]")).click();
         Thread.sleep(2000);
     }
+
+    public static void activateImplant(String p) throws InterruptedException {
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/button")).click();
+        Thread.sleep(2000);
+        if (switchFrame == 0){
+            driver.switchTo().frame(0);
+            switchFrame++;
+        }
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//table/tbody/tr/td[2]/div/div/input")).sendKeys(p);
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//td[@value=" + "'" + p + "'" + "]")).click();
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("//div[2]/label[1]/span[1]/span[1]/input")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//header/div/div[2]/button[1]")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div/div[1]/div[1]/button")).click();
+        Thread.sleep(2000);
+
+
+        //*[@id="root"]/div/div[2]/div[2]/div/div/div[1]/div[3]/div[2]/label[1]/span[1]/span[1]/input
+    }
+
+
 }
 
 

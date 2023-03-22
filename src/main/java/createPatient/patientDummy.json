@@ -1,0 +1,25 @@
+{
+  "firstname": "",
+  "lastname": "",
+  "addresses": [
+    {
+      "houseno": "",
+      "zip": "12021",
+      "city": "dede",
+      "kind": "OFFICIAL",
+      "country": "Deutschland",
+      "countryCode": "D"
+    }
+  ],
+  "partnerIds": [
+    {
+      "partnerId": "CARDIO",
+      "patientId": "",
+      "selectedType": "Abbott"
+    }
+  ],
+  "gender": "MALE",
+  "dob": "01.01.2020",
+  "locationId": "640f17f3f033b78f153e0e52",
+  "employees": "63036eea660b9eb883335f11"
+}

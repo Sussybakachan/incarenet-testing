@@ -1,4 +1,4 @@
-package selenium;
+package createPatient;
 
 public class PatientData {
     private String patiendID;
