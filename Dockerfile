@@ -2,6 +2,8 @@ FROM maven:3.8.5-openjdk-17 AS build
 
 WORKDIR /builddir
 
+#xxx don't copy the whole resouces only log4j2.properties is actually needed though
+#with a change the pom.xml needs to be changed too
 COPY resources resources
 
 COPY src src
