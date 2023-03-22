@@ -2,7 +2,7 @@ FROM maven:3.8.5-openjdk-17 AS build
 
 WORKDIR /builddir
 
-#COPY . .
+COPY resources resources
 
 COPY src src
 
@@ -17,4 +17,4 @@ COPY resources resources
 
 COPY --from=build /builddir/target target
 
-ENTRYPOINT ["java", "-jar", "target/build-jar-inside-docker-1.jar"]
+ENTRYPOINT ["java", "-jar", "target/sdx-testing-projects.jar"]
