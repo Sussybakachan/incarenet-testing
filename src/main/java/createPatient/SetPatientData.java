@@ -11,20 +11,18 @@ import com.google.gson.JsonObject;
 
 
 
-public class setPatientData {
+public class SetPatientData {
+    private static String firstName;
+    private static String lastName;
+    private static String patientId;
 
-    public static void main (String[] args) throws IOException {
-        setPatientData();
-
+    public SetPatientData(String firstName, String lastName, String patientId){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.patientId = patientId;
     }
 
     public static void setPatientData() throws IOException {
-
-        String [] namesAndId = randomNameAndIdGenerator();
-
-        String firstName = namesAndId[0];
-        String lastName = namesAndId[1];
-        String patientId = namesAndId[2];
 
         Gson gson = new Gson();
         JsonObject jsonObject = gson.fromJson(new FileReader("/home/fernand/IdeaProjects/sdx-testing-projects/src/main/java/createPatient/patientDummy.json"), JsonObject.class);
@@ -54,8 +52,8 @@ public class setPatientData {
                 .get(0)
                 .getAsJsonObject()
                 .addProperty("patientId", patientId);
-
 /*
+
 if (testcase == Abbott) {
             jsonObject.getAsJsonArray("partnerIds")
                     .get(0)
@@ -83,10 +81,12 @@ if (testcase == Abbott) {
                     .addProperty("selectedType", "Biotronic");
         }
 
+
 */
 
 
-        FileWriter fileWriter = new FileWriter("patientDummy.json");
+
+        FileWriter fileWriter = new FileWriter("/home/fernand/IdeaProjects/sdx-testing-projects/src/main/java/createPatient/PatientData.json");
         gson.toJson(jsonObject, fileWriter);
         fileWriter.flush();
         fileWriter.close();

@@ -1,4 +1,4 @@
-package dsutilities;
+package createPatient;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,9 +7,16 @@ import java.io.IOException;
 
 public class UpdatingHL7{
 
+    private static String patientId;
+
+    public UpdatingHL7(String patientId){
+
+        this.patientId = patientId;
+
+    }
+
     public static void updatingHL7() throws IOException {
 
-        String patientId= "0202022";
         String rootDir= System.getProperty("user.dir");
         String fileDirectory = rootDir + "/resources/Selenium-IDCO-Files/Abbott/";
         String modifiedFileDirectory = rootDir + "/resources/Modified Selenium-IDCO-Files/Abbott/";
@@ -44,7 +51,7 @@ public class UpdatingHL7{
                         String field = fields[j];
                         if (field.startsWith("serial:")) {
                             // Replace the old serial number with the new one
-                            String newField = field.replaceAll("8383831", "212121");
+                            String newField = field.replaceAll("8383831", patientId);
                             fields[j] = newField;
                             break;
                         }
