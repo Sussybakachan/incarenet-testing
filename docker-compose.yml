@@ -2,7 +2,7 @@ version: "3.9"
 
 x-inSuiteServerURL: &inSuiteServerURL
   #ICN_URL needs to keep the name for the file-forwarder to work with this
-  ICN_URL: https://cnx12003dp.hub.doc-cirrus.com
+  ICN_URL: "https://cnx12003dp.hub.doc-cirrus.com"
 
 services:
 

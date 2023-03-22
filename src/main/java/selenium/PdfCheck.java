@@ -1,17 +1,15 @@
 package selenium;
 
 
-
 import com.testautomationguru.utility.PDFUtil;
 import org.openqa.selenium.By;
-
-
 import org.openqa.selenium.WebElement;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.List;
 import java.util.Base64;
+import java.util.List;
 
 import static selenium.ChromeWebDriver.driver;
 
@@ -36,11 +34,9 @@ public class PdfCheck {
                 driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div/div/table/tbody/tr[2]/td[8]/ol/li[" + i + "]/a")).click();
                 Thread.sleep(3000);
                 String src = driver.findElement(By.xpath("/html/body/div[4]/div[3]/iframe")).getAttribute("src");
-                System.out.println(src);
 
                 String[] arrOfStr = src.split(",");
                 String text = arrOfStr[1];
-                System.out.println(text);
 
                 byte[] decoded = Base64.getDecoder().decode(text);
                 File file = new File("./test.pdf");
@@ -52,7 +48,7 @@ public class PdfCheck {
                 Thread.sleep(2000);
             }
 
-            String expectedPdf = "./src/main/java/ExpectedTasks/expected.pdf";
+            String expectedPdf = "./resources/Expected-Task-PDF/expected.pdf";
             String actualPdf = "./test.pdf";
 
             PDFUtil pdfUtil = new PDFUtil();
