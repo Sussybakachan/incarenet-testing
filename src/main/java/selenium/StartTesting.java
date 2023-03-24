@@ -28,6 +28,7 @@ public class StartTesting {
         rc = new ReadingConfig();
         ChromeWebDriver chromeWebDriver= new ChromeWebDriver();
         chromeWebDriver.initiateChromeWebDriver(rc);
+        shutdownHook.addShutdownHookStop();
         LoggerLoader.info("Weitergegangen");
         try{
             insuiteServerConfig.getInSuiteURL();
