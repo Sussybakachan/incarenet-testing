@@ -1,12 +1,13 @@
 package TestCases;
 
+import helpers.fileForwarder.FileForwarderSender;
 import org.openqa.selenium.By;
 
 import static selenium.ChromeWebDriver.driver;
 
 public class AllTestCasesPutTogether {
 
-    public AllTestCasesPutTogether() throws Exception {
+    public AllTestCasesPutTogether(FileForwarderSender.Options options) throws Exception {
         new AbbottTestCases();
         goToICDPatientList();
         new BostonTestCases();

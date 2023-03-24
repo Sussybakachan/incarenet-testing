@@ -38,7 +38,7 @@ public class AbbottTestCases {
 
         this.fileSender = options.fileSender;
 
-        fileSender = new FileForwarderSender();
+        fileSender = new FileForwarderSender(new FileForwarderSender.Options(options));
 
         abbottTestCase1();
         abbottTestCase2();
@@ -78,159 +78,128 @@ public class AbbottTestCases {
 
     public void abbottTestCase2() throws Exception {
         thresholdCheck("Abbott", 2);
-        fileNames = new String[]{"Abbott Implant CRT 84%"};
-        List<String> originalPaths = new ArrayList<String>();
-        String pathToOldHl7 = fileDirectory + fileNames[0] + ".hl7";
-        String pathToInput = FfInputPath + fileNames[0] + ".hl7";
-        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-        originalPaths.add(pathToOldHl7);
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List, "Abbott2", g.getGeneratedTasks());
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deleteTask();
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
     public void abbottTestCase3() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 3);
-        fileNames = new String[]{"Abbott Implant CRT 84%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT", "Abbott Implant CRT 96%"};
-        List<String> originalPaths = new ArrayList<String>();
-        for (int i = 0; i < fileNames.length; i++) {
-            String pathToOldHl7 = fileDirectory + fileNames[i] + ".hl7";
-            String pathToInput = FfInputPath + fileNames[i] + ".hl7";
-            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-            originalPaths.add(pathToOldHl7);
-        }
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase3.AbbottTestCase3List, "Abbott3", g.getGeneratedTasks());
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7", "Abbott Implant CRT 96%.hl7"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deleteTask();
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
     public void abbottTestCase4() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 4);
-        fileNames = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
-        List<String> originalPaths = new ArrayList<String>();
-        for (int i = 0; i < fileNames.length; i++) {
-            String pathToOldHl7 = fileDirectory + fileNames[i] + ".hl7";
-            String pathToInput = FfInputPath + fileNames[i] + ".hl7";
-            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-            originalPaths.add(pathToOldHl7);
-        }
-        ;
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase4.AbbottTestCase4List, "Abbott4", g.getGeneratedTasks());
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7", "Abbott Implant CRT 96%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
     public void abbottTestCase5() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 5);
-        fileNames = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
-        List<String> originalPaths = new ArrayList<String>();
-        for (int i = 0; i < fileNames.length; i++) {
-            String pathToOldHl7 = fileDirectory + fileNames[i] + ".hl7";
-            String pathToInput = FfInputPath + fileNames[i] + ".hl7";
-            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-            originalPaths.add(pathToOldHl7);
-        }
-        ;
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase5.AbbottTestCase5List, "Abbott5", g.getGeneratedTasks());
+
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7", "Abbott Implant CRT 96%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
     public void abbottTestCase6() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 6);
-        fileNames = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
-        List<String> originalPaths = new ArrayList<String>();
-        for (int i = 0; i < fileNames.length; i++) {
-            String pathToOldHl7 = fileDirectory + fileNames[i] + ".hl7";
-            String pathToInput = FfInputPath + fileNames[i] + ".hl7";
-            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-            originalPaths.add(pathToOldHl7);
-        }
-        ;
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase6.AbbottTestCase6List, "Abbott6", g.getGeneratedTasks());
+
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7", "Abbott Implant CRT 96%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deleteTask();
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
     public void abbottTestCase7() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 7);
-        fileNames = new String[]{"Abbott Implant manipulated Batt-stat ERI added 100% CRT", "Abbott Implant CRT 84%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT",};
-        List<String> originalPaths = new ArrayList<String>();
-        for (int i = 0; i < fileNames.length; i++) {
-            String pathToOldHl7 = fileDirectory + fileNames[i] + ".hl7";
-            String pathToInput = FfInputPath + fileNames[i] + ".hl7";
-            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-            originalPaths.add(pathToOldHl7);
-        }
-        ;
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase7.AbbottTestCase7List, "Abbott7", g.getGeneratedTasks());
+
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant manipulated Batt-stat ERI added 100% CRT", "Abbott Implant CRT 84%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deleteTask();
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
     public void abbottTestCase8() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 8);
-        fileNames = new String[]{"Abbott Implant CRT 96%"};
-        List<String> originalPaths = new ArrayList<String>();
-        String pathToOldHl7 = fileDirectory + fileNames[0] + ".hl7";
-        String pathToInput = FfInputPath + fileNames[0] + ".hl7";
-        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-        originalPaths.add(pathToOldHl7);
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase8.AbbottTestCase8List, "Abbott8", g.getGeneratedTasks());
+
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 96%"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deleteTask();
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
     public void abbottTestCase9() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 9);
-        fileNames = new String[]{"Abbott Implant CRT 84%"};
-        List<String> originalPaths = new ArrayList<String>();
-        String pathToOldHl7 = fileDirectory + fileNames[0] + ".hl7";
-        String pathToInput = FfInputPath + fileNames[0] + ".hl7";
-        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-        originalPaths.add(pathToOldHl7);
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List, "Abbott9", g.getGeneratedTasks());
+
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deleteTask();
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
     public void abbottTestCase10() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 10);
-        fileNames = new String[]{"Abbott Implant CRT 84%", "Abbott Implant CRT 96%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT", "Abbott Implant manipulated Batt-stat ERI added 100% CRT"};
-        List<String> originalPaths = new ArrayList<String>();
-        for (int i = 0; i < fileNames.length; i++) {
-            String pathToOldHl7 = fileDirectory + fileNames[i] + ".hl7";
-            String pathToInput = FfInputPath + fileNames[i] + ".hl7";
-            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
-            originalPaths.add(pathToOldHl7);
-        }
-        ;
-        Thread.sleep(3000);
-        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
-        compareCrt(AbbottExpectedTasksTestCase10.AbbottTestCase10List, "Abbott10", g.getGeneratedTasks());
+
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7", "Abbott Implant CRT 96%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7"});
+
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deleteTask();
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
         deselectAll();
     }
 
