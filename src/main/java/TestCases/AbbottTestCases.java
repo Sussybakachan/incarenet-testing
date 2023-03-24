@@ -1,6 +1,8 @@
 package TestCases;
 
 import AbbottTestCasesExpectedTasks.*;
+import helpers.fileForwarder.FileForwarderSender;
+import helpers.interfaces.FileSender;
 import selenium.PasteFile;
 
 import java.io.File;
@@ -13,7 +15,14 @@ import static selenium.CompareTasksInCardio.choosepatient;
 import static selenium.CompareTasksInCardio.compareCrt;
 import static selenium.DeletingTasks.deleteTask;
 
+
+
 public class AbbottTestCases {
+
+    public record Options (
+       FileSender fileSender
+    ){};
+
     //Testcase1
     GeneratedTasks g = new GeneratedTasks();
     String rootDir = System.getProperty("user.dir");
@@ -21,12 +30,16 @@ public class AbbottTestCases {
 
     //TODO questrich at the end of fileDirectory
     String fileDirectory = rootDir + "/resources/Selenium-IDCO-Files/Abbott/";
-    File FfInputPath = new File(rootDir) + "/input/";
-    PasteFile sendingIdcoFile = new PasteFile();
+    private FileSender fileSender;
     String[] fileNames;
 
-    public AbbottTestCases() throws Exception {
+    public AbbottTestCases(Options options) throws Exception {
         choosepatient("Sel-Abbott");
+
+        this.fileSender = options.fileSender;
+
+        fileSender = new FileForwarderSender();
+
         abbottTestCase1();
         abbottTestCase2();
         abbottTestCase3();
@@ -44,11 +57,16 @@ public class AbbottTestCases {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 1);
 
-        sendIdcoFiles({"Abbott Implant CRT 84%"});
+        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7"});
 
-        Thread.sleep(5000);
+        // XXX: Should make a function that is more specific to what is needed in this test case.
+        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
 
-        checkIfTaskListMatches("sdafaasdf");
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
+        deleteTask();
+        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
+        deselectAll();
+    }
 
 
 //        sendingIdcoFile.checkUnsuccessfullySendFiles(FfInputPath, fileNames);
