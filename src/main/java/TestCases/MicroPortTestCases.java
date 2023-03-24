@@ -43,7 +43,7 @@ public class MicroPortTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
             String pathToInput = FfInputPath + fileName[i] + ".json";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -59,7 +59,7 @@ public class MicroPortTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
             String pathToInput = FfInputPath + fileName[i] + ".json";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -76,7 +76,7 @@ public class MicroPortTestCases {
         List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".json";
         String pathToInput = FfInputPath + fileName[0] + ".json";
-        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
         sendingIdcoFile.checkIfFilesGotSend(originalPaths);
@@ -92,7 +92,7 @@ public class MicroPortTestCases {
         List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".json";
         String pathToInput = FfInputPath + fileName[0] + ".json";
-        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
         sendingIdcoFile.checkIfFilesGotSend(originalPaths);
@@ -108,7 +108,7 @@ public class MicroPortTestCases {
         List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".json";
         String pathToInput = FfInputPath + fileName[0] + ".json";
-        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
         sendingIdcoFile.checkIfFilesGotSend(originalPaths);
@@ -125,7 +125,7 @@ public class MicroPortTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
             String pathToInput = FfInputPath + fileName[i] + ".json";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -142,7 +142,7 @@ public class MicroPortTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
             String pathToInput = FfInputPath + fileName[i] + ".json";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -160,7 +160,7 @@ public class MicroPortTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
             String pathToInput = FfInputPath + fileName[i] + ".json";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -178,7 +178,7 @@ public class MicroPortTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".json";
             String pathToInput = FfInputPath + fileName[i] + ".json";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);

@@ -42,7 +42,7 @@ public class MedtronicTestCases {
         List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
         sendingIdcoFile.checkIfFilesGotSend(originalPaths);
@@ -58,7 +58,7 @@ public class MedtronicTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -76,7 +76,7 @@ public class MedtronicTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -95,7 +95,7 @@ public class MedtronicTestCases {
             String a = fileName[i];
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -112,7 +112,7 @@ public class MedtronicTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -129,7 +129,7 @@ public class MedtronicTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -147,7 +147,7 @@ public class MedtronicTestCases {
         for (int i = 0; i < fileName.length; i++) {
             String pathToOldHl7 = fileDirectory + fileName[i] + ".hl7";
             String pathToInput = FfInputPath + fileName[i] + ".hl7";
-            sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+            sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
@@ -164,7 +164,7 @@ public class MedtronicTestCases {
         List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0]  + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
         sendingIdcoFile.checkIfFilesGotSend(originalPaths);
@@ -180,7 +180,7 @@ public class MedtronicTestCases {
         List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
         sendingIdcoFile.checkIfFilesGotSend(originalPaths);
@@ -196,7 +196,7 @@ public class MedtronicTestCases {
         List<String> originalPaths = new ArrayList<String>();
         String pathToOldHl7 = fileDirectory + fileName[0] + ".hl7";
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
-        sendingIdcoFile.pasteFile(pathToOldHl7, pathToInput);
+        sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
         sendingIdcoFile.checkIfFilesGotSend(originalPaths);
