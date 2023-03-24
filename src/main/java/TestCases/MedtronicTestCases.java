@@ -45,7 +45,7 @@ public class MedtronicTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase1.MedtronicTestCase1List, "Medtronic1", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -62,7 +62,7 @@ public class MedtronicTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase2.MedtronicTestCase2List, "Medtronic2", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -80,7 +80,7 @@ public class MedtronicTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase3.MedtronicTestCase3List, "Medtronic3", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -99,7 +99,7 @@ public class MedtronicTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase4.MedtronicTestCase4List, "Medtronic4", g.getGeneratedTasks());
         deselectAll();
     }
@@ -116,7 +116,7 @@ public class MedtronicTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase5.MedtronicTestCase5List, "Medtronic5", g.getGeneratedTasks());
         deselectAll();
     }
@@ -133,7 +133,7 @@ public class MedtronicTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase6.MedtronicTestCase6List, "Medtronic6", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -151,7 +151,7 @@ public class MedtronicTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase7.MedtronicTestCase7List, "Medtronic7", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -167,7 +167,7 @@ public class MedtronicTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase8.MedtronicTestCase8List, "Medtronic8", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -183,7 +183,7 @@ public class MedtronicTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase9.MedtronicTestCase9List, "Medtronic9", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -199,7 +199,7 @@ public class MedtronicTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MedtronicExpectedTasksTestCase10.MedtronicTestCase10List, "Medtronic10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();

@@ -49,7 +49,7 @@ public class BostonTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase1.BostonTestCase1List, "Boston1", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -66,7 +66,7 @@ public class BostonTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase2.BostonTestCase2List, "Boston2", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -85,7 +85,7 @@ public class BostonTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase3.BostonTestCase3List, "Boston3", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -103,7 +103,7 @@ public class BostonTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase4.BostonTestCase4List, "Boston4", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -120,7 +120,7 @@ public class BostonTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase5.BostonTestCase5List, "Boston5", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -136,7 +136,7 @@ public class BostonTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase6.BostonTestCase6List, "Boston6", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -152,7 +152,7 @@ public class BostonTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase7.BostonTestCase7List, "Boston7", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -170,7 +170,7 @@ public class BostonTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase8.BostonTestCase8List, "Boston8", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -188,7 +188,7 @@ public class BostonTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase9.BostonTestCase9List, "Boston9", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -206,7 +206,7 @@ public class BostonTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase10.BostonTestCase10List, "Boston10", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -224,7 +224,7 @@ public class BostonTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase11.BostonTestCase11List, "Boston11", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -242,7 +242,7 @@ public class BostonTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BostonExpectedTasksTestCase12.BostonTestCase12List, "Boston12", g.getGeneratedTasks());
         deleteTask();
         deselectAll();

@@ -29,12 +29,7 @@ public class PasteFile {
 
         List<String> extensions = Arrays.asList("hl7", "json");
         while (hasFilesWithExtensions(input, extensions)) {
-            try {
-                // Wait for 1 second before checking again
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Thread.sleep(1000);
         }
     }
 

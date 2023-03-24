@@ -39,6 +39,7 @@ public class AbbottTestCases {
         abbottTestCase10();
     }
 
+    // When an abott ico filee is sent, a corresponding task has been generated correctly.
     public void abbottTestCase1() throws Exception {
         //Set Template needs to be done before
         thresholdCheck("Abbott", 1);

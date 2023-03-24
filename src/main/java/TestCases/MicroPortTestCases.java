@@ -47,7 +47,7 @@ public class MicroPortTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase1.MicroPortTestCase1List, "MicroPort1", g.getGeneratedTasks());
         deselectAll();
 }
@@ -63,7 +63,7 @@ public class MicroPortTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase2.MicroPortTestCase2List, "MicroPort2", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -79,7 +79,7 @@ public class MicroPortTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase3.MicroPortTestCase3List, "MicroPort3", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -95,7 +95,7 @@ public class MicroPortTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase4.MicroPortTestCase4List, "MicroPort4", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -111,7 +111,7 @@ public class MicroPortTestCases {
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase5.MicroPortTestCase5List, "MicroPort5", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -129,7 +129,7 @@ public class MicroPortTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase6.MicroPortTestCase6List, "MicroPort6", g.getGeneratedTasks());
         deselectAll();
     }
@@ -146,7 +146,7 @@ public class MicroPortTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase7.MicroPortTestCase7List, "MicroPort7", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -164,7 +164,7 @@ public class MicroPortTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase8.MicroPortTestCase8List, "MicroPort8", g.getGeneratedTasks());
         deleteTask();
         deselectAll();
@@ -182,7 +182,7 @@ public class MicroPortTestCases {
             originalPaths.add(pathToOldHl7);
         };
         Thread.sleep(3000);
-        sendingIdcoFile.checkIfFilesGotSend(originalPaths);
+        sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(MicroPortExpectedTasksTestCase9.MicroPortTestCase9List, "MicroPort9", g.getGeneratedTasks());
         deselectAll();
     }
