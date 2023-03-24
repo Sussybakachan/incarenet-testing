@@ -1,13 +1,8 @@
 package TestCases;
 
-import AbbottTestCasesExpectedTasks.*;
+import AbbottTestCasesExpectedTasks.AbbottExpectedTasksTestCase1;
 import helpers.fileForwarder.FileForwarderSender;
 import helpers.interfaces.FileSender;
-import selenium.PasteFile;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import static SeleniumThresholds.Deselect.deselectAll;
 import static SeleniumThresholds.ThresholdCheckMethod.thresholdCheck;
@@ -38,7 +33,7 @@ public class AbbottTestCases {
 
         this.fileSender = options.fileSender;
 
-        fileSender = new FileForwarderSender(new FileForwarderSender.Options(options));
+        fileSender = new FileForwarderSender(new FileForwarderSender.Options("/input", 10000, new String[]{"ignored", "skipped"}));
 
         abbottTestCase1();
         abbottTestCase2();
@@ -74,7 +69,7 @@ public class AbbottTestCases {
 //        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
 //        deleteTask();
 //        deselectAll();
-    }
+
 
     public void abbottTestCase2() throws Exception {
         thresholdCheck("Abbott", 2);
