@@ -1,4 +1,4 @@
-package TestCases;
+package patientHistoryTest;
 
 import dsutilities.LoggerLoader;
 import org.openqa.selenium.By;
@@ -11,49 +11,29 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
-
 import static selenium.ChromeWebDriver.driver;
 
-public class PatientHistory {
+public class ReadHistoryTable {
 
-    public static List<String> taskTableData = new ArrayList<>();
     public static List<String> filteredData = new ArrayList<>();
-
-    public static void patientHistory() {
-
-        try {
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/div[2]")).click();
-        Thread.sleep(5000);
-        readTable();
-        Thread.sleep(2000);
-        driver.findElement(By.xpath("//div[2]/div[1]/div[4]")).click();
-        Thread.sleep(2000);
-        readHistoryTable();
-        Thread.sleep(2000);
-        compareTaskHistory();
-        Thread.sleep(2000);
-        }
-        catch (Exception e){
-            LoggerLoader.info("the test didn't pass, means that the date, time and description in the patient History doesn't match with the task");
-        }
-
-    }
-
     public static void readHistoryTable() {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
 
-        List<WebElement> rows = driver.findElements(By.xpath("//*[@id=\"history-table\"]/div"));
+        //parse the table with list of actions in the history table
 
-        int rowsNumber = rows.size();
+        List<WebElement> actions = driver.findElements(By.xpath("//*[@class = \"row history-table-row\"]"));
 
-        if (rowsNumber == 1) {
+        int numberOfActions = actions.size();
+        System.out.println("numberOfActions" + numberOfActions);
+
+        if (numberOfActions == 0) {
 
             LoggerLoader.info("There are no tasks and activities detected");
 
         }
 
-        LoggerLoader.info(rowsNumber + " rows including Date, Tasks and activities got detected");
+        LoggerLoader.info(numberOfActions + " rows including Date, Tasks and activities got detected");
 
 
         LocalDate targetDate = LocalDate.now(); //LocalDate.of(2023, 3, 27); if you want an exact date
@@ -67,12 +47,10 @@ public class PatientHistory {
 
             boolean foundEvents = false;
 
-            for (int i = 2; i < rowsNumber; i++) {
-
-                List<WebElement> cells = driver.findElements(By.xpath("//*[@id=\"history-table\"]/div[" + i + "]/div/div"));
-                String dateTimeSecondString = cells.get(0).getText();
-                String event = cells.get(1).getText();
-
+            for (WebElement action:actions) {
+                List<WebElement> actionColumns = action.findElements(By.tagName("div"));
+                String dateTimeSecondString = actionColumns.get(0).getText();
+                String event = actionColumns.get(1).getText();
                 LocalDateTime dateTime;
 
                 try {
@@ -116,6 +94,7 @@ public class PatientHistory {
                 break;
             }
 
+            //click Next button to visit the next page
             WebElement nextPage = driver.findElement(By.xpath("//div[12]/div[2]/button[2]"));
 
             if (nextPage.isEnabled()) {
@@ -129,40 +108,5 @@ public class PatientHistory {
         LoggerLoader.info(filteredData.toString());
     }
 
-    public static void readTable() {
-        List<WebElement> rows = driver.findElements(By.xpath("//table/tbody[@class]/tr[@index]"));
-        int s = rows.size();
-
-        if (s == 0 ) {
-            LoggerLoader.info("There are no tasks");
-            s = 0;
-
-        }
-
-        LoggerLoader.info(s + " Tasks got detected");
-
-        for (int i = 2; i < s + 2; i++) {
-
-
-            List<WebElement> cells = driver.findElements(By.xpath("//div[2]/div/div/div/table/tbody/tr["+ i +"]/td"));
-            String receiveDate = cells.get(3).getText();
-            String description = cells.get(5).getText();
-
-            String taskDeskription = description.replace("\n", ", ");
-
-            taskTableData.add(receiveDate +" : "+ taskDeskription);
-
-        }
-
-        LoggerLoader.info(taskTableData.toString());
-    }
-
-    public static void compareTaskHistory() {
-
-        if (taskTableData.equals(filteredData)){
-            LoggerLoader.info("The Actions sent to Patient history are the same as the ones from the Task Tab ");
-        }
-        LoggerLoader.info("The Actions are not identical as the one from the Task Tab");
-    }
 
 }
