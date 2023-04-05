@@ -7,8 +7,9 @@ import static selenium.ChromeWebDriver.driver;
 
 public class AllTestCasesPutTogether {
 
-    public AllTestCasesPutTogether(FileForwarderSender.Options options) throws Exception {
-        new AbbottTestCases();
+    public AllTestCasesPutTogether() throws Exception {
+       var fileSender = new FileForwarderSender(new FileForwarderSender.Options("/input", 10000, new String[]{"ignored", "skipped"}));
+        new AbbottTestCases(fileSender);
         goToICDPatientList();
         new BostonTestCases();
         goToICDPatientList();

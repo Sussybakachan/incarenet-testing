@@ -33,8 +33,6 @@ public class AbbottTestCases {
 
         this.fileSender = options.fileSender;
 
-        fileSender = new FileForwarderSender(new FileForwarderSender.Options("/input", 10000, new String[]{"ignored", "skipped"}));
-
         abbottTestCase1();
         abbottTestCase2();
         abbottTestCase3();
