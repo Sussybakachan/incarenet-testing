@@ -1,0 +1,13 @@
+
+
+
+
+
+selenium:
+  browser: chrome
+  headless: true
+  remote : normal
+
+target:
+  application:
+    baseUrl: http://incardiocad.com
