@@ -15,10 +15,15 @@ public class FileForwarderSender implements FileSender {
             String inputDir,
             int defaultTimeout,
 
-            String[] failedExtensions
-    ){
-        public Options {
+            String[] failedExtensions,
 
+            String sourceFileDirectory
+    ){
+
+        public Options {
+            if (sourceFileDirectory == null) {
+                throw new IllegalArgumentException("sourceFileDirectory must not be null");
+            }
             if (inputDir == null) {
                 throw new IllegalArgumentException("inputDir must not be null");
             }
@@ -38,10 +43,19 @@ public class FileForwarderSender implements FileSender {
     public FileForwarderSender(Options options) {
         this.options = options;
     }
+    private String[] joinFileNamesAndDirectory(String[] fileNames) {
+        String[] filePaths = new String[fileNames.length];
+
+        for (int i = 0; i < fileNames.length; i++) {
+            filePaths[i] = options.sourceFileDirectory + fileNames[i];
+        }
+        return filePaths;
+    }
 
     //HIGH LEVEL FUNCTION(can be seen on public modifier)
     public void sendFile(final String[] sourceFiles) throws Exception {
-        File[] inputFiles = this.copyFiles(sourceFiles);
+
+        File[] inputFiles = this.copyFiles(joinFileNamesAndDirectory(sourceFiles));
 
         this.waitUntilFileHasBeenProcessed(inputFiles, options.defaultTimeout);
 
@@ -58,19 +72,19 @@ public class FileForwarderSender implements FileSender {
 
         File[] files = new File[sourceFiles.length];
 
-        // for each soruceFile, copy it to targetDirectory with the same name
-
-        for (String sourceFile : sourceFiles) {
+            for (int i = 0; i < files.length; i++) {
+            String sourceFile = sourceFiles[i];
             File source = new File(sourceFile);
             File dest = new File(targetDirectory + File.separator + source.getName());
             FileUtils.copyFile(source, dest);
-            files[files.length - 1] = dest;
+            files[i] = dest;
         }
 
         return files;
     }
 
     private Boolean filesExist(final File[] files) {
+        //q: why is my "file" here null?
         for (File file : files) {
             if (!file.exists()) {
                 return false;
