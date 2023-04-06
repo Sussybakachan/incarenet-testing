@@ -7,7 +7,8 @@ import org.openqa.selenium.By;
 import static selenium.ChromeWebDriver.driver;
 
 public class AllTestCasesPutTogether {
-    FileForwarderSender.Options newOptions = new FileForwarderSender.Options("/input", 10000, new String[]{"ignored", "skipped"});
+    String rootDir = System.getProperty("user.dir");
+    FileForwarderSender.Options newOptions = new FileForwarderSender.Options(rootDir + "/input", 10000, new String[]{"ignored", "skipped"});
     FileSender fileSender = new FileForwarderSender(newOptions);
     AbbottTestCases.Options options = new AbbottTestCases.Options(fileSender);
     public AllTestCasesPutTogether() throws Exception {
