@@ -53,7 +53,7 @@ public class AbbottTestCases {
             thresholdCheck("Abbott", 1);
 
             this.fileSender.sendFile(new String[]{"Abbott Implant CRT 84%.hl7"});
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
 
@@ -72,6 +72,7 @@ public class AbbottTestCases {
             thresholdCheck("Abbott", 2);
             this.fileSender.sendFile(new String[]{"Abbott Implant CRT 84%.hl7"});
             // XXX: Should make a function that is more specific to what is needed in this test case.
+            Thread.sleep(5000);
             compareCrt(AbbottExpectedTasksTestCase2.AbbottTestCase2List, "Abbott2", g.getGeneratedTasks());
         } finally {
             // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
@@ -92,8 +93,7 @@ public class AbbottTestCases {
                     "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7",
                     "Abbott Implant CRT 96%.hl7"
             }));
-
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase3.AbbottTestCase3List, "Abbott3", g.getGeneratedTasks());
 
@@ -111,7 +111,7 @@ public class AbbottTestCases {
             //Set Template needs to be done before
             thresholdCheck("Abbott", 4);
             this.fileSender.sendFile(new String[]{"Abbott Implant CRT 84%.hl7", "Abbott Implant CRT 96%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7"});
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase4.AbbottTestCase4List, "Abbott4", g.getGeneratedTasks());
 
@@ -127,7 +127,7 @@ public class AbbottTestCases {
             thresholdCheck("Abbott", 5);
 
             this.fileSender.sendFile(new String[]{"Abbott Implant CRT 84%.hl7", "Abbott Implant CRT 96%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7"});
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase5.AbbottTestCase5List, "Abbott5", g.getGeneratedTasks());
 
@@ -143,7 +143,7 @@ public class AbbottTestCases {
             thresholdCheck("Abbott", 6);
 
             this.fileSender.sendFile(new String[]{"Abbott Implant CRT 84%.hl7", "Abbott Implant CRT 96%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7"});
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase6.AbbottTestCase6List, "Abbott6", g.getGeneratedTasks());
         } finally {
@@ -163,7 +163,7 @@ public class AbbottTestCases {
             thresholdCheck("Abbott", 7);
 
             this.fileSender.sendFile(new String[]{"Abbott Implant manipulated Batt-stat ERI added 100% CRT", "Abbott Implant CRT 84%", "Abbott Implant manipulated Batt-stat EOS added 100% CRT"});
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase7.AbbottTestCase7List, "Abbott7", g.getGeneratedTasks());
         } finally {
@@ -180,7 +180,7 @@ public class AbbottTestCases {
             thresholdCheck("Abbott", 8);
 
             this.fileSender.sendFile(new String[]{"Abbott Implant CRT 96%"});
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase8.AbbottTestCase8List, "Abbott8", g.getGeneratedTasks());
         } finally {
@@ -198,7 +198,7 @@ public class AbbottTestCases {
             thresholdCheck("Abbott", 9);
 
             this.fileSender.sendFile(new String[]{"Abbott Implant CRT 84%"});
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase9.AbbottTestCase9List, "Abbott9", g.getGeneratedTasks());
         } finally {
@@ -214,12 +214,10 @@ public class AbbottTestCases {
     public void abbottTestCase10() throws Exception {
         //Set Template needs to be done before
         try {
-
-
             thresholdCheck("Abbott", 10);
 
             this.fileSender.sendFile(new String[]{"Abbott Implant CRT 84%.hl7", "Abbott Implant CRT 96%.hl7", "Abbott Implant manipulated Batt-stat EOS added 100% CRT.hl7", "Abbott Implant manipulated Batt-stat ERI added 100% CRT.hl7"});
-
+            Thread.sleep(5000);
             // XXX: Should make a function that is more specific to what is needed in this test case.
             compareCrt(AbbottExpectedTasksTestCase10.AbbottTestCase10List, "Abbott10", g.getGeneratedTasks());
         } finally {
