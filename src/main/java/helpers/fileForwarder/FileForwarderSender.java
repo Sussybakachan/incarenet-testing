@@ -64,7 +64,7 @@ public class FileForwarderSender implements FileSender {
             File source = new File(sourceFile);
             File dest = new File(targetDirectory + File.separator + source.getName());
             FileUtils.copyFile(source, dest);
-            files[files.length] = dest;
+            files[files.length - 1] = dest;
         }
 
         return files;
@@ -92,8 +92,7 @@ public class FileForwarderSender implements FileSender {
             }
             Thread.sleep(period);
         }
-
-        throw new TimeoutException("File forwarder did not process these files: " + files);
+                throw new TimeoutException("File forwarder did not process these files: " + files);
     }
 
 

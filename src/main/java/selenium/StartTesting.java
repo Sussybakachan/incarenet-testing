@@ -47,9 +47,9 @@ public class StartTesting {
         loginP();
         inCardioDash();
 
-        //AllTestCasesPutTogether allTestCasesPutTogether = new AllTestCasesPutTogether();
+        AllTestCasesPutTogether allTestCasesPutTogether = new AllTestCasesPutTogether();
 
-        AbbottTestCases abbottTestCases = new AbbottTestCases();
+        //AbbottTestCases abbottTestCases = new AbbottTestCases();
         /*
         //TODO method-> in utils.java
         //BiotronikTestCases biotronikTestCases = new BiotronikTestCases();

@@ -47,18 +47,20 @@ public class AbbottTestCases {
 
     // When an abott ico filee is sent, a corresponding task has been generated correctly.
     public void abbottTestCase1() throws Exception {
-        //Set Template needs to be done before
-        thresholdCheck("Abbott", 1);
+        try {
+            thresholdCheck("Abbott", 1);
 
-        this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7"});
+            this.fileSender.sendFile(new String[]{fileDirectory + "Abbott Implant CRT 84%.hl7"});
 
-        // XXX: Should make a function that is more specific to what is needed in this test case.
-        compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
+            // XXX: Should make a function that is more specific to what is needed in this test case.
+            compareCrt(AbbottExpectedTasksTestCase1.AbbottTestCase1List, "Abbott1", g.getGeneratedTasks());
 
-        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
-        deleteTask();
-        // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
-        deselectAll();
+            // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
+            deleteTask();
+        } finally {
+            // XXX: This is a hack to make sure that the file is deleted before the next test case is run.
+            deselectAll();
+        }
     }
 
 

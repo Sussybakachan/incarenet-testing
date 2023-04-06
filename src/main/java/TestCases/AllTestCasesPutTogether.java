@@ -1,15 +1,17 @@
 package TestCases;
 
 import helpers.fileForwarder.FileForwarderSender;
+import helpers.interfaces.FileSender;
 import org.openqa.selenium.By;
 
 import static selenium.ChromeWebDriver.driver;
 
 public class AllTestCasesPutTogether {
-
+    FileForwarderSender.Options newOptions = new FileForwarderSender.Options("/input", 10000, new String[]{"ignored", "skipped"});
+    FileSender fileSender = new FileForwarderSender(newOptions);
+    AbbottTestCases.Options options = new AbbottTestCases.Options(fileSender);
     public AllTestCasesPutTogether() throws Exception {
-       var fileSender = new FileForwarderSender(new FileForwarderSender.Options("/input", 10000, new String[]{"ignored", "skipped"}));
-        new AbbottTestCases(fileSender);
+        new AbbottTestCases(options);
         goToICDPatientList();
         new BostonTestCases();
         goToICDPatientList();
