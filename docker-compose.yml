@@ -75,6 +75,7 @@ services:
       <<: *inSuiteServerURL
     volumes:
       - fileforwarder:/input
+      - test_result_logs:/logs
     depends_on:
       chrome:
         condition: service_healthy
@@ -88,3 +89,4 @@ services:
 
 volumes:
   fileforwarder:
+  test_result_logs:

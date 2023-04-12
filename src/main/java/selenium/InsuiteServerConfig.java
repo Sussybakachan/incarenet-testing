@@ -1,6 +1,6 @@
 package selenium;
 
-import dsutilities.LoggerLoader;
+import log4j2.LoggerLoader;
 
 import java.io.IOException;
 import static selenium.ChromeWebDriver.driver;

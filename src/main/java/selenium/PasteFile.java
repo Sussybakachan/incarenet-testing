@@ -1,6 +1,6 @@
 package selenium;
 
-import dsutilities.LoggerLoader;
+import log4j2.LoggerLoader;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

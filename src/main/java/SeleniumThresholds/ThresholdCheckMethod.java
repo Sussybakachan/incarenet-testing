@@ -1,6 +1,6 @@
 package SeleniumThresholds;
 
-import dsutilities.LoggerLoader;
+import log4j2.LoggerLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -20,7 +20,6 @@ import static SeleniumThresholds.TelemBSXRepRow.*;
 import static SeleniumThresholds.TelemMDTRepRow.*;
 import static SeleniumThresholds.TelemMicroportRepRow.*;
 import static selenium.ChromeWebDriver.driver;
-import static selenium.CompareTasksInCardio.successfulTestCases;
 
 public class ThresholdCheckMethod {
     static Actions action;

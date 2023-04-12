@@ -1,6 +1,6 @@
 package SeleniumThresholds;
 
-import dsutilities.LoggerLoader;
+import log4j2.LoggerLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;

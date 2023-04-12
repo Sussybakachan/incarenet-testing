@@ -1,9 +1,11 @@
-package dsutilities;
+package log4j2;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import selenium.LoggingDataModif;
 
 import static selenium.ChromeWebDriver.driver;
+import static selenium.CompareTasksInCardio.successfulTestCases;
 
 
 // import "import dsutilities.LoggerLoader;" into the class you want to use the logger
@@ -29,6 +31,10 @@ public class LoggerLoader {
 
     public static void fatal(String message) {
         logger.fatal(message);
+        LoggingDataModif loggingDataModif = new LoggingDataModif();
+        LoggerLoader.info("Automation test finished");
+        LoggerLoader.info("Following Testcase(s) were successful: \n " + successfulTestCases);
+        LoggerLoader.info("Following Testcase(s) failed:\n" + loggingDataModif.editFailedTaskLogging());
         if (driver!=null){
             driver.close();
 
