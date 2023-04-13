@@ -3,7 +3,13 @@ package selenium;
 import TestCases.*;
 import log4j2.LoggerLoader;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
+import java.util.HashMap;
 
 import static selenium.ChromeWebDriver.driver;
 import static selenium.CompareTasksInCardio.*;
@@ -12,7 +18,6 @@ import static selenium.CreationOfAllExpectedTasks.createAllExpectedTasks;
 
 public class StartTesting {
 
-
     public static void main(String[] args) throws Exception {
         //  System.out.println(PatternTest.useRegex("2022-12-26T12:34:14.265Z"));
         //  System.out.println(PatternTest.useRegex("2022-12-26T12:34:14.265Z"));
@@ -20,8 +25,8 @@ public class StartTesting {
         InsuiteServerConfig insuiteServerConfig = new InsuiteServerConfig();
         ReadingConfig rc = null;
         rc = new ReadingConfig();
-        ChromeWebDriver chromeWebDriver= new ChromeWebDriver();
-        chromeWebDriver.initiateChromeWebDriver(rc);
+        //WebDriver chromeWebDriver= new ChromeWebDriver();
+        ChromeWebDriver.initiateChromeWebDriver(rc);
         LoggerLoader.info("Weitergegangen");
         try{
             insuiteServerConfig.getInSuiteURL();

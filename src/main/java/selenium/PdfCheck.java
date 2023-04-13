@@ -48,7 +48,7 @@ public class PdfCheck {
                 Thread.sleep(2000);
             }
 
-            String expectedPdf = "./resources/Expected-Task-PDF/expected.pdf";
+            String expectedPdf = "./src/main/java/ExpectedTasks/expected.pdf";
             String actualPdf = "./test.pdf";
 
             PDFUtil pdfUtil = new PDFUtil();

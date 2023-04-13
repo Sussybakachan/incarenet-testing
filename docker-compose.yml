@@ -71,6 +71,8 @@ services:
   testrunner:
     build: .
     environment:
+      BROWSERSTACK_ACCESS_KEY: "WaWznYHT7scEtWGNxpjv"
+      BROWSERSTACK_USERNAME: "danielboiko_KEfyze"
       SELENIUM_WEBDRIVER_URL: http://chrome:4444
       <<: *inSuiteServerURL
     volumes:

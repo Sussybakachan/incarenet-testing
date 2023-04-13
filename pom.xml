@@ -115,7 +115,11 @@
             <artifactId>pdf-util</artifactId>
             <version>0.0.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-local-java</artifactId>
+            <version>1.0.6</version>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
