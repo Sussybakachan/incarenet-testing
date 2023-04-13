@@ -5,49 +5,12 @@ x-inSuiteServerURL: &inSuiteServerURL
   ICN_URL: "https://cnx12003dp.hub.doc-cirrus.com"
 
 services:
-#TODO images gruppieren
-  chrome:
-    image: selenium/standalone-chrome
-    container_name: web-chrome
-    shm_size: 2gb
-    ports:
-      - "4444:4444"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:4444"]
-      interval: 10s
-      timeout: 10s
-      retries: 6
-
-
- # selenium-hub:
-  #  image: selenium/hub:latest
-   # container_name: selenium-hub
-   # ports:
-  #    - "4444:4444"
-
- # chrome_video:
- #   image: selenium/video:ffmpeg-4.3.1-20230221
-  #  volumes:
-  #    - ./videos:/videos
-  #  depends_on:
-  #    testrunner:
-  #      condition: service_healthy
-
- #   environment:
- #     - DISPLAY_CONTAINER_NAME=chrome
- #     - FILE_NAME=chrome_video.mp4
 
   file_forwarder:
     image: gitlab.semdatex.de:5005/semdatex/sdx-file-forwarder:latest
     container_name: "out"
     ports:
       - 2200:2200
-  #  volumes:
-    #  - type: bind
-        # example: source: "C:\cloverleav\complicated\folder\structure"
-       # source: C:\Users\dboiko\IdeaProjects\Second-sdx-testing-projects\input
-        # NOTE: the __NAME__ of the directory has to be the same as the NAME given in the environment!
-        #target: /mnt/test
     environment:
       NAME: out
       FORWARD_DQV_MSGS: on
@@ -70,22 +33,21 @@ services:
 
   testrunner:
     build: .
+    env_file:
+      lambdatest.env
     environment:
-      SELENIUM_WEBDRIVER_URL: http://chrome:4444
+      LAMBDATEST_PLATFORM: "Windows 10"
+      LAMBDATEST_BROWSER_NAME: "Chrome"
+      LAMBDATEST_BROWSER_VERSION: "100.0.0"
+      LAMBDATEST_VERSION: "4.0.0"
+      SELENIUM_WEBDRIVER_URL: "http://hub.lambdatest.com/wd/hub"
       <<: *inSuiteServerURL
     volumes:
       - fileforwarder:/input
       - test_result_logs:/logs
     depends_on:
-      chrome:
-        condition: service_healthy
       file_forwarder:
         condition: service_started
-    healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:3333" ]
-      interval: 10s
-      timeout: 10s
-      retries: 6
 
 volumes:
   fileforwarder:

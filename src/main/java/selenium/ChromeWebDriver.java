@@ -16,15 +16,20 @@ public class ChromeWebDriver {
             //Use the remote Chrome webdriver if the Env. variable is empty
             String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
             if(seleniumWebdriverURL == null){
-                System.setProperty("webdriver.chrome.driver", rc.loadProperty().getProperty("SELENIUM_WEBDRIVER_PATH"));
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--remote-allow-origins=*");
-                driver = new ChromeDriver(options);
-                LoggerLoader.info("Using local Chrome Webdriver");
-            } else {
-                ChromeOptions options = new ChromeOptions();
-                driver = new RemoteWebDriver(new URL(seleniumWebdriverURL), options);
-                LoggerLoader.info("Using Remote Chrome Webdriver");
+                factory = new LocalWebDriverFactory();
+                LoggerLoader.info("Using Local Webdriver");
+            } else if ( lambdaTestPlatform != null){
+                HashMap<String, String> options = new HashMap<>();
+
+                options.put("LAMBDATEST_USERNAME", System.getenv("LAMBDATEST_USERNAME"));
+                options.put("LAMBDATEST_ACCESS_TOKEN", System.getenv("LAMBDATEST_ACCESS_TOKEN"));
+                options.put("LAMBDATEST_PLATFORM", lambdaTestPlatform);
+                options.put("LAMBDATEST_VERSION", System.getenv("LAMBDATEST_VERSION"));
+                options.put("LAMBDATEST_BROWSER_NAME", System.getenv("LAMBDATEST_BROWSER_NAME"));
+                options.put("LAMBDATEST_BROWSER_VERSION", System.getenv("LAMBDATEST_BROWSER_VERSION"));
+
+                factory = new LambdaTestWebDriverFactory(seleniumWebdriverURL,options);
+                LoggerLoader.info("Using LambdaTest");
             }
         } catch (Exception e) {
             LoggerLoader.fatal(String.valueOf(e));

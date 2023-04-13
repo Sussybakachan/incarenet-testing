@@ -4,3 +4,4 @@
 /target/
 /Chrome Webdriver/chromedriver.exe
 *.log
+.env

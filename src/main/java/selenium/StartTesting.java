@@ -18,8 +18,7 @@ public class StartTesting {
         //  System.out.println(PatternTest.useRegex("2022-12-26T12:34:14.265Z"));
         LoggerLoader.info("Automation test started");
         InsuiteServerConfig insuiteServerConfig = new InsuiteServerConfig();
-        ReadingConfig rc = null;
-        rc = new ReadingConfig();
+        ReadingConfig rc = new ReadingConfig();
         ChromeWebDriver chromeWebDriver= new ChromeWebDriver();
         chromeWebDriver.initiateChromeWebDriver(rc);
         LoggerLoader.info("Weitergegangen");
