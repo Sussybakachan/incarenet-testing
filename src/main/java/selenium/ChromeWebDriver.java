@@ -2,19 +2,24 @@ package selenium;
 
 import log4j2.LoggerLoader;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.URL;
+import java.util.HashMap;
 
+
+/**
+ * This is a backward compatibility adapter
+ * @deprecated
+ */
 
 public class ChromeWebDriver {
     public static WebDriver driver;
     public void initiateChromeWebDriver(ReadingConfig rc) {
+
         try {
+            WebDriverFactory factory;
             //Use the remote Chrome webdriver if the Env. variable is empty
             String seleniumWebdriverURL = System.getenv("SELENIUM_WEBDRIVER_URL");
+            String  lambdaTestPlatform = System.getenv("LAMBDATEST_PLATFORM");
             if(seleniumWebdriverURL == null){
                 factory = new LocalWebDriverFactory();
                 LoggerLoader.info("Using Local Webdriver");
@@ -31,6 +36,13 @@ public class ChromeWebDriver {
                 factory = new LambdaTestWebDriverFactory(seleniumWebdriverURL,options);
                 LoggerLoader.info("Using LambdaTest");
             }
+
+            else {
+                factory = new RemoteWebDriverFactory(seleniumWebdriverURL);
+                LoggerLoader.info("Using generic Remote Web Driver");
+            }
+
+            driver = factory.createWebDriver();
         } catch (Exception e) {
             LoggerLoader.fatal(String.valueOf(e));
         }
