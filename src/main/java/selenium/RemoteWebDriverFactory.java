@@ -7,7 +7,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.URL;
 
 public class RemoteWebDriverFactory implements WebDriverFactory{
-    private String url;
+    protected String url;
 
     RemoteWebDriverFactory(String url) {
         this.url = url;

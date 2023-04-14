@@ -15,11 +15,11 @@ public class LocalWebDriverFactory implements WebDriverFactory {
 
         return options;
     }
-
+//XXX creating a Chromewebdriver yet the method is called createWebDriver
     public WebDriver createWebDriver() throws Exception {
         return new ChromeDriver(getLocalDriverOptionsForChrome());
     }
-
+//TODO is that needed for local webdriver?
     public WebDriver createWebDriverForContext(TestContext context) throws Exception {
         return createWebDriver();
     }
