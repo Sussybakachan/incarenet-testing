@@ -28,9 +28,6 @@ import static org.springframework.util.ObjectUtils.isEmpty;
 @Component
 public class Hook {
 
-    /**
-     * Logger
-     */
     private static final Logger LOGGER = LoggerFactory.getLogger(Hook.class);
 
     @Value("${selenium.browser}")
@@ -60,7 +57,7 @@ public class Hook {
                 LOGGER.info("Opened drivers closed");
             }
         }));
-        // --
+
     }
 
     private boolean isDriverLoaded() {
