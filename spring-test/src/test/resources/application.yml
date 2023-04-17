@@ -2,7 +2,6 @@
 
 
 
-
 selenium:
   browser: chrome
   headless: true

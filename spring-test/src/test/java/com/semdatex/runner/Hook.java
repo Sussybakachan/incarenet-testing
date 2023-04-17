@@ -36,10 +36,10 @@ public class Hook {
     @Value("${selenium.browser}")
     private String browser;
 
-    @Value("${selenium.browser.headless}")
+    @Value("${selenium.headless}")
     private Boolean headless;
 
-    @Value("${selenium.browser.remote}")
+    @Value("${selenium.remote}")
     private String remote;
 
     @Value("${target.application.baseUrl}")
@@ -120,7 +120,6 @@ public class Hook {
 
     private void setChromeDriver() {
         WebDriverManager.chromedriver().setup();
-
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
 
