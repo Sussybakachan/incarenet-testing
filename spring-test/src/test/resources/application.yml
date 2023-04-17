@@ -4,9 +4,9 @@
 
 selenium:
   browser: chrome
-  headless: true
+  headless: false
   remote : normal
 
 target:
   application:
-    baseUrl: http://incardiocad.com
+    baseUrl: https://duckduckgo.com/

@@ -119,6 +119,7 @@ public class Hook {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--no-sandbox");
 
         // Headless mode
         if (TRUE.equals(headless)) {
