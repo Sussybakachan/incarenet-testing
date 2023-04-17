@@ -118,6 +118,7 @@ public class Hook {
     private void setChromeDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--remote-allow-origins=*");
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--no-sandbox");
 
