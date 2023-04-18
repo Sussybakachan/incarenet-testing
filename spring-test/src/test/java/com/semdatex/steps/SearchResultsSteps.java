@@ -1,16 +1,16 @@
 package com.semdatex.steps;
 
-import com.semdatex.pages.ResultsPage;
+import com.semdatex.pages.SearchResultsPage;
 import io.cucumber.java.en.Then;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class ResultsSteps {
+public class SearchResultsSteps {
 
     @Autowired
-    private ResultsPage resultsPage;
+    private SearchResultsPage searchResultsPage;
 
     @Then("^results are displayed$")
     public void resultsAreDisplayed() {
-        resultsPage.assertResultsArePresent();
+        searchResultsPage.assertResultsArePresent();
     }
 }
