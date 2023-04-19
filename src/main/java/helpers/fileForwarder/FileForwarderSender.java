@@ -5,6 +5,8 @@ import helpers.interfaces.FileSender;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeoutException;
@@ -47,7 +49,7 @@ public class FileForwarderSender implements FileSender {
         String[] filePaths = new String[fileNames.length];
 
         for (int i = 0; i < fileNames.length; i++) {
-            filePaths[i] = options.sourceFileDirectory + fileNames[i];
+            filePaths[i] = options.sourceFileDirectory + File.separator + fileNames[i];
         }
         return filePaths;
     }
@@ -84,7 +86,6 @@ public class FileForwarderSender implements FileSender {
     }
 
     private Boolean filesExist(final File[] files) {
-        //q: why is my "file" here null?
         for (File file : files) {
             if (!file.exists()) {
                 return false;

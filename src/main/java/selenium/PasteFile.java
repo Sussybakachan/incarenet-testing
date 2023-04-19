@@ -9,6 +9,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * This is legacy Code and should not be implemented anymore,
+ * use the src/main/java/helpers/fileForwarder/FileForwarderSender.java Class instead.
+ * Still being used in other legacy Code src/main/java/TestCases (all testcases but Abbott).
+ * It will become totally obsolete if we rewrite the testcases with cucumber and spring.
+ * @deprecated
+ */
 
 public class PasteFile {
     String pathToInput = System.getProperty("user.dir") + "input\\";
@@ -90,16 +97,6 @@ public class PasteFile {
         }
     }
 
-    /*
-            while (!FileUtils.listFiles(input, null, true).isEmpty()) {
-                // Wait for some time
-                Thread.sleep(1000); // Wait for 1 second
-            }
-            System.out.println("Folder is now empty");
-            Thread.sleep(3000);
-
-        }
-        */
     private void resentFiles(File inputFolder, String idcoPath) {
         File dest = new File(String.valueOf(inputFolder));
         File source = new File(idcoPath);

@@ -45,6 +45,7 @@ public class BiotronikTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
         originalPaths.add(pathToOldHl7);
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase1.BiotronikTestCase1List, "Biotronik1", g.getGeneratedTasks());
@@ -63,7 +64,7 @@ public class BiotronikTestCases {
             sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         }
-        ;
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase2.BiotronikTestCase2List, "Biotronik2", g.getGeneratedTasks());
@@ -82,7 +83,7 @@ public class BiotronikTestCases {
             sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         }
-        ;
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase3.BiotronikTestCase3List, "Biotronik3", g.getGeneratedTasks());
@@ -101,7 +102,7 @@ public class BiotronikTestCases {
             sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         }
-        ;
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase4.BiotronikTestCase4List, "Biotronik4", g.getGeneratedTasks());
@@ -120,7 +121,7 @@ public class BiotronikTestCases {
             sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         }
-        ;
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase5.BiotronikTestCase5List, "Biotronik5", g.getGeneratedTasks());
@@ -139,7 +140,7 @@ public class BiotronikTestCases {
             sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         }
-        ;
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase6.BiotronikTestCase6List, "Biotronik6", g.getGeneratedTasks());
@@ -158,7 +159,7 @@ public class BiotronikTestCases {
             sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         }
-        ;
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase7.BiotronikTestCase7List, "Biotronik7", g.getGeneratedTasks());
@@ -177,7 +178,7 @@ public class BiotronikTestCases {
             sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
             originalPaths.add(pathToOldHl7);
         }
-        ;
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase8.BiotronikTestCase8List, "Biotronik8", g.getGeneratedTasks());
@@ -194,6 +195,7 @@ public class BiotronikTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
         originalPaths.add(pathToOldHl7);
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase9.BiotronikTestCase9List, "Biotronik9", g.getGeneratedTasks());
@@ -210,6 +212,7 @@ public class BiotronikTestCases {
         String pathToInput = FfInputPath + fileName[0] + ".hl7";
         sendingIdcoFile.copyFile(pathToOldHl7, pathToInput);
         originalPaths.add(pathToOldHl7);
+        //Thread.sleep needed to make sure that the file is copied before the file is processed
         Thread.sleep(3000);
         sendingIdcoFile.waitUntilFilesGotProcessed(originalPaths);
         compareCrt(BiotronikExpectedTasksTestCase10.BiotronikTestCase10List, "Biotronik10", g.getGeneratedTasks());
