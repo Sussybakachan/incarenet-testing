@@ -2,11 +2,7 @@ package selenium;
 
 import log4j2.LoggerLoader;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import javax.swing.text.AsyncBoxView;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Objects;
 
