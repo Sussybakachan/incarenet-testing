@@ -36,7 +36,6 @@ public class ChromeWebDriver {
                     options.put("LAMBDATEST_VERSION", System.getenv("LAMBDATEST_VERSION"));
                     options.put("LAMBDATEST_BROWSER_NAME", System.getenv("LAMBDATEST_BROWSER_NAME"));
                     options.put("LAMBDATEST_BROWSER_VERSION", System.getenv("LAMBDATEST_BROWSER_VERSION"));
-                    System.out.println("sellweb" + seleniumWebdriverURL);
                     factory = new LambdaTestWebDriverFactory(Objects.requireNonNullElse(seleniumWebdriverURL, lambdaTestUrlConfig), options);
                     LoggerLoader.info("Using LambdaTest with docker-compose Env. variables");
                 } else {
@@ -48,7 +47,6 @@ public class ChromeWebDriver {
                     options.put("LAMBDATEST_BROWSER_VERSION", rc.loadProperty().getProperty("LAMBDATEST_BROWSER_VERSION"));
                     factory = new LambdaTestWebDriverFactory(Objects.requireNonNullElse(seleniumWebdriverURL, lambdaTestUrlConfig), options);
                     LoggerLoader.info("Using LambdaTest with config.properties");
-                    System.out.println(options);
                 }
             }
             else {
