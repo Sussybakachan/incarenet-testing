@@ -6,17 +6,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URL;
 
-public class RemoteWebDriverFactory implements WebDriverFactory{
+public abstract class RemoteWebDriverFactory implements WebDriverFactory{
     protected String url;
 
     RemoteWebDriverFactory(String url) {
         this.url = url;
     }
 
-    protected DesiredCapabilities getRemoteDriverOptions() {
-        return new DesiredCapabilities();
-    }
-    protected DesiredCapabilities getRemoteDriverOptions(TestContext context){
+    protected abstract Capabilities getRemoteDriverOptions();
+    protected Capabilities getRemoteDriverOptions(TestContext context){
         return getRemoteDriverOptions();
     }
 

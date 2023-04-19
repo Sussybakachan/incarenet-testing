@@ -43,12 +43,14 @@ public class LambdaTestWebDriverFactory extends RemoteWebDriverFactory {
         return ltOptions;
     }
 
+    @Override
     protected DesiredCapabilities getRemoteDriverOptions() {
-        DesiredCapabilities options =  super.getRemoteDriverOptions();
+        DesiredCapabilities options =  new DesiredCapabilities();
         options.setCapability("LT:Options", getLtOptions());
         return options;
     }
 
+    @Override
     protected DesiredCapabilities getRemoteDriverOptions(TestContext context){
         return getRemoteDriverOptions(context);
     }

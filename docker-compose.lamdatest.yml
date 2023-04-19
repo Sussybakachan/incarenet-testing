@@ -38,9 +38,9 @@ services:
     environment:
       LAMBDATEST_PLATFORM: "Windows 10"
       LAMBDATEST_BROWSER_NAME: "Chrome"
-      LAMBDATEST_BROWSER_VERSION: "100.0.0"
+      LAMBDATEST_BROWSER_VERSION: "100.0"
       LAMBDATEST_VERSION: "4.0.0"
-      SELENIUM_WEBDRIVER_URL: "http://hub.lambdatest.com/wd/hub"
+      SELENIUM_WEBDRIVER_URL: "https://hub.lambdatest.com/wd/hub"
       <<: *inSuiteServerURL
     volumes:
       - fileforwarder:/input

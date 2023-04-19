@@ -9,17 +9,14 @@ import java.net.URL;
 
 public class ChromeRemoteWebDriverFactory extends RemoteWebDriverFactory{
 
+
     ChromeRemoteWebDriverFactory(String url) {
         super(url);
     }
-    public ChromeOptions getRemoteDriverOptionsForChrome() {
-        // the webdriver is local
-        ChromeOptions options = new ChromeOptions();
 
-        return options;
+    @Override
+    protected ChromeOptions getRemoteDriverOptions() {
+        return new ChromeOptions();
     }
-    //XXX should we override this method? See the implementation in ChromeWebDriverFactory.java
-    public RemoteWebDriver createWebDriver() throws Exception {
-        return new RemoteWebDriver(new URL(super.url), getRemoteDriverOptionsForChrome());
-    }
+
 }
